@@ -171,12 +171,32 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .btn-admin{width:100%;padding:.8rem;background:var(--ink);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;margin-top:.5rem;transition:background .2s}
 .btn-admin:hover{background:var(--accent)}
 .btn-admin.secondary{background:var(--bg2);color:var(--ink);border:1px solid var(--border)}
+.btn-admin.secondary:hover{background:var(--border);color:var(--ink)}
 .admin-output{background:var(--bg2);border:1px solid var(--border);padding:1rem;font-size:.48rem;line-height:1.8;margin-top:.5rem;white-space:pre-wrap;word-break:break-all;color:var(--ink2)}
 .admin-output-label{font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem}
 .copy-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .8rem;font-family:'DM Mono',monospace;font-size:.45rem;cursor:pointer;letter-spacing:.1em;float:right}
 .admin-msg{font-size:.5rem;color:var(--accent);letter-spacing:.1em;margin-top:.5rem;display:none}
 .admin-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--ink3)}
+.work-item{background:var(--bg2);border:1px solid var(--border);padding:.8rem;margin-bottom:.6rem;font-size:.5rem;line-height:1.7}
+.work-item-title{font-size:.58rem;font-weight:600;margin-bottom:.3rem;color:var(--ink)}
+.work-item-meta{color:var(--ink3);margin-bottom:.5rem}
+.work-item-sold{color:var(--accent);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+.work-item-actions{display:flex;gap:.4rem;margin-top:.6rem}
+.btn-edit,.btn-delete{padding:.4rem .8rem;font-family:'DM Mono',monospace;font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;transition:background .2s}
+.btn-edit{background:var(--ink);color:#fff}
+.btn-edit:hover{background:var(--accent)}
+.btn-delete{background:var(--bg);color:var(--accent);border:1px solid var(--accent)}
+.btn-delete:hover{background:var(--accent);color:#fff}
+.img-upload-area{border:2px dashed var(--border);padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg2);margin-bottom:.8rem}
+.img-upload-area:hover{border-color:var(--accent);background:var(--bg)}
+.img-upload-area.dragover{border-color:var(--accent);background:rgba(184,74,36,.05)}
+.img-upload-label{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:.3rem}
+.img-upload-text{font-size:.48rem;color:var(--ink2);line-height:1.6}
+.img-preview{max-width:100%;height:auto;margin-top:.5rem;border:1px solid var(--border);display:none}
+.img-preview.show{display:block}
+#admin-img-file{display:none}
 </style>
+
 </head>
 <body>
 
@@ -297,7 +317,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <button class="admin-close" id="admin-close">×</button>
   <h2>管理パネル</h2>
   
-  <h3>作品を追加</h3>
+  <h3 id="admin-form-title">作品を追加</h3>
   <div class="admin-field">
     <label>タイトル</label>
     <input type="text" id="admin-title" placeholder="例: Silence No. 12">
@@ -313,8 +333,16 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
   </div>
   <div class="admin-field">
-    <label>画像URL</label>
-    <input type="text" id="admin-img" placeholder="https://...">
+    <label>画像</label>
+    <div class="img-upload-area" id="img-upload-area">
+      <div class="img-upload-text">
+        クリックして画像を選択<br>
+        または画像をここにドラッグ&ドロップ
+      </div>
+    </div>
+    <input type="file" id="admin-img-file" accept="image/*">
+    <img id="img-preview" class="img-preview" alt="プレビュー">
+    <input type="text" id="admin-img" placeholder="または画像URLを入力">
   </div>
   <div class="admin-field">
     <label>素材</label>
@@ -343,15 +371,16 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <option value="true">販売済み</option>
     </select>
   </div>
-  <button class="btn-admin" id="admin-add">作品を追加</button>
-  <div class="admin-msg" id="admin-add-msg">✓ 作品を追加しました</div>
+  <button class="btn-admin" id="admin-save">作品を追加</button>
+  <button class="btn-admin secondary" id="admin-cancel" style="display:none;">キャンセル</button>
+  <div class="admin-msg" id="admin-add-msg">✓ 保存しました</div>
+
+  <h3>現在の作品一覧</h3>
+  <div id="admin-works-list"></div>
 
   <h3>データエクスポート</h3>
   <button class="btn-admin secondary" id="admin-export">JSONをエクスポート</button>
   <div id="admin-json-output"></div>
-
-  <h3>現在の作品一覧</h3>
-  <div id="admin-works-list" style="font-size:.5rem;color:var(--ink2);line-height:1.8;"></div>
 </div>
 
 <div class="modal" id="modal">
@@ -555,6 +584,68 @@ const adminClose = document.getElementById('admin-close');
 // 管理者パスワード（このパスワードを自分のパスワードに変更してください）
 const ADMIN_PASSWORD = 'oboshi2025';
 
+let editingIndex = -1; // 編集中の作品インデックス
+let currentImageData = ''; // 現在の画像データ（Base64またはURL）
+
+// 画像アップロード機能
+const imgUploadArea = document.getElementById('img-upload-area');
+const imgFileInput = document.getElementById('admin-img-file');
+const imgPreview = document.getElementById('img-preview');
+const imgUrlInput = document.getElementById('admin-img');
+
+// クリックでファイル選択
+imgUploadArea.addEventListener('click', () => {
+  imgFileInput.click();
+});
+
+// ファイル選択時
+imgFileInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    handleImageFile(file);
+  }
+});
+
+// ドラッグ&ドロップ
+imgUploadArea.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  imgUploadArea.classList.add('dragover');
+});
+
+imgUploadArea.addEventListener('dragleave', () => {
+  imgUploadArea.classList.remove('dragover');
+});
+
+imgUploadArea.addEventListener('drop', (e) => {
+  e.preventDefault();
+  imgUploadArea.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) {
+    handleImageFile(file);
+  }
+});
+
+// 画像ファイルを処理
+function handleImageFile(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    currentImageData = e.target.result;
+    imgPreview.src = currentImageData;
+    imgPreview.classList.add('show');
+    imgUrlInput.value = ''; // URLフィールドをクリア
+  };
+  reader.readAsDataURL(file);
+}
+
+// URL入力時
+imgUrlInput.addEventListener('input', (e) => {
+  if (e.target.value) {
+    currentImageData = e.target.value;
+    imgPreview.src = currentImageData;
+    imgPreview.classList.add('show');
+  }
+});
+
 // パネルの開閉（パスワード保護付き）
 adminToggle.addEventListener('click', () => {
   const password = prompt('管理パネルのパスワードを入力してください：');
@@ -568,14 +659,43 @@ adminToggle.addEventListener('click', () => {
 
 adminClose.addEventListener('click', () => {
   adminPanel.classList.remove('open');
+  resetForm();
 });
 
-// 作品追加
-document.getElementById('admin-add').addEventListener('click', () => {
+// フォームをリセット
+function resetForm() {
+  editingIndex = -1;
+  currentImageData = '';
+  document.getElementById('admin-form-title').textContent = '作品を追加';
+  document.getElementById('admin-save').textContent = '作品を追加';
+  document.getElementById('admin-cancel').style.display = 'none';
+  
+  document.getElementById('admin-title').value = '';
+  document.getElementById('admin-year').value = '';
+  document.getElementById('admin-price').value = '';
+  document.getElementById('admin-img').value = '';
+  document.getElementById('admin-medium').value = '';
+  document.getElementById('admin-size').value = '';
+  document.getElementById('admin-desc').value = '';
+  document.getElementById('admin-anasaea').value = '';
+  document.getElementById('admin-stripe').value = '';
+  document.getElementById('admin-sold').value = 'false';
+  
+  imgPreview.classList.remove('show');
+  imgFileInput.value = '';
+}
+
+// キャンセルボタン
+document.getElementById('admin-cancel').addEventListener('click', () => {
+  resetForm();
+});
+
+// 作品保存（追加または更新）
+document.getElementById('admin-save').addEventListener('click', () => {
   const title = document.getElementById('admin-title').value;
   const year = document.getElementById('admin-year').value;
   const price = document.getElementById('admin-price').value;
-  const img = document.getElementById('admin-img').value;
+  const img = currentImageData || document.getElementById('admin-img').value;
   const medium = document.getElementById('admin-medium').value;
   const size = document.getElementById('admin-size').value;
   const desc = document.getElementById('admin-desc').value;
@@ -584,13 +704,13 @@ document.getElementById('admin-add').addEventListener('click', () => {
   const sold = document.getElementById('admin-sold').value === 'true';
 
   if (!title || !year || !price || !img) {
-    alert('タイトル、年、価格、画像URLは必須です');
+    alert('タイトル、年、価格、画像は必須です');
     return;
   }
 
   const priceNum = parseFloat(price.replace(/[€,]/g, ''));
 
-  const newWork = {
+  const workData = {
     title,
     year,
     price,
@@ -604,28 +724,64 @@ document.getElementById('admin-add').addEventListener('click', () => {
     stripeLink: stripeLink || null
   };
 
-  works.push(newWork);
+  if (editingIndex >= 0) {
+    // 既存作品を更新
+    works[editingIndex] = workData;
+  } else {
+    // 新規作品を追加
+    works.push(workData);
+  }
+
   buildPreview();
   buildGrid();
   updateWorksList();
-
-  // フォームをクリア
-  document.getElementById('admin-title').value = '';
-  document.getElementById('admin-year').value = '';
-  document.getElementById('admin-price').value = '';
-  document.getElementById('admin-img').value = '';
-  document.getElementById('admin-medium').value = '';
-  document.getElementById('admin-size').value = '';
-  document.getElementById('admin-desc').value = '';
-  document.getElementById('admin-anasaea').value = '';
-  document.getElementById('admin-stripe').value = '';
-  document.getElementById('admin-sold').value = 'false';
+  resetForm();
 
   // 成功メッセージ表示
   const msg = document.getElementById('admin-add-msg');
   msg.style.display = 'block';
   setTimeout(() => { msg.style.display = 'none'; }, 2000);
 });
+
+// 作品を編集
+function editWork(index) {
+  editingIndex = index;
+  const work = works[index];
+  
+  document.getElementById('admin-form-title').textContent = '作品を編集';
+  document.getElementById('admin-save').textContent = '更新';
+  document.getElementById('admin-cancel').style.display = 'block';
+  
+  document.getElementById('admin-title').value = work.title;
+  document.getElementById('admin-year').value = work.year;
+  document.getElementById('admin-price').value = work.price;
+  document.getElementById('admin-img').value = work.img.startsWith('data:') ? '' : work.img;
+  currentImageData = work.img;
+  document.getElementById('admin-medium').value = work.medium;
+  document.getElementById('admin-size').value = work.size;
+  document.getElementById('admin-desc').value = work.desc;
+  document.getElementById('admin-anasaea').value = work.anasaeaLink || '';
+  document.getElementById('admin-stripe').value = work.stripeLink || '';
+  document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
+  
+  // 画像プレビューを表示
+  imgPreview.src = work.img;
+  imgPreview.classList.add('show');
+  
+  // フォームまでスクロール
+  adminPanel.scrollTop = 0;
+}
+
+// 作品を削除
+function deleteWork(index) {
+  if (confirm(`本当に「${works[index].title}」を削除しますか？`)) {
+    works.splice(index, 1);
+    buildPreview();
+    buildGrid();
+    updateWorksList();
+    resetForm();
+  }
+}
 
 // JSONエクスポート
 document.getElementById('admin-export').addEventListener('click', () => {
@@ -651,9 +807,17 @@ function copyToClipboard() {
 // 作品一覧の更新
 function updateWorksList() {
   const list = document.getElementById('admin-works-list');
-  list.innerHTML = works.map((w, i) => 
-    `${i + 1}. ${w.title} (${w.year}) - ${w.price} ${w.sold ? '【販売済み】' : ''}`
-  ).join('<br>');
+  list.innerHTML = works.map((w, i) => `
+    <div class="work-item">
+      <div class="work-item-title">${i + 1}. ${w.title}</div>
+      <div class="work-item-meta">${w.year} · ${w.price}</div>
+      ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+      <div class="work-item-actions">
+        <button class="btn-edit" onclick="editWork(${i})">編集</button>
+        <button class="btn-delete" onclick="deleteWork(${i})">削除</button>
+      </div>
+    </div>
+  `).join('');
 }
 
 // Contact form with Formspree
