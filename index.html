@@ -598,7 +598,11 @@ function openModal(i){
   const digitalSection=document.getElementById('digital-section');
   digitalSection.style.display='block'; // 常に表示（全作品でデジタル版を提供）
   
-  document.getElementById('buy-available').style.display=w.sold?'none':'block';
+  // 原画の購入セクションのみsold時に非表示（デジタルダウンロードは常に表示）
+  document.getElementById('m-price').style.display=w.sold?'none':'block';
+  const buySection=document.querySelector('#buy-available .buy-section');
+  if(buySection)buySection.style.display=w.sold?'none':'block';
+  document.getElementById('buy-available').style.display='block';
   document.getElementById('buy-sold').style.display=w.sold?'block':'none';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
