@@ -494,13 +494,20 @@ function showGallery(){
 function buildPreview(){
   const wrap=document.getElementById('works-preview');
   wrap.innerHTML='';
-  works.slice(0,3).forEach((w,i)=>{
+  
+  // ランダムに3作品を選択
+  const shuffled = [...works].sort(() => Math.random() - 0.5);
+  const randomWorks = shuffled.slice(0, 3);
+  
+  randomWorks.forEach((w)=>{
+    const originalIndex = works.indexOf(w); // 元の配列でのインデックスを取得
     const el=document.createElement('div');
     el.className='wp-item';
     el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div></div>`;
-    el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(i),80);});
+    el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(originalIndex),80);});
     wrap.appendChild(el);
   });
+  
   const all=document.createElement('div');
   all.className='wp-view-all';
   all.innerHTML=`<div class="wp-all-label">View All Works</div><div class="wp-all-arrow">→</div>`;
