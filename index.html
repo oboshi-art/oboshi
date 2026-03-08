@@ -860,17 +860,17 @@ document.getElementById('admin-cancel').addEventListener('click', () => {
 
 // 作品保存（追加または更新）
 document.getElementById('admin-save').addEventListener('click', () => {
-  const title = document.getElementById('admin-title').value;
-  const year = document.getElementById('admin-year').value;
-  const price = document.getElementById('admin-price').value;
-  const img = currentImageData || document.getElementById('admin-img').value;
-  const medium = document.getElementById('admin-medium').value;
-  const size = document.getElementById('admin-size').value;
-  const desc = document.getElementById('admin-desc').value;
-  const anasaeaLink = document.getElementById('admin-anasaea').value;
-  const stripeLink = document.getElementById('admin-stripe').value;
-  const digitalStripeLink = document.getElementById('admin-digital-stripe').value;
-  const downloadLink = document.getElementById('admin-download-link').value;
+  const title = document.getElementById('admin-title').value.trim();
+  const year = document.getElementById('admin-year').value.trim();
+  const price = document.getElementById('admin-price').value.trim();
+  const img = currentImageData || document.getElementById('admin-img').value.trim();
+  const medium = document.getElementById('admin-medium').value.trim();
+  const size = document.getElementById('admin-size').value.trim();
+  const desc = document.getElementById('admin-desc').value.trim();
+  const anasaeaLink = document.getElementById('admin-anasaea').value.trim();
+  const stripeLink = document.getElementById('admin-stripe').value.trim();
+  const digitalStripeLink = document.getElementById('admin-digital-stripe').value.trim();
+  const downloadLink = document.getElementById('admin-download-link').value.trim();
   const sold = document.getElementById('admin-sold').value === 'true';
 
   if (!title || !year || !price || !img) {
@@ -899,24 +899,41 @@ document.getElementById('admin-save').addEventListener('click', () => {
   if (editingIndex >= 0) {
     // 既存作品を更新
     works[editingIndex] = workData;
+    console.log('作品を更新:', editingIndex, workData);
   } else {
     // 新規作品を追加
     works.push(workData);
+    console.log('作品を追加:', workData);
   }
 
+  // 表示を完全に更新（順序が重要）
   buildPreview();
   buildGrid();
   updateWorksList();
+  
+  // モーダルが開いている場合は閉じる
+  if (document.getElementById('modal').classList.contains('open')) {
+    closeModal();
+  }
+  
+  // フォームをリセット
+  const wasEditing = editingIndex >= 0;
   resetForm();
 
   // 成功メッセージ表示
   const msg = document.getElementById('admin-add-msg');
   msg.style.display = 'block';
-  setTimeout(() => { msg.style.display = 'none'; }, 2000);
+  msg.textContent = wasEditing ? '✓ 作品を更新しました' : '✓ 作品を追加しました';
+  setTimeout(() => { msg.style.display = 'none'; }, 3000);
 });
 
 // 作品を編集
 function editWork(index) {
+  if (index < 0 || index >= works.length) {
+    alert('作品が見つかりません');
+    return;
+  }
+  
   editingIndex = index;
   const work = works[index];
   
@@ -924,14 +941,15 @@ function editWork(index) {
   document.getElementById('admin-save').textContent = '更新';
   document.getElementById('admin-cancel').style.display = 'block';
   
-  document.getElementById('admin-title').value = work.title;
-  document.getElementById('admin-year').value = work.year;
-  document.getElementById('admin-price').value = work.price;
-  document.getElementById('admin-img').value = work.img.startsWith('data:') ? '' : work.img;
-  currentImageData = work.img;
-  document.getElementById('admin-medium').value = work.medium;
-  document.getElementById('admin-size').value = work.size;
-  document.getElementById('admin-desc').value = work.desc;
+  // フォームに値を設定
+  document.getElementById('admin-title').value = work.title || '';
+  document.getElementById('admin-year').value = work.year || '';
+  document.getElementById('admin-price').value = work.price || '';
+  document.getElementById('admin-img').value = work.img && !work.img.startsWith('data:') ? work.img : '';
+  currentImageData = work.img || '';
+  document.getElementById('admin-medium').value = work.medium || '';
+  document.getElementById('admin-size').value = work.size || '';
+  document.getElementById('admin-desc').value = work.desc || '';
   document.getElementById('admin-anasaea').value = work.anasaeaLink || '';
   document.getElementById('admin-stripe').value = work.stripeLink || '';
   document.getElementById('admin-digital-stripe').value = work.digitalStripeLink || '';
@@ -939,8 +957,10 @@ function editWork(index) {
   document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
   
   // 画像プレビューを表示
-  imgPreview.src = work.img;
-  imgPreview.classList.add('show');
+  if (work.img) {
+    imgPreview.src = work.img;
+    imgPreview.classList.add('show');
+  }
   
   // フォームまでスクロール
   adminPanel.scrollTop = 0;
