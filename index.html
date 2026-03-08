@@ -3,100 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Primary Meta Tags (SEO) -->
-<title>OBOSHI — Abstract Painter & Digital Artist in Berlin | Contemporary Art</title>
-<meta name="title" content="OBOSHI — Abstract Painter & Digital Artist in Berlin | Contemporary Art">
-<meta name="description" content="Discover OBOSHI's abstract paintings and digital art. Berlin-based contemporary artist creating bold geometric compositions. Available works, exhibitions, and NFT collections.">
-<meta name="keywords" content="OBOSHI, abstract art, contemporary painter, Berlin artist, geometric art, digital art, NFT art, modern paintings, art for sale, Berlin gallery">
-<meta name="author" content="OBOSHI">
-<meta name="robots" content="index, follow">
-<meta name="language" content="English">
-
-<!-- Open Graph / Facebook (SNS共有時の表示) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://oboshi.art/">
-<meta property="og:title" content="OBOSHI — Abstract Painter, Berlin">
-<meta property="og:description" content="Berlin-based abstract artist creating bold geometric compositions. Explore original paintings, digital works, and NFT collections.">
-<meta property="og:image" content="https://oboshi.art/images/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="OBOSHI Art">
-<meta property="og:locale" content="en_US">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://oboshi.art/">
-<meta name="twitter:title" content="OBOSHI — Abstract Painter, Berlin">
-<meta name="twitter:description" content="Berlin-based abstract artist creating bold geometric compositions. Explore original paintings, digital works, and NFT collections.">
-<meta name="twitter:image" content="https://oboshi.art/images/og-image.jpg">
-<meta name="twitter:creator" content="@oboshi_art">
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://oboshi.art/">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PLYBZWN5K3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PLYBZWN5K3', {
-    'anonymize_ip': true,
-    'cookie_flags': 'SameSite=None;Secure'
-  });
-</script>
-
-<!-- 構造化データ (Schema.org) - アーティスト情報 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "OBOSHI",
-  "jobTitle": "Abstract Painter & Digital Artist",
-  "description": "Contemporary abstract artist based in Berlin, creating bold geometric compositions and digital artworks",
-  "url": "https://oboshi.art",
-  "image": "https://oboshi.art/images/profile.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Berlin",
-    "addressCountry": "DE"
-  },
-  "sameAs": [
-    "https://instagram.com/oboshi.art",
-    "https://twitter.com/oboshi_art",
-    "https://foundation.app/@oboshi"
-  ],
-  "alumniOf": {
-    "@type": "Organization",
-    "name": "Kunstakademie Düsseldorf"
-  },
-  "knowsAbout": ["Abstract Art", "Contemporary Art", "Digital Art", "NFT Art", "Geometric Abstraction"]
-}
-</script>
-
-<!-- 構造化データ - 作品コレクション -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "OBOSHI Art Collection",
-  "creator": {
-    "@type": "Person",
-    "name": "OBOSHI"
-  },
-  "description": "Collection of abstract paintings and digital artworks by Berlin-based artist OBOSHI",
-  "genre": "Abstract Art",
-  "datePublished": "2024",
-  "inLanguage": "en"
-}
-</script>
-
+<title>OBOSHI — Abstract Painter, Berlin</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -183,8 +90,19 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
-.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden}
-.modal-img{max-width:100%;max-height:78vh;object-fit:contain}
+.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative}
+.modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:1px solid var(--border);color:var(--ink);font-size:1.5rem;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
+.modal-nav-btn:hover{background:var(--ink);color:#fff}
+.modal-nav-btn.prev{left:1rem}
+.modal-nav-btn.next{right:1rem}
+.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed}
+.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.9);color:var(--ink)}
+.modal-img-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink3);border:1px solid var(--border)}
+.modal-thumbs{display:flex;gap:.5rem;margin-top:1rem;overflow-x:auto;padding:.5rem 0}
+.modal-thumb{width:60px;height:60px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:border .2s;opacity:.6}
+.modal-thumb:hover{opacity:1}
+.modal-thumb.active{border-color:var(--accent);opacity:1}
 .modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
 .modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
@@ -303,6 +221,12 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .img-preview{max-width:100%;height:auto;margin-top:.5rem;border:1px solid var(--border);display:none}
 .img-preview.show{display:block}
 #admin-img-file{display:none}
+.admin-img-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.8rem;margin:.8rem 0;padding:.8rem 0}
+.admin-img-item{position:relative;aspect-ratio:1;border:2px solid var(--border);overflow:hidden;background:var(--bg2);cursor:move}
+.admin-img-item img{width:100%;height:100%;object-fit:cover}
+.admin-img-remove{position:absolute;top:.3rem;right:.3rem;background:var(--accent);color:#fff;border:none;width:1.5rem;height:1.5rem;border-radius:50%;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
+.admin-img-remove:hover{background:#94341a}
+.admin-img-order{position:absolute;bottom:.3rem;left:.3rem;background:rgba(255,255,255,.95);color:var(--ink);font-size:.45rem;padding:.2rem .5rem;letter-spacing:.1em;font-weight:600}
 </style>
 
 </head>
@@ -441,16 +365,17 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
   </div>
   <div class="admin-field">
-    <label>画像</label>
+    <label>画像（複数選択可）</label>
     <div class="img-upload-area" id="img-upload-area">
       <div class="img-upload-text">
-        クリックして画像を選択<br>
-        または画像をここにドラッグ&ドロップ
+        クリックして画像を選択（複数可）<br>
+        または画像をここにドラッグ&ドロップ<br>
+        <span style="font-size:.42rem;color:var(--ink3);margin-top:.3rem;display:block;">1枚目:全体像、2枚目以降:ディテール・別角度</span>
       </div>
     </div>
-    <input type="file" id="admin-img-file" accept="image/*">
-    <img id="img-preview" class="img-preview" alt="プレビュー">
-    <input type="text" id="admin-img" placeholder="または画像URLを入力">
+    <input type="file" id="admin-img-file" accept="image/*" multiple>
+    <div id="admin-img-gallery" class="admin-img-gallery"></div>
+    <input type="text" id="admin-img" placeholder="または画像URLを入力（1枚の場合）" style="margin-top:.5rem">
   </div>
   <div class="admin-field">
     <label>素材</label>
@@ -503,9 +428,13 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <button class="modal-close" id="modal-close">✕ Close</button>
   <div class="modal-inner">
     <div class="modal-img-wrap">
+      <button class="modal-nav-btn prev" id="modal-prev">‹</button>
       <img class="modal-img" id="m-img" src="" alt="">
+      <button class="modal-nav-btn next" id="modal-next">›</button>
+      <div class="modal-img-counter" id="modal-counter">1 / 1</div>
     </div>
     <div class="modal-info">
+      <div id="modal-thumbs" class="modal-thumbs"></div>
       <div class="modal-title" id="m-title"></div>
       <div class="modal-year" id="m-year"></div>
       <div class="modal-row"><span class="modal-lbl">Medium</span><span class="modal-val" id="m-medium"></span></div>
@@ -860,17 +789,17 @@ document.getElementById('admin-cancel').addEventListener('click', () => {
 
 // 作品保存（追加または更新）
 document.getElementById('admin-save').addEventListener('click', () => {
-  const title = document.getElementById('admin-title').value.trim();
-  const year = document.getElementById('admin-year').value.trim();
-  const price = document.getElementById('admin-price').value.trim();
-  const img = currentImageData || document.getElementById('admin-img').value.trim();
-  const medium = document.getElementById('admin-medium').value.trim();
-  const size = document.getElementById('admin-size').value.trim();
-  const desc = document.getElementById('admin-desc').value.trim();
-  const anasaeaLink = document.getElementById('admin-anasaea').value.trim();
-  const stripeLink = document.getElementById('admin-stripe').value.trim();
-  const digitalStripeLink = document.getElementById('admin-digital-stripe').value.trim();
-  const downloadLink = document.getElementById('admin-download-link').value.trim();
+  const title = document.getElementById('admin-title').value;
+  const year = document.getElementById('admin-year').value;
+  const price = document.getElementById('admin-price').value;
+  const img = currentImageData || document.getElementById('admin-img').value;
+  const medium = document.getElementById('admin-medium').value;
+  const size = document.getElementById('admin-size').value;
+  const desc = document.getElementById('admin-desc').value;
+  const anasaeaLink = document.getElementById('admin-anasaea').value;
+  const stripeLink = document.getElementById('admin-stripe').value;
+  const digitalStripeLink = document.getElementById('admin-digital-stripe').value;
+  const downloadLink = document.getElementById('admin-download-link').value;
   const sold = document.getElementById('admin-sold').value === 'true';
 
   if (!title || !year || !price || !img) {
@@ -899,41 +828,24 @@ document.getElementById('admin-save').addEventListener('click', () => {
   if (editingIndex >= 0) {
     // 既存作品を更新
     works[editingIndex] = workData;
-    console.log('作品を更新:', editingIndex, workData);
   } else {
     // 新規作品を追加
     works.push(workData);
-    console.log('作品を追加:', workData);
   }
 
-  // 表示を完全に更新（順序が重要）
   buildPreview();
   buildGrid();
   updateWorksList();
-  
-  // モーダルが開いている場合は閉じる
-  if (document.getElementById('modal').classList.contains('open')) {
-    closeModal();
-  }
-  
-  // フォームをリセット
-  const wasEditing = editingIndex >= 0;
   resetForm();
 
   // 成功メッセージ表示
   const msg = document.getElementById('admin-add-msg');
   msg.style.display = 'block';
-  msg.textContent = wasEditing ? '✓ 作品を更新しました' : '✓ 作品を追加しました';
-  setTimeout(() => { msg.style.display = 'none'; }, 3000);
+  setTimeout(() => { msg.style.display = 'none'; }, 2000);
 });
 
 // 作品を編集
 function editWork(index) {
-  if (index < 0 || index >= works.length) {
-    alert('作品が見つかりません');
-    return;
-  }
-  
   editingIndex = index;
   const work = works[index];
   
@@ -941,15 +853,14 @@ function editWork(index) {
   document.getElementById('admin-save').textContent = '更新';
   document.getElementById('admin-cancel').style.display = 'block';
   
-  // フォームに値を設定
-  document.getElementById('admin-title').value = work.title || '';
-  document.getElementById('admin-year').value = work.year || '';
-  document.getElementById('admin-price').value = work.price || '';
-  document.getElementById('admin-img').value = work.img && !work.img.startsWith('data:') ? work.img : '';
-  currentImageData = work.img || '';
-  document.getElementById('admin-medium').value = work.medium || '';
-  document.getElementById('admin-size').value = work.size || '';
-  document.getElementById('admin-desc').value = work.desc || '';
+  document.getElementById('admin-title').value = work.title;
+  document.getElementById('admin-year').value = work.year;
+  document.getElementById('admin-price').value = work.price;
+  document.getElementById('admin-img').value = work.img.startsWith('data:') ? '' : work.img;
+  currentImageData = work.img;
+  document.getElementById('admin-medium').value = work.medium;
+  document.getElementById('admin-size').value = work.size;
+  document.getElementById('admin-desc').value = work.desc;
   document.getElementById('admin-anasaea').value = work.anasaeaLink || '';
   document.getElementById('admin-stripe').value = work.stripeLink || '';
   document.getElementById('admin-digital-stripe').value = work.digitalStripeLink || '';
@@ -957,10 +868,8 @@ function editWork(index) {
   document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
   
   // 画像プレビューを表示
-  if (work.img) {
-    imgPreview.src = work.img;
-    imgPreview.classList.add('show');
-  }
+  imgPreview.src = work.img;
+  imgPreview.classList.add('show');
   
   // フォームまでスクロール
   adminPanel.scrollTop = 0;
