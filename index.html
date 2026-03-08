@@ -592,7 +592,9 @@ function openModal(i){
   } else { btn.style.display='none'; }
   document.getElementById('dev-notice').classList.toggle('show',w.priceNum>0&&!w.stripeLink);
   const al=document.getElementById('m-anasaea-link');
-  if(w.anasaeaLink){al.href=w.anasaeaLink;al.style.display='block';}else{al.style.display='none';}
+  // 常に固定のAnasaea展覧会ページへリンク
+  al.href='https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt';
+  al.style.display='block';
   
   // デジタルダウンロードセクションの表示制御
   const digitalSection=document.getElementById('digital-section');
