@@ -1,0 +1,8 @@
+# Cloudflare Pages Redirects
+
+# Force HTTPS
+http://oboshi.art/* https://oboshi.art/:splat 301!
+http://www.oboshi.art/* https://oboshi.art/:splat 301!
+
+# Redirect www to non-www
+https://www.oboshi.art/* https://oboshi.art/:splat 301!

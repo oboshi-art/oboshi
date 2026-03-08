@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OGP画像作成ガイド</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:20px;line-height:1.6}
+h1{color:#b84a24}
+.template{border:2px dashed #ccc;padding:20px;margin:20px 0;background:#f9f9f9}
+.size-guide{background:#fff;border:2px solid #b84a24;padding:15px;margin:20px 0}
+.example{background:#e8e8e8;padding:10px;margin:10px 0;border-radius:4px}
+code{background:#f4f4f4;padding:2px 6px;border-radius:3px;font-family:monospace}
+</style>
+</head>
+<body>
+
+<h1>📸 OGP画像作成ガイド</h1>
+
+<div class="size-guide">
+<h2>必須仕様</h2>
+<ul>
+<li><strong>サイズ:</strong> 1200×630px（絶対厳守）</li>
+<li><strong>ファイル名:</strong> <code>og-image.jpg</code></li>
+<li><strong>フォーマット:</strong> JPEG または PNG</li>
+<li><strong>ファイルサイズ:</strong> 1MB以下推奨</li>
+</ul>
+</div>
+
+<h2>🎨 作成方法</h2>
+
+<h3>方法1: Canva（おすすめ・無料）</h3>
+<div class="example">
+<ol>
+<li><a href="https://www.canva.com/" target="_blank">Canva</a> にアクセス</li>
+<li>「カスタムサイズ」→ 1200×630px を入力</li>
+<li>代表作品の画像をアップロード</li>
+<li>テキストを追加：
+  <ul>
+    <li>「OBOSHI」（大きく）</li>
+    <li>「Abstract Acrylic Painter — Berlin」（小さく）</li>
+  </ul>
+</li>
+<li>「ダウンロード」→ JPG形式</li>
+<li>ファイル名を <code>og-image.jpg</code> に変更</li>
+</ol>
+</div>
+
+<h3>方法2: Photoshop / GIMP</h3>
+<div class="example">
+<ol>
+<li>新規ドキュメント作成：1200×630px</li>
+<li>背景に代表作品を配置</li>
+<li>テキストレイヤーを追加</li>
+<li>JPGで書き出し → <code>og-image.jpg</code></li>
+</ol>
+</div>
+
+<h3>方法3: オンラインツール</h3>
+<div class="example">
+<ul>
+<li><a href="https://www.opengraph.xyz/" target="_blank">OpenGraph.xyz</a></li>
+<li><a href="https://metatags.io/" target="_blank">MetaTags.io</a></li>
+</ul>
+</div>
+
+<h2>💡 デザインのコツ</h2>
+
+<div class="template">
+<h3>推奨レイアウト:</h3>
+<pre>
+┌─────────────────────────────────────────┐
+│                                         │
+│         [あなたの代表作品の画像]          │
+│                                         │
+│                                         │
+│   OBOSHI                                │
+│   Abstract Acrylic Painter — Berlin    │
+│                                         │
+└─────────────────────────────────────────┘
+    1200px × 630px
+</pre>
+
+<h4>重要なポイント:</h4>
+<ul>
+<li>✅ 中央に重要な要素を配置（端は切れる可能性）</li>
+<li>✅ テキストは大きく読みやすく</li>
+<li>✅ コントラストをはっきり</li>
+<li>✅ ブランドカラー（#b84a24）を使う</li>
+<li>❌ 細かい文字は避ける</li>
+<li>❌ 端ギリギリに要素を置かない</li>
+</ul>
+</div>
+
+<h2>✅ 確認方法</h2>
+
+<div class="example">
+<h3>作成後、以下でテスト:</h3>
+<ol>
+<li><strong>Facebook:</strong> <a href="https://developers.facebook.com/tools/debug/" target="_blank">Sharing Debugger</a></li>
+<li><strong>Twitter:</strong> <a href="https://cards-dev.twitter.com/validator" target="_blank">Card Validator</a></li>
+<li><strong>汎用:</strong> <a href="https://www.opengraph.xyz/" target="_blank">OpenGraph.xyz</a></li>
+</ol>
+
+<p>URLに <code>https://oboshi.art</code> を入力して、画像が正しく表示されるか確認</p>
+</div>
+
+<h2>📍 ファイルの配置</h2>
+
+<div class="example">
+<pre>
+oboshi-website/
+├── index.html
+├── og-image.jpg  ← ここに配置
+├── _redirects
+├── _headers
+└── README.md
+</pre>
+</div>
+
+<h2>🔄 更新方法</h2>
+
+<div class="example">
+<ol>
+<li><code>og-image.jpg</code> を作成・更新</li>
+<li><code>oboshi-website</code> フォルダに配置</li>
+<li>Cloudflare Pagesに再度アップロード</li>
+<li>Facebook Sharing Debuggerでキャッシュをクリア</li>
+</ol>
+</div>
+
+<hr style="margin:40px 0">
+
+<p style="text-align:center;color:#999;font-size:0.9em">
+OGP画像はSNSでのシェア時に表示される重要な要素です。<br>
+プロフェッショナルな印象を与えるために、しっかり作成しましょう！
+</p>
+
+</body>
+</html>
