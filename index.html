@@ -90,8 +90,19 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
-.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem}
+.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative;height:100%}
 .modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:1px solid var(--border);color:var(--ink);font-size:1.5rem;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
+.modal-nav-btn:hover{background:var(--ink);color:#fff}
+.modal-nav-btn.prev{left:1rem}
+.modal-nav-btn.next{right:1rem}
+.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed}
+.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.9);color:var(--ink)}
+.modal-img-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink3);border:1px solid var(--border)}
+.modal-thumbs{display:flex;gap:.5rem;margin-top:1rem;overflow-x:auto;padding:.5rem 0}
+.modal-thumb{width:60px;height:60px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:border .2s;opacity:.6}
+.modal-thumb:hover{opacity:1}
+.modal-thumb.active{border-color:var(--accent);opacity:1}
 .modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
 .modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
@@ -123,20 +134,6 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .modal-close{position:fixed;top:1.6rem;right:2.5rem;background:none;border:none;color:var(--ink3);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:'DM Mono',monospace;transition:color .2s}
 .modal-close:hover{color:var(--ink)}
 
-/* レスポンシブ対応 - 小さい画面でもモーダル画像が全体表示される */
-@media (max-width: 1024px) {
-  .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:1.5rem;height:auto;max-height:95vh}
-  .modal-img-wrap{min-height:50vh;max-height:60vh}
-  .modal-info{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:1.5rem;height:auto}
-  .modal-close{top:1rem;right:1rem}
-}
-@media (max-width: 768px) {
-  .modal{padding:1rem}
-  .modal-img-wrap{min-height:40vh;padding:1rem}
-  .modal-title{font-size:2rem}
-  .modal-price-big{font-size:1.8rem}
-}
-
 /* ===== DIGITAL DOWNLOAD SECTION ===== */
 .digital-section{border-top:1px solid var(--border);padding-top:1.2rem;margin-top:1.2rem}
 .digital-title{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.4rem}
@@ -157,7 +154,6 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .eco-grid{grid-template-columns:1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .modal-inner{grid-template-columns:1fr}
-  .modal-img-wrap{max-height:38vh}
   .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem}
   .gallery-grid{columns:2}
 }
@@ -224,13 +220,19 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .img-preview{max-width:100%;height:auto;margin-top:.5rem;border:1px solid var(--border);display:none}
 .img-preview.show{display:block}
 #admin-img-file{display:none}
+.admin-img-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.8rem;margin:.8rem 0;padding:.8rem 0}
+.admin-img-item{position:relative;aspect-ratio:1;border:2px solid var(--border);overflow:hidden;background:var(--bg2);cursor:move}
+.admin-img-item img{width:100%;height:100%;object-fit:cover}
+.admin-img-remove{position:absolute;top:.3rem;right:.3rem;background:var(--accent);color:#fff;border:none;width:1.5rem;height:1.5rem;border-radius:50%;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
+.admin-img-remove:hover{background:#94341a}
+.admin-img-order{position:absolute;bottom:.3rem;left:.3rem;background:rgba(255,255,255,.95);color:var(--ink);font-size:.45rem;padding:.2rem .5rem;letter-spacing:.1em;font-weight:600}
 </style>
 
 </head>
 <body>
 
 <nav>
-  <span class="logo" id="nav-logo">OBOSHI.ART</span>
+  <span class="logo" id="nav-logo">OBOSHI</span>
   <ul class="nav-links">
     <li><a href="#" id="nav-works">Works</a></li>
     <li><a href="#" id="nav-contact">Contact</a></li>
@@ -306,7 +308,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   </div>
 
   <footer>
-    <div class="footer-logo">OBOSHI.ART</div>
+    <div class="footer-logo">OBOSHI</div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
@@ -327,7 +329,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <div class="gallery-grid" id="grid"></div>
   <div class="rule"></div>
   <footer>
-    <div class="footer-logo">OBOSHI.ART</div>
+    <div class="footer-logo">OBOSHI</div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
@@ -362,16 +364,17 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
   </div>
   <div class="admin-field">
-    <label>画像</label>
+    <label>画像（複数選択可）</label>
     <div class="img-upload-area" id="img-upload-area">
       <div class="img-upload-text">
-        クリックして画像を選択<br>
-        または画像をここにドラッグ&ドロップ
+        クリックして画像を選択（複数可）<br>
+        または画像をここにドラッグ&ドロップ<br>
+        <span style="font-size:.42rem;color:var(--ink3);margin-top:.3rem;display:block;">1枚目:全体像、2枚目以降:ディテール・別角度</span>
       </div>
     </div>
     <input type="file" id="admin-img-file" accept="image/*" multiple>
-    <img id="img-preview" class="img-preview" alt="プレビュー">
-    <input type="text" id="admin-img" placeholder="または画像URLを入力">
+    <div id="admin-img-gallery" class="admin-img-gallery"></div>
+    <input type="text" id="admin-img" placeholder="または画像URLを入力（1枚の場合）" style="margin-top:.5rem">
   </div>
   <div class="admin-field">
     <label>素材</label>
@@ -424,9 +427,13 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <button class="modal-close" id="modal-close">✕ Close</button>
   <div class="modal-inner">
     <div class="modal-img-wrap">
+      <button class="modal-nav-btn prev" id="modal-prev">‹</button>
       <img class="modal-img" id="m-img" src="" alt="">
+      <button class="modal-nav-btn next" id="modal-next">›</button>
+      <div class="modal-img-counter" id="modal-counter">1 / 1</div>
     </div>
     <div class="modal-info">
+      <div id="modal-thumbs" class="modal-thumbs"></div>
       <div class="modal-title" id="m-title"></div>
       <div class="modal-year" id="m-year"></div>
       <div class="modal-row"><span class="modal-lbl">Medium</span><span class="modal-val" id="m-medium"></span></div>
@@ -945,50 +952,6 @@ async function submitContactForm(e) {
     alert('Error sending message. Please try again.');
   }
 }
-
-// ============================================
-// キャッシュバスティング - 画像更新を強制表示
-// ============================================
-(function() {
-  const version = '20260309-03'; // 画像を更新するたびにこの番号を変更してください
-  
-  // ページ読み込み時に全画像にバージョンパラメータを追加
-  function addVersionToImages() {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-      const src = img.getAttribute('src');
-      if (src && !src.startsWith('data:') && !src.includes('?v=')) {
-        img.setAttribute('src', src + '?v=' + version);
-      }
-    });
-  }
-  
-  // 初回読み込み時
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addVersionToImages);
-  } else {
-    addVersionToImages();
-  }
-  
-  // 動的に追加される画像も監視
-  const observer = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-      mutation.addedNodes.forEach(node => {
-        if (node.nodeName === 'IMG') {
-          const src = node.getAttribute('src');
-          if (src && !src.startsWith('data:') && !src.includes('?v=')) {
-            node.setAttribute('src', src + '?v=' + version);
-          }
-        }
-      });
-    });
-  });
-  
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-})();
 
 </script>
 </body>
