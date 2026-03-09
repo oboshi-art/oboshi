@@ -211,9 +211,10 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .btn-admin:hover{background:var(--accent)}
 .btn-admin.secondary{background:var(--bg2);color:var(--ink);border:1px solid var(--border)}
 .btn-admin.secondary:hover{background:var(--border);color:var(--ink)}
-.admin-output{background:var(--bg2);border:1px solid var(--border);padding:1rem;font-size:.48rem;line-height:1.8;margin-top:.5rem;white-space:pre-wrap;word-break:break-all;color:var(--ink2)}
-.admin-output-label{font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem}
-.copy-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .8rem;font-family:'DM Mono',monospace;font-size:.45rem;cursor:pointer;letter-spacing:.1em;float:right}
+.admin-output{background:var(--bg2);border:1px solid var(--border);padding:1rem;font-size:.48rem;line-height:1.8;margin-top:.5rem;white-space:pre-wrap;word-break:break-all;color:var(--ink2);max-height:400px;overflow-y:auto}
+.admin-output-label{font-size:.5rem;color:var(--ink2);margin-bottom:.5rem;line-height:1.5}
+.copy-btn{background:var(--accent);color:#fff;border:none;padding:.5rem 1rem;font-family:'DM Mono',monospace;font-size:.48rem;cursor:pointer;letter-spacing:.1em;margin-top:.5rem;transition:background .2s}
+.copy-btn:hover{background:#94341a}
 .admin-msg{font-size:.5rem;color:var(--accent);letter-spacing:.1em;margin-top:.5rem;display:none}
 .admin-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--ink3)}
 .work-item{background:var(--bg2);border:1px solid var(--border);padding:.8rem;margin-bottom:.6rem;font-size:.5rem;line-height:1.7}
@@ -361,6 +362,15 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 <div id="admin-panel">
   <button class="admin-close" id="admin-close">×</button>
   <h2>管理パネル</h2>
+  
+  <div style="background:#fffbf0;border:1px solid #e8d896;padding:0.8rem;margin-bottom:1.5rem;font-size:0.52rem;line-height:1.6;color:#8b7d3a">
+    <strong>💡 重要：</strong> この管理パネルでの変更は<strong>このブラウザのみ</strong>に保存されます。<br>
+    <strong>GitHubに反映させる方法：</strong><br>
+    1. 下の「JSONをエクスポート」ボタンをクリック<br>
+    2. 表示されたJSONをコピー<br>
+    3. index.htmlの <code>const works = [...]</code> 部分を置き換え<br>
+    4. GitHubにプッシュ
+  </div>
   
   <h3 id="admin-form-title">作品を追加</h3>
   <div class="admin-field">
@@ -1086,8 +1096,9 @@ document.getElementById('admin-save').addEventListener('click', () => {
 
   // 成功メッセージ表示
   const msg = document.getElementById('admin-add-msg');
+  msg.innerHTML = '✓ このブラウザに保存しました<br><small style="font-size:0.45rem;opacity:0.7">GitHubに反映させるには「JSONをエクスポート」を使用してください</small>';
   msg.style.display = 'block';
-  setTimeout(() => { msg.style.display = 'none'; }, 2000);
+  setTimeout(() => { msg.style.display = 'none'; }, 4000);
 });
 
 // 作品を編集
@@ -1147,17 +1158,32 @@ document.getElementById('admin-export').addEventListener('click', () => {
   
   output.innerHTML = `
     <div class="admin-output-label">
-      JSONデータ
-      <button class="copy-btn" onclick="copyToClipboard()">コピー</button>
+      <strong>手順：</strong>
+      <ol style="font-size:0.5rem;margin:0.5rem 0;padding-left:1.2rem;line-height:1.6">
+        <li>下のJSONをすべてコピー</li>
+        <li>index.htmlを開いて <code>const works = [</code> で検索</li>
+        <li>その配列全体（<code>const works = [...];</code>）を下のコードで置き換え</li>
+        <li>ファイルを保存してGitHubにプッシュ</li>
+      </ol>
+      <button class="copy-btn" onclick="copyToClipboard()">📋 コピー</button>
     </div>
-    <div class="admin-output" id="json-data">${json}</div>
+    <div class="admin-output" id="json-data">const works = ${json};</div>
   `;
 });
 
 function copyToClipboard() {
   const jsonData = document.getElementById('json-data').textContent;
   navigator.clipboard.writeText(jsonData).then(() => {
-    alert('クリップボードにコピーしました');
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ コピーしました！';
+    btn.style.background = '#4caf50';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+    }, 2000);
+  }).catch(err => {
+    alert('コピーに失敗しました。手動で選択してコピーしてください。');
   });
 }
 
