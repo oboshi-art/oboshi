@@ -433,6 +433,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 
   <h3>データエクスポート</h3>
   <button class="btn-admin secondary" id="admin-export">JSONをエクスポート</button>
+  <button class="btn-admin secondary" id="admin-reset" style="background:#d44;margin-top:0.5rem;">デフォルトにリセット</button>
   <div id="admin-json-output"></div>
 </div>
 
@@ -761,6 +762,50 @@ document.getElementById('modal').addEventListener('click',(e)=>{
   if(e.target===document.getElementById('modal'))closeModal();
 });
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeModal();});
+
+// ===== データの永続化機能 =====
+// LocalStorageに作品データを保存
+function saveWorks() {
+  try {
+    localStorage.setItem('oboshi_works', JSON.stringify(works));
+    console.log('作品データを保存しました');
+  } catch (e) {
+    console.error('データの保存に失敗:', e);
+  }
+}
+
+// LocalStorageから作品データを読み込み
+function loadWorks() {
+  try {
+    const saved = localStorage.getItem('oboshi_works');
+    if (saved) {
+      const loadedWorks = JSON.parse(saved);
+      // データが有効な場合のみ上書き
+      if (Array.isArray(loadedWorks) && loadedWorks.length > 0) {
+        // 既存のworksを保持しつつ、保存されたデータをマージ
+        works.length = 0; // 配列をクリア
+        works.push(...loadedWorks); // 保存されたデータを追加
+        console.log(`${loadedWorks.length}件の作品データを読み込みました`);
+        return true;
+      }
+    }
+  } catch (e) {
+    console.error('データの読み込みに失敗:', e);
+  }
+  return false;
+}
+
+// データをリセット（デフォルトに戻す）
+function resetToDefault() {
+  if (confirm('すべての変更を破棄して、デフォルトのデータに戻しますか？')) {
+    localStorage.removeItem('oboshi_works');
+    location.reload();
+  }
+}
+
+// ページ読み込み時にデータを復元
+loadWorks();
+
 buildPreview();
 
 // ===== ADMIN PANEL =====
@@ -1037,6 +1082,7 @@ document.getElementById('admin-save').addEventListener('click', () => {
   buildGrid();
   updateWorksList();
   resetForm();
+  saveWorks(); // データを保存
 
   // 成功メッセージ表示
   const msg = document.getElementById('admin-add-msg');
@@ -1090,6 +1136,7 @@ function deleteWork(index) {
     buildGrid();
     updateWorksList();
     resetForm();
+    saveWorks(); // データを保存
   }
 }
 
@@ -1113,6 +1160,9 @@ function copyToClipboard() {
     alert('クリップボードにコピーしました');
   });
 }
+
+// リセットボタン
+document.getElementById('admin-reset').addEventListener('click', resetToDefault);
 
 // 作品一覧の更新
 function updateWorksList() {
