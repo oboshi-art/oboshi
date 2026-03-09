@@ -90,19 +90,15 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
-.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative;height:100%}
+.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative}
 .modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
-.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:1px solid var(--border);color:var(--ink);font-size:1.5rem;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
-.modal-nav-btn:hover{background:var(--ink);color:#fff}
-.modal-nav-btn.prev{left:1rem}
-.modal-nav-btn.next{right:1rem}
-.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed}
-.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.9);color:var(--ink)}
-.modal-img-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink3);border:1px solid var(--border)}
-.modal-thumbs{display:flex;gap:.5rem;margin-top:1rem;overflow-x:auto;padding:.5rem 0}
-.modal-thumb{width:60px;height:60px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:border .2s;opacity:.6}
-.modal-thumb:hover{opacity:1}
-.modal-thumb.active{border-color:var(--accent);opacity:1}
+.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.92);border:1px solid var(--border2);color:var(--ink);font-size:2.5rem;width:3.2rem;height:3.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10;font-family:Arial,sans-serif;line-height:1;padding:0}
+.modal-nav-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed;background:rgba(255,255,255,.5)}
+.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.5);color:var(--ink);border-color:var(--border2)}
+.modal-prev{left:1rem}
+.modal-next{right:1rem}
+.modal-image-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);border:1px solid var(--border);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink);z-index:10}
 .modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
 .modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
@@ -153,9 +149,15 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .works-preview{grid-template-columns:1fr 1fr}
   .eco-grid{grid-template-columns:1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
-  .modal-inner{grid-template-columns:1fr}
-  .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem}
+  .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:2rem;height:auto;max-height:95vh}
+  .modal-img-wrap{min-height:50vh;max-height:60vh;padding:1rem}
+  .modal-img{object-fit:contain;max-width:100%;max-height:100%}
+  .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem;height:auto;max-height:none}
+  .modal-close{top:1rem;right:1.5rem}
   .gallery-grid{columns:2}
+  .modal-nav-btn{width:2.8rem;height:2.8rem;font-size:2rem}
+  .modal-prev{left:.6rem}
+  .modal-next{right:.6rem}
 }
 @media(max-width:620px){
   nav{padding:1rem 1.5rem}
@@ -166,8 +168,17 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .ecosystem,.about-section{padding:3rem 1.5rem}
   .gallery-header{padding:6.5rem 1.5rem 1.5rem}
   .gallery-grid{columns:2;padding:1rem 1.5rem;column-gap:.8rem}
+  .modal{padding:1rem}
+  .modal-img-wrap{min-height:40vh;max-height:50vh;padding:0.5rem}
+  .modal-title{font-size:2rem}
+  .modal-price-big{font-size:1.8rem}
+  .modal-close{top:0.5rem;right:1rem;font-size:.5rem}
   footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
   .footer-links{justify-content:center;flex-wrap:wrap}
+  .modal-nav-btn{width:2.4rem;height:2.4rem;font-size:1.6rem}
+  .modal-prev{left:.4rem}
+  .modal-next{right:.4rem}
+  .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
 }
 
 /* ===== CONTACT FORM ===== */
@@ -180,6 +191,9 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .contact-success{display:none;font-size:.6rem;letter-spacing:.1em;color:var(--accent);padding:.8rem 0;border-top:1px solid var(--border)}
 .contact-success.show{display:block}
 
+/* ===== ADMIN PANEL ===== */
+#admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
+#admin-toggle:hover{background:var(--accent)}
 /* ===== ADMIN PANEL ===== */
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
@@ -232,7 +246,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 <body>
 
 <nav>
-  <span class="logo" id="nav-logo">OBOSHI</span>
+  <span class="logo" id="nav-logo">OBOSHI.ART</span>
   <ul class="nav-links">
     <li><a href="#" id="nav-works">Works</a></li>
     <li><a href="#" id="nav-contact">Contact</a></li>
@@ -308,7 +322,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   </div>
 
   <footer>
-    <div class="footer-logo">OBOSHI</div>
+    <div class="footer-logo">OBOSHI.ART</div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
@@ -329,7 +343,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <div class="gallery-grid" id="grid"></div>
   <div class="rule"></div>
   <footer>
-    <div class="footer-logo">OBOSHI</div>
+    <div class="footer-logo">OBOSHI.ART</div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
@@ -364,17 +378,16 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
   </div>
   <div class="admin-field">
-    <label>画像（複数選択可）</label>
+    <label>画像</label>
     <div class="img-upload-area" id="img-upload-area">
       <div class="img-upload-text">
-        クリックして画像を選択（複数可）<br>
-        または画像をここにドラッグ&ドロップ<br>
-        <span style="font-size:.42rem;color:var(--ink3);margin-top:.3rem;display:block;">1枚目:全体像、2枚目以降:ディテール・別角度</span>
+        クリックして画像を選択<br>
+        または画像をここにドラッグ&ドロップ
       </div>
     </div>
     <input type="file" id="admin-img-file" accept="image/*" multiple>
-    <div id="admin-img-gallery" class="admin-img-gallery"></div>
-    <input type="text" id="admin-img" placeholder="または画像URLを入力（1枚の場合）" style="margin-top:.5rem">
+    <img id="img-preview" class="img-preview" alt="プレビュー">
+    <input type="text" id="admin-img" placeholder="または画像URLを入力">
   </div>
   <div class="admin-field">
     <label>素材</label>
@@ -427,13 +440,12 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <button class="modal-close" id="modal-close">✕ Close</button>
   <div class="modal-inner">
     <div class="modal-img-wrap">
-      <button class="modal-nav-btn prev" id="modal-prev">‹</button>
+      <button class="modal-nav-btn modal-prev" id="modal-prev" aria-label="Previous image">‹</button>
       <img class="modal-img" id="m-img" src="" alt="">
-      <button class="modal-nav-btn next" id="modal-next">›</button>
-      <div class="modal-img-counter" id="modal-counter">1 / 1</div>
+      <button class="modal-nav-btn modal-next" id="modal-next" aria-label="Next image">›</button>
+      <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
     </div>
     <div class="modal-info">
-      <div id="modal-thumbs" class="modal-thumbs"></div>
       <div class="modal-title" id="m-title"></div>
       <div class="modal-year" id="m-year"></div>
       <div class="modal-row"><span class="modal-lbl">Medium</span><span class="modal-val" id="m-medium"></span></div>
@@ -548,6 +560,8 @@ const works = [
 ];
 
 let currentWork=null;
+let currentImageIndex=0; // 現在表示中の画像インデックス
+let currentImages=[]; // 現在の作品の全画像配列
 
 function showTop(){
   document.getElementById('page-top').style.display='block';
@@ -598,7 +612,24 @@ function buildGrid(){
 function openModal(i){
   const w=works[i];
   currentWork=w;
-  document.getElementById('m-img').src=w.img;
+  
+  // 画像配列を準備（imgとimagesを統合）
+  currentImages=[];
+  if(w.img){
+    currentImages.push(w.img);
+  }
+  if(w.images && Array.isArray(w.images)){
+    w.images.forEach(imgUrl=>{
+      if(imgUrl && imgUrl!==w.img){
+        currentImages.push(imgUrl);
+      }
+    });
+  }
+  
+  // 最初の画像を表示
+  currentImageIndex=0;
+  updateModalImage();
+  
   document.getElementById('m-title').textContent=w.title;
   document.getElementById('m-year').textContent=w.year;
   document.getElementById('m-medium').textContent=w.medium;
@@ -632,6 +663,53 @@ function openModal(i){
 function closeModal(){
   document.getElementById('modal').classList.remove('open');
   currentWork=null;
+  currentImages=[];
+  currentImageIndex=0;
+}
+
+// 🎯 画像スライダー機能
+function updateModalImage(){
+  const img=document.getElementById('m-img');
+  const counter=document.getElementById('modal-image-counter');
+  const prevBtn=document.getElementById('modal-prev');
+  const nextBtn=document.getElementById('modal-next');
+  
+  if(currentImages.length===0)return;
+  
+  // 画像を更新
+  img.src=currentImages[currentImageIndex];
+  
+  // カウンターを更新
+  counter.textContent=`${currentImageIndex+1} / ${currentImages.length}`;
+  
+  // ボタンの表示・非表示を制御
+  if(currentImages.length<=1){
+    prevBtn.style.display='none';
+    nextBtn.style.display='none';
+    counter.style.display='none';
+  } else {
+    prevBtn.style.display='flex';
+    nextBtn.style.display='flex';
+    counter.style.display='block';
+    
+    // 最初/最後の画像では対応するボタンを無効化
+    prevBtn.disabled=(currentImageIndex===0);
+    nextBtn.disabled=(currentImageIndex===currentImages.length-1);
+  }
+}
+
+function prevImage(){
+  if(currentImageIndex>0){
+    currentImageIndex--;
+    updateModalImage();
+  }
+}
+
+function nextImage(){
+  if(currentImageIndex<currentImages.length-1){
+    currentImageIndex++;
+    updateModalImage();
+  }
 }
 document.getElementById('nav-logo').addEventListener('click',showTop);
 document.getElementById('nav-works').addEventListener('click',showGallery);
@@ -646,6 +724,19 @@ document.getElementById('nav-buy').addEventListener('click',showGallery);
 document.getElementById('hero-cta').addEventListener('click',showGallery);
 document.getElementById('back-btn').addEventListener('click',showTop);
 document.getElementById('modal-close').addEventListener('click',closeModal);
+
+// 🎯 画像スライダーのイベントリスナー
+document.getElementById('modal-prev').addEventListener('click',prevImage);
+document.getElementById('modal-next').addEventListener('click',nextImage);
+
+// キーボード操作対応（矢印キーで画像切り替え）
+document.addEventListener('keydown',(e)=>{
+  if(!document.getElementById('modal').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')prevImage();
+  if(e.key==='ArrowRight')nextImage();
+  if(e.key==='Escape')closeModal();
+});
+
 document.getElementById('btn-stripe').addEventListener('click',()=>{
   if(!currentWork)return;
   if(currentWork.stripeLink){
@@ -681,7 +772,8 @@ const adminClose = document.getElementById('admin-close');
 const ADMIN_PASSWORD = 'oboshi2025';
 
 let editingIndex = -1; // 編集中の作品インデックス
-let currentImageData = ''; // 現在の画像データ（Base64またはURL）
+let currentImageData = ''; // メイン画像（下位互換性のため保持）
+let uploadedImages = []; // 複数画像を管理する配列
 
 // 画像アップロード機能
 const imgUploadArea = document.getElementById('img-upload-area');
@@ -694,11 +786,15 @@ imgUploadArea.addEventListener('click', () => {
   imgFileInput.click();
 });
 
-// ファイル選択時
+// ファイル選択時（複数対応）
 imgFileInput.addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    handleImageFile(file);
+  const files = Array.from(e.target.files);
+  if (files.length > 0) {
+    files.forEach(file => {
+      if (file.type.startsWith('image/')) {
+        handleImageFile(file);
+      }
+    });
   }
 });
 
@@ -715,22 +811,119 @@ imgUploadArea.addEventListener('dragleave', () => {
 imgUploadArea.addEventListener('drop', (e) => {
   e.preventDefault();
   imgUploadArea.classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  if (file && file.type.startsWith('image/')) {
-    handleImageFile(file);
-  }
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+  files.forEach(file => {
+    if (file.type.startsWith('image/')) {
+      handleImageFile(file);
+    }
+  });
 });
 
-// 画像ファイルを処理
+// 画像ファイルを処理（複数画像対応）
 function handleImageFile(file) {
   const reader = new FileReader();
   reader.onload = (e) => {
-    currentImageData = e.target.result;
-    imgPreview.src = currentImageData;
-    imgPreview.classList.add('show');
+    const imageData = e.target.result;
+    
+    // 配列に追加
+    uploadedImages.push(imageData);
+    
+    // メイン画像が未設定なら最初の画像をメインに
+    if (!currentImageData) {
+      currentImageData = imageData;
+      imgPreview.src = currentImageData;
+      imgPreview.classList.add('show');
+    }
+    
+    // 画像ギャラリーを更新
+    updateImageGallery();
+    
     imgUrlInput.value = ''; // URLフィールドをクリア
   };
   reader.readAsDataURL(file);
+}
+
+// 画像ギャラリー表示を更新
+function updateImageGallery() {
+  let galleryHtml = '';
+  
+  uploadedImages.forEach((img, index) => {
+    galleryHtml += `
+      <div class="admin-img-item" draggable="true" data-index="${index}">
+        <img src="${img}" alt="Image ${index + 1}">
+        <button class="admin-img-remove" onclick="removeImage(${index})" title="削除">✕</button>
+        <div class="admin-img-order">${index + 1}</div>
+      </div>
+    `;
+  });
+  
+  // ギャラリーHTMLを挿入（img-preview の後ろ）
+  const existingGallery = document.querySelector('.admin-img-gallery');
+  if (existingGallery) {
+    existingGallery.innerHTML = galleryHtml;
+  } else {
+    const gallery = document.createElement('div');
+    gallery.className = 'admin-img-gallery';
+    gallery.innerHTML = galleryHtml;
+    imgPreview.parentNode.insertBefore(gallery, imgPreview.nextSibling);
+  }
+  
+  // ドラッグ&ドロップで並び替え可能に
+  setupImageReordering();
+}
+
+// 画像を削除
+function removeImage(index) {
+  uploadedImages.splice(index, 1);
+  
+  // メイン画像が削除された場合
+  if (currentImageData === uploadedImages[index]) {
+    currentImageData = uploadedImages.length > 0 ? uploadedImages[0] : '';
+    imgPreview.src = currentImageData;
+    if (!currentImageData) {
+      imgPreview.classList.remove('show');
+    }
+  }
+  
+  updateImageGallery();
+}
+
+// 画像の並び替え設定
+function setupImageReordering() {
+  const items = document.querySelectorAll('.admin-img-item');
+  let draggedIndex = null;
+  
+  items.forEach((item, index) => {
+    item.addEventListener('dragstart', () => {
+      draggedIndex = index;
+      item.style.opacity = '0.4';
+    });
+    
+    item.addEventListener('dragend', () => {
+      item.style.opacity = '1';
+    });
+    
+    item.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+    
+    item.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const dropIndex = index;
+      
+      if (draggedIndex !== null && draggedIndex !== dropIndex) {
+        // 配列の順序を入れ替え
+        const [draggedItem] = uploadedImages.splice(draggedIndex, 1);
+        uploadedImages.splice(dropIndex, 0, draggedItem);
+        
+        // メイン画像を更新
+        currentImageData = uploadedImages[0];
+        imgPreview.src = currentImageData;
+        
+        updateImageGallery();
+      }
+    });
+  });
 }
 
 // URL入力時
@@ -762,6 +955,7 @@ adminClose.addEventListener('click', () => {
 function resetForm() {
   editingIndex = -1;
   currentImageData = '';
+  uploadedImages = []; // 複数画像配列をクリア
   document.getElementById('admin-form-title').textContent = '作品を追加';
   document.getElementById('admin-save').textContent = '作品を追加';
   document.getElementById('admin-cancel').style.display = 'none';
@@ -779,6 +973,12 @@ function resetForm() {
   
   imgPreview.classList.remove('show');
   imgFileInput.value = '';
+  
+  // 画像ギャラリーをクリア
+  const gallery = document.querySelector('.admin-img-gallery');
+  if (gallery) {
+    gallery.remove();
+  }
 }
 
 // キャンセルボタン
@@ -814,6 +1014,7 @@ document.getElementById('admin-save').addEventListener('click', () => {
     price,
     priceNum,
     img,
+    images: uploadedImages.length > 0 ? [...uploadedImages] : [img], // 複数画像を保存
     medium: medium || 'Acrylic on canvas',
     size: size || '80×60 cm',
     desc: desc || '',
@@ -857,6 +1058,10 @@ function editWork(index) {
   document.getElementById('admin-price').value = work.price;
   document.getElementById('admin-img').value = work.img.startsWith('data:') ? '' : work.img;
   currentImageData = work.img;
+  
+  // 複数画像を読み込む
+  uploadedImages = work.images && Array.isArray(work.images) ? [...work.images] : [work.img];
+  
   document.getElementById('admin-medium').value = work.medium;
   document.getElementById('admin-size').value = work.size;
   document.getElementById('admin-desc').value = work.desc;
@@ -869,6 +1074,9 @@ function editWork(index) {
   // 画像プレビューを表示
   imgPreview.src = work.img;
   imgPreview.classList.add('show');
+  
+  // 画像ギャラリーを表示
+  updateImageGallery();
   
   // フォームまでスクロール
   adminPanel.scrollTop = 0;
@@ -952,6 +1160,50 @@ async function submitContactForm(e) {
     alert('Error sending message. Please try again.');
   }
 }
+
+// ============================================
+// キャッシュバスティング - 画像更新を強制表示
+// ============================================
+(function() {
+  const version = '20260309-04'; // 画像を更新するたびにこの番号を変更してください
+  
+  // ページ読み込み時に全画像にバージョンパラメータを追加
+  function addVersionToImages() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('data:') && !src.includes('?v=')) {
+        img.setAttribute('src', src + '?v=' + version);
+      }
+    });
+  }
+  
+  // 初回読み込み時
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addVersionToImages);
+  } else {
+    addVersionToImages();
+  }
+  
+  // 動的に追加される画像も監視
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.nodeName === 'IMG') {
+          const src = node.getAttribute('src');
+          if (src && !src.startsWith('data:') && !src.includes('?v=')) {
+            node.setAttribute('src', src + '?v=' + version);
+          }
+        }
+      });
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
 
 </script>
 </body>
