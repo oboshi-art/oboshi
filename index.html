@@ -89,20 +89,9 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
-.modal-inner{display:grid;grid-template-columns:1.2fr 350px;gap:3rem;max-width:1200px;width:100%;max-height:90vh;align-items:start}
-.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:auto;padding:1.5rem;position:relative;max-height:90vh;min-height:400px}
-.modal-img{max-width:100%;max-height:100%;height:auto;width:auto;object-fit:contain}
-.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:1px solid var(--border);color:var(--ink);font-size:1.5rem;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
-.modal-nav-btn:hover{background:var(--ink);color:#fff}
-.modal-nav-btn.prev{left:1rem}
-.modal-nav-btn.next{right:1rem}
-.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed}
-.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.9);color:var(--ink)}
-.modal-img-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink3);border:1px solid var(--border)}
-.modal-thumbs{display:flex;gap:.5rem;margin-top:1rem;overflow-x:auto;padding:.5rem 0}
-.modal-thumb{width:60px;height:60px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:border .2s;opacity:.6}
-.modal-thumb:hover{opacity:1}
-.modal-thumb.active{border-color:var(--accent);opacity:1}
+.modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
+.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem}
+.modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
 .modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
 .modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
@@ -154,6 +143,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .eco-grid{grid-template-columns:1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .modal-inner{grid-template-columns:1fr}
+  .modal-img-wrap{max-height:38vh}
   .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem}
   .gallery-grid{columns:2}
 }
@@ -220,12 +210,6 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .img-preview{max-width:100%;height:auto;margin-top:.5rem;border:1px solid var(--border);display:none}
 .img-preview.show{display:block}
 #admin-img-file{display:none}
-.admin-img-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.8rem;margin:.8rem 0;padding:.8rem 0}
-.admin-img-item{position:relative;aspect-ratio:1;border:2px solid var(--border);overflow:hidden;background:var(--bg2);cursor:move}
-.admin-img-item img{width:100%;height:100%;object-fit:cover}
-.admin-img-remove{position:absolute;top:.3rem;right:.3rem;background:var(--accent);color:#fff;border:none;width:1.5rem;height:1.5rem;border-radius:50%;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
-.admin-img-remove:hover{background:#94341a}
-.admin-img-order{position:absolute;bottom:.3rem;left:.3rem;background:rgba(255,255,255,.95);color:var(--ink);font-size:.45rem;padding:.2rem .5rem;letter-spacing:.1em;font-weight:600}
 </style>
 
 </head>
@@ -364,17 +348,16 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
   </div>
   <div class="admin-field">
-    <label>画像（複数選択可）</label>
+    <label>画像</label>
     <div class="img-upload-area" id="img-upload-area">
       <div class="img-upload-text">
-        クリックして画像を選択（複数可）<br>
-        または画像をここにドラッグ&ドロップ<br>
-        <span style="font-size:.42rem;color:var(--ink3);margin-top:.3rem;display:block;">1枚目:全体像、2枚目以降:ディテール・別角度</span>
+        クリックして画像を選択<br>
+        または画像をここにドラッグ&ドロップ
       </div>
     </div>
     <input type="file" id="admin-img-file" accept="image/*" multiple>
-    <div id="admin-img-gallery" class="admin-img-gallery"></div>
-    <input type="text" id="admin-img" placeholder="または画像URLを入力（1枚の場合）" style="margin-top:.5rem">
+    <img id="img-preview" class="img-preview" alt="プレビュー">
+    <input type="text" id="admin-img" placeholder="または画像URLを入力">
   </div>
   <div class="admin-field">
     <label>素材</label>
@@ -427,13 +410,9 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <button class="modal-close" id="modal-close">✕ Close</button>
   <div class="modal-inner">
     <div class="modal-img-wrap">
-      <button class="modal-nav-btn prev" id="modal-prev">‹</button>
       <img class="modal-img" id="m-img" src="" alt="">
-      <button class="modal-nav-btn next" id="modal-next">›</button>
-      <div class="modal-img-counter" id="modal-counter">1 / 1</div>
     </div>
     <div class="modal-info">
-      <div id="modal-thumbs" class="modal-thumbs"></div>
       <div class="modal-title" id="m-title"></div>
       <div class="modal-year" id="m-year"></div>
       <div class="modal-row"><span class="modal-lbl">Medium</span><span class="modal-val" id="m-medium"></span></div>
