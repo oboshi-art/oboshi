@@ -191,9 +191,33 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .contact-success{display:none;font-size:.6rem;letter-spacing:.1em;color:var(--accent);padding:.8rem 0;border-top:1px solid var(--border)}
 .contact-success.show{display:block}
 
+/* ===== EXHIBITION CARD ===== */
+.exh-card{background:var(--bg);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.exh-card-poster{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:.4rem}
+.exh-card-poster-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:2rem;margin-bottom:.4rem}
+.exh-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--ink);line-height:1}
+.exh-card-venue{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.exh-card-dates{font-size:.55rem;letter-spacing:.1em;color:var(--ink2);margin-top:.2rem}
+.exh-card-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.8;color:var(--ink2)}
+.exh-card-vernissage{font-size:.5rem;letter-spacing:.12em;color:var(--ink3);border-top:1px solid var(--border);padding-top:.6rem}
+.exh-card.past{opacity:.65}
+.exh-card.past .exh-card-venue{color:var(--ink3)}
+
 /* ===== ADMIN PANEL ===== */
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
+/* ===== EXHIBITION CARD ===== */
+.exh-card{background:var(--bg);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.exh-card-poster{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:.4rem}
+.exh-card-poster-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:2rem;margin-bottom:.4rem}
+.exh-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--ink);line-height:1}
+.exh-card-venue{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.exh-card-dates{font-size:.55rem;letter-spacing:.1em;color:var(--ink2);margin-top:.2rem}
+.exh-card-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.8;color:var(--ink2)}
+.exh-card-vernissage{font-size:.5rem;letter-spacing:.12em;color:var(--ink3);border-top:1px solid var(--border);padding-top:.6rem}
+.exh-card.past{opacity:.65}
+.exh-card.past .exh-card-venue{color:var(--ink3)}
+
 /* ===== ADMIN PANEL ===== */
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
@@ -274,12 +298,12 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <div class="ecosystem">
     <div class="eco-heading">Find OBOSHI — across platforms</div>
     <div class="eco-grid">
-      <div class="eco-card" style="cursor:pointer" id="eco-direct" onclick="showGallery()">
-        <div class="eco-icon">🖼</div>
-        <div class="eco-platform">oboshi.art — This Site</div>
-        <div class="eco-title">Direct from the Artist</div>
-        <div class="eco-role">The primary home for new work. Buy original paintings directly — no middleman, the full purchase goes to supporting the artist's practice in Berlin.</div>
-        <div class="eco-link">You are here ✓</div>
+      <div class="eco-card" style="cursor:pointer" id="eco-exhibitions" onclick="scrollToExhibitions()">
+        <div class="eco-icon">🗓</div>
+        <div class="eco-platform">Exhibitions</div>
+        <div class="eco-title" id="eco-exh-title">Current & Upcoming</div>
+        <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
+        <div class="eco-link">View exhibitions →</div>
       </div>
       <a class="eco-card" href="https://www.youtube.com/@oboshi" target="_blank">
         <div class="eco-icon">▶</div>
@@ -302,6 +326,21 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio exhibition to explore at your own pace, from anywhere in the world.</div>
         <div class="eco-link">Enter 3D Gallery →</div>
       </a>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- ===== EXHIBITIONS SECTION ===== -->
+  <div class="ecosystem" id="exhibitions-section" style="display:none">
+    <div class="eco-heading">Exhibitions</div>
+    <div id="exh-current-wrap">
+      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Current & Upcoming</div>
+      <div id="exh-current-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
+    </div>
+    <div id="exh-past-wrap" style="margin-top:3rem;display:none">
+      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Past Exhibitions</div>
+      <div id="exh-past-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
     </div>
   </div>
 
@@ -448,6 +487,55 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 
   <h3>現在の作品一覧</h3>
   <div id="admin-works-list"></div>
+
+  <h3>展覧会管理</h3>
+  <div style="font-size:.46rem;color:var(--ink3);margin-bottom:.8rem;line-height:1.6">
+    終了した展覧会は「アーカイブ」に移動され、サイトの過去展覧会一覧に残ります。
+  </div>
+
+  <div id="admin-exh-form">
+    <div class="admin-field">
+      <label>展覧会名</label>
+      <input type="text" id="exh-title" placeholder="例: Spring Stories">
+    </div>
+    <div class="admin-field">
+      <label>場所</label>
+      <input type="text" id="exh-venue" placeholder="例: QGallery Berlin">
+    </div>
+    <div class="admin-row">
+      <div class="admin-field">
+        <label>開始日</label>
+        <input type="text" id="exh-start" placeholder="例: 20.03.2026">
+      </div>
+      <div class="admin-field">
+        <label>終了日</label>
+        <input type="text" id="exh-end" placeholder="例: 14.04.2026">
+      </div>
+    </div>
+    <div class="admin-field">
+      <label>ヴェルニサージュ（任意）</label>
+      <input type="text" id="exh-vernissage" placeholder="例: 19.03.2026 / 19:00 Uhr">
+    </div>
+    <div class="admin-field">
+      <label>詳細テキスト（任意）</label>
+      <textarea id="exh-desc" placeholder="展覧会の説明..."></textarea>
+    </div>
+    <div class="admin-field">
+      <label>ポスター画像URL（任意）</label>
+      <div style="display:flex;gap:.4rem">
+        <input type="text" id="exh-poster" placeholder="例: images/spring-stories-poster.jpg" style="flex:1">
+      </div>
+    </div>
+    <div class="admin-field">
+      <label>ギャラリーウェブサイトURL（任意）</label>
+      <input type="text" id="exh-url" placeholder="例: https://qgallery-berlin.de/...">
+    </div>
+    <button class="btn-admin" id="exh-save">展覧会を追加</button>
+    <button class="btn-admin secondary" id="exh-cancel" style="display:none">キャンセル</button>
+    <div class="admin-msg" id="exh-msg">✓ 保存しました</div>
+  </div>
+
+  <div id="admin-exh-list" style="margin-top:.8rem"></div>
 
   <h3>データエクスポート</h3>
   <button class="btn-admin" id="admin-download-html" style="background:#28a745;margin-bottom:0.4rem">⬇️ index.html をダウンロード</button>
@@ -1841,7 +1929,11 @@ function downloadIndexHtml() {
         return;
       }
 
-      const updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
+      // 展覧会データも埋め込む
+      const exhMarker = 'let exhibitions = [];';
+      const exhJson = JSON.stringify(exhibitions);
+      let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
+      updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
 
       const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -1940,6 +2032,193 @@ async function submitContactForm(e) {
 }
 
 // ============================================
+// ===== EXHIBITIONS =====
+let exhibitions = [];
+let editingExhIndex = -1;
+
+function loadExhibitions() {
+  try {
+    const saved = localStorage.getItem('oboshi_exhibitions');
+    if (saved) {
+      exhibitions = JSON.parse(saved);
+    }
+  } catch(e) {}
+}
+
+function saveExhibitions() {
+  localStorage.setItem('oboshi_exhibitions', JSON.stringify(exhibitions));
+}
+
+function scrollToExhibitions() {
+  const sec = document.getElementById('exhibitions-section');
+  if (exhibitions.length === 0) return;
+  sec.style.display = 'block';
+  setTimeout(() => sec.scrollIntoView({behavior:'smooth'}), 80);
+}
+
+function buildExhibitions() {
+  const sec = document.getElementById('exhibitions-section');
+  const currentList = document.getElementById('exh-current-list');
+  const pastList = document.getElementById('exh-past-list');
+  const pastWrap = document.getElementById('exh-past-wrap');
+  const ecoTitle = document.getElementById('eco-exh-title');
+  const ecoPreview = document.getElementById('eco-exh-preview');
+
+  const current = exhibitions.filter(e => !e.archived);
+  const past = exhibitions.filter(e => e.archived);
+
+  if (exhibitions.length === 0) {
+    sec.style.display = 'none';
+    ecoTitle.textContent = 'Current & Upcoming';
+    ecoPreview.textContent = 'Group and solo exhibitions — Berlin and beyond.';
+    return;
+  }
+
+  sec.style.display = 'block';
+
+  // エコカードのプレビューを更新
+  if (current.length > 0) {
+    ecoTitle.textContent = current[0].title;
+    ecoPreview.textContent = current[0].venue + ' · ' + current[0].start + (current[0].end ? ' – ' + current[0].end : '');
+  } else {
+    ecoTitle.textContent = 'Past Exhibitions';
+    ecoPreview.textContent = past.length + ' exhibitions';
+  }
+
+  currentList.innerHTML = current.map(e => renderExhCard(e, false)).join('');
+  pastList.innerHTML = past.map(e => renderExhCard(e, true)).join('');
+  pastWrap.style.display = past.length > 0 ? 'block' : 'none';
+}
+
+function renderExhCard(e, isPast) {
+  const poster = e.poster
+    ? `<img class="exh-card-poster" src="${e.poster}" alt="${e.title}" loading="lazy">`
+    : `<div class="exh-card-poster-placeholder">🗓</div>`;
+  const dates = e.start + (e.end ? ' – ' + e.end : '');
+  const vernissage = e.vernissage ? `<div class="exh-card-vernissage">Vernissage: ${e.vernissage}</div>` : '';
+  const desc = e.desc ? `<div class="exh-card-desc">${e.desc}</div>` : '';
+  const archiveLabel = isPast ? '<span style="font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)">— Archive</span>' : '';
+  const galleryLink = e.url ? `<a href="${e.url}" target="_blank" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">View Gallery Website →</a>` : '';
+  return `
+    <div class="exh-card${isPast ? ' past' : ''}">
+      ${poster}
+      <div class="exh-card-name">${e.title} ${archiveLabel}</div>
+      <div class="exh-card-venue">${e.venue}</div>
+      <div class="exh-card-dates">${dates}</div>
+      ${vernissage}
+      ${desc}
+      ${galleryLink}
+    </div>
+  `;
+}
+
+function updateAdminExhList() {
+  const list = document.getElementById('admin-exh-list');
+  if (exhibitions.length === 0) {
+    list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem">展覧会はまだありません</div>';
+    return;
+  }
+  list.innerHTML = exhibitions.map((e, i) => `
+    <div class="work-item">
+      <div class="work-item-title">${e.title}</div>
+      <div class="work-item-meta">${e.venue} · ${e.start}${e.end ? ' – ' + e.end : ''}</div>
+      ${e.archived ? '<div class="work-item-sold">アーカイブ済み</div>' : ''}
+      <div class="work-item-actions">
+        <button class="btn-edit" onclick="editExh(${i})">編集</button>
+        ${!e.archived ? `<button class="btn-edit" style="background:var(--gold)" onclick="archiveExh(${i})">終了→アーカイブ</button>` : ''}
+        <button class="btn-delete" onclick="deleteExh(${i})">削除</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function editExh(i) {
+  editingExhIndex = i;
+  const e = exhibitions[i];
+  document.getElementById('exh-title').value = e.title;
+  document.getElementById('exh-venue').value = e.venue;
+  document.getElementById('exh-start').value = e.start;
+  document.getElementById('exh-end').value = e.end || '';
+  document.getElementById('exh-vernissage').value = e.vernissage || '';
+  document.getElementById('exh-desc').value = e.desc || '';
+  document.getElementById('exh-poster').value = e.poster || '';
+  document.getElementById('exh-url').value = e.url || '';
+  document.getElementById('exh-save').textContent = '更新';
+  document.getElementById('exh-cancel').style.display = 'block';
+}
+
+function archiveExh(i) {
+  if (confirm(`「${exhibitions[i].title}」をアーカイブ（過去の展覧会）に移動しますか？`)) {
+    exhibitions[i].archived = true;
+    saveExhibitions();
+    buildExhibitions();
+    updateAdminExhList();
+  }
+}
+
+function deleteExh(i) {
+  if (confirm(`「${exhibitions[i].title}」を完全に削除しますか？`)) {
+    exhibitions.splice(i, 1);
+    saveExhibitions();
+    buildExhibitions();
+    updateAdminExhList();
+  }
+}
+
+function resetExhForm() {
+  editingExhIndex = -1;
+  document.getElementById('exh-title').value = '';
+  document.getElementById('exh-venue').value = '';
+  document.getElementById('exh-start').value = '';
+  document.getElementById('exh-end').value = '';
+  document.getElementById('exh-vernissage').value = '';
+  document.getElementById('exh-desc').value = '';
+  document.getElementById('exh-poster').value = '';
+  document.getElementById('exh-url').value = '';
+  document.getElementById('exh-save').textContent = '展覧会を追加';
+  document.getElementById('exh-cancel').style.display = 'none';
+}
+
+document.getElementById('exh-save').addEventListener('click', () => {
+  const title = document.getElementById('exh-title').value.trim();
+  const venue = document.getElementById('exh-venue').value.trim();
+  const start = document.getElementById('exh-start').value.trim();
+  if (!title || !venue || !start) {
+    alert('展覧会名・場所・開始日は必須です');
+    return;
+  }
+  const exh = {
+    title,
+    venue,
+    start,
+    end: document.getElementById('exh-end').value.trim(),
+    vernissage: document.getElementById('exh-vernissage').value.trim(),
+    desc: document.getElementById('exh-desc').value.trim(),
+    poster: document.getElementById('exh-poster').value.trim(),
+    url: document.getElementById('exh-url').value.trim(),
+    archived: editingExhIndex >= 0 ? exhibitions[editingExhIndex].archived : false
+  };
+  if (editingExhIndex >= 0) {
+    exhibitions[editingExhIndex] = exh;
+  } else {
+    exhibitions.push(exh);
+  }
+  saveExhibitions();
+  buildExhibitions();
+  updateAdminExhList();
+  resetExhForm();
+  const msg = document.getElementById('exh-msg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 2500);
+});
+
+document.getElementById('exh-cancel').addEventListener('click', resetExhForm);
+
+// 初期化
+loadExhibitions();
+buildExhibitions();
+updateAdminExhList();
+
 // キャッシュバスティング - 画像更新を強制表示
 // ============================================
 (function() {
