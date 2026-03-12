@@ -1930,7 +1930,7 @@ function downloadIndexHtml() {
       }
 
       // 展覧会データも埋め込む
-      const exhMarker = 'let exhibitions = [];';
+      const exhMarker = 'let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false}];';
       const exhJson = JSON.stringify(exhibitions);
       let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
       updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
