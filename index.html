@@ -181,6 +181,14 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
 }
 
+/* ===== WORK REORDER DRAG & DROP ===== */
+.work-item{cursor:grab;user-select:none;transition:background .15s,box-shadow .15s,transform .15s}
+.work-item.dragging{opacity:.4;cursor:grabbing}
+.work-item.drag-over{box-shadow:0 -3px 0 0 var(--accent);background:rgba(184,74,36,.05)}
+.work-item-drag-handle{display:inline-flex;align-items:center;color:var(--ink3);font-size:.85rem;margin-right:.5rem;cursor:grab;flex-shrink:0}
+.reorder-hint{font-size:.44rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:.6rem;padding:.5rem .7rem;background:var(--bg2);border:1px solid var(--border);line-height:1.6}
+.reorder-saved{font-size:.46rem;letter-spacing:.1em;color:#4caf50;display:none;padding:.3rem 0}
+
 /* ===== CONTACT FORM ===== */
 .contact-form{margin-top:2rem;display:flex;flex-direction:column;gap:.8rem}
 .contact-form input,.contact-form textarea{width:100%;padding:.75rem 1rem;border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;background:var(--bg2);color:var(--ink);outline:none;transition:border .2s;box-sizing:border-box;letter-spacing:.05em}
@@ -2082,20 +2090,75 @@ document.getElementById('admin-clear-storage').addEventListener('click', () => {
 // リセットボタン
 document.getElementById('admin-reset').addEventListener('click', resetToDefault);
 
-// 作品一覧の更新
+// 作品一覧の更新（ドラッグ&ドロップ並び替え対応）
 function updateWorksList() {
   const list = document.getElementById('admin-works-list');
-  list.innerHTML = works.map((w, i) => `
-    <div class="work-item">
-      <div class="work-item-title">${i + 1}. ${w.title}</div>
-      <div class="work-item-meta">${w.year} · ${w.price}</div>
-      ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+  list.innerHTML = `
+    <div class="reorder-hint">⠿ ドラッグして作品の表示順を変更できます</div>
+    <div id="reorder-saved" class="reorder-saved">✓ 並び順を保存しました</div>
+  ` + works.map((w, i) => `
+    <div class="work-item" draggable="true" data-index="${i}">
+      <div style="display:flex;align-items:center">
+        <span class="work-item-drag-handle" title="ドラッグして並び替え">⠿</span>
+        <div>
+          <div class="work-item-title">${i + 1}. ${w.title}</div>
+          <div class="work-item-meta">${w.year} · ${w.price}</div>
+          ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+        </div>
+      </div>
       <div class="work-item-actions">
         <button class="btn-edit" onclick="editWork(${i})">編集</button>
         <button class="btn-delete" onclick="deleteWork(${i})">削除</button>
       </div>
     </div>
   `).join('');
+  
+  // ドラッグ&ドロップのイベント設定
+  initWorksReorder();
+}
+
+function initWorksReorder() {
+  const items = document.querySelectorAll('#admin-works-list .work-item');
+  let dragSrcIndex = null;
+  
+  items.forEach(item => {
+    item.addEventListener('dragstart', (e) => {
+      dragSrcIndex = parseInt(item.dataset.index);
+      item.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    item.addEventListener('dragend', () => {
+      item.classList.remove('dragging');
+      document.querySelectorAll('#admin-works-list .work-item').forEach(i => i.classList.remove('drag-over'));
+    });
+    item.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('#admin-works-list .work-item').forEach(i => i.classList.remove('drag-over'));
+      item.classList.add('drag-over');
+    });
+    item.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const dropIndex = parseInt(item.dataset.index);
+      if (dragSrcIndex === null || dragSrcIndex === dropIndex) return;
+      
+      // 配列を並び替え
+      const moved = works.splice(dragSrcIndex, 1)[0];
+      works.splice(dropIndex, 0, moved);
+      
+      // UI更新
+      buildPreview();
+      buildGrid();
+      updateWorksList();
+      saveWorks();
+      
+      // 保存メッセージ表示
+      const saved = document.getElementById('reorder-saved');
+      if (saved) {
+        saved.style.display = 'block';
+        setTimeout(() => { saved.style.display = 'none'; }, 2000);
+      }
+    });
+  });
 }
 
 // Contact form with Formspree
