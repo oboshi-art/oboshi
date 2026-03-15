@@ -405,6 +405,20 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 <!-- Admin Panel Toggle Button -->
 <button id="admin-toggle">⚙️</button>
 
+<!-- Password Modal -->
+<div id="pw-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);align-items:center;justify-content:center">
+  <div style="background:#fff;padding:2rem;width:320px;border:1px solid var(--border);font-family:'DM Mono',monospace">
+    <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem;color:var(--ink)">管理パネル — パスワード</div>
+    <input type="password" id="pw-input" placeholder="パスワードを入力"
+      style="width:100%;padding:.7rem .9rem;border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;background:var(--bg2);color:var(--ink);outline:none;box-sizing:border-box;margin-bottom:.6rem">
+    <div id="pw-error" style="display:none;font-size:.5rem;color:var(--accent);margin-bottom:.6rem;letter-spacing:.1em">✕ パスワードが違います</div>
+    <div style="display:flex;gap:.5rem">
+      <button id="pw-ok" style="flex:1;padding:.7rem;background:var(--ink);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer">開く</button>
+      <button id="pw-cancel" style="flex:1;padding:.7rem;background:var(--bg2);color:var(--ink);border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer">キャンセル</button>
+    </div>
+  </div>
+</div>
+
 <!-- Admin Panel -->
 <div id="admin-panel">
   <button class="admin-close" id="admin-close">×</button>
@@ -1797,15 +1811,38 @@ function setupImageReordering() {
   });
 }
 
-// パネルの開閉（パスワード保護付き）
+// パネルの開閉（カスタムパスワードモーダル）
+const pwModal = document.getElementById('pw-modal');
+const pwInput = document.getElementById('pw-input');
+const pwError = document.getElementById('pw-error');
+
 adminToggle.addEventListener('click', () => {
-  const password = prompt('管理パネルのパスワードを入力してください：');
-  if (password === ADMIN_PASSWORD) {
+  pwModal.style.display = 'flex';
+  pwInput.value = '';
+  pwError.style.display = 'none';
+  setTimeout(() => pwInput.focus(), 50);
+});
+
+function tryPassword() {
+  if (pwInput.value === ADMIN_PASSWORD) {
+    pwModal.style.display = 'none';
     adminPanel.classList.add('open');
     updateWorksList();
-  } else if (password !== null) {
-    alert('パスワードが正しくありません');
+    updateAdminExhList();
+  } else {
+    pwError.style.display = 'block';
+    pwInput.value = '';
+    pwInput.focus();
   }
+}
+
+document.getElementById('pw-ok').addEventListener('click', tryPassword);
+document.getElementById('pw-cancel').addEventListener('click', () => {
+  pwModal.style.display = 'none';
+});
+pwInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') tryPassword();
+  if (e.key === 'Escape') { pwModal.style.display = 'none'; }
 });
 
 adminClose.addEventListener('click', () => {
