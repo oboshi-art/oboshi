@@ -182,6 +182,14 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
 }
 
+/* ===== WORK REORDER DRAG & DROP ===== */
+.work-item{cursor:grab;user-select:none;transition:background .15s,box-shadow .15s,transform .15s}
+.work-item.dragging{opacity:.4;cursor:grabbing}
+.work-item.drag-over{box-shadow:0 -3px 0 0 var(--accent);background:rgba(184,74,36,.05)}
+.work-item-drag-handle{display:inline-flex;align-items:center;color:var(--ink3);font-size:.85rem;margin-right:.5rem;cursor:grab;flex-shrink:0}
+.reorder-hint{font-size:.44rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:.6rem;padding:.5rem .7rem;background:var(--bg2);border:1px solid var(--border);line-height:1.6}
+.reorder-saved{font-size:.46rem;letter-spacing:.1em;color:#4caf50;display:none;padding:.3rem 0}
+
 /* ===== CONTACT FORM ===== */
 .contact-form{margin-top:2rem;display:flex;flex-direction:column;gap:.8rem}
 .contact-form input,.contact-form textarea{width:100%;padding:.75rem 1rem;border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;background:var(--bg2);color:var(--ink);outline:none;transition:border .2s;box-sizing:border-box;letter-spacing:.05em}
@@ -192,9 +200,33 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .contact-success{display:none;font-size:.6rem;letter-spacing:.1em;color:var(--accent);padding:.8rem 0;border-top:1px solid var(--border)}
 .contact-success.show{display:block}
 
+/* ===== EXHIBITION CARD ===== */
+.exh-card{background:var(--bg);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.exh-card-poster{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:.4rem}
+.exh-card-poster-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:2rem;margin-bottom:.4rem}
+.exh-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--ink);line-height:1}
+.exh-card-venue{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.exh-card-dates{font-size:.55rem;letter-spacing:.1em;color:var(--ink2);margin-top:.2rem}
+.exh-card-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.8;color:var(--ink2)}
+.exh-card-vernissage{font-size:.5rem;letter-spacing:.12em;color:var(--ink3);border-top:1px solid var(--border);padding-top:.6rem}
+.exh-card.past{opacity:.65}
+.exh-card.past .exh-card-venue{color:var(--ink3)}
+
 /* ===== ADMIN PANEL ===== */
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
+/* ===== EXHIBITION CARD ===== */
+.exh-card{background:var(--bg);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.exh-card-poster{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:.4rem}
+.exh-card-poster-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:2rem;margin-bottom:.4rem}
+.exh-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--ink);line-height:1}
+.exh-card-venue{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.exh-card-dates{font-size:.55rem;letter-spacing:.1em;color:var(--ink2);margin-top:.2rem}
+.exh-card-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.8;color:var(--ink2)}
+.exh-card-vernissage{font-size:.5rem;letter-spacing:.12em;color:var(--ink3);border-top:1px solid var(--border);padding-top:.6rem}
+.exh-card.past{opacity:.65}
+.exh-card.past .exh-card-venue{color:var(--ink3)}
+
 /* ===== ADMIN PANEL ===== */
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
@@ -275,12 +307,12 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <div class="ecosystem">
     <div class="eco-heading">Find OBOSHI — across platforms</div>
     <div class="eco-grid">
-      <div class="eco-card" style="cursor:pointer" id="eco-direct" onclick="showGallery()">
-        <div class="eco-icon">🖼</div>
-        <div class="eco-platform">oboshi.art — This Site</div>
-        <div class="eco-title">Direct from the Artist</div>
-        <div class="eco-role">The primary home for new work. Buy original paintings directly — no middleman, the full purchase goes to supporting the artist's practice in Berlin.</div>
-        <div class="eco-link">You are here ✓</div>
+      <div class="eco-card" style="cursor:pointer" id="eco-exhibitions" onclick="scrollToExhibitions()">
+        <div class="eco-icon">🗓</div>
+        <div class="eco-platform">Exhibitions</div>
+        <div class="eco-title" id="eco-exh-title">Current & Upcoming</div>
+        <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
+        <div class="eco-link">View exhibitions →</div>
       </div>
       <a class="eco-card" href="https://www.youtube.com/@oboshi" target="_blank">
         <div class="eco-icon">▶</div>
@@ -303,6 +335,21 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio exhibition to explore at your own pace, from anywhere in the world.</div>
         <div class="eco-link">Enter 3D Gallery →</div>
       </a>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- ===== EXHIBITIONS SECTION ===== -->
+  <div class="ecosystem" id="exhibitions-section" style="display:none">
+    <div class="eco-heading">Exhibitions</div>
+    <div id="exh-current-wrap">
+      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Current & Upcoming</div>
+      <div id="exh-current-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
+    </div>
+    <div id="exh-past-wrap" style="margin-top:3rem;display:none">
+      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Past Exhibitions</div>
+      <div id="exh-past-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
     </div>
   </div>
 
@@ -402,6 +449,11 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <button type="button" id="admin-img-add-url" style="background:var(--ink);color:#fff;border:none;padding:.4rem .8rem;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;cursor:pointer;white-space:nowrap">+ 追加</button>
     </div>
     <div style="font-size:.44rem;color:var(--ink3);margin-top:.3rem;line-height:1.6">URLを入力して「+ 追加」→ 複数URLを追加できます</div>
+    <button type="button" id="admin-browse-github" style="width:100%;margin-top:.5rem;padding:.6rem;background:#24292e;color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;cursor:pointer;text-transform:uppercase;transition:background .2s">🖼 GitHubの画像一覧から選ぶ</button>
+    <div id="github-img-browser" style="display:none;margin-top:.5rem;border:1px solid var(--border);background:var(--bg2);max-height:260px;overflow-y:auto;padding:.5rem">
+      <div style="font-size:.46rem;color:var(--ink3);margin-bottom:.5rem;letter-spacing:.1em">クリックで選択 · 複数選択可</div>
+      <div id="github-img-list" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem"></div>
+    </div>
   </div>
   <div class="admin-field">
     <label>素材</label>
@@ -444,6 +496,55 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 
   <h3>現在の作品一覧</h3>
   <div id="admin-works-list"></div>
+
+  <h3>展覧会管理</h3>
+  <div style="font-size:.46rem;color:var(--ink3);margin-bottom:.8rem;line-height:1.6">
+    終了した展覧会は「アーカイブ」に移動され、サイトの過去展覧会一覧に残ります。
+  </div>
+
+  <div id="admin-exh-form">
+    <div class="admin-field">
+      <label>展覧会名</label>
+      <input type="text" id="exh-title" placeholder="例: Spring Stories">
+    </div>
+    <div class="admin-field">
+      <label>場所</label>
+      <input type="text" id="exh-venue" placeholder="例: QGallery Berlin">
+    </div>
+    <div class="admin-row">
+      <div class="admin-field">
+        <label>開始日</label>
+        <input type="text" id="exh-start" placeholder="例: 20.03.2026">
+      </div>
+      <div class="admin-field">
+        <label>終了日</label>
+        <input type="text" id="exh-end" placeholder="例: 14.04.2026">
+      </div>
+    </div>
+    <div class="admin-field">
+      <label>ヴェルニサージュ（任意）</label>
+      <input type="text" id="exh-vernissage" placeholder="例: 19.03.2026 / 19:00 Uhr">
+    </div>
+    <div class="admin-field">
+      <label>詳細テキスト（任意）</label>
+      <textarea id="exh-desc" placeholder="展覧会の説明..."></textarea>
+    </div>
+    <div class="admin-field">
+      <label>ポスター画像URL（任意）</label>
+      <div style="display:flex;gap:.4rem">
+        <input type="text" id="exh-poster" placeholder="例: images/spring-stories-poster.jpg" style="flex:1">
+      </div>
+    </div>
+    <div class="admin-field">
+      <label>ギャラリーウェブサイトURL（任意）</label>
+      <input type="text" id="exh-url" placeholder="例: https://qgallery-berlin.de/...">
+    </div>
+    <button class="btn-admin" id="exh-save">展覧会を追加</button>
+    <button class="btn-admin secondary" id="exh-cancel" style="display:none">キャンセル</button>
+    <div class="admin-msg" id="exh-msg">✓ 保存しました</div>
+  </div>
+
+  <div id="admin-exh-list" style="margin-top:.8rem"></div>
 
   <h3>データエクスポート</h3>
   <button class="btn-admin" id="admin-download-html" style="background:#28a745;margin-bottom:0.4rem">⬇️ index.html をダウンロード</button>
@@ -538,14 +639,32 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 // Image paths — place all image files in the same folder as this HTML file
 const works = [
   {
+    "title": "Die Verbindung",
+    "year": "2004",
+    "price": "0",
+    "priceNum": 0,
+    "img": "images/verbinbung web.jpg",
+    "images": [
+      "images/verbinbung web.jpg"
+    ],
+    "medium": "Oil on canvas",
+    "size": "350x750 cm",
+    "desc": "This work consists of twenty‑six small paintings.\nEach piece stands as an independent artwork, yet together they form one large image.\nIn this project, the small paintings that compose the larger image are exhibited separately across twenty‑five EU countries and Japan — twenty‑six locations in total.\nThe wishes and intentions embedded in each piece connect across distance and reunite into a single image, giving rise to a larger message.\nBy placing the works in different places, the project fosters a sense of connection, community, and calm. Through this, I hope to deepen the cultural understanding between Japan and Europe.",
+    "sold": true,
+    "anasaeaLink": null,
+    "stripeLink": null,
+    "digitalStripeLink": null,
+    "downloadLink": "https://drive.google.com/file/d/1ogJKV7Sgbbv1fv6D6ZpWe_bsvI5f81hD/view?usp=drive_link"
+  },
+  {
     "title": "Brim Over",
     "year": "2026",
     "price": "€2,100",
     "priceNum": 2100,
     "img": "images/brim-over-web.jpg",
     "images": [
-      "images/brim-over-web.jpg",
-      "images/placeholder.jpg"
+      "images/IMG_20260225_1555119101.jpg",
+      "images/IMG_20250926_134227029.jpg"
     ],
     "medium": "Acrylic on Canvas",
     "size": "65x80 cm",
@@ -557,46 +676,58 @@ const works = [
     "downloadLink": null
   },
   {
-    "img": "images/in-a-dream-web.jpg",
     "title": "In a Dream",
     "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€2,900",
     "priceNum": 2900,
+    "img": "images/in-a-dream-web.jpg",
+    "images": [
+      "images/in-a-dream-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "70x100 cm",
     "desc": "Suspended between waking and sleep — forms dissolve and reconstitute themselves in layered hues, evoking the logic of the dreaming mind.",
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/685011e78a9f4b1f0cd2c0a6",
     "stripeLink": "https://buy.stripe.com/7sY9AT8UlgXjclj0ZQ9ws01",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
-    "img": "images/Fragments-of-Thought-,Gedankenfragmente,想いの断片-web.jpg",
     "title": "Fragments of Thought",
     "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€2,900",
     "priceNum": 2900,
+    "img": "images/Fragments-of-Thought-,Gedankenfragmente,想いの断片-web.jpg",
+    "images": [
+      "images/Fragments-of-Thought-,Gedankenfragmente,想いの断片-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "70x100 cm",
     "desc": "Thought arrives in pieces — partial images, interrupted lines, colour that remembers what language cannot hold.",
     "sold": false,
-    "anasaeaLink": "",
+    "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/aFa5kDc6x7mJ1GF37Y9ws02",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
-    "img": "images/Harboring-Tangled-Currents-web.jpg",
     "title": "Harboring Tangled Currents",
     "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€700",
     "priceNum": 700,
+    "img": "images/Harboring-Tangled-Currents-web.jpg",
+    "images": [
+      "images/Harboring-Tangled-Currents-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
     "desc": "A harbour of complexity — currents crossing and tangling beneath a surface that appears still. Tension held with grace.",
     "sold": false,
-    "anasaeaLink": "",
+    "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/fZueVd9Yp0YladbdMC9ws03",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
     "img": "images/Escape-turned-out-to-be-a-dream-40x50-web.jpg",
@@ -627,18 +758,22 @@ const works = [
     "images": []
   },
   {
-    "img": "images/Fragments-of-the-Night-When-the-Answer-Was-Found-web.jpg",
     "title": "Fragments of the Night When the Answer Was Found",
     "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€900",
     "priceNum": 900,
+    "img": "images/Fragments-of-the-Night-When-the-Answer-Was-Found-web.jpg",
+    "images": [
+      "images/Fragments-of-the-Night-When-the-Answer-Was-Found-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40x50 cm",
     "desc": "Night as a place of revelation — fragments of darkness carrying unexpected light. An answer arrived not as certainty, but as recognition.",
     "sold": false,
-    "anasaeaLink": "",
+    "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/14A14nc6xfTf2KJ23U9ws06",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
     "img": "images/A Calculation to Find Something Sought 40x50 jpeg.jpg",
@@ -683,38 +818,6 @@ const works = [
     "images": []
   },
   {
-    "img": "images/A-Walk-in-Mind-散歩の気分-web.jpg",
-    "title": "A Walk in Mind",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€550",
-    "priceNum": 550,
-    "desc": "Walking not through space but through thought — a meandering path of associations, memories, and quiet observations.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/bJe28rdaBePb70Z6ka9ws0a",
-    "images": []
-  },
-  {
-    "title": "An Answer Close to 'For Example'",
-    "year": "2025",
-    "price": "€900",
-    "priceNum": 900,
-    "img": "images/An-Answer-Close-to-'For-Example'-例えばに寄り添う答え-40x50-web.jpg",
-    "images": [
-      "images/placeholder.jpg"
-    ],
-    "medium": "Acrylic on Canvas",
-    "size": "40×50 cm",
-    "desc": "Not a definitive answer but an approximation — the kind of truth that gestures rather than declares.",
-    "sold": false,
-    "anasaeaLink": null,
-    "stripeLink": "https://buy.stripe.com/28E28r6MddL7dpn6ka9ws0b",
-    "digitalStripeLink": null,
-    "downloadLink": null
-  },
-  {
     "img": "images/kousaku20-web.jpg",
     "title": "Kousaku 20",
     "year": "2026",
@@ -743,18 +846,22 @@ const works = [
     "images": []
   },
   {
-    "img": "images/Daily-2-Within-the-Time-of-the-Sky-天空の時間の中-web.jpg",
     "title": "Within the Time of the Sky",
     "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€1,700",
     "priceNum": 1700,
+    "img": "images/Daily-2-Within-the-Time-of-the-Sky-天空の時間の中-web.jpg",
+    "images": [
+      "images/Daily-2-Within-the-Time-of-the-Sky-天空の時間の中-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40x60 cm",
     "desc": "Sky as duration, not backdrop — a painting that asks us to inhabit time rather than observe it.",
     "sold": false,
-    "anasaeaLink": "",
+    "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/28E4gzdaBePb0CBeQG9ws0e",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
     "img": "images/Daily-6-Stairs-of-Thrill-スリルの階段-40x60-web.jpg",
@@ -799,18 +906,22 @@ const works = [
     "images": []
   },
   {
-    "img": "images/daily-painting-3-web.jpg",
     "title": "Daily painting 3",
     "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€600",
     "priceNum": 600,
+    "img": "images/daily-painting-3-web.jpg",
+    "images": [
+      "images/daily-painting-3-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
     "desc": "The third daily painting — proof of continued practice, of showing up again, of the studio as sanctuary.",
     "sold": false,
-    "anasaeaLink": "",
+    "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/bJe8wPc6xcH3cljaAq9ws0j",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
     "img": "images/enjoy-web.jpg",
@@ -827,228 +938,58 @@ const works = [
     "images": []
   },
   {
-    "img": "images/Preparing-to-Make-a-Decision-web.jpg",
     "title": "Preparing to Make a Decision",
     "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
     "price": "€1,900",
     "priceNum": 1900,
+    "img": "images/Preparing-to-Make-a-Decision-web.jpg",
+    "images": [
+      "images/Preparing-to-Make-a-Decision-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50x70 cm",
     "desc": "Poised at the threshold — forms gather and pause before committing to direction. A painting about the charged stillness before action.",
     "sold": false,
-    "anasaeaLink": "",
+    "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/fZu4gz4E50Yl8530ZQ9ws0m",
-    "images": []
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
-    "img": "images/Black-Abstraction1　70x50-web.jpg",
-    "title": "Black Abstraction 1",
+    "title": "Shake",
     "year": "2025",
+    "price": "€2,900",
+    "priceNum": 2900,
+    "img": "images/shake-web.jpg",
+    "images": [
+      "images/shake-web.jpg"
+    ],
     "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€1,700",
-    "priceNum": 1700,
-    "desc": "The first of the Black Abstraction series — a foundational work exploring depth, restraint, and the space between forms.",
+    "size": "70x100 cm",
+    "desc": "Vibration made visible. The canvas trembles with overlapping gestures — a record of the body moving through space, of energy passing through matter.",
     "sold": false,
-    "anasaeaLink": "https://anasaea.com/viewArtPiece/mXfmgnKFJPCKCmGy3",
-    "stripeLink": "https://buy.stripe.com/7sY9ATgmN8qN4SR37Y9ws0n",
-    "images": []
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/685012578a9f4b1f0cd2c150",
+    "stripeLink": "https://buy.stripe.com/3cIbJ1gmNgXjgBz5g69ws0y",
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
-    "img": "images/Daily-4.web.jpg",
-    "title": "Daily 4",
-    "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€1,700",
-    "priceNum": 1700,
-    "desc": "The fourth in a series of daily paintings — each one a single sitting, a single mood, a single conversation between hand and canvas.",
-    "sold": false,
-    "anasaeaLink": "https://anasaea.com/viewArtPiece/69zqMCBGan7smnXb9",
-    "stripeLink": "https://buy.stripe.com/3cI4gzeeF4axbhfbEu9ws0k",
-    "images": []
-  },
-  {
-    "img": "images/selection-web.jpg",
-    "title": "Selection",
-    "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "50×70 cm",
-    "price": "€1,700",
-    "priceNum": 1700,
-    "desc": "Every mark a choice — every colour a commitment. This work is about the act of selection itself, the quiet authority of the artist's hand.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/aFadR98Ul9uR0CB0ZQ9ws0q",
-    "images": []
-  },
-  {
-    "img": "images/black-abstraction-0-web.jpg",
-    "title": "Black Abstraction 0",
-    "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€1,900",
-    "priceNum": 1900,
-    "desc": "The origin of the Black Abstraction series. Dark grounds carry luminous traces — light emerging from within, not imposed from without.",
-    "sold": false,
-    "anasaeaLink": "https://anasaea.com/viewArtPiece/jejZQNC5aCuacui9D",
-    "stripeLink": "https://buy.stripe.com/bJe5kD2vX5eBbhfcIy9ws0o",
-    "images": []
-  },
-  {
-    "img": "images/White-Abstraction-2-50x70-web.jpg",
-    "title": "White Abstraction 2",
+    "title": "A Walk in Mind",
     "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "50×70 cm",
-    "price": "€1,700",
-    "priceNum": 1700,
-    "desc": "White as substance, not absence. The second White Abstraction explores silence, surface, and the texture of emptiness.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/aFa9ATc6x7mJbhf6ka9ws0p",
-    "images": []
-  },
-  {
-    "img": "images/daily-painting-2-web.jpg",
-    "title": "Daily Painting 2",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€600",
-    "priceNum": 600,
-    "desc": "The second daily painting — small, immediate, alive. Made in a single session, carrying the full atmosphere of that day.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/14AaEXc6x7mJetr8si9ws0i",
-    "images": []
-  },
-  {
-    "img": "images/Lunch-Break-Amid-Inner-Conflict-web.jpg",
-    "title": "Lunch Break Amid Inner Conflict",
-    "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€700",
-    "priceNum": 700,
-    "desc": "A pause in the middle of things — the ordinary moment interrupted by something unresolved beneath the surface.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/eVqeVd1rT0Yl3ONeQG9ws0r",
-    "images": []
-  },
-  {
-    "img": "images/lifestyle-web.jpg",
-    "title": "Lifestyle",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€600",
-    "priceNum": 600,
-    "desc": "The aesthetic of everyday life examined — how we arrange our hours, our objects, our attention.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/4gMbJ13A16iFdpnaAq9ws0s",
-    "images": []
-  },
-  {
-    "img": "images/Structures-to-Control--コントロールするための構造-40x50-web.jpg",
-    "title": "Structures to Control",
-    "year": "2025",
-    "medium": "Acrylic on Canvas",
-    "size": "40×50 cm",
-    "price": "€900",
-    "priceNum": 900,
-    "desc": "The architecture of control — how we build systems to contain what cannot be contained.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/7sY8wPeeFfTfetraAq9ws0t",
-    "images": []
-  },
-  {
-    "img": "images/encounter-web.jpg",
-    "title": "Encounter",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€600",
-    "priceNum": 600,
-    "desc": "Two presences, two fields of colour — drawn together by some quiet gravity. An encounter without narrative, only atmosphere.",
-    "sold": false,
-    "anasaeaLink": "https://anasaea.com/viewArtPiece/frguMakwxeZrynBxZ",
-    "stripeLink": "https://buy.stripe.com/7sY6oH9Yp5eB853bEu9ws0u",
-    "images": []
-  },
-  {
-    "img": "images/just-a-matter-of-time-web.jpg",
-    "title": "Just a matter of time",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€600",
-    "priceNum": 600,
-    "desc": "Patience as a subject — the certainty that things unfold in their own time, regardless of our wanting otherwise.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/28EfZhfiJ8qN0CB23U9ws0v",
-    "images": []
-  },
-  {
-    "img": "images/The-Mood-for-Shopping　買い物の気分-30x40cm.-web.jpg",
-    "title": "The Mood for Shopping",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "30×40 cm",
     "price": "€550",
     "priceNum": 550,
-    "desc": "Consumer desire rendered in paint — the restless energy of wanting, browsing, almost buying.",
+    "img": "images/A-Walk-in-Mind-散歩の気分-web.jpg",
+    "images": [
+      "images/A-Walk-in-Mind-散歩の気分-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Walking not through space but through thought — a meandering path of associations, memories, and quiet observations.",
     "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/7sY00j6MdcH38535g69ws0w",
-    "images": []
-  },
-  {
-    "img": "images/On-the-Terrace-at-Noon-晴天の昼にテラスで-web.jpg",
-    "title": "On the Terrace at Noon",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€1,900",
-    "priceNum": 1900,
-    "desc": "Midday light on a terrace — the particular brightness of noon, the way shadows retreat and colour intensifies.",
-    "sold": false,
-    "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/4gM3cv7Qh22p0CBfUK9ws0x",
-    "images": []
-  },
-  {
-    "img": "images/turned-around-umgedreht-web.jpg",
-    "title": "turned around Umgedreht",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€600",
-    "priceNum": 600,
-    "desc": "Turned around. A reversal of expectation — what was ground becomes sky, what was heavy becomes light.",
-    "sold": true,
-    "anasaeaLink": "https://anasaea.com/viewArtPiece/qJHd6XoqMLssGuiLb",
-    "stripeLink": "",
-    "images": []
-  },
-  {
-    "img": "images/The-Blessing-of-Rain-Yet-to-Come-これから表われる雨の恵み50x70-web.jpg",
-    "title": "The Blessing of Rain Yet to Come",
-    "year": "2026",
-    "medium": "Acrylic on Canvas",
-    "size": "50×70 cm",
-    "price": "€2,000",
-    "priceNum": 2000,
-    "desc": "Anticipation of rain as grace — the charged air before weather changes, the blessing held in suspension.",
-    "sold": true,
-    "anasaeaLink": "",
-    "stripeLink": "",
-    "images": []
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/bJe28rdaBePb70Z6ka9ws0a",
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
     "img": "images/Words-of-the-Enchanted-Forest　不思議の森の言葉-50x70-web.jpg",
@@ -1065,32 +1006,272 @@ const works = [
     "images": []
   },
   {
-    "img": "images/shake-web.jpg",
-    "title": "Shake",
+    "title": "Daily 4",
+    "year": "2025",
+    "price": "€1,700",
+    "priceNum": 1700,
+    "img": "images/Daily-4.web.jpg",
+    "images": [
+      "images/Daily-4.web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50x70 cm",
+    "desc": "The fourth in a series of daily paintings — each one a single sitting, a single mood, a single conversation between hand and canvas.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/69zqMCBGan7smnXb9",
+    "stripeLink": "https://buy.stripe.com/3cI4gzeeF4axbhfbEu9ws0k",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "title": "Black Abstraction 1",
+    "year": "2025",
+    "price": "€1,700",
+    "priceNum": 1700,
+    "img": "images/Black-Abstraction1　70x50-web.jpg",
+    "images": [
+      "images/Black-Abstraction1　70x50-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50x70 cm",
+    "desc": "The first of the Black Abstraction series — a foundational work exploring depth, restraint, and the space between forms.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/mXfmgnKFJPCKCmGy3",
+    "stripeLink": "https://buy.stripe.com/7sY9ATgmN8qN4SR37Y9ws0n",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "img": "images/selection-web.jpg",
+    "title": "Selection",
     "year": "2025",
     "medium": "Acrylic on Canvas",
-    "size": "—",
-    "price": "€2,900",
-    "priceNum": 2900,
-    "desc": "Vibration made visible. The canvas trembles with overlapping gestures — a record of the body moving through space, of energy passing through matter.",
+    "size": "50×70 cm",
+    "price": "€1,700",
+    "priceNum": 1700,
+    "desc": "Every mark a choice — every colour a commitment. This work is about the act of selection itself, the quiet authority of the artist's hand.",
     "sold": false,
-    "anasaeaLink": "https://anasaea.com/viewArtPiece/685012578a9f4b1f0cd2c150",
-    "stripeLink": "https://buy.stripe.com/3cIbJ1gmNgXjgBz5g69ws0y",
+    "anasaeaLink": "",
+    "stripeLink": "https://buy.stripe.com/aFadR98Ul9uR0CB0ZQ9ws0q",
     "images": []
   },
   {
-    "img": "images/Memory-Beyond-the-Choice-40x50cm-web.jpg",
-    "title": "Memory Beyond the Choice",
+    "title": "Black Abstraction 0",
+    "year": "2025",
+    "price": "€1,900",
+    "priceNum": 1900,
+    "img": "images/black-abstraction-0-web.jpg",
+    "images": [
+      "images/black-abstraction-0-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "The origin of the Black Abstraction series. Dark grounds carry luminous traces — light emerging from within, not imposed from without.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/jejZQNC5aCuacui9D",
+    "stripeLink": "https://buy.stripe.com/bJe5kD2vX5eBbhfcIy9ws0o",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "img": "images/White-Abstraction-2-50x70-web.jpg",
+    "title": "White Abstraction 2",
+    "year": "2026",
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "price": "€1,700",
+    "priceNum": 1700,
+    "desc": "White as substance, not absence. The second White Abstraction explores silence, surface, and the texture of emptiness.",
+    "sold": false,
+    "anasaeaLink": "",
+    "stripeLink": "https://buy.stripe.com/aFa9ATc6x7mJbhf6ka9ws0p",
+    "images": []
+  },
+  {
+    "title": "Daily Painting 2",
+    "year": "2026",
+    "price": "€600",
+    "priceNum": 600,
+    "img": "images/daily-painting-2-web.jpg",
+    "images": [
+      "images/daily-painting-2-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "The second daily painting — small, immediate, alive. Made in a single session, carrying the full atmosphere of that day.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/14AaEXc6x7mJetr8si9ws0i",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "title": "Lunch Break Amid Inner Conflict",
+    "year": "2025",
+    "price": "€700",
+    "priceNum": 700,
+    "img": "images/Lunch-Break-Amid-Inner-Conflict-web.jpg",
+    "images": [
+      "images/Lunch-Break-Amid-Inner-Conflict-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "A pause in the middle of things — the ordinary moment interrupted by something unresolved beneath the surface.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/eVqeVd1rT0Yl3ONeQG9ws0r",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "title": "Lifestyle",
+    "year": "2026",
+    "price": "€600",
+    "priceNum": 600,
+    "img": "images/lifestyle-web.jpg",
+    "images": [
+      "images/lifestyle-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "The aesthetic of everyday life examined — how we arrange our hours, our objects, our attention.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/4gMbJ13A16iFdpnaAq9ws0s",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "img": "images/Structures-to-Control--コントロールするための構造-40x50-web.jpg",
+    "title": "Structures to Control",
     "year": "2025",
     "medium": "Acrylic on Canvas",
     "size": "40×50 cm",
     "price": "€900",
     "priceNum": 900,
-    "desc": "Memory as a kind of choosing — what we keep and what we release, what returns unbidden in colour and form.",
+    "desc": "The architecture of control — how we build systems to contain what cannot be contained.",
     "sold": false,
     "anasaeaLink": "",
-    "stripeLink": "https://buy.stripe.com/cNi9AT8Ul6iF2KJ4c29ws0z",
+    "stripeLink": "https://buy.stripe.com/7sY8wPeeFfTfetraAq9ws0t",
     "images": []
+  },
+  {
+    "title": "Encounter",
+    "year": "2026",
+    "price": "€600",
+    "priceNum": 600,
+    "img": "images/encounter-web.jpg",
+    "images": [
+      "images/encounter-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Two presences, two fields of colour — drawn together by some quiet gravity. An encounter without narrative, only atmosphere.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/frguMakwxeZrynBxZ",
+    "stripeLink": "https://buy.stripe.com/7sY6oH9Yp5eB853bEu9ws0u",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "title": "Just a matter of time",
+    "year": "2026",
+    "price": "€600",
+    "priceNum": 600,
+    "img": "images/just-a-matter-of-time-web.jpg",
+    "images": [
+      "images/just-a-matter-of-time-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Patience as a subject — the certainty that things unfold in their own time, regardless of our wanting otherwise.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/28EfZhfiJ8qN0CB23U9ws0v",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "img": "images/The-Mood-for-Shopping　買い物の気分-30x40cm.-web.jpg",
+    "title": "The Mood for Shopping",
+    "year": "2026",
+    "medium": "Acrylic on Canvas",
+    "size": "30×40 cm",
+    "price": "€550",
+    "priceNum": 550,
+    "desc": "Consumer desire rendered in paint — the restless energy of wanting, browsing, almost buying.",
+    "sold": false,
+    "anasaeaLink": "",
+    "stripeLink": "https://buy.stripe.com/7sY00j6MdcH38535g69ws0w",
+    "images": []
+  },
+  {
+    "title": "On the Terrace at Noon",
+    "year": "2026",
+    "price": "€1,900",
+    "priceNum": 1900,
+    "img": "images/On-the-Terrace-at-Noon-晴天の昼にテラスで-web.jpg",
+    "images": [
+      "images/On-the-Terrace-at-Noon-晴天の昼にテラスで-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Midday light on a terrace — the particular brightness of noon, the way shadows retreat and colour intensifies.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/4gM3cv7Qh22p0CBfUK9ws0x",
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "title": "turned around Umgedreht",
+    "year": "2026",
+    "price": "€600",
+    "priceNum": 600,
+    "img": "images/turned-around-umgedreht-web.jpg",
+    "images": [
+      "images/turned-around-umgedreht-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Turned around. A reversal of expectation — what was ground becomes sky, what was heavy becomes light.",
+    "sold": true,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/qJHd6XoqMLssGuiLb",
+    "stripeLink": null,
+    "digitalStripeLink": null,
+    "downloadLink": null
+  },
+  {
+    "img": "images/The-Blessing-of-Rain-Yet-to-Come-これから表われる雨の恵み50x70-web.jpg",
+    "title": "The Blessing of Rain Yet to Come",
+    "year": "2026",
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "price": "€2,000",
+    "priceNum": 2000,
+    "desc": "Anticipation of rain as grace — the charged air before weather changes, the blessing held in suspension.",
+    "sold": true,
+    "anasaeaLink": "",
+    "stripeLink": "",
+    "images": []
+  },
+  {
+    "title": "Memory Beyond the Choice",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/Memory-Beyond-the-Choice-40x50cm-web.jpg",
+    "images": [
+      "images/Memory-Beyond-the-Choice-40x50cm-web.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×50 cm",
+    "desc": "Memory as a kind of choosing — what we keep and what we release, what returns unbidden in colour and form.",
+    "sold": true,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/cNi9AT8Ul6iF2KJ4c29ws0z",
+    "digitalStripeLink": null,
+    "downloadLink": null
   },
   {
     "img": "images/the-garden-of-restrained-rising-emotions-web.jpg",
@@ -1105,6 +1286,24 @@ const works = [
     "anasaeaLink": "",
     "stripeLink": "https://buy.stripe.com/eVq9ATdaBfTfetr4c29ws0A",
     "images": []
+  },
+  {
+    "title": "An-Answer-Close-to-For-Example",
+    "year": "2025",
+    "price": "900",
+    "priceNum": 900,
+    "img": "images/An-Answer-Close-to-For-Example-例えばに寄り添う答え-40x50-web.jpg",
+    "images": [
+      "images/An-Answer-Close-to-For-Example-例えばに寄り添う答え-40x50-web.jpg"
+    ],
+    "medium": "Acrylic on canvas",
+    "size": "40x50 cm",
+    "desc": "Not a definitive answer but an approximation — the kind of truth that gestures rather than declares.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/28E28r6MddL7dpn6ka9ws0b",
+    "digitalStripeLink": null,
+    "downloadLink": null
   }
 ];
 
@@ -1409,6 +1608,63 @@ imgUploadArea.addEventListener('drop', (e) => {
       handleImageFile(file);
     }
   });
+});
+
+// ===== GitHub画像ブラウザ =====
+const GITHUB_REPO = 'oboshi-art/oboshi';
+const GITHUB_IMAGES_PATH = 'images';
+
+document.getElementById('admin-browse-github').addEventListener('click', async () => {
+  const browser = document.getElementById('github-img-browser');
+  const list = document.getElementById('github-img-list');
+  
+  if (browser.style.display !== 'none') {
+    browser.style.display = 'none';
+    return;
+  }
+  
+  browser.style.display = 'block';
+  list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem;text-align:center">読み込み中...</div>';
+  
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_IMAGES_PATH}`);
+    if (!res.ok) throw new Error('取得失敗');
+    const files = await res.json();
+    
+    const images = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name));
+    
+    if (images.length === 0) {
+      list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem">画像が見つかりませんでした</div>';
+      return;
+    }
+    
+    list.innerHTML = images.map(f => `
+      <div class="github-img-thumb" data-path="images/${f.name}" title="${f.name}"
+        style="cursor:pointer;border:2px solid transparent;border-radius:2px;overflow:hidden;transition:border .15s;background:#eee;aspect-ratio:1;position:relative">
+        <img src="https://raw.githubusercontent.com/${GITHUB_REPO}/main/${GITHUB_IMAGES_PATH}/${encodeURIComponent(f.name)}"
+          alt="${f.name}" loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;display:block">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);color:#fff;font-size:.38rem;padding:.2rem .3rem;word-break:break-all;line-height:1.3">${f.name}</div>
+      </div>
+    `).join('');
+    
+    // クリックで選択
+    list.querySelectorAll('.github-img-thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const path = thumb.dataset.path;
+        const isSelected = thumb.style.borderColor === 'rgb(184, 74, 36)';
+        if (isSelected) {
+          thumb.style.borderColor = 'transparent';
+        } else {
+          thumb.style.borderColor = '#b84a24';
+          addImageToGallery(path);
+        }
+      });
+    });
+    
+  } catch (e) {
+    list.innerHTML = `<div style="font-size:.48rem;color:var(--accent);padding:.5rem">エラー: ${e.message}</div>`;
+  }
 });
 
 // URL「+ 追加」ボタン
@@ -1780,7 +2036,11 @@ function downloadIndexHtml() {
         return;
       }
 
-      const updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
+      // 展覧会データも埋め込む
+      const exhMarker = 'let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];';
+      const exhJson = JSON.stringify(exhibitions);
+      let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
+      updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
 
       const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -1831,20 +2091,75 @@ document.getElementById('admin-clear-storage').addEventListener('click', () => {
 // リセットボタン
 document.getElementById('admin-reset').addEventListener('click', resetToDefault);
 
-// 作品一覧の更新
+// 作品一覧の更新（ドラッグ&ドロップ並び替え対応）
 function updateWorksList() {
   const list = document.getElementById('admin-works-list');
-  list.innerHTML = works.map((w, i) => `
-    <div class="work-item">
-      <div class="work-item-title">${i + 1}. ${w.title}</div>
-      <div class="work-item-meta">${w.year} · ${w.price}</div>
-      ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+  list.innerHTML = `
+    <div class="reorder-hint">⠿ ドラッグして作品の表示順を変更できます</div>
+    <div id="reorder-saved" class="reorder-saved">✓ 並び順を保存しました</div>
+  ` + works.map((w, i) => `
+    <div class="work-item" draggable="true" data-index="${i}">
+      <div style="display:flex;align-items:center">
+        <span class="work-item-drag-handle" title="ドラッグして並び替え">⠿</span>
+        <div>
+          <div class="work-item-title">${i + 1}. ${w.title}</div>
+          <div class="work-item-meta">${w.year} · ${w.price}</div>
+          ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+        </div>
+      </div>
       <div class="work-item-actions">
         <button class="btn-edit" onclick="editWork(${i})">編集</button>
         <button class="btn-delete" onclick="deleteWork(${i})">削除</button>
       </div>
     </div>
   `).join('');
+  
+  // ドラッグ&ドロップのイベント設定
+  initWorksReorder();
+}
+
+function initWorksReorder() {
+  const items = document.querySelectorAll('#admin-works-list .work-item');
+  let dragSrcIndex = null;
+  
+  items.forEach(item => {
+    item.addEventListener('dragstart', (e) => {
+      dragSrcIndex = parseInt(item.dataset.index);
+      item.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    item.addEventListener('dragend', () => {
+      item.classList.remove('dragging');
+      document.querySelectorAll('#admin-works-list .work-item').forEach(i => i.classList.remove('drag-over'));
+    });
+    item.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('#admin-works-list .work-item').forEach(i => i.classList.remove('drag-over'));
+      item.classList.add('drag-over');
+    });
+    item.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const dropIndex = parseInt(item.dataset.index);
+      if (dragSrcIndex === null || dragSrcIndex === dropIndex) return;
+      
+      // 配列を並び替え
+      const moved = works.splice(dragSrcIndex, 1)[0];
+      works.splice(dropIndex, 0, moved);
+      
+      // UI更新
+      buildPreview();
+      buildGrid();
+      updateWorksList();
+      saveWorks();
+      
+      // 保存メッセージ表示
+      const saved = document.getElementById('reorder-saved');
+      if (saved) {
+        saved.style.display = 'block';
+        setTimeout(() => { saved.style.display = 'none'; }, 2000);
+      }
+    });
+  });
 }
 
 // Contact form with Formspree
@@ -1879,6 +2194,193 @@ async function submitContactForm(e) {
 }
 
 // ============================================
+// ===== EXHIBITIONS =====
+let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];
+let editingExhIndex = -1;
+
+function loadExhibitions() {
+  try {
+    const saved = localStorage.getItem('oboshi_exhibitions');
+    if (saved) {
+      exhibitions = JSON.parse(saved);
+    }
+  } catch(e) {}
+}
+
+function saveExhibitions() {
+  localStorage.setItem('oboshi_exhibitions', JSON.stringify(exhibitions));
+}
+
+function scrollToExhibitions() {
+  const sec = document.getElementById('exhibitions-section');
+  if (exhibitions.length === 0) return;
+  sec.style.display = 'block';
+  setTimeout(() => sec.scrollIntoView({behavior:'smooth'}), 80);
+}
+
+function buildExhibitions() {
+  const sec = document.getElementById('exhibitions-section');
+  const currentList = document.getElementById('exh-current-list');
+  const pastList = document.getElementById('exh-past-list');
+  const pastWrap = document.getElementById('exh-past-wrap');
+  const ecoTitle = document.getElementById('eco-exh-title');
+  const ecoPreview = document.getElementById('eco-exh-preview');
+
+  const current = exhibitions.filter(e => !e.archived);
+  const past = exhibitions.filter(e => e.archived);
+
+  if (exhibitions.length === 0) {
+    sec.style.display = 'none';
+    ecoTitle.textContent = 'Current & Upcoming';
+    ecoPreview.textContent = 'Group and solo exhibitions — Berlin and beyond.';
+    return;
+  }
+
+  sec.style.display = 'block';
+
+  // エコカードのプレビューを更新
+  if (current.length > 0) {
+    ecoTitle.textContent = current[0].title;
+    ecoPreview.textContent = current[0].venue + ' · ' + current[0].start + (current[0].end ? ' – ' + current[0].end : '');
+  } else {
+    ecoTitle.textContent = 'Past Exhibitions';
+    ecoPreview.textContent = past.length + ' exhibitions';
+  }
+
+  currentList.innerHTML = current.map(e => renderExhCard(e, false)).join('');
+  pastList.innerHTML = past.map(e => renderExhCard(e, true)).join('');
+  pastWrap.style.display = past.length > 0 ? 'block' : 'none';
+}
+
+function renderExhCard(e, isPast) {
+  const poster = e.poster
+    ? `<img class="exh-card-poster" src="${e.poster}" alt="${e.title}" loading="lazy">`
+    : `<div class="exh-card-poster-placeholder">🗓</div>`;
+  const dates = e.start + (e.end ? ' – ' + e.end : '');
+  const vernissage = e.vernissage ? `<div class="exh-card-vernissage">Vernissage: ${e.vernissage}</div>` : '';
+  const desc = e.desc ? `<div class="exh-card-desc">${e.desc}</div>` : '';
+  const archiveLabel = isPast ? '<span style="font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)">— Archive</span>' : '';
+  const galleryLink = e.url ? `<a href="${e.url}" target="_blank" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">View Gallery Website →</a>` : '';
+  return `
+    <div class="exh-card${isPast ? ' past' : ''}">
+      ${poster}
+      <div class="exh-card-name">${e.title} ${archiveLabel}</div>
+      <div class="exh-card-venue">${e.venue}</div>
+      <div class="exh-card-dates">${dates}</div>
+      ${vernissage}
+      ${desc}
+      ${galleryLink}
+    </div>
+  `;
+}
+
+function updateAdminExhList() {
+  const list = document.getElementById('admin-exh-list');
+  if (exhibitions.length === 0) {
+    list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem">展覧会はまだありません</div>';
+    return;
+  }
+  list.innerHTML = exhibitions.map((e, i) => `
+    <div class="work-item">
+      <div class="work-item-title">${e.title}</div>
+      <div class="work-item-meta">${e.venue} · ${e.start}${e.end ? ' – ' + e.end : ''}</div>
+      ${e.archived ? '<div class="work-item-sold">アーカイブ済み</div>' : ''}
+      <div class="work-item-actions">
+        <button class="btn-edit" onclick="editExh(${i})">編集</button>
+        ${!e.archived ? `<button class="btn-edit" style="background:var(--gold)" onclick="archiveExh(${i})">終了→アーカイブ</button>` : ''}
+        <button class="btn-delete" onclick="deleteExh(${i})">削除</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function editExh(i) {
+  editingExhIndex = i;
+  const e = exhibitions[i];
+  document.getElementById('exh-title').value = e.title;
+  document.getElementById('exh-venue').value = e.venue;
+  document.getElementById('exh-start').value = e.start;
+  document.getElementById('exh-end').value = e.end || '';
+  document.getElementById('exh-vernissage').value = e.vernissage || '';
+  document.getElementById('exh-desc').value = e.desc || '';
+  document.getElementById('exh-poster').value = e.poster || '';
+  document.getElementById('exh-url').value = e.url || '';
+  document.getElementById('exh-save').textContent = '更新';
+  document.getElementById('exh-cancel').style.display = 'block';
+}
+
+function archiveExh(i) {
+  if (confirm(`「${exhibitions[i].title}」をアーカイブ（過去の展覧会）に移動しますか？`)) {
+    exhibitions[i].archived = true;
+    saveExhibitions();
+    buildExhibitions();
+    updateAdminExhList();
+  }
+}
+
+function deleteExh(i) {
+  if (confirm(`「${exhibitions[i].title}」を完全に削除しますか？`)) {
+    exhibitions.splice(i, 1);
+    saveExhibitions();
+    buildExhibitions();
+    updateAdminExhList();
+  }
+}
+
+function resetExhForm() {
+  editingExhIndex = -1;
+  document.getElementById('exh-title').value = '';
+  document.getElementById('exh-venue').value = '';
+  document.getElementById('exh-start').value = '';
+  document.getElementById('exh-end').value = '';
+  document.getElementById('exh-vernissage').value = '';
+  document.getElementById('exh-desc').value = '';
+  document.getElementById('exh-poster').value = '';
+  document.getElementById('exh-url').value = '';
+  document.getElementById('exh-save').textContent = '展覧会を追加';
+  document.getElementById('exh-cancel').style.display = 'none';
+}
+
+document.getElementById('exh-save').addEventListener('click', () => {
+  const title = document.getElementById('exh-title').value.trim();
+  const venue = document.getElementById('exh-venue').value.trim();
+  const start = document.getElementById('exh-start').value.trim();
+  if (!title || !venue || !start) {
+    alert('展覧会名・場所・開始日は必須です');
+    return;
+  }
+  const exh = {
+    title,
+    venue,
+    start,
+    end: document.getElementById('exh-end').value.trim(),
+    vernissage: document.getElementById('exh-vernissage').value.trim(),
+    desc: document.getElementById('exh-desc').value.trim(),
+    poster: document.getElementById('exh-poster').value.trim(),
+    url: document.getElementById('exh-url').value.trim(),
+    archived: editingExhIndex >= 0 ? exhibitions[editingExhIndex].archived : false
+  };
+  if (editingExhIndex >= 0) {
+    exhibitions[editingExhIndex] = exh;
+  } else {
+    exhibitions.push(exh);
+  }
+  saveExhibitions();
+  buildExhibitions();
+  updateAdminExhList();
+  resetExhForm();
+  const msg = document.getElementById('exh-msg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 2500);
+});
+
+document.getElementById('exh-cancel').addEventListener('click', resetExhForm);
+
+// 初期化
+loadExhibitions();
+buildExhibitions();
+updateAdminExhList();
+
 // キャッシュバスティング - 画像更新を強制表示
 // ============================================
 (function() {
