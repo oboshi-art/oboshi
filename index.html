@@ -10,7 +10,6 @@
 <meta name="keywords" content="abstract painter Berlin, Japanese artist Berlin, abstract acrylic painting, original art for sale, contemporary abstract art, Junichi Oboshi, OBOSHI art, abstract expressionism Berlin">
 <meta name="author" content="Junichi Oboshi">
 <meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="JC2m-mVmx-zsriB9ezzfHWha3CUZ187Ik3lvuFA0hFQ">
 <link rel="canonical" href="https://oboshi.art/">
 
 <!-- Open Graph (SNS・AI検索でリッチ表示) -->
@@ -148,6 +147,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
+.g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
@@ -544,6 +544,14 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     <input type="text" id="admin-download-link" placeholder="https://drive.google.com/file/d/.../view?usp=sharing">
   </div>
   <div class="admin-field">
+    <label>デジタル専用作品（物理作品なし）</label>
+    <select id="admin-digital-only">
+      <option value="false">いいえ — 原画あり（通常の作品）</option>
+      <option value="true">はい — デジタルデータのみ（原画なし）</option>
+    </select>
+    <div style="font-size:.44rem;color:var(--ink3);margin-top:.3rem;line-height:1.5">「デジタルのみ」を選ぶと、作品モーダルで原画購入セクションが非表示になり、デジタルダウンロードのみ表示されます</div>
+  </div>
+  <div class="admin-field">
     <label>販売状態</label>
     <select id="admin-sold">
       <option value="false">販売中</option>
@@ -628,6 +636,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
     <div class="modal-info">
       <div class="modal-title" id="m-title"></div>
+      <div id="m-digital-badge" style="display:none;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.3rem .8rem;margin-bottom:.6rem;align-self:flex-start;width:fit-content">⬇ Digital Artwork Only</div>
       <div class="modal-year" id="m-year"></div>
       <div class="modal-row"><span class="modal-lbl">Medium</span><span class="modal-val" id="m-medium"></span></div>
       <div class="modal-row"><span class="modal-lbl">Size</span><span class="modal-val" id="m-size"></span></div>
@@ -713,7 +722,7 @@ const works = [
     "sold": true,
     "anasaeaLink": null,
     "stripeLink": null,
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/dRm14n6Md22pclj6ka9ws1g",
     "downloadLink": "https://drive.google.com/file/d/1ogJKV7Sgbbv1fv6D6ZpWe_bsvI5f81hD/view?usp=drive_link"
   },
   {
@@ -732,7 +741,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/685013338a9f4b1f0cd2c274",
     "stripeLink": "https://buy.stripe.com/3cI00j0nP22pcljgYO9ws00",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/00wbJ13A18qN2KJbEu9ws0C",
     "downloadLink": null
   },
   {
@@ -751,7 +760,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/685011e78a9f4b1f0cd2c0a6",
     "stripeLink": "https://buy.stripe.com/7sY9AT8UlgXjclj0ZQ9ws01",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/cNiaEX8Ul6iF0CBbEu9ws0D",
     "downloadLink": null
   },
   {
@@ -770,7 +779,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/aFa5kDc6x7mJ1GF37Y9ws02",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/fZu28rc6xdL7bhffUK9ws0E",
     "downloadLink": null
   },
   {
@@ -791,7 +800,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/fZueVd9Yp0YladbdMC9ws03",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/4gMbJ16MdayVbhfaAq9ws0F",
     "downloadLink": null
   },
   {
@@ -811,7 +820,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/eVqcN5fiJdL74SReQG9ws04",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/5kQ9AT3A10Yl5WV7oe9ws0G",
     "downloadLink": null
   },
   {
@@ -831,7 +840,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/fZueVd3A1gXjetr4c29ws05",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/6oU14n2vXdL78534c29ws0H",
     "downloadLink": null
   },
   {
@@ -852,7 +861,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/14A14nc6xfTf2KJ23U9ws06",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/bJeeVd0nPcH3fxv4c29ws0I",
     "downloadLink": null
   },
   {
@@ -870,7 +879,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/fZubJ1fiJ22pcljaAq9ws07",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/aFafZh4E54ax85337Y9ws0J",
     "downloadLink": null
   },
   {
@@ -888,7 +897,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/7sYbJ14E5ePbclj7oe9ws08",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/cNi3cv1rT8qNbhf37Y9ws0K",
     "downloadLink": null
   },
   {
@@ -908,7 +917,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/14A5kD3A1ePbfxveQG9ws09",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/14AdR90nP5eB4SR6ka9ws0L",
     "downloadLink": null
   },
   {
@@ -928,7 +937,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/eVq5kD0nPgXjbhffUK9ws0c",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/aFaeVd4E59uR1GF37Y9ws0O",
     "downloadLink": null
   },
   {
@@ -948,7 +957,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/cNicN54E5fTf3ON8si9ws0d",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/dRmdR9fiJbCZfxvgYO9ws0P",
     "downloadLink": null
   },
   {
@@ -969,7 +978,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/28E4gzdaBePb0CBeQG9ws0e",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/9B6bJ14E50Yl9978si9ws0Q",
     "downloadLink": null
   },
   {
@@ -989,7 +998,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/28E00j5I9dL72KJ5g69ws0f",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/28EdR97Qh36t8539wm9ws0R",
     "downloadLink": null
   },
   {
@@ -1009,7 +1018,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/00wfZhdaB5eBgBz4c29ws0g",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/00wcN5eeFfTf8535g69ws0S",
     "downloadLink": null
   },
   {
@@ -1029,7 +1038,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/3cI4gz4E54axadbaAq9ws0h",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/3cI8wP3A1gXj853fUK9ws0T",
     "downloadLink": null
   },
   {
@@ -1050,7 +1059,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/bJe8wPc6xcH3cljaAq9ws0j",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/8x2fZheeF5eB0CB9wm9ws0U",
     "downloadLink": null
   },
   {
@@ -1070,7 +1079,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/14AeVdeeFbCZ4SRcIy9ws0l",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/28E00j1rT4ax3ONaAq9ws0V",
     "downloadLink": null
   },
   {
@@ -1091,7 +1100,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/fZu4gz4E50Yl8530ZQ9ws0m",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/eVqaEXc6x8qN5WV6ka9ws0W",
     "downloadLink": null
   },
   {
@@ -1112,7 +1121,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/685012578a9f4b1f0cd2c150",
     "stripeLink": "https://buy.stripe.com/3cIbJ1gmNgXjgBz5g69ws0y",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/eVq4gz8UlbCZgBz37Y9ws1d",
     "downloadLink": null
   },
   {
@@ -1133,7 +1142,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/bJe28rdaBePb70Z6ka9ws0a",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/cNiaEX5I95eBgBz8si9ws0M",
     "downloadLink": null
   },
   {
@@ -1153,7 +1162,7 @@ const works = [
     "sold": true,
     "anasaeaLink": null,
     "stripeLink": null,
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/aFaeVd4E536t99737Y9ws1c",
     "downloadLink": null
   },
   {
@@ -1174,7 +1183,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/69zqMCBGan7smnXb9",
     "stripeLink": "https://buy.stripe.com/3cI4gzeeF4axbhfbEu9ws0k",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/28E9AT8UlgXj4SR37Y9ws0Y",
     "downloadLink": null
   },
   {
@@ -1195,7 +1204,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/mXfmgnKFJPCKCmGy3",
     "stripeLink": "https://buy.stripe.com/7sY9ATgmN8qN4SR37Y9ws0n",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/fZufZh1rT6iFfxvaAq9ws0X",
     "downloadLink": null
   },
   {
@@ -1215,7 +1224,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/aFadR98Ul9uR0CB0ZQ9ws0q",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/00waEXeeF22pgBz4c29ws0Z",
     "downloadLink": null
   },
   {
@@ -1236,7 +1245,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/jejZQNC5aCuacui9D",
     "stripeLink": "https://buy.stripe.com/bJe5kD2vX5eBbhfcIy9ws0o",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/28EcN5fiJ22p0CBaAq9ws10",
     "downloadLink": null
   },
   {
@@ -1271,7 +1280,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/14AaEXc6x7mJetr8si9ws0i",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/8x2bJ1b2tbCZ4SRdMC9ws12",
     "downloadLink": null
   },
   {
@@ -1292,7 +1301,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/eVqeVd1rT0Yl3ONeQG9ws0r",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/14A4gz0nP5eBadb0ZQ9ws13",
     "downloadLink": null
   },
   {
@@ -1313,7 +1322,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/4gMbJ13A16iFdpnaAq9ws0s",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/4gM28r8UldL7clj5g69ws14",
     "downloadLink": null
   },
   {
@@ -1331,7 +1340,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/7sY8wPeeFfTfetraAq9ws0t",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/3cIfZhfiJ5eBbhf23U9ws15",
     "downloadLink": null
   },
   {
@@ -1352,7 +1361,7 @@ const works = [
     "sold": false,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/frguMakwxeZrynBxZ",
     "stripeLink": "https://buy.stripe.com/7sY6oH9Yp5eB853bEu9ws0u",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/6oUaEX9YpayVadb23U9ws16",
     "downloadLink": null
   },
   {
@@ -1372,7 +1381,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/28EfZhfiJ8qN0CB23U9ws0v",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/3cIaEX1rT22p4SRcIy9ws17",
     "downloadLink": null
   },
   {
@@ -1392,7 +1401,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/7sY00j6MdcH38535g69ws0w",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/3cIdR90nPgXjdpngYO9ws18",
     "downloadLink": null
   },
   {
@@ -1413,7 +1422,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/4gM3cv7Qh22p0CBfUK9ws0x",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/3cI4gz0nPbCZ4SRaAq9ws19",
     "downloadLink": null
   },
   {
@@ -1432,7 +1441,7 @@ const works = [
     "sold": true,
     "anasaeaLink": "https://anasaea.com/viewArtPiece/qJHd6XoqMLssGuiLb",
     "stripeLink": null,
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/6oUeVd4E5bCZgBzbEu9ws1a",
     "downloadLink": null
   },
   {
@@ -1452,7 +1461,7 @@ const works = [
     "sold": true,
     "anasaeaLink": null,
     "stripeLink": null,
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/6oUbJ1c6x22pclj37Y9ws1b",
     "downloadLink": null
   },
   {
@@ -1473,7 +1482,7 @@ const works = [
     "sold": true,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/cNi9AT8Ul6iF2KJ4c29ws0z",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/14AeVdeeF0Yl70ZdMC9ws1e",
     "downloadLink": null
   },
   {
@@ -1493,7 +1502,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/eVq9ATdaBfTfetr4c29ws0A",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/5kQcN59YpgXj4SRaAq9ws1f",
     "downloadLink": null
   },
   {
@@ -1514,7 +1523,7 @@ const works = [
     "sold": false,
     "anasaeaLink": null,
     "stripeLink": "https://buy.stripe.com/28E28r6MddL7dpn6ka9ws0b",
-    "digitalStripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/aFa6oH1rT6iF1GF0ZQ9ws0N",
     "downloadLink": null
   }
 ];
@@ -1538,8 +1547,9 @@ function buildPreview(){
   const wrap=document.getElementById('works-preview');
   wrap.innerHTML='';
   
-  // ランダムに3作品を選択
-  const shuffled = [...works].sort(() => Math.random() - 0.5);
+  // ランダムに3作品を選択（画像ありの作品のみ）
+  const worksWithImg = works.filter(w => w.img);
+  const shuffled = [...worksWithImg].sort(() => Math.random() - 0.5);
   const randomWorks = shuffled.slice(0, 3);
   
   randomWorks.forEach((w)=>{
@@ -1564,7 +1574,7 @@ function buildGrid(){
   works.forEach((w,i)=>{
     const el=document.createElement('div');
     el.className='g-item';
-    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}`;
+    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
@@ -1589,8 +1599,12 @@ function openModal(i){
   // 最初の画像を表示
   currentImageIndex=0;
   updateModalImage();
+  // プレースホルダーがあれば削除（念のため）
+  const ph=document.querySelector('.modal-img-wrap .digital-placeholder');
+  if(ph) ph.remove();
   
   document.getElementById('m-title').textContent=w.title;
+  document.getElementById('m-digital-badge').style.display=w.digitalOnly?'block':'none';
   document.getElementById('m-year').textContent=w.year;
   document.getElementById('m-medium').textContent=w.medium;
   document.getElementById('m-size').textContent=w.size;
@@ -1611,13 +1625,34 @@ function openModal(i){
   // デジタルダウンロードセクションの表示制御
   const digitalSection=document.getElementById('digital-section');
   digitalSection.style.display='block'; // 常に表示（全作品でデジタル版を提供）
+  const digitalTitle=digitalSection.querySelector('.digital-title');
+  const digitalSubtitle=digitalSection.querySelector('.digital-subtitle');
+  if(w.digitalOnly){
+    if(digitalTitle) digitalTitle.textContent='Purchase Digital Download';
+    if(digitalSubtitle) digitalSubtitle.textContent='This artwork is available as a digital file only — high-resolution, ready to print or display.';
+  } else {
+    if(digitalTitle) digitalTitle.textContent='Digital Download Available';
+    if(digitalSubtitle) digitalSubtitle.textContent='Own a high-resolution digital version of this artwork — perfect for printing or digital display';
+  }
   
-  // 原画の購入セクションのみsold時に非表示（デジタルダウンロードは常に表示）
-  document.getElementById('m-price').style.display=w.sold?'none':'block';
-  const buySection=document.querySelector('#buy-available .buy-section');
-  if(buySection)buySection.style.display=w.sold?'none':'block';
-  document.getElementById('buy-available').style.display='block';
-  document.getElementById('buy-sold').style.display=w.sold?'block':'none';
+  // デジタル専用作品の場合：原画購入セクションを完全非表示
+  if(w.digitalOnly){
+    document.getElementById('m-price').style.display='none';
+    const buySection=document.querySelector('#buy-available .buy-section');
+    if(buySection)buySection.style.display='none';
+    document.getElementById('buy-available').style.display='block';
+    document.getElementById('buy-sold').style.display='none';
+    // サイズ欄にデジタルのみ表示
+    const sizeEl=document.getElementById('m-size');
+    if(!w.size) sizeEl.textContent='Digital file only';
+  } else {
+    // 原画の購入セクションのみsold時に非表示（デジタルダウンロードは常に表示）
+    document.getElementById('m-price').style.display=w.sold?'none':'block';
+    const buySection=document.querySelector('#buy-available .buy-section');
+    if(buySection)buySection.style.display=w.sold?'none':'block';
+    document.getElementById('buy-available').style.display='block';
+    document.getElementById('buy-sold').style.display=w.sold?'block':'none';
+  }
   document.getElementById('modal').classList.add('open');
 }
 function closeModal(){
@@ -2068,6 +2103,7 @@ function resetForm() {
   document.getElementById('admin-anasaea').value = '';
   document.getElementById('admin-stripe').value = '';
   document.getElementById('admin-sold').value = 'false';
+  document.getElementById('admin-digital-only').value = 'false';
   
   imgPreview.classList.remove('show');
   imgFileInput.value = '';
@@ -2098,6 +2134,7 @@ document.getElementById('admin-save').addEventListener('click', () => {
   const digitalStripeLink = document.getElementById('admin-digital-stripe').value;
   const downloadLink = document.getElementById('admin-download-link').value;
   const sold = document.getElementById('admin-sold').value === 'true';
+  const digitalOnly = document.getElementById('admin-digital-only').value === 'true';
 
   if (!title || !year || !price || !img) {
     alert('タイトル、年、価格、画像は必須です');
@@ -2124,12 +2161,13 @@ document.getElementById('admin-save').addEventListener('click', () => {
     year,
     price,
     priceNum,
-    img,
-    images: uploadedImages.length > 0 ? [...uploadedImages] : [img], // 複数画像を保存
-    medium: medium || 'Acrylic on canvas',
-    size: size || '80×60 cm',
+    img: img || '',
+    images: uploadedImages.length > 0 ? [...uploadedImages] : (img ? [img] : []), // 複数画像を保存
+    medium: medium || (digitalOnly ? 'Digital' : 'Acrylic on canvas'),
+    size: size || '',
     desc: desc || '',
     sold,
+    digitalOnly: digitalOnly || false,
     anasaeaLink: anasaeaLink || null,
     stripeLink: stripeLink || null,
     digitalStripeLink: digitalStripeLink || null,
@@ -2183,6 +2221,7 @@ function editWork(index) {
   document.getElementById('admin-digital-stripe').value = work.digitalStripeLink || '';
   document.getElementById('admin-download-link').value = work.downloadLink || '';
   document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
+  document.getElementById('admin-digital-only').value = work.digitalOnly ? 'true' : 'false';
   
   // 画像プレビューを表示
   imgPreview.src = work.img;
@@ -2340,6 +2379,7 @@ function updateWorksList() {
           <div class="work-item-title">${i + 1}. ${w.title}</div>
           <div class="work-item-meta">${w.year} · ${w.price}</div>
           ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+          ${w.digitalOnly ? '<div class="work-item-sold" style="color:var(--accent)">⬇ デジタル専用</div>' : ''}
         </div>
       </div>
       <div class="work-item-actions">
