@@ -138,6 +138,10 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .gallery-header-count{font-size:.55rem;letter-spacing:.22em;color:var(--ink3);text-transform:uppercase}
 .back-btn{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;margin-left:auto;transition:color .2s}
 .back-btn:hover{color:var(--ink)}
+.filter-tabs{display:flex;gap:0;padding:1.5rem 3rem 0;border-bottom:1px solid var(--border)}
+.filter-tab{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;padding:.6rem 1.2rem;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s;margin-bottom:-1px}
+.filter-tab:hover{color:var(--ink)}
+.filter-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
 .gallery-grid{padding:2.5rem 3rem;columns:3;column-gap:1.5rem}
 .g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:var(--bg2)}
 .g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .3s}
@@ -435,6 +439,12 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     <div class="gallery-header-count" id="work-count"></div>
     <button class="back-btn" id="back-btn">← Back</button>
   </div>
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="oboshi">OBOSHI</button>
+    <button class="filter-tab" data-filter="kids">Kids</button>
+    <button class="filter-tab" data-filter="goods">Goods</button>
+  </div>
   <div class="gallery-grid" id="grid"></div>
   <div class="rule"></div>
   <footer>
@@ -480,6 +490,14 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   </div>
   
   <h3 id="admin-form-title">作品を追加</h3>
+  <div class="admin-field">
+    <label>カテゴリー</label>
+    <select id="admin-category">
+      <option value="oboshi">OBOSHI — 自分の作品</option>
+      <option value="kids">Kids — 子供の絵</option>
+      <option value="goods">Goods — グッズ・その他</option>
+    </select>
+  </div>
   <div class="admin-field">
     <label>タイトル</label>
     <input type="text" id="admin-title" placeholder="例: Silence No. 12">
@@ -1566,18 +1584,33 @@ function buildPreview(){
   all.addEventListener('click',showGallery);
   wrap.appendChild(all);
 }
+let currentFilter = 'all';
+
 function buildGrid(){
   const grid=document.getElementById('grid');
   grid.innerHTML='';
-  document.getElementById('work-count').textContent=works.length+' works';
-  works.forEach((w,i)=>{
+  const filtered = currentFilter === 'all' ? works : works.filter(w => (w.category || 'oboshi') === currentFilter);
+  document.getElementById('work-count').textContent=filtered.length+' works';
+  filtered.forEach((w)=>{
+    const i = works.indexOf(w);
     const el=document.createElement('div');
     el.className='g-item';
-    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
 }
+
+// フィルタータブのイベント
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentFilter = tab.dataset.filter;
+    buildGrid();
+  });
+});
 function openModal(i){
   const w=works[i];
   currentWork=w;
@@ -2103,6 +2136,7 @@ function resetForm() {
   document.getElementById('admin-stripe').value = '';
   document.getElementById('admin-sold').value = 'false';
   document.getElementById('admin-digital-only').value = 'false';
+  document.getElementById('admin-category').value = 'oboshi';
   
   imgPreview.classList.remove('show');
   imgFileInput.value = '';
@@ -2134,6 +2168,7 @@ document.getElementById('admin-save').addEventListener('click', () => {
   const downloadLink = document.getElementById('admin-download-link').value;
   const sold = document.getElementById('admin-sold').value === 'true';
   const digitalOnly = document.getElementById('admin-digital-only').value === 'true';
+  const category = document.getElementById('admin-category').value;
 
   if (!title || !year || !price || !img) {
     alert('タイトル、年、価格、画像は必須です');
@@ -2167,6 +2202,7 @@ document.getElementById('admin-save').addEventListener('click', () => {
     desc: desc || '',
     sold,
     digitalOnly: digitalOnly || false,
+    category: category || 'oboshi',
     anasaeaLink: anasaeaLink || null,
     stripeLink: stripeLink || null,
     digitalStripeLink: digitalStripeLink || null,
@@ -2221,6 +2257,7 @@ function editWork(index) {
   document.getElementById('admin-download-link').value = work.downloadLink || '';
   document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
   document.getElementById('admin-digital-only').value = work.digitalOnly ? 'true' : 'false';
+  document.getElementById('admin-category').value = work.category || 'oboshi';
   
   // 画像プレビューを表示
   imgPreview.src = work.img;
