@@ -498,6 +498,16 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <option value="goods">Goods — グッズ・その他</option>
     </select>
   </div>
+  <div class="admin-field" id="admin-weight-field" style="display:none">
+    <label>配送重量クラス</label>
+    <select id="admin-weight">
+      <option value="">— 選択してください —</option>
+      <option value="0.5kg">〜0.5kg（ポストカード・ステッカーなど）</option>
+      <option value="2kg">〜2kg（マグカップ・Tシャツなど）</option>
+      <option value="5kg">〜5kg（大型グッズ）</option>
+      <option value="10kg">〜10kg（特大グッズ）</option>
+    </select>
+  </div>
   <div class="admin-field">
     <label>タイトル</label>
     <input type="text" id="admin-title" placeholder="例: Silence No. 12">
@@ -2077,7 +2087,11 @@ function setupImageReordering() {
   });
 }
 
-// パネルの開閉（カスタムパスワードモーダル）
+// カテゴリー変更時に重量フィールドの表示切替
+document.getElementById('admin-category').addEventListener('change', function() {
+  const weightField = document.getElementById('admin-weight-field');
+  weightField.style.display = this.value === 'goods' ? 'block' : 'none';
+});
 const pwModal = document.getElementById('pw-modal');
 const pwInput = document.getElementById('pw-input');
 const pwError = document.getElementById('pw-error');
@@ -2137,6 +2151,8 @@ function resetForm() {
   document.getElementById('admin-sold').value = 'false';
   document.getElementById('admin-digital-only').value = 'false';
   document.getElementById('admin-category').value = 'oboshi';
+  document.getElementById('admin-weight').value = '';
+  document.getElementById('admin-weight-field').style.display = 'none';
   
   imgPreview.classList.remove('show');
   imgFileInput.value = '';
@@ -2203,6 +2219,7 @@ document.getElementById('admin-save').addEventListener('click', () => {
     sold,
     digitalOnly: digitalOnly || false,
     category: category || 'oboshi',
+    weight: document.getElementById('admin-weight').value || null,
     anasaeaLink: anasaeaLink || null,
     stripeLink: stripeLink || null,
     digitalStripeLink: digitalStripeLink || null,
@@ -2258,6 +2275,8 @@ function editWork(index) {
   document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
   document.getElementById('admin-digital-only').value = work.digitalOnly ? 'true' : 'false';
   document.getElementById('admin-category').value = work.category || 'oboshi';
+  document.getElementById('admin-weight').value = work.weight || '';
+  document.getElementById('admin-weight-field').style.display = (work.category === 'goods') ? 'block' : 'none';
   
   // 画像プレビューを表示
   imgPreview.src = work.img;
