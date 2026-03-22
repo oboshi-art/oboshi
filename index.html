@@ -74,7 +74,8 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;-webkit-font-smoothing:antialiased}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:var(--ink);cursor:pointer;text-decoration:none}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:var(--ink);cursor:pointer;text-decoration:none;transition:letter-spacing .4s ease,opacity .3s ease}
+.logo:hover{letter-spacing:.28em;opacity:.7}
 .nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
 .nav-links a{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s;cursor:pointer}
 .nav-links a:hover{color:var(--ink)}
@@ -113,7 +114,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .eco-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .eco-card:hover{background:var(--bg2)}
 .eco-card:hover::after{transform:scaleX(1)}
-.eco-icon{font-size:1.3rem}
+.eco-icon{font-size:1.3rem;transition:transform .8s ease}
+#eco-anasaea:hover .eco-icon{transform:rotate(360deg)}
 .eco-platform{font-size:.48rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
 .eco-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);line-height:1.3}
 .eco-role{font-size:.53rem;letter-spacing:.05em;color:var(--ink2);line-height:1.75;flex:1}
@@ -147,7 +149,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:var(--bg2);opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .g-item.visible{opacity:1;transform:translateY(0)}
 .g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .3s}
-.g-item:hover img{transform:scale(1.03);filter:brightness(.65) saturate(1.1)}
+.g-item:hover img{transform:scale(1.03);filter:brightness(.80) saturate(1.15)}
 .g-hover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;background:linear-gradient(to top,rgba(26,24,21,.88) 0%,transparent 60%);opacity:0;transition:opacity .3s}
 .g-item:hover .g-hover{opacity:1}
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
@@ -267,6 +269,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .contact-success.show{display:block}
 
 /* ===== EXHIBITION CARD ===== */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .exh-card{background:var(--bg);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem}
 .exh-card-poster{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:.4rem}
 .exh-card-poster-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:2rem;margin-bottom:.4rem}
@@ -380,7 +383,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role">A curated global art platform reaching collectors worldwide. Discover and purchase OBOSHI works through Singulart's international network of buyers and galleries.</div>
         <div class="eco-link">View on Singulart →</div>
       </a>
-      <a class="eco-card" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">
+      <a class="eco-card" id="eco-anasaea" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">
         <div class="eco-icon">⬡</div>
         <div class="eco-platform">Anasaea</div>
         <div class="eco-title">3D Virtual Exhibition</div>
@@ -448,6 +451,12 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     <button class="filter-tab" data-filter="goods">Goods</button>
   </div>
   <div class="gallery-grid" id="grid"></div>
+  <div style="text-align:center;padding:4rem 3rem 3rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem">
+    <div style="width:40px;height:1px;background:var(--border2)"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink3);letter-spacing:.08em">OBOSHI</div>
+    <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">Berlin</div>
+    <div style="width:40px;height:1px;background:var(--border2)"></div>
+  </div>
   <div class="rule"></div>
   <footer>
     <div class="footer-logo">OBOSHI.ART</div>
@@ -2550,6 +2559,34 @@ function scrollToExhibitions() {
   setTimeout(() => sec.scrollIntoView({behavior:'smooth'}), 80);
 }
 
+// 展覧会の状態を日付から自動判定
+function getExhStatus(e) {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  // 日付をパース（DD.MM.YYYY形式に対応）
+  function parseDate(str) {
+    if (!str) return null;
+    const parts = str.trim().split('.');
+    if (parts.length === 3) {
+      return new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0]));
+    }
+    return new Date(str);
+  }
+
+  const start = parseDate(e.start);
+  const end = e.end ? parseDate(e.end) : null;
+
+  if (e.archived) return 'past';
+  if (end && end < today) return 'past'; // 終了日を過ぎたら自動でpast
+  if (start > today) {
+    // 2週間以内なら「coming soon」
+    const diff = (start - today) / (1000 * 60 * 60 * 24);
+    return diff <= 14 ? 'soon' : 'upcoming';
+  }
+  return 'current'; // 開催中
+}
+
 function buildExhibitions() {
   const sec = document.getElementById('exhibitions-section');
   const currentList = document.getElementById('exh-current-list');
@@ -2558,8 +2595,9 @@ function buildExhibitions() {
   const ecoTitle = document.getElementById('eco-exh-title');
   const ecoPreview = document.getElementById('eco-exh-preview');
 
-  const current = exhibitions.filter(e => !e.archived);
-  const past = exhibitions.filter(e => e.archived);
+  // 日付で自動振り分け
+  const current = exhibitions.filter(e => ['current','soon','upcoming'].includes(getExhStatus(e)));
+  const past = exhibitions.filter(e => getExhStatus(e) === 'past');
 
   if (exhibitions.length === 0) {
     sec.style.display = 'none';
@@ -2585,18 +2623,26 @@ function buildExhibitions() {
 }
 
 function renderExhCard(e, isPast) {
+  const status = getExhStatus(e);
+  const statusBadge = {
+    current: '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:#4caf50;display:flex;align-items:center;gap:.3rem"><span style="width:6px;height:6px;border-radius:50%;background:#4caf50;display:inline-block;animation:pulse 1.5s infinite"></span>On View</span>',
+    soon:    '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.3rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span>Coming Soon</span>',
+    upcoming:'<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)">Upcoming</span>',
+    past:    '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)">— Archive</span>',
+  }[status] || '';
+
   const poster = e.poster
     ? `<img class="exh-card-poster" src="${e.poster}" alt="${e.title}" loading="lazy">`
     : `<div class="exh-card-poster-placeholder">🗓</div>`;
   const dates = e.start + (e.end ? ' – ' + e.end : '');
   const vernissage = e.vernissage ? `<div class="exh-card-vernissage">Vernissage: ${e.vernissage}</div>` : '';
   const desc = e.desc ? `<div class="exh-card-desc">${e.desc}</div>` : '';
-  const archiveLabel = isPast ? '<span style="font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)">— Archive</span>' : '';
   const galleryLink = e.url ? `<a href="${e.url}" target="_blank" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">View Gallery Website →</a>` : '';
   return `
     <div class="exh-card${isPast ? ' past' : ''}">
       ${poster}
-      <div class="exh-card-name">${e.title} ${archiveLabel}</div>
+      <div style="margin-bottom:.3rem">${statusBadge}</div>
+      <div class="exh-card-name">${e.title}</div>
       <div class="exh-card-venue">${e.venue}</div>
       <div class="exh-card-dates">${dates}</div>
       ${vernissage}
