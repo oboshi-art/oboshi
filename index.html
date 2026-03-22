@@ -95,8 +95,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .hero-cta:hover{background:#94341a}
 .works-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .wp-item{background:var(--bg);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/5}
-.wp-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .3s;filter:brightness(.97)}
-.wp-item:hover img{transform:scale(1.04);filter:brightness(.65)}
+.wp-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.97)}
+.wp-item:hover img{transform:scale(1.04);filter:saturate(1.15)}
 .wp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,24,21,.88) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem}
 .wp-item:hover .wp-overlay{opacity:1}
 .wp-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.06em;color:#fff}
@@ -149,7 +149,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 .g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:var(--bg2);opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .g-item.visible{opacity:1;transform:translateY(0)}
 .g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
-.g-item:hover img{transform:scale(1.03);filter:saturate(1.25)}
+.g-item:hover img{transform:scale(1.03);filter:saturate(1.15)}
 .g-item:hover .g-hover{opacity:1}
 .g-hover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;background:linear-gradient(to top,rgba(26,24,21,.75) 0%,transparent 50%);opacity:0;transition:opacity .3s}
 .g-item:hover .g-hover{opacity:1}
