@@ -115,7 +115,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .eco-card:hover{background:var(--bg2)}
 .eco-card:hover::after{transform:scaleX(1)}
 .eco-icon{font-size:1.3rem;transition:transform .8s ease}
-#eco-anasaea:hover .eco-icon{transform:rotate(360deg)}
+@keyframes iconScrew{
+  0%  {transform:rotate(0deg)    scale(1); opacity:1}
+  70% {transform:rotate(1080deg) scale(0); opacity:0}
+  71% {transform:rotate(0deg)    scale(0); opacity:0}
+  100%{transform:rotate(0deg)    scale(1); opacity:1}
+}
+#eco-anasaea .eco-icon{display:inline-block}
+#anasaea-hex{transform-origin:center center; transform-box:fill-box;}
+#eco-anasaea:hover #anasaea-hex{
+  animation:iconScrew 2s ease-in-out forwards;
+}
 .eco-platform{font-size:.48rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
 .eco-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);line-height:1.3}
 .eco-role{font-size:.53rem;letter-spacing:.05em;color:var(--ink2);line-height:1.75;flex:1}
@@ -363,13 +373,17 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <div class="ecosystem">
     <div class="eco-heading">Find OBOSHI — across platforms</div>
     <div class="eco-grid">
-      <div class="eco-card" style="cursor:pointer" id="eco-exhibitions" onclick="scrollToExhibitions()">
-        <div class="eco-icon">🗓</div>
-        <div class="eco-platform">Exhibitions</div>
-        <div class="eco-title" id="eco-exh-title">Current & Upcoming</div>
-        <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
-        <div class="eco-link">View exhibitions →</div>
-      </div>
+      <a class="eco-card" id="eco-anasaea" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">
+        <div class="eco-icon">
+          <svg id="anasaea-hex" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12,2 21,7 21,17 12,22 3,17 3,7"/>
+          </svg>
+        </div>
+        <div class="eco-platform">Anasaea</div>
+        <div class="eco-title">3D Virtual Exhibition</div>
+        <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio exhibition to explore at your own pace, from anywhere in the world.</div>
+        <div class="eco-link">Enter 3D Gallery →</div>
+      </a>
       <a class="eco-card" href="https://www.youtube.com/@oboshi" target="_blank">
         <div class="eco-icon">▶</div>
         <div class="eco-platform">YouTube · @oboshi</div>
@@ -384,13 +398,13 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role">A curated global art platform reaching collectors worldwide. Discover and purchase OBOSHI works through Singulart's international network of buyers and galleries.</div>
         <div class="eco-link">View on Singulart →</div>
       </a>
-      <a class="eco-card" id="eco-anasaea" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">
-        <div class="eco-icon">⬡</div>
-        <div class="eco-platform">Anasaea</div>
-        <div class="eco-title">3D Virtual Exhibition</div>
-        <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio exhibition to explore at your own pace, from anywhere in the world.</div>
-        <div class="eco-link">Enter 3D Gallery →</div>
-      </a>
+      <div class="eco-card" style="cursor:pointer" id="eco-exhibitions" onclick="scrollToExhibitions()">
+        <div class="eco-icon">🗓</div>
+        <div class="eco-platform">Exhibitions</div>
+        <div class="eco-title" id="eco-exh-title">Current & Upcoming</div>
+        <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
+        <div class="eco-link">View exhibitions →</div>
+      </div>
     </div>
   </div>
 
