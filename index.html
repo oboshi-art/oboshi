@@ -109,7 +109,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .wp-all-arrow{font-size:1.4rem;color:var(--ink3);transition:color .2s}
 .ecosystem{padding:5rem 3rem;border-bottom:1px solid var(--border)}
 .eco-heading{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem}
-.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.eco-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border)}
 .eco-card{background:var(--bg);padding:2rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;text-decoration:none;transition:background .2s;position:relative;overflow:hidden}
 .eco-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .eco-card:hover{background:var(--bg2)}
@@ -124,6 +124,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 #eco-anasaea .eco-icon{display:inline-block}
 #anasaea-hex{transform-origin:center center; transform-box:fill-box;}
 #eco-anasaea:hover #anasaea-hex{
+  animation:iconScrew 2s ease-in-out forwards;
+}
+#eco-anasaea-exh .eco-icon{display:inline-block}
+#anasaea-hex2{transform-origin:center center; transform-box:fill-box;}
+#eco-anasaea-exh:hover #anasaea-hex2{
   animation:iconScrew 2s ease-in-out forwards;
 }
 .eco-platform{font-size:.48rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
@@ -227,7 +232,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
 @media(max-width:1050px){
   .hero{grid-template-columns:1fr;gap:2.5rem}
   .works-preview{grid-template-columns:1fr 1fr}
-  .eco-grid{grid-template-columns:1fr 1fr}
+  .eco-grid{grid-template-columns:1fr 1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:2rem;height:auto;max-height:95vh}
   .modal-img-wrap{min-height:50vh;max-height:60vh;padding:1rem}
@@ -380,9 +385,20 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
           </svg>
         </div>
         <div class="eco-platform">Anasaea</div>
-        <div class="eco-title">3D Virtual Exhibition</div>
-        <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio exhibition to explore at your own pace, from anywhere in the world.</div>
+        <div class="eco-title">3D Virtual Gallery</div>
+        <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio to explore at your own pace, from anywhere in the world.</div>
         <div class="eco-link">Enter 3D Gallery →</div>
+      </a>
+      <a class="eco-card" id="eco-anasaea-exh" href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">
+        <div class="eco-icon">
+          <svg id="anasaea-hex2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12,2 21,7 21,17 12,22 3,17 3,7"/>
+          </svg>
+        </div>
+        <div class="eco-platform">Anasaea</div>
+        <div class="eco-title">3D Virtual Exhibition</div>
+        <div class="eco-role">A curated 3D exhibition space — walk through an immersive virtual show featuring selected OBOSHI works, presented as a dedicated exhibition from anywhere in the world.</div>
+        <div class="eco-link">Enter 3D Exhibition →</div>
       </a>
       <a class="eco-card" href="https://www.youtube.com/@oboshi" target="_blank">
         <div class="eco-icon">▶</div>
@@ -435,7 +451,8 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <div class="meta-row"><span class="meta-label">YouTube</span><span class="meta-val"><a href="https://www.youtube.com/@oboshi" target="_blank">@oboshi →</a></span></div>
       <div class="meta-row"><span class="meta-label">Instagram</span><span class="meta-val"><a href="https://www.instagram.com/junichioboshi/" target="_blank">@junichioboshi →</a></span></div>
       <div class="meta-row"><span class="meta-label">Singulart</span><span class="meta-val"><a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">View Profile →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Exhibition →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition →</a></span></div>
       <div class="meta-row"><span class="meta-label">Contact</span><span class="meta-val"><a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank"><span class="__cf_email__" data-cfemail="b5d4c7c1f5dad7dac6dddc9bd4c7c1">[email&#160;protected]</span> →</a></span></div>
     </div>
   </div>
@@ -446,7 +463,8 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
       <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
-      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">Anasaea</a>
+      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
+      <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
       <a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank">Contact</a>
     </div>
     <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
@@ -479,7 +497,8 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
       <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
-      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">Anasaea</a>
+      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
+      <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
     </div>
     <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
   </footer>
