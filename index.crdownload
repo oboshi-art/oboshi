@@ -1,0 +1,2871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBOSHI — Abstract Acrylic Painter, Berlin | Original Art for Sale</title>
+
+<!-- SEO & AI Search Optimization -->
+<meta name="description" content="Junichi Oboshi is a Japanese abstract acrylic painter based in Berlin, Germany. Original large-format paintings exploring emotion, silence, and healing through layered compositions. Original works and prints available worldwide.">
+<meta name="keywords" content="abstract painter Berlin, Japanese artist Berlin, abstract acrylic painting, original art for sale, contemporary abstract art, Junichi Oboshi, OBOSHI art, abstract expressionism Berlin">
+<meta name="author" content="Junichi Oboshi">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oboshi.art/">
+
+<!-- Open Graph (SNS・AI検索でリッチ表示) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="OBOSHI — Abstract Acrylic Painter, Berlin">
+<meta property="og:description" content="Japanese abstract painter based in Berlin. Original works exploring silence, emotion, and healing. Available worldwide at oboshi.art">
+<meta property="og:url" content="https://oboshi.art/">
+<meta property="og:site_name" content="OBOSHI">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OBOSHI — Abstract Acrylic Painter, Berlin">
+<meta name="twitter:description" content="Japanese abstract painter based in Berlin. Original works exploring silence, emotion, and healing. Available worldwide.">
+
+<!-- Structured Data: Person + Artist (ChatGPT・Geminiが読む) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Junichi Oboshi",
+  "alternateName": "OBOSHI",
+  "url": "https://oboshi.art",
+  "jobTitle": "Abstract Painter",
+  "description": "Junichi Oboshi is a Japanese abstract acrylic painter based in Berlin, Germany. Through layered compositions and rhythmic spatial flow, he creates paintings that carry an energy — like a vibration woven from color and texture — bringing quiet resonance to the viewer's inner world. Each work is born from a wish to offer a moment of quiet happiness and a lightness that cannot quite be explained.",
+  "nationality": "Japanese",
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Berlin, Germany"
+  },
+  "sameAs": [
+    "https://www.instagram.com/oboshi.art",
+    "https://oboshi.art"
+  ],
+  "knowsAbout": ["Abstract Painting", "Acrylic Painting", "Contemporary Art", "Abstract Expressionism"]
+}
+</script>
+
+<!-- Structured Data: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "OBOSHI",
+  "url": "https://oboshi.art",
+  "description": "Official website of Junichi Oboshi — abstract acrylic painter based in Berlin. Original works and prints available worldwide.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://oboshi.art/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#ffffff; --bg2:#f7f7f7; --ink:#1a1815; --ink2:#6b6560; --ink3:#b0aaa3;
+  --accent:#b84a24; --accent2:#d4723e; --gold:#c8a84b; --border:#e4e0d8; --border2:#d0cbc2;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:var(--ink);cursor:pointer;text-decoration:none;transition:letter-spacing .4s ease,opacity .3s ease}
+.logo:hover{letter-spacing:.28em;opacity:.7}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:.5rem 1.1rem;cursor:pointer;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--accent)}
+.rule{height:1px;background:var(--border)}
+#page-top{display:block}
+#page-gallery{display:none}
+.hero{padding:10rem 3rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;border-bottom:1px solid var(--border)}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,15vw,10.5rem);line-height:.88;letter-spacing:.04em;color:var(--ink);opacity:0;transform:translateY(12px);transition:opacity .9s ease,transform .9s ease}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink2);margin-top:1.3rem;line-height:1.5;opacity:0;transform:translateY(10px);transition:opacity .9s ease .2s,transform .9s ease .2s}
+.hero-right{display:flex;flex-direction:column;gap:1.1rem;padding-bottom:.5rem;opacity:0;transform:translateY(10px);transition:opacity .9s ease .4s,transform .9s ease .4s}
+.hero-name.visible,.hero-sub.visible,.hero-right.visible{opacity:1;transform:translateY(0)}
+.hero-tag{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
+.hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:2;color:var(--ink2);border-left:2px solid var(--border2);padding-left:1.4rem}
+.hero-cta{display:inline-flex;align-items:center;gap:.8rem;background:var(--accent);color:#fff;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.6rem;cursor:pointer;border:none;font-family:'DM Mono',monospace;transition:background .2s;align-self:flex-start;text-decoration:none}
+.hero-cta:hover{background:#94341a}
+.works-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.wp-item{background:var(--bg);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/5}
+.wp-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.97)}
+.wp-item:hover img{transform:scale(1.04);filter:saturate(1.15)}
+.wp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,24,21,.88) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem}
+.wp-item:hover .wp-overlay{opacity:1}
+.wp-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.06em;color:#fff}
+.wp-overlay-price{font-size:.5rem;letter-spacing:.14em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-top:.2rem}
+.wp-view-all{background:var(--bg2);display:flex;align-items:center;justify-content:center;cursor:pointer;aspect-ratio:4/5;flex-direction:column;gap:1rem;transition:background .2s}
+.wp-view-all:hover{background:var(--ink)}
+.wp-view-all:hover .wp-all-label{color:#fff}
+.wp-view-all:hover .wp-all-arrow{color:var(--accent2)}
+.wp-all-label{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.1em;color:var(--ink);transition:color .2s}
+.wp-all-arrow{font-size:1.4rem;color:var(--ink3);transition:color .2s}
+.ecosystem{padding:5rem 3rem;border-bottom:1px solid var(--border)}
+.eco-heading{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem}
+.eco-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border)}
+.eco-card{background:var(--bg);padding:2rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;text-decoration:none;transition:background .2s;position:relative;overflow:hidden}
+.eco-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.eco-card:hover{background:var(--bg2)}
+.eco-card:hover::after{transform:scaleX(1)}
+.eco-icon{font-size:1.3rem;transition:transform .8s ease}
+@keyframes iconScrew{
+  0%  {transform:rotate(0deg)    scale(1); opacity:1}
+  70% {transform:rotate(1080deg) scale(0); opacity:0}
+  71% {transform:rotate(0deg)    scale(0); opacity:0}
+  100%{transform:rotate(0deg)    scale(1); opacity:1}
+}
+#eco-anasaea .eco-icon{display:inline-block}
+#anasaea-hex{transform-origin:center center; transform-box:fill-box;}
+#eco-anasaea:hover #anasaea-hex{
+  animation:iconScrew 2s ease-in-out forwards;
+}
+#eco-anasaea-exh .eco-icon{display:inline-block}
+#anasaea-hex2{transform-origin:center center; transform-box:fill-box;}
+#eco-anasaea-exh:hover #anasaea-hex2{
+  animation:iconScrew 2s ease-in-out forwards;
+}
+.eco-platform{font-size:.48rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
+.eco-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);line-height:1.3}
+.eco-role{font-size:.53rem;letter-spacing:.05em;color:var(--ink2);line-height:1.75;flex:1}
+.eco-link{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.about-section{padding:5rem 3rem;display:grid;grid-template-columns:2fr 1fr;gap:5rem;border-bottom:1px solid var(--border)}
+.about-title{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;letter-spacing:.04em;margin-bottom:2rem}
+.about-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.06rem;line-height:2;color:var(--ink2)}
+.about-body p+p{margin-top:1.2rem}
+.about-meta{padding-top:.5rem}
+.meta-row{display:flex;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid var(--border)}
+.meta-label{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
+.meta-val{font-size:.6rem;color:var(--ink);text-align:right}
+.meta-val a{color:var(--accent);text-decoration:none}
+.meta-val a:hover{text-decoration:underline}
+footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.15em;color:var(--ink2)}
+.footer-copy{font-size:.46rem;letter-spacing:.18em;color:var(--ink3);text-transform:uppercase}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.gallery-header{padding:8rem 3rem 2rem;display:flex;align-items:baseline;gap:2rem;border-bottom:1px solid var(--border)}
+.gallery-header-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.05em}
+.gallery-header-count{font-size:.55rem;letter-spacing:.22em;color:var(--ink3);text-transform:uppercase}
+.back-btn{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;margin-left:auto;transition:color .2s}
+.back-btn:hover{color:var(--ink)}
+.filter-tabs{display:flex;gap:0;padding:1.5rem 3rem 0;border-bottom:1px solid var(--border)}
+.filter-tab{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;padding:.6rem 1.2rem;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s;margin-bottom:-1px}
+.filter-tab:hover{color:var(--ink)}
+.filter-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+.gallery-grid{padding:2.5rem 3rem;columns:3;column-gap:1.5rem}
+.g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:var(--bg2);opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.g-item.visible{opacity:1;transform:translateY(0)}
+.g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
+.g-item:hover img{transform:scale(1.03);filter:saturate(1.15)}
+.g-item:hover .g-hover{opacity:1}
+.g-hover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;background:linear-gradient(to top,rgba(26,24,21,.75) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.g-item:hover .g-hover{opacity:1}
+.g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
+.g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
+.g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
+.g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
+.modal.open{display:flex;opacity:1;pointer-events:all}
+.modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
+.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative}
+.modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.92);border:1px solid var(--border2);color:var(--ink);font-size:2.5rem;width:3.2rem;height:3.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10;font-family:Arial,sans-serif;line-height:1;padding:0}
+.modal-nav-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed;background:rgba(255,255,255,.5)}
+.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.5);color:var(--ink);border-color:var(--border2)}
+.modal-prev{left:1rem}
+.modal-next{right:1rem}
+.modal-image-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);border:1px solid var(--border);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink);z-index:10}
+.modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
+.modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
+.modal-divider{height:1px;background:var(--border);margin:.9rem 0}
+.modal-row{display:flex;justify-content:space-between;padding:.5rem 0}
+.modal-lbl{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.modal-val{font-size:.6rem;color:var(--ink);text-align:right}
+.modal-price-big{font-family:'Bebas Neue',sans-serif;font-size:2.3rem;letter-spacing:.04em;color:var(--accent);margin:.8rem 0 .2rem}
+.modal-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.85;color:var(--ink2);margin:.8rem 0 1rem}
+.buy-section{border-top:1px solid var(--border);padding-top:1.2rem;margin-top:.5rem}
+.buy-title{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.9rem}
+.dev-notice{background:rgba(200,168,75,.07);border:1px solid rgba(200,168,75,.25);padding:.7rem 1rem;margin-bottom:.7rem;font-size:.5rem;letter-spacing:.08em;color:var(--gold);line-height:1.7;display:none}
+.dev-notice.show{display:block}
+.btn-stripe{display:flex;align-items:center;justify-content:center;gap:.8rem;background:var(--ink);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 1.2rem;cursor:pointer;transition:background .25s;width:100%;margin-bottom:.5rem}
+.btn-stripe:hover{background:var(--accent)}
+.btn-stripe svg{flex-shrink:0}
+.btn-stripe-note{font-size:.46rem;letter-spacing:.1em;color:var(--ink3);text-align:center;margin-bottom:.8rem;line-height:1.65}
+.btn-enquire{background:none;border:1px solid var(--border2);color:var(--ink2);font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:.65rem;cursor:pointer;transition:all .2s;width:100%;text-align:center;text-decoration:none;display:block;margin-bottom:.5rem}
+.btn-enquire:hover{border-color:var(--ink);color:var(--ink)}
+.btn-platform{background:none;border:1px solid var(--border);color:var(--ink3);font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem;cursor:pointer;transition:all .2s;width:100%;text-align:center;text-decoration:none;display:block;margin-bottom:.4rem}
+.btn-platform:hover{border-color:var(--gold);color:var(--gold)}
+.sold-msg{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);text-align:center;padding:1.2rem;border:1px solid var(--border);line-height:1.85}
+.shipping-info{background:var(--bg2);border:1px solid var(--border);padding:.8rem 1rem;margin:.5rem 0 .7rem;display:flex;gap:.8rem;align-items:flex-start}
+.shipping-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem}
+.shipping-text{font-size:.48rem;letter-spacing:.07em;color:var(--ink3);line-height:1.75}
+.shipping-text strong{color:var(--ink2);display:block;font-size:.5rem;letter-spacing:.12em;margin-bottom:.2rem}
+.trust-row{display:flex;gap:.8rem;justify-content:center;margin-top:.6rem;flex-wrap:wrap}
+.trust-badge{font-size:.44rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:.3rem}
+.modal-close{position:fixed;top:1.6rem;right:2.5rem;background:none;border:none;color:var(--ink3);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:'DM Mono',monospace;transition:color .2s}
+.modal-close:hover{color:var(--ink)}
+
+/* ===== DIGITAL DOWNLOAD SECTION ===== */
+.digital-section{border-top:1px solid var(--border);padding-top:1.2rem;margin-top:1.2rem}
+.digital-title{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.4rem}
+.digital-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;line-height:1.75;color:var(--ink2);margin-bottom:.9rem}
+.digital-price{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--accent);margin:.4rem 0 .6rem}
+.btn-digital{display:flex;align-items:center;justify-content:center;gap:.8rem;background:var(--accent);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 1.2rem;cursor:pointer;transition:background .25s;width:100%;margin-bottom:.5rem}
+.btn-digital:hover{background:#94341a}
+.btn-digital svg{flex-shrink:0}
+.digital-features{background:var(--bg2);border:1px solid var(--border);padding:.8rem 1rem;margin:.5rem 0;font-size:.48rem;letter-spacing:.05em;color:var(--ink2);line-height:1.85}
+.digital-features strong{color:var(--ink);display:block;font-size:.5rem;letter-spacing:.12em;margin-bottom:.3rem}
+.digital-features ul{margin:.4rem 0 0 1rem;list-style:none}
+.digital-features li{margin:.2rem 0;position:relative;padding-left:.8rem}
+.digital-features li:before{content:'✓';position:absolute;left:0;color:var(--accent)}
+.digital-notice{font-size:.46rem;letter-spacing:.08em;color:var(--ink3);text-align:center;margin-top:.5rem;line-height:1.65}
+@media(max-width:1050px){
+  .hero{grid-template-columns:1fr;gap:2.5rem}
+  .works-preview{grid-template-columns:1fr 1fr}
+  .eco-grid{grid-template-columns:1fr 1fr 1fr}
+  .about-section{grid-template-columns:1fr;gap:2.5rem}
+  .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:2rem;height:auto;max-height:95vh}
+  .modal-img-wrap{min-height:50vh;max-height:60vh;padding:1rem}
+  .modal-img{object-fit:contain;max-width:100%;max-height:100%}
+  .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem;height:auto;max-height:none}
+  .modal-close{top:1rem;right:1.5rem}
+  .gallery-grid{columns:2}
+  .modal-nav-btn{width:2.8rem;height:2.8rem;font-size:2rem}
+  .modal-prev{left:.6rem}
+  .modal-next{right:.6rem}
+}
+@media(max-width:620px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{gap:1.2rem}
+  .hero{padding:7.5rem 1.5rem 3rem}
+  .works-preview{grid-template-columns:1fr 1fr}
+  .eco-grid{grid-template-columns:1fr}
+  .ecosystem,.about-section{padding:3rem 1.5rem}
+  .gallery-header{padding:6.5rem 1.5rem 1.5rem}
+  .gallery-grid{columns:2;padding:1rem 1.5rem;column-gap:.8rem}
+  .modal{padding:1rem}
+  .modal-img-wrap{min-height:40vh;max-height:50vh;padding:0.5rem}
+  .modal-title{font-size:2rem}
+  .modal-price-big{font-size:1.8rem}
+  .modal-close{top:0.5rem;right:1rem;font-size:.5rem}
+  footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+  .modal-nav-btn{width:2.4rem;height:2.4rem;font-size:1.6rem}
+  .modal-prev{left:.4rem}
+  .modal-next{right:.4rem}
+  .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
+}
+
+/* ===== WORK REORDER DRAG & DROP ===== */
+.work-item{cursor:grab;user-select:none;transition:background .15s,box-shadow .15s,transform .15s}
+.work-item.dragging{opacity:.4;cursor:grabbing}
+.work-item.drag-over{box-shadow:0 -3px 0 0 var(--accent);background:rgba(184,74,36,.05)}
+.work-item-drag-handle{display:inline-flex;align-items:center;color:var(--ink3);font-size:.85rem;margin-right:.5rem;cursor:grab;flex-shrink:0}
+.reorder-hint{font-size:.44rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:.6rem;padding:.5rem .7rem;background:var(--bg2);border:1px solid var(--border);line-height:1.6}
+.reorder-saved{font-size:.46rem;letter-spacing:.1em;color:#4caf50;display:none;padding:.3rem 0}
+
+/* ===== CONTACT FORM ===== */
+.contact-form{margin-top:2rem;display:flex;flex-direction:column;gap:.8rem}
+.contact-form input,.contact-form textarea{width:100%;padding:.75rem 1rem;border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;background:var(--bg2);color:var(--ink);outline:none;transition:border .2s;box-sizing:border-box;letter-spacing:.05em}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{resize:vertical;min-height:6rem}
+.contact-form button{background:var(--ink);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:.85rem 1.6rem;cursor:pointer;transition:background .2s;align-self:flex-start}
+.contact-form button:hover{background:var(--accent)}
+.contact-success{display:none;font-size:.6rem;letter-spacing:.1em;color:var(--accent);padding:.8rem 0;border-top:1px solid var(--border)}
+.contact-success.show{display:block}
+
+/* ===== EXHIBITION CARD ===== */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.exh-card{background:var(--bg);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.exh-card-poster{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-bottom:.4rem}
+.exh-card-poster-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:2rem;margin-bottom:.4rem}
+.exh-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--ink);line-height:1}
+.exh-card-venue{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.exh-card-dates{font-size:.55rem;letter-spacing:.1em;color:var(--ink2);margin-top:.2rem}
+.exh-card-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.8;color:var(--ink2)}
+.exh-card-vernissage{font-size:.5rem;letter-spacing:.12em;color:var(--ink3);border-top:1px solid var(--border);padding-top:.6rem}
+.exh-card.past{opacity:.65}
+.exh-card.past .exh-card-venue{color:var(--ink3)}
+
+/* ===== ADMIN PANEL ===== */
+#admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
+#admin-toggle:hover{background:var(--accent)}
+
+#admin-panel{position:fixed;top:0;right:-480px;width:460px;height:100vh;background:#fff;border-left:2px solid var(--border);z-index:9998;overflow-y:auto;transition:right .3s ease;padding:2rem;font-family:'DM Mono',monospace;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
+#admin-panel.open{right:0}
+#admin-panel h2{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+#admin-panel h3{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink2);margin:1.5rem 0 .8rem}
+.admin-field{margin-bottom:.8rem}
+.admin-field label{display:block;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem}
+.admin-field input,.admin-field textarea,.admin-field select{width:100%;padding:.6rem .8rem;border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.55rem;background:var(--bg2);color:var(--ink);outline:none;transition:border .2s;box-sizing:border-box}
+.admin-field input:focus,.admin-field textarea:focus{border-color:var(--accent)}
+.admin-field textarea{resize:vertical;min-height:4rem}
+.admin-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.btn-admin{width:100%;padding:.8rem;background:var(--ink);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;margin-top:.5rem;transition:background .2s}
+.btn-admin:hover{background:var(--accent)}
+.btn-admin.secondary{background:var(--bg2);color:var(--ink);border:1px solid var(--border)}
+.btn-admin.secondary:hover{background:var(--border);color:var(--ink)}
+.admin-output{background:var(--bg2);border:1px solid var(--border);padding:1rem;font-size:.48rem;line-height:1.8;margin-top:.5rem;white-space:pre-wrap;word-break:break-all;color:var(--ink2);max-height:400px;overflow-y:auto}
+.admin-output-label{font-size:.5rem;color:var(--ink2);margin-bottom:.5rem;line-height:1.5}
+.copy-btn{background:var(--accent);color:#fff;border:none;padding:.5rem 1rem;font-family:'DM Mono',monospace;font-size:.48rem;cursor:pointer;letter-spacing:.1em;margin-top:.5rem;transition:background .2s}
+.copy-btn:hover{background:#94341a}
+.admin-msg{font-size:.5rem;color:var(--accent);letter-spacing:.1em;margin-top:.5rem;display:none}
+.admin-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--ink3)}
+.work-item{background:var(--bg2);border:1px solid var(--border);padding:.8rem;margin-bottom:.6rem;font-size:.5rem;line-height:1.7}
+.work-item-title{font-size:.58rem;font-weight:600;margin-bottom:.3rem;color:var(--ink)}
+.work-item-meta{color:var(--ink3);margin-bottom:.5rem}
+.work-item-sold{color:var(--accent);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+.work-item-actions{display:flex;gap:.4rem;margin-top:.6rem}
+.btn-edit,.btn-delete{padding:.4rem .8rem;font-family:'DM Mono',monospace;font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;transition:background .2s}
+.btn-edit{background:var(--ink);color:#fff}
+.btn-edit:hover{background:var(--accent)}
+.btn-delete{background:var(--bg);color:var(--accent);border:1px solid var(--accent)}
+.btn-delete:hover{background:var(--accent);color:#fff}
+.img-upload-area{border:2px dashed var(--border);padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg2);margin-bottom:.8rem}
+.img-upload-area:hover{border-color:var(--accent);background:var(--bg)}
+.img-upload-area.dragover{border-color:var(--accent);background:rgba(184,74,36,.05)}
+.img-upload-label{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:.3rem}
+.img-upload-text{font-size:.48rem;color:var(--ink2);line-height:1.6}
+.img-preview{max-width:100%;height:auto;margin-top:.5rem;border:1px solid var(--border);display:none}
+.img-preview.show{display:block}
+#admin-img-file{display:none}
+.admin-img-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.8rem;margin:.8rem 0;padding:.8rem 0}
+.admin-img-item{position:relative;aspect-ratio:1;border:2px solid var(--border);overflow:hidden;background:var(--bg2);cursor:move}
+.admin-img-item img{width:100%;height:100%;object-fit:cover}
+.admin-img-remove{position:absolute;top:.3rem;right:.3rem;background:var(--accent);color:#fff;border:none;width:1.5rem;height:1.5rem;border-radius:50%;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
+.admin-img-remove:hover{background:#94341a}
+.admin-img-order{position:absolute;bottom:.3rem;left:.3rem;background:rgba(255,255,255,.95);color:var(--ink);font-size:.45rem;padding:.2rem .5rem;letter-spacing:.1em;font-weight:600}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <span class="logo" id="nav-logo">OBOSHI.ART</span>
+  <ul class="nav-links">
+    <li><a href="#" id="nav-works">Works</a></li>
+    <li><a href="#" id="nav-contact">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cta" id="nav-buy">Buy Original Art</a>
+</nav>
+
+<div id="page-top">
+  <div class="hero">
+    <div>
+      <div class="hero-name">OBOSHI</div>
+      <div class="hero-sub">Abstract Acrylic Painter — Berlin</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-tag">Artist Statement</div>
+      <div class="hero-quote">I am an abstract painter working through silence and expression. Through layered compositions and rhythmic spatial flow, I create on canvas a place where inner emotion and outer reality enter into dialogue. Each work carries an energy — like a vibration woven from layers of color and texture — that brings quiet resonance to the viewer's inner world. Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</div>
+      <a class="hero-cta" id="hero-cta" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">View 3D Virtual Gallery →</a>
+    </div>
+  </div>
+
+  <div class="works-preview" id="works-preview"></div>
+  <div class="rule"></div>
+
+  <div class="ecosystem">
+    <div class="eco-heading">Find OBOSHI — across platforms</div>
+    <div class="eco-grid">
+      <a class="eco-card" id="eco-anasaea" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">
+        <div class="eco-icon">
+          <svg id="anasaea-hex" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12,2 21,7 21,17 12,22 3,17 3,7"/>
+          </svg>
+        </div>
+        <div class="eco-platform">Anasaea</div>
+        <div class="eco-title">3D Virtual Gallery</div>
+        <div class="eco-role">Step inside a virtual gallery and experience the paintings in three dimensions — a full portfolio to explore at your own pace, from anywhere in the world.</div>
+        <div class="eco-link">Enter 3D Gallery →</div>
+      </a>
+      <a class="eco-card" id="eco-anasaea-exh" href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">
+        <div class="eco-icon">
+          <svg id="anasaea-hex2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12,2 21,7 21,17 12,22 3,17 3,7"/>
+          </svg>
+        </div>
+        <div class="eco-platform">Anasaea</div>
+        <div class="eco-title">3D Virtual Exhibition</div>
+        <div class="eco-role">A curated 3D exhibition space — walk through an immersive virtual show featuring selected OBOSHI works, presented as a dedicated exhibition from anywhere in the world.</div>
+        <div class="eco-link">Enter 3D Exhibition →</div>
+      </a>
+      <a class="eco-card" href="https://www.youtube.com/@oboshi" target="_blank">
+        <div class="eco-icon">▶</div>
+        <div class="eco-platform">YouTube · @oboshi</div>
+        <div class="eco-title">Paintings in Motion</div>
+        <div class="eco-role">Watch the work come alive — process videos, finished canvases in motion, and a visual journey into the studio. The best way to experience the paintings before collecting.</div>
+        <div class="eco-link">Watch on YouTube →</div>
+      </a>
+      <a class="eco-card" href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">
+        <div class="eco-icon">◇</div>
+        <div class="eco-platform">Singulart</div>
+        <div class="eco-title">International Platform</div>
+        <div class="eco-role">A curated global art platform reaching collectors worldwide. Discover and purchase OBOSHI works through Singulart's international network of buyers and galleries.</div>
+        <div class="eco-link">View on Singulart →</div>
+      </a>
+      <div class="eco-card" style="cursor:pointer" id="eco-exhibitions" onclick="scrollToExhibitions()">
+        <div class="eco-icon">🗓</div>
+        <div class="eco-platform">Exhibitions</div>
+        <div class="eco-title" id="eco-exh-title">Current & Upcoming</div>
+        <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
+        <div class="eco-link">View exhibitions →</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- ===== EXHIBITIONS SECTION ===== -->
+  <div class="ecosystem" id="exhibitions-section" style="display:none">
+    <div class="eco-heading">Exhibitions</div>
+    <div id="exh-current-wrap">
+      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Current & Upcoming</div>
+      <div id="exh-current-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
+    </div>
+    <div id="exh-past-wrap" style="margin-top:3rem;display:none">
+      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Past Exhibitions</div>
+      <div id="exh-past-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="about-section" id="contact">
+    <div>
+      <div class="about-title">Contact</div>
+    </div>
+    <div class="about-meta">
+      <div class="meta-row"><span class="meta-label">Based in</span><span class="meta-val">Berlin</span></div>
+      <div class="meta-row"><span class="meta-label">Medium</span><span class="meta-val">Acrylic + Collage on Canvas</span></div>
+      <div class="meta-row"><span class="meta-label">YouTube</span><span class="meta-val"><a href="https://www.youtube.com/@oboshi" target="_blank">@oboshi →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Instagram</span><span class="meta-val"><a href="https://www.instagram.com/junichioboshi/" target="_blank">@junichioboshi →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Singulart</span><span class="meta-val"><a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">View Profile →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Contact</span><span class="meta-val"><a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank"><span class="__cf_email__" data-cfemail="b5d4c7c1f5dad7dac6dddc9bd4c7c1">[email&#160;protected]</span> →</a></span></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">OBOSHI.ART</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
+      <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
+      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
+      <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
+  </footer>
+</div>
+
+<div id="page-gallery">
+  <div class="gallery-header">
+    <div class="gallery-header-title">Works</div>
+    <div class="gallery-header-count" id="work-count"></div>
+    <button class="back-btn" id="back-btn">← Back</button>
+  </div>
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="oboshi">OBOSHI</button>
+    <button class="filter-tab" data-filter="kids">Kids</button>
+    <button class="filter-tab" data-filter="goods">Goods</button>
+  </div>
+  <div class="gallery-grid" id="grid"></div>
+  <div style="text-align:center;padding:4rem 3rem 3rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem">
+    <div style="width:40px;height:1px;background:var(--border2)"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink3);letter-spacing:.08em">OBOSHI</div>
+    <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">Berlin</div>
+    <div style="width:40px;height:1px;background:var(--border2)"></div>
+  </div>
+  <div class="rule"></div>
+  <footer>
+    <div class="footer-logo">OBOSHI.ART</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
+      <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
+      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
+      <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
+    </div>
+    <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
+  </footer>
+</div>
+
+<!-- Admin Panel Toggle Button -->
+<button id="admin-toggle">⚙️</button>
+
+<!-- Password Modal -->
+<div id="pw-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);align-items:center;justify-content:center">
+  <div style="background:#fff;padding:2rem;width:320px;border:1px solid var(--border);font-family:'DM Mono',monospace">
+    <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem;color:var(--ink)">管理パネル — パスワード</div>
+    <input type="password" id="pw-input" placeholder="パスワードを入力"
+      style="width:100%;padding:.7rem .9rem;border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;background:var(--bg2);color:var(--ink);outline:none;box-sizing:border-box;margin-bottom:.6rem">
+    <div id="pw-error" style="display:none;font-size:.5rem;color:var(--accent);margin-bottom:.6rem;letter-spacing:.1em">✕ パスワードが違います</div>
+    <div style="display:flex;gap:.5rem">
+      <button id="pw-ok" style="flex:1;padding:.7rem;background:var(--ink);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer">開く</button>
+      <button id="pw-cancel" style="flex:1;padding:.7rem;background:var(--bg2);color:var(--ink);border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer">キャンセル</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Panel -->
+<div id="admin-panel">
+  <button class="admin-close" id="admin-close">×</button>
+  <h2>管理パネル</h2>
+  
+  <div style="background:#e7f4ff;border:1px solid #90caf9;padding:0.8rem;margin-bottom:1.5rem;font-size:0.52rem;line-height:1.6;color:#1565c0">
+    <strong>💾 保存方法</strong><br>
+    1. 作品を編集・追加する<br>
+    2.「⬇️ index.html をダウンロード」をクリック<br>
+    3. ダウンロードしたファイルをGitHubの index.html に上書き<br>
+    → 約1分後にサイトに自動反映されます。
+  </div>
+  
+  <h3 id="admin-form-title">作品を追加</h3>
+  <div class="admin-field">
+    <label>カテゴリー</label>
+    <select id="admin-category">
+      <option value="oboshi">OBOSHI — 自分の作品</option>
+      <option value="kids">Kids — 子供の絵</option>
+      <option value="goods">Goods — グッズ・その他</option>
+    </select>
+  </div>
+  <div class="admin-field" id="admin-weight-field" style="display:none">
+    <label>配送重量クラス</label>
+    <select id="admin-weight">
+      <option value="">— 選択してください —</option>
+      <option value="0.5kg">〜0.5kg</option>
+      <option value="2kg">〜2kg</option>
+      <option value="5kg">〜5kg</option>
+      <option value="10kg">〜10kg</option>
+    </select>
+  </div>
+  <div class="admin-field">
+    <label>タイトル</label>
+    <input type="text" id="admin-title" placeholder="例: Silence No. 12">
+  </div>
+  <div class="admin-row">
+    <div class="admin-field">
+      <label>年</label>
+      <input type="text" id="admin-year" placeholder="例: 2024">
+    </div>
+    <div class="admin-field">
+      <label>価格</label>
+      <input type="text" id="admin-price" placeholder="例: €1,200">
+    </div>
+  </div>
+  <div class="admin-field">
+    <label>画像（アップロード または URL入力、複数可）</label>
+    <div class="img-upload-area" id="img-upload-area">
+      <div class="img-upload-text">
+        クリックして画像を選択<br>
+        または画像をここにドラッグ&ドロップ
+      </div>
+    </div>
+    <input type="file" id="admin-img-file" accept="image/*" multiple>
+    <img id="img-preview" class="img-preview" alt="プレビュー">
+    <div style="display:flex;gap:.4rem;margin-top:.5rem">
+      <input type="text" id="admin-img" placeholder="画像URLを入力 (例: images/brim-over.jpg)" style="flex:1">
+      <button type="button" id="admin-img-add-url" style="background:var(--ink);color:#fff;border:none;padding:.4rem .8rem;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;cursor:pointer;white-space:nowrap">+ 追加</button>
+    </div>
+    <div style="font-size:.44rem;color:var(--ink3);margin-top:.3rem;line-height:1.6">URLを入力して「+ 追加」→ 複数URLを追加できます</div>
+    <button type="button" id="admin-browse-github" style="width:100%;margin-top:.5rem;padding:.6rem;background:#24292e;color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;cursor:pointer;text-transform:uppercase;transition:background .2s">🖼 GitHubの画像一覧から選ぶ</button>
+    <div id="github-img-browser" style="display:none;margin-top:.5rem;border:1px solid var(--border);background:var(--bg2);max-height:260px;overflow-y:auto;padding:.5rem">
+      <div style="font-size:.46rem;color:var(--ink3);margin-bottom:.5rem;letter-spacing:.1em">クリックで選択 · 複数選択可</div>
+      <div id="github-img-list" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem"></div>
+    </div>
+  </div>
+  <div class="admin-field">
+    <label>素材</label>
+    <input type="text" id="admin-medium" placeholder="例: Acrylic on canvas">
+  </div>
+  <div class="admin-field">
+    <label>サイズ</label>
+    <input type="text" id="admin-size" placeholder="例: 100×80 cm">
+  </div>
+  <div class="admin-field">
+    <label>説明</label>
+    <textarea id="admin-desc" placeholder="作品の説明..."></textarea>
+  </div>
+  <div class="admin-field">
+    <label>Anasaeaリンク（任意）</label>
+    <input type="text" id="admin-anasaea" placeholder="https://anasaea.com/...">
+  </div>
+  <div class="admin-field">
+    <label>Stripeリンク（任意）</label>
+    <input type="text" id="admin-stripe" placeholder="https://buy.stripe.com/...">
+  </div>
+  <div class="admin-field">
+    <label>デジタルダウンロード Stripe Link（任意）</label>
+    <input type="text" id="admin-digital-stripe" placeholder="https://buy.stripe.com/... (€15のデジタル版)">
+  </div>
+  <div class="admin-field">
+    <label>Google Driveダウンロードリンク（任意）</label>
+    <input type="text" id="admin-download-link" placeholder="https://drive.google.com/file/d/.../view?usp=sharing">
+  </div>
+  <div class="admin-field">
+    <label>デジタル専用作品（物理作品なし）</label>
+    <select id="admin-digital-only">
+      <option value="false">いいえ — 原画あり（通常の作品）</option>
+      <option value="true">はい — デジタルデータのみ（原画なし）</option>
+    </select>
+    <div style="font-size:.44rem;color:var(--ink3);margin-top:.3rem;line-height:1.5">「デジタルのみ」を選ぶと、作品モーダルで原画購入セクションが非表示になり、デジタルダウンロードのみ表示されます</div>
+  </div>
+  <div class="admin-field">
+    <label>販売状態</label>
+    <select id="admin-sold">
+      <option value="false">販売中</option>
+      <option value="true">販売済み</option>
+    </select>
+  </div>
+  <button class="btn-admin" id="admin-save">作品を追加</button>
+  <button class="btn-admin secondary" id="admin-cancel" style="display:none;">キャンセル</button>
+  <div class="admin-msg" id="admin-add-msg">✓ 保存しました</div>
+
+  <h3>現在の作品一覧</h3>
+  <div id="admin-works-list"></div>
+
+  <h3>展覧会管理</h3>
+  <div style="font-size:.46rem;color:var(--ink3);margin-bottom:.8rem;line-height:1.6">
+    終了した展覧会は「アーカイブ」に移動され、サイトの過去展覧会一覧に残ります。
+  </div>
+
+  <div id="admin-exh-form">
+    <div class="admin-field">
+      <label>展覧会名</label>
+      <input type="text" id="exh-title" placeholder="例: Spring Stories">
+    </div>
+    <div class="admin-field">
+      <label>場所</label>
+      <input type="text" id="exh-venue" placeholder="例: QGallery Berlin">
+    </div>
+    <div class="admin-row">
+      <div class="admin-field">
+        <label>開始日</label>
+        <input type="text" id="exh-start" placeholder="例: 20.03.2026">
+      </div>
+      <div class="admin-field">
+        <label>終了日</label>
+        <input type="text" id="exh-end" placeholder="例: 14.04.2026">
+      </div>
+    </div>
+    <div class="admin-field">
+      <label>ヴェルニサージュ（任意）</label>
+      <input type="text" id="exh-vernissage" placeholder="例: 19.03.2026 / 19:00 Uhr">
+    </div>
+    <div class="admin-field">
+      <label>詳細テキスト（任意）</label>
+      <textarea id="exh-desc" placeholder="展覧会の説明..."></textarea>
+    </div>
+    <div class="admin-field">
+      <label>ポスター画像URL（任意）</label>
+      <div style="display:flex;gap:.4rem">
+        <input type="text" id="exh-poster" placeholder="例: images/spring-stories-poster.jpg" style="flex:1">
+      </div>
+    </div>
+    <div class="admin-field">
+      <label>ギャラリーウェブサイトURL（任意）</label>
+      <input type="text" id="exh-url" placeholder="例: https://qgallery-berlin.de/...">
+    </div>
+    <button class="btn-admin" id="exh-save">展覧会を追加</button>
+    <button class="btn-admin secondary" id="exh-cancel" style="display:none">キャンセル</button>
+    <div class="admin-msg" id="exh-msg">✓ 保存しました</div>
+  </div>
+
+  <div id="admin-exh-list" style="margin-top:.8rem"></div>
+
+  <h3>データエクスポート</h3>
+  <button class="btn-admin" id="admin-download-html" style="background:#28a745;margin-bottom:0.4rem">⬇️ index.html をダウンロード</button>
+  <p style="font-size:0.48rem;color:var(--ink3);margin-bottom:1rem;line-height:1.6">
+    ダウンロードしたファイルをGitHubの index.html に上書きアップロードするだけで完了です。
+  </p>
+  <button class="btn-admin secondary" id="admin-export">JSONをコピー（手動）</button>
+  <button class="btn-admin secondary" id="admin-clear-storage" style="background:#e67e22;color:#fff;margin-top:0.5rem;">🗑️ キャッシュをクリア（再読み込み）</button>
+  <button class="btn-admin secondary" id="admin-reset" style="background:#d44;color:#fff;margin-top:0.5rem;">⚠️ デフォルトにリセット</button>
+  <div id="admin-json-output"></div>
+</div>
+
+<div class="modal" id="modal">
+  <button class="modal-close" id="modal-close">✕ Close</button>
+  <div class="modal-inner">
+    <div class="modal-img-wrap">
+      <button class="modal-nav-btn modal-prev" id="modal-prev" aria-label="Previous image">‹</button>
+      <img class="modal-img" id="m-img" src="" alt="">
+      <button class="modal-nav-btn modal-next" id="modal-next" aria-label="Next image">›</button>
+      <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
+    </div>
+    <div class="modal-info">
+      <div class="modal-title" id="m-title"></div>
+      <div id="m-digital-badge" style="display:none;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.3rem .8rem;margin-bottom:.6rem;align-self:flex-start;width:fit-content">⬇ Digital Artwork Only</div>
+      <div class="modal-year" id="m-year"></div>
+      <div class="modal-row"><span class="modal-lbl">Medium</span><span class="modal-val" id="m-medium"></span></div>
+      <div class="modal-row"><span class="modal-lbl">Size</span><span class="modal-val" id="m-size"></span></div>
+      <div class="modal-desc" id="m-desc"></div>
+      <div class="modal-divider"></div>
+      <div id="buy-available">
+        <div class="modal-price-big" id="m-price"></div>
+        <div class="buy-section">
+          <div class="buy-title">Purchase this original work</div>
+          <div class="dev-notice" id="dev-notice">⚙ Stripe未設定 — Payment Linkを設定すると有効になります</div>
+          <button class="btn-stripe" id="btn-stripe">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            Buy Now — Secure Checkout
+          </button>
+          <div class="btn-stripe-note">Stripe · PayPal · Visa · Mastercard · AMEX · SEPA · iDEAL</div>
+          <div class="shipping-info">
+            <div class="shipping-icon">📦</div>
+            <div class="shipping-text">
+              <strong>Worldwide Shipping via DHL — from Berlin</strong>
+              Professionally packed and insured. Europe 3–5 days · Worldwide 5–10 days.<br>
+              Tracking number sent automatically after purchase.
+            </div>
+          </div>
+          <a class="btn-enquire" id="btn-enquire" href="#">Enquire by email →</a>
+          <a class="btn-platform" id="m-anasaea-link" href="#" target="_blank" style="display:none">View in 3D on Anasaea →</a>
+          <div class="trust-row">
+            <span class="trust-badge">🔒 SSL Secure</span>
+            <span class="trust-badge">✓ Original Unique Work</span>
+            <span class="trust-badge">↩ 14-day Return</span>
+          </div>
+        </div>
+
+        <!-- Digital Download Section -->
+        <div class="digital-section" id="digital-section">
+          <div class="digital-title">Digital Download Available</div>
+          <div class="digital-subtitle">Own a high-resolution digital version of this artwork — perfect for printing or digital display</div>
+          <div class="digital-price">€15</div>
+          <button class="btn-digital" id="btn-digital">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Buy Digital Download
+          </button>
+          <div class="digital-features">
+            <strong>What you'll receive:</strong>
+            <ul>
+              <li>High-resolution file (300 DPI, 4000×5000px)</li>
+              <li>Instant download after payment</li>
+              <li>For personal use & home decoration</li>
+            </ul>
+          </div>
+          <div class="digital-notice">Digital files are delivered via Google Drive link immediately after purchase</div>
+        </div>
+      </div>
+      <div id="buy-sold" style="display:none">
+        <div class="modal-divider"></div>
+        <div class="sold-msg">This work has been collected.<br><br>
+          <a class="btn-enquire" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry%20about%20similar%20works" target="_blank" style="margin-top:.8rem;display:inline-block">Enquire about similar works →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Image paths — place all image files in the same folder as this HTML file
+const works = [
+  {
+    "title": "Die Verbindung",
+    "year": "2004",
+    "price": "0",
+    "priceNum": 0,
+    "img": "images/verbinbung web.jpg",
+    "images": [
+      "images/verbinbung web.jpg"
+    ],
+    "medium": "Oil on canvas",
+    "size": "350x750 cm",
+    "desc": "This work consists of twenty‑six small paintings.\nEach piece stands as an independent artwork, yet together they form one large image.\nIn this project, the small paintings that compose the larger image are exhibited separately across twenty‑five EU countries and Japan — twenty‑six locations in total.\nThe wishes and intentions embedded in each piece connect across distance and reunite into a single image, giving rise to a larger message.\nBy placing the works in different places, the project fosters a sense of connection, community, and calm. Through this, I hope to deepen the cultural understanding between Japan and Europe.",
+    "sold": true,
+    "anasaeaLink": null,
+    "stripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/dRm14n6Md22pclj6ka9ws1g",
+    "downloadLink": "https://drive.google.com/file/d/1ogJKV7Sgbbv1fv6D6ZpWe_bsvI5f81hD/view?usp=drive_link"
+  },
+  {
+    "title": "Brim Over",
+    "year": "2026",
+    "price": "€1,800",
+    "priceNum": 1800,
+    "img": "images/brim-over-web.jpg",
+    "images": [
+      "images/IMG_20260225_1555119101.jpg",
+      "images/IMG_20250926_134227029.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "65x80 cm",
+    "desc": "A work that overflows — colour and form pressing against the edges of the canvas, held in and yet bursting with quiet energy.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/685013338a9f4b1f0cd2c274",
+    "stripeLink": "https://buy.stripe.com/aFa28r7QhgXjfxvdMC9ws1m",
+    "digitalStripeLink": "https://buy.stripe.com/00wbJ13A18qN2KJbEu9ws0C",
+    "downloadLink": null
+  },
+  {
+    "title": "In a Dream",
+    "year": "2025",
+    "price": "€2,500",
+    "priceNum": 2500,
+    "img": "images/in-a-dream-web.jpg",
+    "images": [
+      "images/in-a-dream-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+In a Dream.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "70x100 cm",
+    "desc": "Suspended between waking and sleep — forms dissolve and reconstitute themselves in layered hues, evoking the logic of the dreaming mind.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/685011e78a9f4b1f0cd2c0a6",
+    "stripeLink": "https://buy.stripe.com/4gM7sL7QhePb5WV0ZQ9ws1k",
+    "digitalStripeLink": "https://buy.stripe.com/cNiaEX8Ul6iF0CBbEu9ws0D",
+    "downloadLink": null
+  },
+  {
+    "title": "Fragments of Thought",
+    "year": "2025",
+    "price": "€2,500",
+    "priceNum": 2500,
+    "img": "images/Fragments-of-Thought-,Gedankenfragmente,想いの断片-web.jpg",
+    "images": [
+      "images/Fragments-of-Thought-,Gedankenfragmente,想いの断片-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+Fragments of Thought.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "70x100 cm",
+    "desc": "Thought arrives in pieces — partial images, interrupted lines, colour that remembers what language cannot hold.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/9B65kDfiJfTf3ONdMC9ws1l",
+    "digitalStripeLink": "https://buy.stripe.com/fZu28rc6xdL7bhffUK9ws0E",
+    "downloadLink": null
+  },
+  {
+    "title": "Harboring Tangled Currents",
+    "year": "2025",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/Harboring-Tangled-Currents-web.jpg",
+    "images": [
+      "images/Harboring-Tangled-Currents-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY  Harboring Tangled Currents+絵Canvas.jpg",
+      "images/IMG_20251212_193840464.jpg",
+      "images/IMG_20251212_193845785.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "A harbour of complexity — currents crossing and tangling beneath a surface that appears still. Tension held with grace.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/7sY5kDb2t9uR3ON8si9ws1B",
+    "digitalStripeLink": "https://buy.stripe.com/4gMbJ16MdayVbhfaAq9ws0F",
+    "downloadLink": null
+  },
+  {
+    "title": "Escape turned out to be a dream",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/Escape-turned-out-to-be-a-dream-40x50-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Escape turned out to be a dream+絵Canvas.jpg",
+      "images/IMG_20251203_094546311.jpg",
+      "images/IMG_20251203_094604714.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×50 cm",
+    "desc": "The escape that seemed real dissolves into colour and memory. What we flee from and what we long for are sometimes the same thing.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/eVqcN5fiJdL74SReQG9ws04",
+    "digitalStripeLink": "https://buy.stripe.com/5kQ9AT3A10Yl5WV7oe9ws0G",
+    "downloadLink": null
+  },
+  {
+    "title": "Found in a Place I Strayed Into",
+    "year": "2026",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/Found-in-a-Place-I-Strayed-Into-–-Circle-50X70-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Found in a Place I Strayed Into – Circle +絵Canvas Board.jpg",
+      "images/IMG_20260114_114607856.jpg",
+      "images/IMG_20260114_114614527.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Discovery through accident — the unexpected place that becomes, in retrospect, exactly where you needed to be.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/00w5kD0nP36t70Z8si9ws1n",
+    "digitalStripeLink": "https://buy.stripe.com/6oU14n2vXdL78534c29ws0H",
+    "downloadLink": null
+  },
+  {
+    "title": "Fragments of the Night When the Answer Was Found",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/Fragments-of-the-Night-When-the-Answer-Was-Found-web.jpg",
+    "images": [
+      "images/Fragments-of-the-Night-When-the-Answer-Was-Found-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Fragments of the Night When the Answer Was Found+絵Canvas.jpg",
+      "images/IMG_20251123_142112779.jpg",
+      "images/IMG_20251123_142117903.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40x50 cm",
+    "desc": "Night as a place of revelation — fragments of darkness carrying unexpected light. An answer arrived not as certainty, but as recognition.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/14A14nc6xfTf2KJ23U9ws06",
+    "digitalStripeLink": "https://buy.stripe.com/bJeeVd0nPcH3fxv4c29ws0I",
+    "downloadLink": null
+  },
+  {
+    "title": "A Calculation to Find Something Sought",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/A Calculation to Find Something Sought 40x50 jpeg.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY A Calculation to Find Something Sought+絵Canvas.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×50 cm",
+    "desc": "Searching through marks and colour — a methodical seeking that finds its answer not in logic but in feeling.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/fZubJ1fiJ22pcljaAq9ws07",
+    "digitalStripeLink": "https://buy.stripe.com/aFafZh4E54ax85337Y9ws0J",
+    "downloadLink": null
+  },
+  {
+    "title": "A Fun Sky Adventure",
+    "year": "2026",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/a-fun-sky-adventure-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY  A Fun Sky Adventure +絵Canvas.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Lightness as a serious subject — the joy of ascent, of open sky, of colour freed from gravity.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/eVq5kD4E536t3ONaAq9ws1s",
+    "digitalStripeLink": "https://buy.stripe.com/cNi3cv1rT8qNbhf37Y9ws0K",
+    "downloadLink": null
+  },
+  {
+    "title": "A Thought Rising from the Cold",
+    "year": "2026",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/a-thought-rising-from-the-cold-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY A Thought Rising from the Cold+絵Canvas Board.jpg",
+      "images/IMG_20260116_090914001.jpg",
+      "images/IMG_20260116_090925288.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Cold as a condition of clarity — thought emerging slowly, deliberately, from a still and wintry ground.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/fZu3cv2vX7mJ4SReQG9ws1o",
+    "digitalStripeLink": "https://buy.stripe.com/14AdR90nP5eB4SR6ka9ws0L",
+    "downloadLink": null
+  },
+  {
+    "title": "Kousaku 20",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/kousaku20-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY kousaku 20 +絵Canvas.jpg",
+      "images/IMG_20260205_160157921.jpg",
+      "images/IMG_20260205_160204568.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30×40 cm",
+    "desc": "The twentieth in the Kousaku series — work as practice, as repetition, as daily ritual. Each piece a record of presence.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/dRm00j5I9bCZgBz4c29ws1D",
+    "digitalStripeLink": "https://buy.stripe.com/aFaeVd4E59uR1GF37Y9ws0O",
+    "downloadLink": null
+  },
+  {
+    "title": "Blue Conversations in the Garden",
+    "year": "2026",
+    "price": "€1,100",
+    "priceNum": 1100,
+    "img": "images/Daily-1-Blue-Conversations-in-the-Garden　庭の会話の青-40X60-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Daily 1 Blue Conversations in the Garden　庭の会話の青+絵Canvas.jpg",
+      "images/IMG_20260218_102704993.jpg",
+      "images/IMG_20260218_102708879.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×60 cm",
+    "desc": "Dialogue in blue — an exchange between forms that mirrors the easy rhythm of a conversation held outdoors, unhurried.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/9B67sL5I9cH3853eQG9ws1x",
+    "digitalStripeLink": "https://buy.stripe.com/dRmdR9fiJbCZfxvgYO9ws0P",
+    "downloadLink": null
+  },
+  {
+    "title": "Within the Time of the Sky",
+    "year": "2026",
+    "price": "€1,100",
+    "priceNum": 1100,
+    "img": "images/Daily-2-Within-the-Time-of-the-Sky-天空の時間の中-web.jpg",
+    "images": [
+      "images/Daily-2-Within-the-Time-of-the-Sky-天空の時間の中-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Within the Time of the Sky+絵Canvas.jpg",
+      "images/IMG_20260218_102432666.jpg",
+      "images/IMG_20260218_102440438.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40x60 cm",
+    "desc": "Sky as duration, not backdrop — a painting that asks us to inhabit time rather than observe it.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/6oU14n1rTePb3ON4c29ws1y",
+    "digitalStripeLink": "https://buy.stripe.com/9B6bJ14E50Yl9978si9ws0Q",
+    "downloadLink": null
+  },
+  {
+    "title": "Stairs of Thrill",
+    "year": "2026",
+    "price": "€1,100",
+    "priceNum": 1100,
+    "img": "images/Daily-6-Stairs-of-Thrill-スリルの階段-40x60-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Daily 6 Stairs of Thrill　スリルの階段+絵Canvas.jpg",
+      "images/IMG_20260218_102820046.jpg",
+      "images/IMG_20260218_102824119.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×60 cm",
+    "desc": "Ascent as excitement — each step upward charged with anticipation, the destination unknown but urgently desired.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/aFafZhfiJ6iF997fUK9ws1z",
+    "digitalStripeLink": "https://buy.stripe.com/28EdR97Qh36t8539wm9ws0R",
+    "downloadLink": null
+  },
+  {
+    "title": "The Kindness Found Within a Sense of Stories",
+    "year": "2026",
+    "price": "€1,100",
+    "priceNum": 1100,
+    "img": "images/Daily-7-The-Kindness-Found-Within-a-Sense-of-Stories　物語感が出会えたやさしさ-40x60cm-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Daily 7 The Kindness Found Within a Sense of Stories　物語感が出会えたやさしさ +絵Canvas.jpg",
+      "images/IMG_20260218_102557097.jpg",
+      "images/IMG_20260218_102611668.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×60 cm",
+    "desc": "Stories as acts of kindness — the warmth that comes from being held within a narrative, from being seen through someone else's telling.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/dRm9AT4E522p0CBdMC9ws1A",
+    "digitalStripeLink": "https://buy.stripe.com/00wcN5eeFfTf8535g69ws0S",
+    "downloadLink": null
+  },
+  {
+    "title": "Daily Painting 1",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/daily-painting-1-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Daily Painting 1 31x40 +絵Canvas.jpg",
+      "images/IMG_20260228_125407206.jpg",
+      "images/IMG_20260228_125359935.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "31×40 cm",
+    "desc": "The first daily painting — a commitment to showing up, to making, to the ordinary miracle of paint meeting canvas.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/eVq4gzdaBfTf1GF8si9ws1E",
+    "digitalStripeLink": "https://buy.stripe.com/3cI8wP3A1gXj853fUK9ws0T",
+    "downloadLink": null
+  },
+  {
+    "title": "Daily painting 3",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/daily-painting-3-web.jpg",
+    "images": [
+      "images/daily-painting-3-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Daily painting 3+絵Canvas Board.jpg",
+      "images/IMG_20260106_202734533.jpg",
+      "images/IMG_20260106_202718152.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "The third daily painting — proof of continued practice, of showing up again, of the studio as sanctuary.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/28E00jc6x5eB70Z9wm9ws1G",
+    "digitalStripeLink": "https://buy.stripe.com/8x2fZheeF5eB0CB9wm9ws0U",
+    "downloadLink": null
+  },
+  {
+    "title": "Enjoy",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/enjoy-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Enjoy 30x40 sRGB+絵Canvas Board.jpg",
+      "images/IMG_20251119_134728800.jpg",
+      "images/IMG_20251119_134707893.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30×40 cm",
+    "desc": "Permission to delight — a painting that asks nothing of the viewer except presence and pleasure.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/bJecN5eeFePb99723U9ws1H",
+    "digitalStripeLink": "https://buy.stripe.com/28E00j1rT4ax3ONaAq9ws0V",
+    "downloadLink": null
+  },
+  {
+    "title": "Preparing to Make a Decision",
+    "year": "2025",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/Preparing-to-Make-a-Decision-web.jpg",
+    "images": [
+      "images/Preparing-to-Make-a-Decision-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Preparing to Make a Decision+絵Canvas Board.jpg",
+      "images/IMG_20251117_085306818.jpg",
+      "images/IMG_20251117_085249360.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50x70 cm",
+    "desc": "Poised at the threshold — forms gather and pause before committing to direction. A painting about the charged stillness before action.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/8x2fZh8Ul5eBgBzdMC9ws1p",
+    "digitalStripeLink": "https://buy.stripe.com/eVqaEXc6x8qN5WV6ka9ws0W",
+    "downloadLink": null
+  },
+  {
+    "title": "Shake",
+    "year": "2025",
+    "price": "€2,500",
+    "priceNum": 2500,
+    "img": "images/shake-web.jpg",
+    "images": [
+      "images/shake-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+Shake.jpg",
+      "images/IMG_20250514_115902065..jpg",
+      "images/IMG_20250514_115854611..jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "70x100 cm",
+    "desc": "Vibration made visible. The canvas trembles with overlapping gestures — a record of the body moving through space, of energy passing through matter.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/685012578a9f4b1f0cd2c150",
+    "stripeLink": "https://buy.stripe.com/eVqfZh5I9fTfclj0ZQ9ws1j",
+    "digitalStripeLink": "https://buy.stripe.com/eVq4gz8UlbCZgBz37Y9ws1d",
+    "downloadLink": null
+  },
+  {
+    "title": "A Walk in Mind",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/A-Walk-in-Mind-散歩の気分-web.jpg",
+    "images": [
+      "images/A-Walk-in-Mind-散歩の気分-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY A Walk in Mind + 絵 Acrylic on Paper.jpg",
+      "images/IMG_20260205_164701114.jpg",
+      "images/IMG_20260205_164617554.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Walking not through space but through thought — a meandering path of associations, memories, and quiet observations.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/28E00j7QhcH3etr4c29ws1C",
+    "digitalStripeLink": "https://buy.stripe.com/cNiaEX5I95eBgBz8si9ws0M",
+    "downloadLink": null
+  },
+  {
+    "title": "Words of the Enchanted Forest",
+    "year": "2026",
+    "price": "€1,450",
+    "priceNum": 1450,
+    "img": "images/Words-of-the-Enchanted-Forest　不思議の森の言葉-50x70-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY Words of the Enchanted Forest +絵Canvas.jpg",
+      "images/IMG_20260222_134802355.jpg",
+      "images/IMG_20260222_134746217.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "The forest speaks in colour and texture — a language older than words, felt rather than understood.",
+    "sold": true,
+    "digitalOnly": false,
+    "category": "oboshi",
+    "weight": null,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/7sY4gz2vX36t5WV37Y9ws1O",
+    "digitalStripeLink": "https://buy.stripe.com/aFaeVd4E536t99737Y9ws1c",
+    "downloadLink": null
+  },
+  {
+    "title": "Daily 4",
+    "year": "2025",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/Daily-4.web.jpg",
+    "images": [
+      "images/Daily-4.web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+Daily 4.jpg",
+      "images/IMG_8314.jpg",
+      "images/IMG_8312.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50x70 cm",
+    "desc": "The fourth in a series of daily paintings — each one a single sitting, a single mood, a single conversation between hand and canvas.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/69zqMCBGan7smnXb9",
+    "stripeLink": "https://buy.stripe.com/4gMcN55I9gXjadbfUK9ws1u",
+    "digitalStripeLink": "https://buy.stripe.com/28E9AT8UlgXj4SR37Y9ws0Y",
+    "downloadLink": null
+  },
+  {
+    "title": "Black Abstraction 1",
+    "year": "2025",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/Black-Abstraction1　70x50-web.jpg",
+    "images": [
+      "images/Black-Abstraction1　70x50-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+Black Abstraktion 0 Canvas Board.jpg",
+      "images/IMG_20251107_180210339 (1).jpg",
+      "images/IMG_20251107_180159648 (1).jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50x70 cm",
+    "desc": "The first of the Black Abstraction series — a foundational work exploring depth, restraint, and the space between forms.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/mXfmgnKFJPCKCmGy3",
+    "stripeLink": "https://buy.stripe.com/8x2fZh2vX6iF70Z0ZQ9ws1t",
+    "digitalStripeLink": "https://buy.stripe.com/fZufZh1rT6iFfxvaAq9ws0X",
+    "downloadLink": null
+  },
+  {
+    "title": "Selection",
+    "year": "2025",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/selection-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY+selection 絵Canvas.jpg",
+      "images/IMG_20251114_081655425.jpg",
+      "images/IMG_20251114_081717444.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Every mark a choice — every colour a commitment. This work is about the act of selection itself, the quiet authority of the artist's hand.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/dRmbJ1c6x22petr4c29ws1v",
+    "digitalStripeLink": "https://buy.stripe.com/00waEXeeF22pgBz4c29ws0Z",
+    "downloadLink": null
+  },
+  {
+    "title": "Black Abstraction 0",
+    "year": "2025",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/black-abstraction-0-web.jpg",
+    "images": [
+      "images/black-abstraction-0-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+Black Abstraktion 0.jpg",
+      "images/IMGP42591.jpg",
+      "images/IMGP42671.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "The origin of the Black Abstraction series. Dark grounds carry luminous traces — light emerging from within, not imposed from without.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/jejZQNC5aCuacui9D",
+    "stripeLink": "https://buy.stripe.com/7sYfZh1rTbCZ0CB6ka9ws1r",
+    "digitalStripeLink": "https://buy.stripe.com/28EcN5fiJ22p0CBaAq9ws10",
+    "downloadLink": null
+  },
+  {
+    "img": "images/White-Abstraction-2-50x70-web.jpg",
+    "title": "White Abstraction 2",
+    "year": "2026",
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "desc": "White as substance, not absence. The second White Abstraction explores silence, surface, and the texture of emptiness.",
+    "sold": false,
+    "anasaeaLink": "",
+    "stripeLink": "https://buy.stripe.com/3cI28r2vX8qN3ONeQG9ws1w",
+    "images": []
+  },
+  {
+    "title": "Daily Painting 2",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/daily-painting-2-web.jpg",
+    "images": [
+      "images/daily-painting-2-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Daily painting 2.jpg",
+      "images/IMG_20251025_151756994 (1).jpg",
+      "images/IMG_20251025_151750645 (1).jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "The second daily painting — small, immediate, alive. Made in a single session, carrying the full atmosphere of that day.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/eVq4gz1rT4ax3ON8si9ws1F",
+    "digitalStripeLink": "https://buy.stripe.com/8x2bJ1b2tbCZ4SRdMC9ws12",
+    "downloadLink": null
+  },
+  {
+    "title": "Lunch Break Amid Inner Conflict",
+    "year": "2025",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/Lunch-Break-Amid-Inner-Conflict-web.jpg",
+    "images": [
+      "images/Lunch-Break-Amid-Inner-Conflict-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Lunch Break Amid Inner Conflict+ 絵Canvas.jpg",
+      "images/IMG_20251212_193643462.jpg",
+      "images/IMG_20251212_193637658.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "A pause in the middle of things — the ordinary moment interrupted by something unresolved beneath the surface.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/cNiaEX0nP36t1GF4c29ws1I",
+    "digitalStripeLink": "https://buy.stripe.com/14A4gz0nP5eBadb0ZQ9ws13",
+    "downloadLink": null
+  },
+  {
+    "title": "Lifestyle",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/lifestyle-web.jpg",
+    "images": [
+      "images/lifestyle-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Lifestyle +絵Canvas.jpg",
+      "images/IMG_20260217_195956132.jpg",
+      "images/IMG_20260217_195950622.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "The aesthetic of everyday life examined — how we arrange our hours, our objects, our attention.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/4gM8wPgmNayV2KJ6ka9ws1J",
+    "digitalStripeLink": "https://buy.stripe.com/4gM28r8UldL7clj5g69ws14",
+    "downloadLink": null
+  },
+  {
+    "title": "Structures to Control",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/Structures-to-Control--コントロールするための構造-40x50-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY+ Structures to Control 絵Canvas.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×50 cm",
+    "desc": "The architecture of control — how we build systems to contain what cannot be contained.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/7sY8wPeeFfTfetraAq9ws0t",
+    "digitalStripeLink": "https://buy.stripe.com/3cIfZhfiJ5eBbhf23U9ws15",
+    "downloadLink": null
+  },
+  {
+    "title": "Encounter",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/encounter-web.jpg",
+    "images": [
+      "images/encounter-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Encounter.jpg",
+      "images/IMG_20251025_151545995 (1).jpg",
+      "images/IMG_20251025_151552614 (1).jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Two presences, two fields of colour — drawn together by some quiet gravity. An encounter without narrative, only atmosphere.",
+    "sold": false,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/frguMakwxeZrynBxZ",
+    "stripeLink": "https://buy.stripe.com/dRm14n6Md22p3ONgYO9ws1K",
+    "digitalStripeLink": "https://buy.stripe.com/6oUaEX9YpayVadb23U9ws16",
+    "downloadLink": null
+  },
+  {
+    "title": "Just a matter of time",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/just-a-matter-of-time-web.jpg",
+    "images": [
+      "images/just-a-matter-of-time-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Just a matter of time.jpg",
+      "images/IMG_20251025_151510395 (1).jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Patience as a subject — the certainty that things unfold in their own time, regardless of our wanting otherwise.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/6oU7sL2vX8qNclj6ka9ws1L",
+    "digitalStripeLink": "https://buy.stripe.com/3cIaEX1rT22p4SRcIy9ws17",
+    "downloadLink": null
+  },
+  {
+    "title": "The Mood for Shopping",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/The-Mood-for-Shopping　買い物の気分-30x40cm.-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY The Mood for Shopping +絵 Acrylic on Paper.jpg",
+      "images/IMG_20260205_164504566.jpg",
+      "images/IMG_20260205_164521828.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30×40 cm",
+    "desc": "Consumer desire rendered in paint — the restless energy of wanting, browsing, almost buying.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/3cIeVd5I936t1GF8si9ws1M",
+    "digitalStripeLink": "https://buy.stripe.com/3cIdR90nPgXjdpngYO9ws18",
+    "downloadLink": null
+  },
+  {
+    "title": "On the Terrace at Noon",
+    "year": "2026",
+    "price": "€1,300",
+    "priceNum": 1300,
+    "img": "images/On-the-Terrace-at-Noon-晴天の昼にテラスで-web.jpg",
+    "images": [
+      "images/On-the-Terrace-at-Noon-晴天の昼にテラスで-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY On the Terrace at Noon +絵Canvas.jpg",
+      "images/IMG_20260301_202947041.jpg",
+      "images/IMG_20260301_202950983.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Midday light on a terrace — the particular brightness of noon, the way shadows retreat and colour intensifies.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/9B6dR94E55eBcljdMC9ws1q",
+    "digitalStripeLink": "https://buy.stripe.com/3cI4gz0nPbCZ4SRaAq9ws19",
+    "downloadLink": null
+  },
+  {
+    "title": "turned around Umgedreht",
+    "year": "2026",
+    "price": "€650",
+    "priceNum": 650,
+    "img": "images/turned-around-umgedreht-web.jpg",
+    "images": [
+      "images/turned-around-umgedreht-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+絵Canvas Board turned around Umgedreht.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "30x40 cm",
+    "desc": "Turned around. A reversal of expectation — what was ground becomes sky, what was heavy becomes light.",
+    "sold": true,
+    "anasaeaLink": "https://anasaea.com/viewArtPiece/qJHd6XoqMLssGuiLb",
+    "stripeLink": null,
+    "digitalStripeLink": "https://buy.stripe.com/6oUeVd4E5bCZgBzbEu9ws1a",
+    "downloadLink": null
+  },
+  {
+    "title": "The Blessing of Rain Yet to Come",
+    "year": "2026",
+    "price": "€1,450",
+    "priceNum": 1450,
+    "img": "images/The-Blessing-of-Rain-Yet-to-Come-これから表われる雨の恵み50x70-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY The Blessing of Rain Yet to Come これから表われる雨の恵み+絵Canvas.jpg",
+      "images/IMG_20260219_085918902.jpg",
+      "images/IMG_20260219_085852130.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "50×70 cm",
+    "desc": "Anticipation of rain as grace — the charged air before weather changes, the blessing held in suspension.",
+    "sold": true,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/14A4gz3A1ayVadb37Y9ws1N",
+    "digitalStripeLink": "https://buy.stripe.com/6oUbJ1c6x22pclj37Y9ws1b",
+    "downloadLink": null
+  },
+  {
+    "title": "Memory Beyond the Choice",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/Memory-Beyond-the-Choice-40x50cm-web.jpg",
+    "images": [
+      "images/Memory-Beyond-the-Choice-40x50cm-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY Memory Beyond the Choice+絵Canvas.jpg",
+      "images/IMG_20251130_173209190.jpg",
+      "images/IMG_20251130_173149713.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×50 cm",
+    "desc": "Memory as a kind of choosing — what we keep and what we release, what returns unbidden in colour and form.",
+    "sold": true,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/cNi9AT8Ul6iF2KJ4c29ws0z",
+    "digitalStripeLink": "https://buy.stripe.com/14AeVdeeF0Yl70ZdMC9ws1e",
+    "downloadLink": null
+  },
+  {
+    "title": "The Garden of Restrained Rising Emotions",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/the-garden-of-restrained-rising-emotions-web.jpg",
+    "images": [
+      "images/CERTIFICATE OF AUTHENTICITY The Garden of Restrained Rising Emotions+絵Canvas.jpg",
+      "images/IMG_20251125_111034539.jpg",
+      "images/IMG_20251125_111019198.jpg"
+    ],
+    "medium": "Acrylic on Canvas",
+    "size": "40×50 cm",
+    "desc": "Feeling held within form — emotion that rises slowly, quietly, like something growing in a sheltered garden.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/eVq9ATdaBfTfetr4c29ws0A",
+    "digitalStripeLink": "https://buy.stripe.com/5kQcN59YpgXj4SRaAq9ws1f",
+    "downloadLink": null
+  },
+  {
+    "title": "An-Answer-Close-to-For-Example",
+    "year": "2025",
+    "price": "€900",
+    "priceNum": 900,
+    "img": "images/An-Answer-Close-to-For-Example-例えばに寄り添う答え-40x50-web.jpg",
+    "images": [
+      "images/An-Answer-Close-to-For-Example-例えばに寄り添う答え-40x50-web.jpg",
+      "images/CERTIFICATE OF AUTHENTICITY+ An Answer Close to ‘For Example’ 絵Canvas.jpg",
+      "images/IMG_20251217_145909165.jpg",
+      "images/IMG_20251217_145922229.jpg"
+    ],
+    "medium": "Acrylic on canvas",
+    "size": "40x50 cm",
+    "desc": "Not a definitive answer but an approximation — the kind of truth that gestures rather than declares.",
+    "sold": false,
+    "anasaeaLink": null,
+    "stripeLink": "https://buy.stripe.com/28E28r6MddL7dpn6ka9ws0b",
+    "digitalStripeLink": "https://buy.stripe.com/aFa6oH1rT6iF1GF0ZQ9ws0N",
+    "downloadLink": null
+  }
+];
+
+let currentWork=null;
+let currentImageIndex=0; // 現在表示中の画像インデックス
+let currentImages=[]; // 現在の作品の全画像配列
+
+function showTop(){
+  document.getElementById('page-top').style.display='block';
+  document.getElementById('page-gallery').style.display='none';
+  window.scrollTo(0,0);
+}
+function showGallery(){
+  document.getElementById('page-top').style.display='none';
+  document.getElementById('page-gallery').style.display='block';
+  window.scrollTo(0,0);
+  buildGrid();
+}
+function buildPreview(){
+  const wrap=document.getElementById('works-preview');
+  wrap.innerHTML='';
+  
+  // ランダムに3作品を選択（画像ありの作品のみ）
+  const worksWithImg = works.filter(w => w.img);
+  const shuffled = [...worksWithImg].sort(() => Math.random() - 0.5);
+  const randomWorks = shuffled.slice(0, 3);
+  
+  randomWorks.forEach((w)=>{
+    const originalIndex = works.indexOf(w); // 元の配列でのインデックスを取得
+    const el=document.createElement('div');
+    el.className='wp-item';
+    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div></div>`;
+    el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(originalIndex),80);});
+    wrap.appendChild(el);
+  });
+  
+  const all=document.createElement('div');
+  all.className='wp-view-all';
+  all.innerHTML=`<div class="wp-all-label">View All Works</div><div class="wp-all-arrow">→</div>`;
+  all.addEventListener('click',showGallery);
+  wrap.appendChild(all);
+}
+let currentFilter = 'all';
+
+function buildGrid(){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  const filtered = currentFilter === 'all' ? works : works.filter(w => (w.category || 'oboshi') === currentFilter);
+  document.getElementById('work-count').textContent=filtered.length+' works';
+  filtered.forEach((w)=>{
+    const i = works.indexOf(w);
+    const el=document.createElement('div');
+    el.className='g-item';
+    const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    el.addEventListener('click',()=>openModal(i));
+    grid.appendChild(el);
+  });
+}
+
+// フィルタータブのイベント
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentFilter = tab.dataset.filter;
+    buildGrid();
+  });
+});
+function openModal(i){
+  const w=works[i];
+  currentWork=w;
+  
+  // 画像配列を準備（imgとimagesを統合）
+  currentImages=[];
+  if(w.img){
+    currentImages.push(w.img);
+  }
+  if(w.images && Array.isArray(w.images)){
+    w.images.forEach(imgUrl=>{
+      if(imgUrl && imgUrl!==w.img){
+        currentImages.push(imgUrl);
+      }
+    });
+  }
+  
+  // 最初の画像を表示
+  currentImageIndex=0;
+  updateModalImage();
+  // プレースホルダーがあれば削除（念のため）
+  const ph=document.querySelector('.modal-img-wrap .digital-placeholder');
+  if(ph) ph.remove();
+  
+  document.getElementById('m-title').textContent=w.title;
+  document.getElementById('m-digital-badge').style.display=w.digitalOnly?'block':'none';
+  document.getElementById('m-year').textContent=w.year;
+  document.getElementById('m-medium').textContent=w.medium;
+  document.getElementById('m-size').textContent=w.size;
+  document.getElementById('m-desc').textContent=w.desc;
+  document.getElementById('m-price').textContent=w.price;
+  document.getElementById('btn-enquire').href=`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}`;
+  const btn=document.getElementById('btn-stripe');
+  if(w.priceNum>0){
+    btn.innerHTML=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Buy Now — ${w.price}`;
+    btn.style.display='flex';
+  } else { btn.style.display='none'; }
+  document.getElementById('dev-notice').classList.toggle('show',w.priceNum>0&&!w.stripeLink);
+  const al=document.getElementById('m-anasaea-link');
+  // 常に固定のAnasaea展覧会ページへリンク
+  al.href='https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt';
+  al.style.display='block';
+  
+  // デジタルダウンロードセクションの表示制御
+  const digitalSection=document.getElementById('digital-section');
+  digitalSection.style.display='block'; // 常に表示（全作品でデジタル版を提供）
+  const digitalTitle=digitalSection.querySelector('.digital-title');
+  const digitalSubtitle=digitalSection.querySelector('.digital-subtitle');
+  if(w.digitalOnly){
+    if(digitalTitle) digitalTitle.textContent='Purchase Digital Download';
+    if(digitalSubtitle) digitalSubtitle.textContent='This artwork is available as a digital file only — high-resolution, ready to print or display.';
+  } else {
+    if(digitalTitle) digitalTitle.textContent='Digital Download Available';
+    if(digitalSubtitle) digitalSubtitle.textContent='Own a high-resolution digital version of this artwork — perfect for printing or digital display';
+  }
+  
+  // デジタル専用作品の場合：原画購入セクションを完全非表示
+  if(w.digitalOnly){
+    document.getElementById('m-price').style.display='none';
+    const buySection=document.querySelector('#buy-available .buy-section');
+    if(buySection)buySection.style.display='none';
+    document.getElementById('buy-available').style.display='block';
+    document.getElementById('buy-sold').style.display='none';
+    // サイズ欄にデジタルのみ表示
+    const sizeEl=document.getElementById('m-size');
+    if(!w.size) sizeEl.textContent='Digital file only';
+  } else {
+    // 原画の購入セクションのみsold時に非表示（デジタルダウンロードは常に表示）
+    document.getElementById('m-price').style.display=w.sold?'none':'block';
+    const buySection=document.querySelector('#buy-available .buy-section');
+    if(buySection)buySection.style.display=w.sold?'none':'block';
+    document.getElementById('buy-available').style.display='block';
+    document.getElementById('buy-sold').style.display=w.sold?'block':'none';
+  }
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  currentWork=null;
+  currentImages=[];
+  currentImageIndex=0;
+}
+
+// 🎯 画像スライダー機能
+function updateModalImage(){
+  const img=document.getElementById('m-img');
+  const counter=document.getElementById('modal-image-counter');
+  const prevBtn=document.getElementById('modal-prev');
+  const nextBtn=document.getElementById('modal-next');
+  
+  if(currentImages.length===0)return;
+  
+  // 画像を更新
+  img.src=currentImages[currentImageIndex];
+  
+  // カウンターを更新
+  counter.textContent=`${currentImageIndex+1} / ${currentImages.length}`;
+  
+  // ボタンの表示・非表示を制御
+  if(currentImages.length<=1){
+    prevBtn.style.display='none';
+    nextBtn.style.display='none';
+    counter.style.display='none';
+  } else {
+    prevBtn.style.display='flex';
+    nextBtn.style.display='flex';
+    counter.style.display='block';
+    
+    // 最初/最後の画像では対応するボタンを無効化
+    prevBtn.disabled=(currentImageIndex===0);
+    nextBtn.disabled=(currentImageIndex===currentImages.length-1);
+  }
+}
+
+function prevImage(){
+  if(currentImageIndex>0){
+    currentImageIndex--;
+    updateModalImage();
+  }
+}
+
+function nextImage(){
+  if(currentImageIndex<currentImages.length-1){
+    currentImageIndex++;
+    updateModalImage();
+  }
+}
+document.getElementById('nav-logo').addEventListener('click',showTop);
+document.getElementById('nav-works').addEventListener('click',showGallery);
+document.getElementById('nav-contact').addEventListener('click',()=>{
+  showTop();
+  setTimeout(()=>{
+    const contactEl = document.getElementById('contact');
+    contactEl.scrollIntoView({behavior:'smooth'});
+  },80);
+});
+document.getElementById('nav-buy').addEventListener('click',showGallery);
+document.getElementById('hero-cta').addEventListener('click',showGallery);
+document.getElementById('back-btn').addEventListener('click',showTop);
+document.getElementById('modal-close').addEventListener('click',closeModal);
+
+// 🎯 画像スライダーのイベントリスナー
+document.getElementById('modal-prev').addEventListener('click',prevImage);
+document.getElementById('modal-next').addEventListener('click',nextImage);
+
+// キーボード操作対応（矢印キーで画像切り替え）
+document.addEventListener('keydown',(e)=>{
+  if(!document.getElementById('modal').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')prevImage();
+  if(e.key==='ArrowRight')nextImage();
+  if(e.key==='Escape')closeModal();
+});
+
+document.getElementById('btn-stripe').addEventListener('click',()=>{
+  if(!currentWork)return;
+  if(currentWork.stripeLink){
+    window.open(currentWork.stripeLink,'_blank');
+  } else {
+    const s=encodeURIComponent(`Purchase inquiry: ${currentWork.title}`);
+    window.open(`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=${s}`,'_blank');
+  }
+});
+document.getElementById('btn-digital').addEventListener('click',()=>{
+  if(!currentWork)return;
+  if(currentWork.digitalStripeLink){
+    window.open(currentWork.digitalStripeLink,'_blank');
+  } else if(currentWork.downloadLink){
+    window.open(currentWork.downloadLink,'_blank');
+  } else {
+    const s=encodeURIComponent(`Digital download inquiry: ${currentWork.title}`);
+    window.open(`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=${s}`,'_blank');
+  }
+});
+document.getElementById('modal').addEventListener('click',(e)=>{
+  if(e.target===document.getElementById('modal'))closeModal();
+});
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeModal();});
+
+// ===== データの永続化機能 =====
+// LocalStorageに作品データを保存
+function saveWorks() {
+  try {
+    localStorage.setItem('oboshi_works', JSON.stringify(works));
+    console.log('作品データを保存しました');
+  } catch (e) {
+    console.error('データの保存に失敗:', e);
+  }
+}
+
+// LocalStorageから作品データを読み込み
+function loadWorks() {
+  try {
+    const saved = localStorage.getItem('oboshi_works');
+    if (saved) {
+      const loadedWorks = JSON.parse(saved);
+      // データが有効な場合のみ上書き
+      if (Array.isArray(loadedWorks) && loadedWorks.length > 0) {
+        // 既存のworksを保持しつつ、保存されたデータをマージ
+        works.length = 0; // 配列をクリア
+        works.push(...loadedWorks); // 保存されたデータを追加
+        console.log(`${loadedWorks.length}件の作品データを読み込みました`);
+        return true;
+      }
+    }
+  } catch (e) {
+    console.error('データの読み込みに失敗:', e);
+  }
+  return false;
+}
+
+// データをリセット（デフォルトに戻す）
+function resetToDefault() {
+  if (confirm('すべての変更を破棄して、デフォルトのデータに戻しますか？')) {
+    localStorage.removeItem('oboshi_works');
+    location.reload();
+  }
+}
+
+// ※ページ読み込み時はindex.htmlのworksをそのまま使用
+// LocalStorageは管理パネルで編集中のみ使う（GitHubにアップ後は常に最新）
+buildPreview();
+
+// ===== ADMIN PANEL =====
+const adminPanel = document.getElementById('admin-panel');
+const adminToggle = document.getElementById('admin-toggle');
+const adminClose = document.getElementById('admin-close');
+
+// 管理者パスワード（このパスワードを自分のパスワードに変更してください）
+const ADMIN_PASSWORD = 'oboshi2025';
+
+let editingIndex = -1; // 編集中の作品インデックス
+let currentImageData = ''; // メイン画像（下位互換性のため保持）
+let uploadedImages = []; // 複数画像を管理する配列（URLもBase64も混在OK）
+
+// 画像アップロード機能
+const imgUploadArea = document.getElementById('img-upload-area');
+const imgFileInput = document.getElementById('admin-img-file');
+const imgPreview = document.getElementById('img-preview');
+const imgUrlInput = document.getElementById('admin-img');
+
+// クリックでファイル選択
+imgUploadArea.addEventListener('click', () => {
+  imgFileInput.click();
+});
+
+// ファイル選択時（複数対応）
+imgFileInput.addEventListener('change', (e) => {
+  const files = Array.from(e.target.files);
+  if (files.length > 0) {
+    files.forEach(file => {
+      if (file.type.startsWith('image/')) {
+        handleImageFile(file);
+      }
+    });
+  }
+});
+
+// ドラッグ&ドロップ
+imgUploadArea.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  imgUploadArea.classList.add('dragover');
+});
+
+imgUploadArea.addEventListener('dragleave', () => {
+  imgUploadArea.classList.remove('dragover');
+});
+
+imgUploadArea.addEventListener('drop', (e) => {
+  e.preventDefault();
+  imgUploadArea.classList.remove('dragover');
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+  files.forEach(file => {
+    if (file.type.startsWith('image/')) {
+      handleImageFile(file);
+    }
+  });
+});
+
+// ===== GitHub画像ブラウザ =====
+const GITHUB_REPO = 'oboshi-art/oboshi';
+const GITHUB_IMAGES_PATH = 'images';
+
+document.getElementById('admin-browse-github').addEventListener('click', async () => {
+  const browser = document.getElementById('github-img-browser');
+  const list = document.getElementById('github-img-list');
+  
+  if (browser.style.display !== 'none') {
+    browser.style.display = 'none';
+    return;
+  }
+  
+  browser.style.display = 'block';
+  list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem;text-align:center">読み込み中...</div>';
+  
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_IMAGES_PATH}`);
+    if (!res.ok) throw new Error('取得失敗');
+    const files = await res.json();
+    
+    const images = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name));
+    
+    if (images.length === 0) {
+      list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem">画像が見つかりませんでした</div>';
+      return;
+    }
+    
+    list.innerHTML = images.map(f => `
+      <div class="github-img-thumb" data-path="images/${f.name}" title="${f.name}"
+        style="cursor:pointer;border:2px solid transparent;border-radius:2px;overflow:hidden;transition:border .15s;background:#eee;aspect-ratio:1;position:relative">
+        <img src="https://raw.githubusercontent.com/${GITHUB_REPO}/main/${GITHUB_IMAGES_PATH}/${encodeURIComponent(f.name)}"
+          alt="${f.name}" loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;display:block">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);color:#fff;font-size:.38rem;padding:.2rem .3rem;word-break:break-all;line-height:1.3">${f.name}</div>
+      </div>
+    `).join('');
+    
+    // クリックで選択
+    list.querySelectorAll('.github-img-thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const path = thumb.dataset.path;
+        const isSelected = thumb.style.borderColor === 'rgb(184, 74, 36)';
+        if (isSelected) {
+          thumb.style.borderColor = 'transparent';
+        } else {
+          thumb.style.borderColor = '#b84a24';
+          addImageToGallery(path);
+        }
+      });
+    });
+    
+  } catch (e) {
+    list.innerHTML = `<div style="font-size:.48rem;color:var(--accent);padding:.5rem">エラー: ${e.message}</div>`;
+  }
+});
+
+// URL「+ 追加」ボタン
+document.getElementById('admin-img-add-url').addEventListener('click', () => {
+  const url = imgUrlInput.value.trim();
+  if (!url) return;
+  addImageToGallery(url);
+  imgUrlInput.value = '';
+});
+
+// URLフィールドでEnterキー
+imgUrlInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const url = imgUrlInput.value.trim();
+    if (!url) return;
+    addImageToGallery(url);
+    imgUrlInput.value = '';
+  }
+});
+
+// URLを画像リストに追加
+function addImageToGallery(url) {
+  uploadedImages.push(url);
+  if (!currentImageData) {
+    currentImageData = url;
+    imgPreview.src = url;
+    imgPreview.classList.add('show');
+  }
+  updateImageGallery();
+}
+
+// 画像ファイルを処理（Base64変換）
+function handleImageFile(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const imageData = e.target.result;
+    uploadedImages.push(imageData);
+    if (!currentImageData) {
+      currentImageData = imageData;
+      imgPreview.src = currentImageData;
+      imgPreview.classList.add('show');
+    }
+    updateImageGallery();
+    imgUrlInput.value = '';
+  };
+  reader.readAsDataURL(file);
+}
+
+// 画像ギャラリー表示を更新
+function updateImageGallery() {
+  let galleryHtml = '';
+  
+  uploadedImages.forEach((img, index) => {
+    const isUrl = !img.startsWith('data:');
+    const label = isUrl ? '🔗 URL' : '📁 Upload';
+    const labelColor = isUrl ? 'var(--accent)' : 'var(--gold)';
+    galleryHtml += `
+      <div class="admin-img-item" draggable="true" data-index="${index}">
+        <img src="${img}" alt="Image ${index + 1}" onerror="this.style.opacity=0.3">
+        <button class="admin-img-remove" onclick="removeImage(${index})" title="削除">✕</button>
+        <div class="admin-img-order" style="background:${labelColor}">${index + 1} ${label}</div>
+      </div>
+    `;
+  });
+  
+  const existingGallery = document.querySelector('.admin-img-gallery');
+  if (existingGallery) {
+    existingGallery.innerHTML = galleryHtml;
+  } else {
+    const gallery = document.createElement('div');
+    gallery.className = 'admin-img-gallery';
+    gallery.innerHTML = galleryHtml;
+    imgPreview.parentNode.insertBefore(gallery, imgPreview.nextSibling);
+  }
+  
+  setupImageReordering();
+}
+
+// 画像を削除
+function removeImage(index) {
+  uploadedImages.splice(index, 1);
+  
+  // メイン画像が削除された場合
+  if (currentImageData === uploadedImages[index]) {
+    currentImageData = uploadedImages.length > 0 ? uploadedImages[0] : '';
+    imgPreview.src = currentImageData;
+    if (!currentImageData) {
+      imgPreview.classList.remove('show');
+    }
+  }
+  
+  updateImageGallery();
+}
+
+// 画像の並び替え設定
+function setupImageReordering() {
+  const items = document.querySelectorAll('.admin-img-item');
+  let draggedIndex = null;
+  
+  items.forEach((item, index) => {
+    item.addEventListener('dragstart', () => {
+      draggedIndex = index;
+      item.style.opacity = '0.4';
+    });
+    
+    item.addEventListener('dragend', () => {
+      item.style.opacity = '1';
+    });
+    
+    item.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+    
+    item.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const dropIndex = index;
+      
+      if (draggedIndex !== null && draggedIndex !== dropIndex) {
+        // 配列の順序を入れ替え
+        const [draggedItem] = uploadedImages.splice(draggedIndex, 1);
+        uploadedImages.splice(dropIndex, 0, draggedItem);
+        
+        // メイン画像を更新
+        currentImageData = uploadedImages[0];
+        imgPreview.src = currentImageData;
+        
+        updateImageGallery();
+      }
+    });
+  });
+}
+
+// カテゴリー変更時に重量フィールドの表示切替
+document.getElementById('admin-category').addEventListener('change', function() {
+  const weightField = document.getElementById('admin-weight-field');
+  weightField.style.display = this.value === 'goods' ? 'block' : 'none';
+});
+const pwModal = document.getElementById('pw-modal');
+const pwInput = document.getElementById('pw-input');
+const pwError = document.getElementById('pw-error');
+
+adminToggle.addEventListener('click', () => {
+  pwModal.style.display = 'flex';
+  pwInput.value = '';
+  pwError.style.display = 'none';
+  setTimeout(() => pwInput.focus(), 50);
+});
+
+function tryPassword() {
+  if (pwInput.value === ADMIN_PASSWORD) {
+    pwModal.style.display = 'none';
+    adminPanel.classList.add('open');
+    updateWorksList();
+    updateAdminExhList();
+  } else {
+    pwError.style.display = 'block';
+    pwInput.value = '';
+    pwInput.focus();
+  }
+}
+
+document.getElementById('pw-ok').addEventListener('click', tryPassword);
+document.getElementById('pw-cancel').addEventListener('click', () => {
+  pwModal.style.display = 'none';
+});
+pwInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') tryPassword();
+  if (e.key === 'Escape') { pwModal.style.display = 'none'; }
+});
+
+adminClose.addEventListener('click', () => {
+  adminPanel.classList.remove('open');
+  resetForm();
+});
+
+// フォームをリセット
+function resetForm() {
+  editingIndex = -1;
+  currentImageData = '';
+  uploadedImages = []; // 複数画像配列をクリア
+  document.getElementById('admin-form-title').textContent = '作品を追加';
+  document.getElementById('admin-save').textContent = '作品を追加';
+  document.getElementById('admin-cancel').style.display = 'none';
+  
+  document.getElementById('admin-title').value = '';
+  document.getElementById('admin-year').value = '';
+  document.getElementById('admin-price').value = '';
+  document.getElementById('admin-img').value = '';
+  document.getElementById('admin-medium').value = '';
+  document.getElementById('admin-size').value = '';
+  document.getElementById('admin-desc').value = '';
+  document.getElementById('admin-anasaea').value = '';
+  document.getElementById('admin-stripe').value = '';
+  document.getElementById('admin-sold').value = 'false';
+  document.getElementById('admin-digital-only').value = 'false';
+  document.getElementById('admin-category').value = 'oboshi';
+  document.getElementById('admin-weight').value = '';
+  document.getElementById('admin-weight-field').style.display = 'none';
+  
+  imgPreview.classList.remove('show');
+  imgFileInput.value = '';
+  
+  // 画像ギャラリーをクリア
+  const gallery = document.querySelector('.admin-img-gallery');
+  if (gallery) {
+    gallery.remove();
+  }
+}
+
+// キャンセルボタン
+document.getElementById('admin-cancel').addEventListener('click', () => {
+  resetForm();
+});
+
+// 作品保存（追加または更新）
+document.getElementById('admin-save').addEventListener('click', () => {
+  const title = document.getElementById('admin-title').value;
+  const year = document.getElementById('admin-year').value;
+  const price = document.getElementById('admin-price').value;
+  const img = currentImageData || document.getElementById('admin-img').value;
+  const medium = document.getElementById('admin-medium').value;
+  const size = document.getElementById('admin-size').value;
+  const desc = document.getElementById('admin-desc').value;
+  const anasaeaLink = document.getElementById('admin-anasaea').value;
+  const stripeLink = document.getElementById('admin-stripe').value;
+  const digitalStripeLink = document.getElementById('admin-digital-stripe').value;
+  const downloadLink = document.getElementById('admin-download-link').value;
+  const sold = document.getElementById('admin-sold').value === 'true';
+  const digitalOnly = document.getElementById('admin-digital-only').value === 'true';
+  const category = document.getElementById('admin-category').value;
+
+  if (!title || !year || !price || !img) {
+    alert('タイトル、年、価格、画像は必須です');
+    return;
+  }
+
+  const priceNum = parseFloat(price.replace(/[€,]/g, ''));
+
+  // Base64画像の警告
+  const hasBase64 = uploadedImages.some(i => i && i.startsWith('data:')) || (img && img.startsWith('data:'));
+  if (hasBase64) {
+    alert(
+      '⚠️ 画像が直接アップロードされています。\n\n' +
+      'このまま保存するとindex.htmlが非常に大きくなります。\n\n' +
+      '【推奨する方法】\n' +
+      '1. GitHubの images/ フォルダに画像ファイルをアップロード\n' +
+      '2. 管理パネルの画像URL欄に「images/ファイル名.jpg」と入力\n\n' +
+      '今回は続行しますが、ダウンロード時にBase64は自動除去されます。'
+    );
+  }
+
+  const workData = {
+    title,
+    year,
+    price,
+    priceNum,
+    img: img || '',
+    images: uploadedImages.length > 0 ? [...uploadedImages] : (img ? [img] : []), // 複数画像を保存
+    medium: medium || (digitalOnly ? 'Digital' : 'Acrylic on canvas'),
+    size: size || '',
+    desc: desc || '',
+    sold,
+    digitalOnly: digitalOnly || false,
+    category: category || 'oboshi',
+    weight: document.getElementById('admin-weight').value || null,
+    anasaeaLink: anasaeaLink || null,
+    stripeLink: stripeLink || null,
+    digitalStripeLink: digitalStripeLink || null,
+    downloadLink: downloadLink || null
+  };
+
+  if (editingIndex >= 0) {
+    // 既存作品を更新
+    works[editingIndex] = workData;
+  } else {
+    // 新規作品を追加
+    works.push(workData);
+  }
+
+  buildPreview();
+  buildGrid();
+  updateWorksList();
+  resetForm();
+  saveWorks(); // データを保存
+
+  // 成功メッセージ表示
+  const msg = document.getElementById('admin-add-msg');
+  msg.innerHTML = '✓ ブラウザに保存しました<br><small style="font-size:0.45rem;opacity:0.7">サイトに反映させるには「⬇️ index.html をダウンロード」してGitHubに上書きしてください</small>';
+  msg.style.display = 'block';
+  setTimeout(() => { msg.style.display = 'none'; }, 4000);
+});
+
+// 作品を編集
+function editWork(index) {
+  editingIndex = index;
+  const work = works[index];
+  
+  document.getElementById('admin-form-title').textContent = '作品を編集';
+  document.getElementById('admin-save').textContent = '更新';
+  document.getElementById('admin-cancel').style.display = 'block';
+  
+  document.getElementById('admin-title').value = work.title;
+  document.getElementById('admin-year').value = work.year;
+  document.getElementById('admin-price').value = work.price;
+  document.getElementById('admin-img').value = work.img.startsWith('data:') ? '' : work.img;
+  currentImageData = work.img;
+  
+  // 複数画像を読み込む
+  uploadedImages = work.images && Array.isArray(work.images) ? [...work.images] : [work.img];
+  
+  document.getElementById('admin-medium').value = work.medium;
+  document.getElementById('admin-size').value = work.size;
+  document.getElementById('admin-desc').value = work.desc;
+  document.getElementById('admin-anasaea').value = work.anasaeaLink || '';
+  document.getElementById('admin-stripe').value = work.stripeLink || '';
+  document.getElementById('admin-digital-stripe').value = work.digitalStripeLink || '';
+  document.getElementById('admin-download-link').value = work.downloadLink || '';
+  document.getElementById('admin-sold').value = work.sold ? 'true' : 'false';
+  document.getElementById('admin-digital-only').value = work.digitalOnly ? 'true' : 'false';
+  document.getElementById('admin-category').value = work.category || 'oboshi';
+  document.getElementById('admin-weight').value = work.weight || '';
+  document.getElementById('admin-weight-field').style.display = (work.category === 'goods') ? 'block' : 'none';
+  
+  // 画像プレビューを表示
+  imgPreview.src = work.img;
+  imgPreview.classList.add('show');
+  
+  // 画像ギャラリーを表示
+  updateImageGallery();
+  
+  // フォームまでスクロール
+  adminPanel.scrollTop = 0;
+}
+
+// 作品を削除
+function deleteWork(index) {
+  if (confirm(`本当に「${works[index].title}」を削除しますか？`)) {
+    works.splice(index, 1);
+    buildPreview();
+    buildGrid();
+    updateWorksList();
+    resetForm();
+    saveWorks(); // データを保存
+  }
+}
+
+// JSONエクスポート
+document.getElementById('admin-export').addEventListener('click', () => {
+  const output = document.getElementById('admin-json-output');
+  const json = JSON.stringify(works, null, 2);
+  
+  output.innerHTML = `
+    <div class="admin-output-label">
+      <strong>手順：</strong>
+      <ol style="font-size:0.5rem;margin:0.5rem 0;padding-left:1.2rem;line-height:1.6">
+        <li>下のJSONをすべてコピー</li>
+        <li>index.htmlを開いて <code>const works = [</code> で検索</li>
+        <li>その配列全体（<code>const works = [...];</code>）を下のコードで置き換え</li>
+        <li>ファイルを保存してGitHubにプッシュ</li>
+      </ol>
+      <button class="copy-btn" onclick="copyToClipboard()">📋 コピー</button>
+    </div>
+    <div class="admin-output" id="json-data">const works = ${json};</div>
+  `;
+});
+
+// index.html全体をダウンロード（最新のworks配列を埋め込んで）
+function downloadIndexHtml() {
+  // Base64画像データを検出して警告・除去
+  const base64Works = works.filter(w => {
+    const allImgs = [w.img, ...(w.images || [])];
+    return allImgs.some(img => img && img.startsWith('data:'));
+  });
+
+  if (base64Works.length > 0) {
+    const names = base64Works.map(w => w.title).join('\n・');
+    const proceed = confirm(
+      `⚠️ 以下の作品に直接アップロードされた画像が含まれています：\n・${names}\n\n` +
+      `これらはBase64データのためファイルが非常に大きくなります。\n` +
+      `ダウンロード時に自動的にBase64を除去し、画像パスのみ残します。\n\n` +
+      `※ GitHubの images/ フォルダに実際の画像ファイルを別途アップロードしてください。\n\n` +
+      `続行しますか？`
+    );
+    if (!proceed) return;
+  }
+
+  // Base64データを除去したcleanなworksを作成
+  const cleanWorks = works.map(w => {
+    const cleanImg = w.img && w.img.startsWith('data:') ? 'images/placeholder.jpg' : w.img;
+    const cleanImages = (w.images || []).map(img =>
+      img && img.startsWith('data:') ? 'images/placeholder.jpg' : img
+    );
+    return { ...w, img: cleanImg, images: cleanImages };
+  });
+
+  const currentWorksJson = JSON.stringify(cleanWorks, null, 2);
+  const marker = 'const works = [';
+  const endMarker = '\n];';
+
+  fetch(location.pathname || '/index.html')
+    .then(r => r.text())
+    .then(html => {
+      const start = html.indexOf(marker);
+      const end = html.indexOf(endMarker, start) + endMarker.length;
+
+      if (start === -1 || end < endMarker.length) {
+        alert('⚠️ works配列が見つかりませんでした。「JSONをコピー」を使ってください。');
+        return;
+      }
+
+      // 展覧会データも埋め込む
+      const exhMarker = 'let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];';
+      const exhJson = JSON.stringify(exhibitions);
+      let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
+      updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
+
+      const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'index.html';
+      a.click();
+      URL.revokeObjectURL(url);
+
+      const btn = document.getElementById('admin-download-html');
+      const orig = btn.textContent;
+      btn.textContent = '✓ ダウンロードしました！';
+      btn.style.background = '#4caf50';
+      setTimeout(() => { btn.textContent = orig; btn.style.background = '#28a745'; }, 2500);
+    })
+    .catch(err => {
+      alert('エラー: ' + err.message + '\n\n代わりに「JSONをコピー」を使ってください。');
+    });
+}
+
+function copyToClipboard() {
+  const jsonData = document.getElementById('json-data').textContent;
+  navigator.clipboard.writeText(jsonData).then(() => {
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '✓ コピーしました！';
+    btn.style.background = '#4caf50';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+    }, 2000);
+  }).catch(err => {
+    alert('コピーに失敗しました。手動で選択してコピーしてください。');
+  });
+}
+
+// ダウンロードボタン
+document.getElementById('admin-download-html').addEventListener('click', downloadIndexHtml);
+
+// キャッシュクリアボタン
+document.getElementById('admin-clear-storage').addEventListener('click', () => {
+  if (confirm('ブラウザのキャッシュ（LocalStorage）をクリアして再読み込みしますか？\n※GitHubのindex.htmlのデータに戻ります。')) {
+    localStorage.removeItem('oboshi_works');
+    location.reload();
+  }
+});
+
+// リセットボタン
+document.getElementById('admin-reset').addEventListener('click', resetToDefault);
+
+// 作品一覧の更新（ドラッグ&ドロップ並び替え対応）
+function updateWorksList() {
+  const list = document.getElementById('admin-works-list');
+  list.innerHTML = `
+    <div class="reorder-hint">⠿ ドラッグして作品の表示順を変更できます</div>
+    <div id="reorder-saved" class="reorder-saved">✓ 並び順を保存しました</div>
+  ` + works.map((w, i) => `
+    <div class="work-item" draggable="true" data-index="${i}">
+      <div style="display:flex;align-items:center">
+        <span class="work-item-drag-handle" title="ドラッグして並び替え">⠿</span>
+        <div>
+          <div class="work-item-title">${i + 1}. ${w.title}</div>
+          <div class="work-item-meta">${w.year} · ${w.price}</div>
+          ${w.sold ? '<div class="work-item-sold">販売済み</div>' : ''}
+          ${w.digitalOnly ? '<div class="work-item-sold" style="color:var(--accent)">⬇ デジタル専用</div>' : ''}
+        </div>
+      </div>
+      <div class="work-item-actions">
+        <button class="btn-edit" onclick="editWork(${i})">編集</button>
+        <button class="btn-delete" onclick="deleteWork(${i})">削除</button>
+      </div>
+    </div>
+  `).join('');
+  
+  // ドラッグ&ドロップのイベント設定
+  initWorksReorder();
+}
+
+function initWorksReorder() {
+  const items = document.querySelectorAll('#admin-works-list .work-item');
+  let dragSrcIndex = null;
+  
+  items.forEach(item => {
+    item.addEventListener('dragstart', (e) => {
+      dragSrcIndex = parseInt(item.dataset.index);
+      item.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    item.addEventListener('dragend', () => {
+      item.classList.remove('dragging');
+      document.querySelectorAll('#admin-works-list .work-item').forEach(i => i.classList.remove('drag-over'));
+    });
+    item.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('#admin-works-list .work-item').forEach(i => i.classList.remove('drag-over'));
+      item.classList.add('drag-over');
+    });
+    item.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const dropIndex = parseInt(item.dataset.index);
+      if (dragSrcIndex === null || dragSrcIndex === dropIndex) return;
+      
+      // 配列を並び替え
+      const moved = works.splice(dragSrcIndex, 1)[0];
+      works.splice(dropIndex, 0, moved);
+      
+      // UI更新
+      buildPreview();
+      buildGrid();
+      updateWorksList();
+      saveWorks();
+      
+      // 保存メッセージ表示
+      const saved = document.getElementById('reorder-saved');
+      if (saved) {
+        saved.style.display = 'block';
+        setTimeout(() => { saved.style.display = 'none'; }, 2000);
+      }
+    });
+  });
+}
+
+// Contact form with Formspree
+async function submitContactForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const name = document.getElementById('cf-name').value;
+  const email = document.getElementById('cf-email').value;
+  const message = document.getElementById('cf-message').value;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({name, email, message})
+    });
+    if (res.ok) {
+      document.getElementById('contact-success').classList.add('show');
+      e.target.reset();
+      btn.textContent = 'Sent ✓';
+    } else {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (err) {
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+    alert('Error sending message. Please try again.');
+  }
+}
+
+// ============================================
+// ===== EXHIBITIONS =====
+let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];
+let editingExhIndex = -1;
+
+function loadExhibitions() {
+  try {
+    const saved = localStorage.getItem('oboshi_exhibitions');
+    if (saved) {
+      exhibitions = JSON.parse(saved);
+    }
+  } catch(e) {}
+}
+
+function saveExhibitions() {
+  localStorage.setItem('oboshi_exhibitions', JSON.stringify(exhibitions));
+}
+
+function scrollToExhibitions() {
+  const sec = document.getElementById('exhibitions-section');
+  if (exhibitions.length === 0) return;
+  sec.style.display = 'block';
+  setTimeout(() => sec.scrollIntoView({behavior:'smooth'}), 80);
+}
+
+// 展覧会の状態を日付から自動判定
+function getExhStatus(e) {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  // 日付をパース（DD.MM.YYYY形式に対応）
+  function parseDate(str) {
+    if (!str) return null;
+    const parts = str.trim().split('.');
+    if (parts.length === 3) {
+      return new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0]));
+    }
+    return new Date(str);
+  }
+
+  const start = parseDate(e.start);
+  const end = e.end ? parseDate(e.end) : null;
+
+  if (e.archived) return 'past';
+  if (end && end < today) return 'past'; // 終了日を過ぎたら自動でpast
+  if (start > today) {
+    // 2週間以内なら「coming soon」
+    const diff = (start - today) / (1000 * 60 * 60 * 24);
+    return diff <= 14 ? 'soon' : 'upcoming';
+  }
+  return 'current'; // 開催中
+}
+
+function buildExhibitions() {
+  const sec = document.getElementById('exhibitions-section');
+  const currentList = document.getElementById('exh-current-list');
+  const pastList = document.getElementById('exh-past-list');
+  const pastWrap = document.getElementById('exh-past-wrap');
+  const ecoTitle = document.getElementById('eco-exh-title');
+  const ecoPreview = document.getElementById('eco-exh-preview');
+
+  // 日付で自動振り分け
+  const current = exhibitions.filter(e => ['current','soon','upcoming'].includes(getExhStatus(e)));
+  const past = exhibitions.filter(e => getExhStatus(e) === 'past');
+
+  if (exhibitions.length === 0) {
+    sec.style.display = 'none';
+    ecoTitle.textContent = 'Current & Upcoming';
+    ecoPreview.textContent = 'Group and solo exhibitions — Berlin and beyond.';
+    return;
+  }
+
+  sec.style.display = 'block';
+
+  // エコカードのプレビューを更新
+  if (current.length > 0) {
+    ecoTitle.textContent = current[0].title;
+    ecoPreview.textContent = current[0].venue + ' · ' + current[0].start + (current[0].end ? ' – ' + current[0].end : '');
+  } else {
+    ecoTitle.textContent = 'Past Exhibitions';
+    ecoPreview.textContent = past.length + ' exhibitions';
+  }
+
+  currentList.innerHTML = current.map(e => renderExhCard(e, false)).join('');
+  pastList.innerHTML = past.map(e => renderExhCard(e, true)).join('');
+  pastWrap.style.display = past.length > 0 ? 'block' : 'none';
+}
+
+function renderExhCard(e, isPast) {
+  const status = getExhStatus(e);
+  const statusBadge = {
+    current: '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:#4caf50;display:flex;align-items:center;gap:.3rem"><span style="width:6px;height:6px;border-radius:50%;background:#4caf50;display:inline-block;animation:pulse 1.5s infinite"></span>On View</span>',
+    soon:    '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.3rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span>Coming Soon</span>',
+    upcoming:'<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)">Upcoming</span>',
+    past:    '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)">— Archive</span>',
+  }[status] || '';
+
+  const poster = e.poster
+    ? `<img class="exh-card-poster" src="${e.poster}" alt="${e.title}" loading="lazy">`
+    : `<div class="exh-card-poster-placeholder">🗓</div>`;
+  const dates = e.start + (e.end ? ' – ' + e.end : '');
+  const vernissage = e.vernissage ? `<div class="exh-card-vernissage">Vernissage: ${e.vernissage}</div>` : '';
+  const desc = e.desc ? `<div class="exh-card-desc">${e.desc}</div>` : '';
+  const galleryLink = e.url ? `<a href="${e.url}" target="_blank" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">View Gallery Website →</a>` : '';
+  return `
+    <div class="exh-card${isPast ? ' past' : ''}">
+      ${poster}
+      <div style="margin-bottom:.3rem">${statusBadge}</div>
+      <div class="exh-card-name">${e.title}</div>
+      <div class="exh-card-venue">${e.venue}</div>
+      <div class="exh-card-dates">${dates}</div>
+      ${vernissage}
+      ${desc}
+      ${galleryLink}
+    </div>
+  `;
+}
+
+function updateAdminExhList() {
+  const list = document.getElementById('admin-exh-list');
+  if (exhibitions.length === 0) {
+    list.innerHTML = '<div style="font-size:.48rem;color:var(--ink3);padding:.5rem">展覧会はまだありません</div>';
+    return;
+  }
+  list.innerHTML = exhibitions.map((e, i) => `
+    <div class="work-item">
+      <div class="work-item-title">${e.title}</div>
+      <div class="work-item-meta">${e.venue} · ${e.start}${e.end ? ' – ' + e.end : ''}</div>
+      ${e.archived ? '<div class="work-item-sold">アーカイブ済み</div>' : ''}
+      <div class="work-item-actions">
+        <button class="btn-edit" onclick="editExh(${i})">編集</button>
+        ${!e.archived ? `<button class="btn-edit" style="background:var(--gold)" onclick="archiveExh(${i})">終了→アーカイブ</button>` : ''}
+        <button class="btn-delete" onclick="deleteExh(${i})">削除</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function editExh(i) {
+  editingExhIndex = i;
+  const e = exhibitions[i];
+  document.getElementById('exh-title').value = e.title;
+  document.getElementById('exh-venue').value = e.venue;
+  document.getElementById('exh-start').value = e.start;
+  document.getElementById('exh-end').value = e.end || '';
+  document.getElementById('exh-vernissage').value = e.vernissage || '';
+  document.getElementById('exh-desc').value = e.desc || '';
+  document.getElementById('exh-poster').value = e.poster || '';
+  document.getElementById('exh-url').value = e.url || '';
+  document.getElementById('exh-save').textContent = '更新';
+  document.getElementById('exh-cancel').style.display = 'block';
+}
+
+function archiveExh(i) {
+  if (confirm(`「${exhibitions[i].title}」をアーカイブ（過去の展覧会）に移動しますか？`)) {
+    exhibitions[i].archived = true;
+    saveExhibitions();
+    buildExhibitions();
+    updateAdminExhList();
+  }
+}
+
+function deleteExh(i) {
+  if (confirm(`「${exhibitions[i].title}」を完全に削除しますか？`)) {
+    exhibitions.splice(i, 1);
+    saveExhibitions();
+    buildExhibitions();
+    updateAdminExhList();
+  }
+}
+
+function resetExhForm() {
+  editingExhIndex = -1;
+  document.getElementById('exh-title').value = '';
+  document.getElementById('exh-venue').value = '';
+  document.getElementById('exh-start').value = '';
+  document.getElementById('exh-end').value = '';
+  document.getElementById('exh-vernissage').value = '';
+  document.getElementById('exh-desc').value = '';
+  document.getElementById('exh-poster').value = '';
+  document.getElementById('exh-url').value = '';
+  document.getElementById('exh-save').textContent = '展覧会を追加';
+  document.getElementById('exh-cancel').style.display = 'none';
+}
+
+document.getElementById('exh-save').addEventListener('click', () => {
+  const title = document.getElementById('exh-title').value.trim();
+  const venue = document.getElementById('exh-venue').value.trim();
+  const start = document.getElementById('exh-start').value.trim();
+  if (!title || !venue || !start) {
+    alert('展覧会名・場所・開始日は必須です');
+    return;
+  }
+  const exh = {
+    title,
+    venue,
+    start,
+    end: document.getElementById('exh-end').value.trim(),
+    vernissage: document.getElementById('exh-vernissage').value.trim(),
+    desc: document.getElementById('exh-desc').value.trim(),
+    poster: document.getElementById('exh-poster').value.trim(),
+    url: document.getElementById('exh-url').value.trim(),
+    archived: editingExhIndex >= 0 ? exhibitions[editingExhIndex].archived : false
+  };
+  if (editingExhIndex >= 0) {
+    exhibitions[editingExhIndex] = exh;
+  } else {
+    exhibitions.push(exh);
+  }
+  saveExhibitions();
+  buildExhibitions();
+  updateAdminExhList();
+  resetExhForm();
+  const msg = document.getElementById('exh-msg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 2500);
+});
+
+document.getElementById('exh-cancel').addEventListener('click', resetExhForm);
+
+// ヒーローセクションのフェードイン
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.querySelector('.hero-name')?.classList.add('visible');
+    document.querySelector('.hero-sub')?.classList.add('visible');
+    document.querySelector('.hero-right')?.classList.add('visible');
+  }, 100);
+});
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+function observeGalleryItems() {
+  document.querySelectorAll('.g-item').forEach(el => {
+    fadeObserver.observe(el);
+  });
+}
+
+// buildGrid後に監視開始
+const _origBuildGrid = buildGrid;
+buildGrid = function() {
+  _origBuildGrid();
+  setTimeout(observeGalleryItems, 50);
+};
+buildExhibitions();
+updateAdminExhList();
+
+// キャッシュバスティング - 画像更新を強制表示
+// ============================================
+(function() {
+  const version = '20260309-04'; // 画像を更新するたびにこの番号を変更してください
+  
+  // ページ読み込み時に全画像にバージョンパラメータを追加
+  function addVersionToImages() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('data:') && !src.includes('?v=')) {
+        img.setAttribute('src', src + '?v=' + version);
+      }
+    });
+  }
+  
+  // 初回読み込み時
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addVersionToImages);
+  } else {
+    addVersionToImages();
+  }
+  
+  // 動的に追加される画像も監視
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.nodeName === 'IMG') {
+          const src = node.getAttribute('src');
+          if (src && !src.startsWith('data:') && !src.includes('?v=')) {
+            node.setAttribute('src', src + '?v=' + version);
+          }
+        }
+      });
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+
+</script>
+</body>
+</html>
