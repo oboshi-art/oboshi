@@ -421,7 +421,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
         <div class="eco-link">View exhibitions →</div>
       </div>
-      <a class="eco-card" href="mailto:art@oboshi.art?subject=Commission%20Inquiry&body=Hello%2C%0A%0AI%20am%20interested%20in%20a%20commission.%0A%0APreferred%20colors%2F%20mood%3A%0A%0AThank%20you." style="border:1px solid var(--accent);position:relative;">
+      <a class="eco-card" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Commission%20Inquiry&body=Hello%2C%0A%0AI%20am%20interested%20in%20a%20commission.%0A%0APreferred%20colors%20%2F%20mood%3A%0A%0AShipping%20destination%3A%0A%0AThank%20you." target="_blank" style="border:1px solid var(--accent)">
         <div class="eco-icon" style="color:var(--accent)">✦</div>
         <div class="eco-platform" style="color:var(--accent)">Commission</div>
         <div class="eco-title">Painted for You</div>
@@ -460,7 +460,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <div class="meta-row"><span class="meta-label">Singulart</span><span class="meta-val"><a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">View Profile →</a></span></div>
       <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery →</a></span></div>
       <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Contact</span><span class="meta-val"><a href="mailto:art@oboshi.art" target="_blank"><span class="__cf_email__" data-cfemail="b5d4c7c1f5dad7dac6dddc9bd4c7c1">[email&#160;protected]</span> →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Contact</span><span class="meta-val"><a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank"><span class="__cf_email__" data-cfemail="b5d4c7c1f5dad7dac6dddc9bd4c7c1">[email&#160;protected]</span> →</a></span></div>
     </div>
   </div>
 
@@ -472,7 +472,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
       <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
       <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
-      <a href="mailto:art@oboshi.art" target="_blank">Contact</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank">Contact</a>
     </div>
     <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
   </footer>
@@ -776,7 +776,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <div id="buy-sold" style="display:none">
         <div class="modal-divider"></div>
         <div class="sold-msg">This work has been collected.<br><br>
-          <a class="btn-enquire" href="mailto:art@oboshi.art?subject=Enquiry%20about%20similar%20works" target="_blank" style="margin-top:.8rem;display:inline-block">Enquire about similar works →</a>
+          <a class="btn-enquire" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry%20about%20similar%20works" target="_blank" style="margin-top:.8rem;display:inline-block">Enquire about similar works →</a>
         </div>
       </div>
     </div>
@@ -1784,7 +1784,7 @@ function openModal(i){
   document.getElementById('m-size').textContent=w.size;
   document.getElementById('m-desc').textContent=w.desc;
   document.getElementById('m-price').textContent=w.price;
-  document.getElementById('btn-enquire').href=`mailto:art@oboshi.art?subject=Enquiry: ${encodeURIComponent(w.title)}`;
+  document.getElementById('btn-enquire').href=`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}`;
   const btn=document.getElementById('btn-stripe');
   if(w.priceNum>0){
     btn.innerHTML=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Buy Now — ${w.price}`;
@@ -1912,7 +1912,7 @@ document.getElementById('btn-stripe').addEventListener('click',()=>{
     window.open(currentWork.stripeLink,'_blank');
   } else {
     const s=encodeURIComponent(`Purchase inquiry: ${currentWork.title}`);
-    window.open(`mailto:art@oboshi.art?subject=${s}`,'_blank');
+    window.open(`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=${s}`,'_blank');
   }
 });
 document.getElementById('btn-digital').addEventListener('click',()=>{
@@ -1923,7 +1923,7 @@ document.getElementById('btn-digital').addEventListener('click',()=>{
     window.open(currentWork.downloadLink,'_blank');
   } else {
     const s=encodeURIComponent(`Digital download inquiry: ${currentWork.title}`);
-    window.open(`mailto:art@oboshi.art?subject=${s}`,'_blank');
+    window.open(`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=${s}`,'_blank');
   }
 });
 document.getElementById('modal').addEventListener('click',(e)=>{
