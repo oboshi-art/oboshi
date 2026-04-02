@@ -421,6 +421,13 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role" id="eco-exh-preview">Group and solo exhibitions — Berlin and beyond.</div>
         <div class="eco-link">View exhibitions →</div>
       </div>
+      <a class="eco-card" href="/cdn-cgi/l/email-protection#93f2e1e7d3fcf1fce0fbfabdf2e1e7ace0e6f1f9f6f0e7aed0fcfefefae0e0fafcfdb6a1a3dafde2e6fae1eab5f1fcf7eaaedbf6fffffcb6a1d0b6a3d2b6a3d2dab6a1a3f2feb6a1a3fafde7f6e1f6e0e7f6f7b6a1a3fafdb6a1a3f2b6a1a3f0fcfefefae0e0fafcfdbdb6a3d2b6a3d2c3e1f6f5f6e1e1f6f7b6a1a3f0fcfffce1e0b6a1d5b6a1a3fefcfcf7b6a0d2b6a3d2b6a3d2c7fbf2fdf8b6a1a3eafce6bd" style="border:1px solid var(--accent);position:relative;">
+        <div class="eco-icon" style="color:var(--accent)">✦</div>
+        <div class="eco-platform" style="color:var(--accent)">Commission</div>
+        <div class="eco-title">Painted for You</div>
+        <div class="eco-role">Tell me the mood, the colors, the feeling you want to live with — and I'll paint it, just for you. 50×70cm · Acrylic + Collage on Canvas · €1,500 · 4 weeks.</div>
+        <div class="eco-link">Begin with an email →</div>
+      </a>
     </div>
   </div>
 
@@ -776,7 +783,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Image paths — place all image files in the same folder as this HTML file
 const works = [
   {
@@ -2929,20 +2936,3 @@ updateAdminExhList();
       mutation.addedNodes.forEach(node => {
         if (node.nodeName === 'IMG') {
           const src = node.getAttribute('src');
-          if (src && !src.startsWith('data:') && !src.includes('?v=')) {
-            node.setAttribute('src', src + '?v=' + version);
-          }
-        }
-      });
-    });
-  });
-  
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-})();
-
-</script>
-</body>
-</html>
