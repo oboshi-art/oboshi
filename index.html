@@ -117,7 +117,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .wp-all-arrow{font-size:1.4rem;color:var(--ink3);transition:color .2s}
 .ecosystem{padding:5rem 3rem;border-bottom:1px solid var(--border)}
 .eco-heading{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem}
-.eco-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border)}
+.eco-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border)}
 .eco-card{background:var(--bg);padding:2rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;text-decoration:none;transition:background .2s;position:relative;overflow:hidden}
 .eco-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .eco-card:hover{background:var(--bg2)}
@@ -375,18 +375,29 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
     <div class="hero-right">
       <div class="room-slider" id="room-slider">
-        <img src="images/room-kitchen.jpg" alt="OBOSHI artwork in kitchen" class="active">
-        <img src="images/room-living.jpg" alt="OBOSHI artwork in living room">
-        <img src="images/room-bedroom.jpg" alt="OBOSHI artwork in bedroom">
+        <img src="images/A_Detour_to_Catch_Up_with_Thought_room-kitchen.jpg" alt="A Detour to Catch Up with Thought" class="active">
+        <img src="images/Signal_from_Nowhere_room-kitchen.jpg" alt="Signal from Nowhere">
+        <img src="images/The_Blessing_of_Rain_Yet_to_Come_room-living.jpg" alt="The Blessing of Rain Yet to Come">
+        <img src="images/Words_of_the_Enchanted_Forest_room-bedroom.jpg" alt="Words of the Enchanted Forest">
+        <img src="images/Black_Abstraction_0_room-bedroom.jpg" alt="Black Abstraction">
+        <img src="images/Brim_Over_room-living.jpg" alt="Brim Over">
+        <img src="images/Shake_room-living.jpg" alt="Shake">
       </div>
       <div class="room-dots">
         <button class="room-dot active" onclick="setRoom(0)"></button>
         <button class="room-dot" onclick="setRoom(1)"></button>
         <button class="room-dot" onclick="setRoom(2)"></button>
+        <button class="room-dot" onclick="setRoom(3)"></button>
+        <button class="room-dot" onclick="setRoom(4)"></button>
+        <button class="room-dot" onclick="setRoom(5)"></button>
+        <button class="room-dot" onclick="setRoom(6)"></button>
       </div>
+      
+      
       <div class="hero-tag">Artist Statement</div>
       <div class="hero-quote">I am an abstract painter working through silence and expression. Through layered compositions and rhythmic spatial flow, I create on canvas a place where inner emotion and outer reality enter into dialogue. Each work carries an energy — like a vibration woven from layers of color and texture — that brings quiet resonance to the viewer's inner world. Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</div>
       <a class="hero-cta" id="hero-cta" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">View 3D Virtual Gallery →</a>
+      <a class="hero-cta" href="OBOSHI_Art_Portfolio_Berlin_2026.pdf" download style="background:transparent;color:var(--ink2);border:1px solid var(--border2);margin-top:-.4rem">↓ Download Portfolio PDF</a>
     </div>
   </div>
 
@@ -445,6 +456,14 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-title">Painted for You</div>
         <div class="eco-role">Tell me the mood, the colors, the feeling you want to live with — and I'll paint it, just for you. 40×50cm · €800 · 50×70cm · €1,100 · Acrylic + Collage on Canvas · 3 weeks from Berlin.</div>
         <div class="eco-link">Begin with an email →</div>
+      </a>
+
+      <a class="eco-card" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Portfolio%20Request%20for%20Project&body=Hello%2C%0A%0AI%20am%20an%20architect%20%2F%20interior%20designer%20interested%20in%20OBOSHI%20works%20for%20a%20project.%0A%0AProject%20type%3A%0ASpace%3A%0ATimeline%3A%0A%0AThank%20you." target="_blank" style="border:1px solid var(--border2)">
+        <div class="eco-icon" style="color:var(--ink2)">📐</div>
+        <div class="eco-platform" style="color:var(--ink2)">For Architects</div>
+        <div class="eco-title">Architecture & Projects</div>
+        <div class="eco-role">Bespoke art solutions for residential and commercial spaces. Custom sizes, project quotes, and invoice payment available.</div>
+        <div class="eco-link">Request PDF Portfolio →</div>
       </a>
     </div>
   </div>
