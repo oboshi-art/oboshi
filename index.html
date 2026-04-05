@@ -1942,27 +1942,24 @@ document.getElementById('nav-contact').addEventListener('click',()=>{
 });
 document.getElementById('nav-buy').addEventListener('click',showGallery);
 document.getElementById('hero-cta').addEventListener('click',showGallery);
-let roomIdx = 0;
+// Room slider - shuffle + auto advance
 const roomImgs = Array.from(document.querySelectorAll('#room-slider img'));
-const roomDots = Array.from(document.querySelectorAll('.room-dot'));
-// Simple shuffle - Fisher-Yates on DOM
-(function shuffle(){
-  const slider = document.getElementById('room-slider');
-  for(let i=roomImgs.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    slider.appendChild(roomImgs[j]);
-    const tmp=roomImgs[i];roomImgs[i]=roomImgs[j];roomImgs[j]=tmp;
-  }
-  roomImgs[0].classList.add('active');
-})();
-function setRoom(i) {
-  roomImgs[roomIdx].classList.remove('active');
-  roomDots[roomIdx].classList.remove('active');
-  roomIdx = i;
-  roomImgs[roomIdx].classList.add('active');
-  roomDots[roomIdx].classList.add('active');
+const slider = document.getElementById('room-slider');
+// Fisher-Yates shuffle
+for(let i=roomImgs.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  slider.appendChild(roomImgs[j]);
+  [roomImgs[i],roomImgs[j]]=[roomImgs[j],roomImgs[i]];
 }
-setInterval(() => setRoom((roomIdx + 1) % roomImgs.length), 4000);
+let roomIdx=0;
+roomImgs[0].classList.add('active');
+function setRoom(i){
+  roomImgs[roomIdx].classList.remove('active');
+  roomIdx=i;
+  roomImgs[roomIdx].classList.add('active');
+}
+setInterval(()=>setRoom((roomIdx+1)%roomImgs.length),4000);
+
 
 document.getElementById('back-btn').addEventListener('click',showTop);
 document.getElementById('modal-close').addEventListener('click',closeModal);
