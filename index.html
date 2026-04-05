@@ -95,9 +95,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .hero-cta{display:inline-flex;align-items:center;gap:.8rem;background:var(--accent);color:#fff;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.6rem;cursor:pointer;border:none;font-family:'DM Mono',monospace;transition:background .2s;align-self:flex-start;text-decoration:none}
 .hero-cta:hover{background:#94341a}
 .room-slider{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;margin-bottom:1rem}
-.room-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.room-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0;transition:opacity .8s ease}
 .room-slider img.active{opacity:1}
-.room-dots{display:flex;gap:.4rem;margin-bottom:.8rem}
+.room-dots{display:none}
 .room-dot{width:5px;height:5px;background:var(--border2);cursor:pointer;transition:background .2s;border:none;padding:0}
 .room-dot.active{background:var(--ink)}
 
@@ -375,23 +375,31 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     </div>
     <div class="hero-right">
       <div class="room-slider" id="room-slider">
-        <img src="images/A_Detour_to_Catch_Up_with_Thought_room-kitchen.jpg" alt="A Detour to Catch Up with Thought" class="active">
-        <img src="images/Signal_from_Nowhere_room-kitchen.jpg" alt="Signal from Nowhere">
-        <img src="images/The_Blessing_of_Rain_Yet_to_Come_room-living.jpg" alt="The Blessing of Rain Yet to Come">
-        <img src="images/Words_of_the_Enchanted_Forest_room-bedroom.jpg" alt="Words of the Enchanted Forest">
-        <img src="images/Black_Abstraction_0_room-bedroom.jpg" alt="Black Abstraction">
-        <img src="images/Brim_Over_room-living.jpg" alt="Brim Over">
-        <img src="images/Shake_room-living.jpg" alt="Shake">
+        <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-kitchen.jpg" alt="A Detour — Kitchen" class="active">
+        <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-living.jpg" alt="A Detour — Living Room">
+        <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-bedroom.jpg" alt="A Detour — Bedroom">
+        <img src="images/Signal%20from%20Nowhere%20room-kitchen.jpg" alt="Signal from Nowhere — Kitchen">
+        <img src="images/Signal%20from%20Nowhere%20room-living.jpg" alt="Signal from Nowhere — Living Room">
+        <img src="images/Signal%20from%20Nowhere%20room-bedroom.jpg" alt="Signal from Nowhere — Bedroom">
+        <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-kitchen.jpg" alt="The Blessing — Kitchen">
+        <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-living.jpg" alt="The Blessing — Living Room">
+        <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-bedroom.jpg" alt="The Blessing — Bedroom">
+        <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-kitchen.jpg" alt="Words of the Enchanted Forest — Kitchen">
+        <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-living.jpg" alt="Words of the Enchanted Forest — Living Room">
+        <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-bedroom.jpg" alt="Words of the Enchanted Forest — Bedroom">
+        <img src="images/Black%20Abstraction%200%20room-kitchen.jpg" alt="Black Abstraction — Kitchen">
+        <img src="images/Black%20Abstraction%200%20room-living.jpg" alt="Black Abstraction — Living Room">
+        <img src="images/Black%20Abstraction%200%20room-bedroom.jpg" alt="Black Abstraction — Bedroom">
+        <img src="images/Brim%20Over%20room-kitchen.jpg" alt="Brim Over — Kitchen">
+        <img src="images/Brim%20Over%20room-living.jpg" alt="Brim Over — Living Room">
+        <img src="images/Brim%20Over%20room-bedroom.jpg" alt="Brim Over — Bedroom">
+        <img src="images/Shake%20room-kitchen.jpg" alt="Shake — Kitchen">
+        <img src="images/Shake%20room-living.jpg" alt="Shake — Living Room">
+        <img src="images/Shake%20%20room-bedroom.jpg" alt="Shake — Bedroom">
       </div>
       <div class="room-dots">
-        <button class="room-dot active" onclick="setRoom(0)"></button>
-        <button class="room-dot" onclick="setRoom(1)"></button>
-        <button class="room-dot" onclick="setRoom(2)"></button>
-        <button class="room-dot" onclick="setRoom(3)"></button>
-        <button class="room-dot" onclick="setRoom(4)"></button>
-        <button class="room-dot" onclick="setRoom(5)"></button>
-        <button class="room-dot" onclick="setRoom(6)"></button>
       </div>
+      
       
       
       <div class="hero-tag">Artist Statement</div>
@@ -1929,8 +1937,11 @@ document.getElementById('nav-contact').addEventListener('click',()=>{
 document.getElementById('nav-buy').addEventListener('click',showGallery);
 document.getElementById('hero-cta').addEventListener('click',showGallery);
 let roomIdx = 0;
-const roomImgs = document.querySelectorAll('#room-slider img');
-const roomDots = document.querySelectorAll('.room-dot');
+const roomImgs = Array.from(document.querySelectorAll('#room-slider img'));
+const roomDots = Array.from(document.querySelectorAll('.room-dot'));
+// Shuffle both arrays in sync
+for(let i=roomImgs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const si=roomImgs[i].parentNode;si.insertBefore(roomImgs[j],roomImgs[i]);roomImgs.splice(j,0,roomImgs.splice(i,1)[0]);roomDots.splice(j,0,roomDots.splice(i,1)[0]);}
+roomImgs[0].classList.add('active');roomDots[0].classList.add('active');
 function setRoom(i) {
   roomImgs[roomIdx].classList.remove('active');
   roomDots[roomIdx].classList.remove('active');
