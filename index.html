@@ -2075,24 +2075,22 @@ function updateModalImage(){
     nextBtn.style.display='flex';
     counter.style.display='block';
     
-    // 最初/最後の画像では対応するボタンを無効化
-    prevBtn.disabled=(currentImageIndex===0);
-    nextBtn.disabled=(currentImageIndex===currentImages.length-1);
+    // ループ表示のため常に有効
+    prevBtn.disabled=false;
+    nextBtn.disabled=false;
   }
 }
 
 function prevImage(){
-  if(currentImageIndex>0){
-    currentImageIndex--;
-    updateModalImage();
-  }
+  if(currentImages.length<=1)return;
+  currentImageIndex=(currentImageIndex-1+currentImages.length)%currentImages.length;
+  updateModalImage();
 }
 
 function nextImage(){
-  if(currentImageIndex<currentImages.length-1){
-    currentImageIndex++;
-    updateModalImage();
-  }
+  if(currentImages.length<=1)return;
+  currentImageIndex=(currentImageIndex+1)%currentImages.length;
+  updateModalImage();
 }
 document.getElementById('nav-logo').addEventListener('click',showTop);
 document.getElementById('nav-works').addEventListener('click',showGallery);
