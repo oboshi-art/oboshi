@@ -89,7 +89,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,15vw,10.5rem);line-height:.88;letter-spacing:.04em;color:var(--ink);opacity:0;transform:translateY(12px);transition:opacity .9s ease,transform .9s ease}
 .hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink2);margin-top:1.3rem;line-height:1.5;opacity:0;transform:translateY(10px);transition:opacity .9s ease .2s,transform .9s ease .2s}
 .hero-right{display:flex;flex-direction:column;gap:1.1rem;padding-bottom:.5rem;opacity:0;transform:translateY(10px);transition:opacity .9s ease .4s,transform .9s ease .4s}
-.hero-name.visible,.hero-sub.visible,.hero-right.visible{opacity:1;transform:translateY(0)}
+.hero-name.visible,.hero-sub.visible,.hero-right.visible,.hero-philosophy.visible{opacity:1;transform:translateY(0)}
 .hero-tag{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
 .hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:2;color:var(--ink2);border-left:2px solid var(--border2);padding-left:1.4rem}
 .hero-cta{display:inline-flex;align-items:center;gap:.8rem;background:var(--accent);color:#fff;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.6rem;cursor:pointer;border:none;font-family:'DM Mono',monospace;transition:background .2s;align-self:flex-start;text-decoration:none}
@@ -117,7 +117,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .wp-all-arrow{font-size:1.4rem;color:var(--ink3);transition:color .2s}
 .ecosystem{padding:5rem 3rem;border-bottom:1px solid var(--border)}
 .eco-heading{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem}
-.eco-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border)}
+.eco-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:var(--border)}
 .eco-card{background:var(--bg);padding:2rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;text-decoration:none;transition:background .2s;position:relative;overflow:hidden}
 .eco-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .eco-card:hover{background:var(--bg2)}
@@ -153,7 +153,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .meta-val{font-size:.6rem;color:var(--ink);text-align:right}
 .meta-val a{color:var(--accent);text-decoration:none}
 .meta-val a:hover{text-decoration:underline}
-footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
 .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.15em;color:var(--ink2)}
 .footer-copy{font-size:.46rem;letter-spacing:.18em;color:var(--ink3);text-transform:uppercase}
 .footer-links{display:flex;gap:1.5rem}
@@ -251,6 +251,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   .modal-nav-btn{width:2.8rem;height:2.8rem;font-size:2rem}
   .modal-prev{left:.6rem}
   .modal-next{right:.6rem}
+  #for-professionals-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:620px){
   nav{padding:1rem 1.5rem}
@@ -372,6 +373,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     <div>
       <div class="hero-name">OBOSHI</div>
       <div class="hero-sub">Abstract Acrylic Painter — Berlin</div>
+      <div style="margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.08em;color:var(--ink3)">Layers of footsteps, vibrations of silence.</div>
     </div>
     <div class="hero-right">
       <div class="room-slider" id="room-slider">
@@ -396,16 +398,23 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <img src="images/Shake%20room-kitchen.jpg" alt="Shake — Kitchen">
         <img src="images/Shake%20room-living.jpg" alt="Shake — Living Room">
         <img src="images/Shake%20%20room-bedroom.jpg" alt="Shake — Bedroom">
+        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-bedroom.jpg" alt="The Scent and Feelings of a Free Garden — Bedroom">
+        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-kitchen.jpg" alt="The Scent and Feelings of a Free Garden — Kitchen">
+        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-living.jpg" alt="The Scent and Feelings of a Free Garden — Living Room">
+        <img src="images/Found%20in%20a%20Place%20I%20Strayed%20Into%20%E2%80%93%20Circle%20room-bedroom.jpg" alt="Found in a Place I Strayed Into — Bedroom">
+        <img src="images/Found%20in%20a%20Place%20I%20Strayed%20Into%20%E2%80%93%20Circle%20room-kitchen.jpg" alt="Found in a Place I Strayed Into — Kitchen">
+        <img src="images/Found%20in%20a%20Place%20I%20Strayed%20Into%20%E2%80%93%20Circle%20room-living.jpg" alt="Found in a Place I Strayed Into — Living Room">
       </div>
       <div class="room-dots">
       </div>
       
       
       
+      <div class="hero-tag" style="margin-bottom:.5rem;font-size:.6rem;letter-spacing:.08em;font-style:italic;color:var(--ink2);text-transform:none;font-family:'Cormorant Garamond',serif">Capturing the invisible vibration.</div>
       <div class="hero-tag">Artist Statement</div>
       <div class="hero-quote">I am an abstract painter working through silence and expression. Through layered compositions and rhythmic spatial flow, I create on canvas a place where inner emotion and outer reality enter into dialogue. Each work carries an energy — like a vibration woven from layers of color and texture — that brings quiet resonance to the viewer's inner world. Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</div>
       <a class="hero-cta" id="hero-cta" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">View 3D Virtual Gallery →</a>
-      <a class="hero-cta" href="OBOSHI_Art_Portfolio_Berlin_2026.pdf" download style="background:transparent;color:var(--ink2);border:1px solid var(--border2);margin-top:-.4rem">↓ Download Portfolio PDF</a>
+      <a class="hero-cta" href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="background:transparent;color:var(--ink2);border:1px solid var(--border2);margin-top:-.4rem">View Portfolio 2026 (PDF)</a>
     </div>
   </div>
 
@@ -444,6 +453,14 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-role">Watch the work come alive — process videos, finished canvases in motion, and a visual journey into the studio. The best way to experience the paintings before collecting.</div>
         <div class="eco-link">Watch on YouTube →</div>
       </a>
+
+      <a class="eco-card" href="https://www.saatchiart.com/en-de/oboshi" target="_blank">
+        <div class="eco-icon">◈</div>
+        <div class="eco-platform">Saatchi Art</div>
+        <div class="eco-title">International Platform</div>
+        <div class="eco-role">One of the world's largest online art galleries. Discover and collect original OBOSHI works through Saatchi Art's global network of collectors.</div>
+        <div class="eco-link">View on Saatchi Art →</div>
+      </a>
       <a class="eco-card" href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">
         <div class="eco-icon">◇</div>
         <div class="eco-platform">Singulart</div>
@@ -466,17 +483,56 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
         <div class="eco-link">Begin with an email →</div>
       </a>
 
-      <a class="eco-card" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Portfolio%20Request%20for%20Project&body=Hello%2C%0A%0AI%20am%20an%20architect%20%2F%20interior%20designer%20interested%20in%20OBOSHI%20works%20for%20a%20project.%0A%0AProject%20type%3A%0ASpace%3A%0ATimeline%3A%0A%0AThank%20you." target="_blank" style="border:1px solid var(--border2)">
+      <a class="eco-card" href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="border:1px solid var(--border2)">
         <div class="eco-icon" style="color:var(--ink2)">📐</div>
         <div class="eco-platform" style="color:var(--ink2)">For Architects</div>
         <div class="eco-title">Architecture & Projects</div>
         <div class="eco-role">Bespoke art solutions for residential and commercial spaces. Custom sizes, project quotes, and invoice payment available.</div>
-        <div class="eco-link">Request PDF Portfolio →</div>
+        <div class="eco-link">View Portfolio 2026 (PDF)</div>
       </a>
     </div>
   </div>
 
   <div class="rule"></div>
+
+  <!-- ===== FOR PROFESSIONALS SECTION ===== -->
+  <div id="for-professionals-grid" style="padding:5rem 3rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
+    <div>
+      <div style="font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">For Interior Designers & Architects</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.04em;line-height:1.05;margin-bottom:1.8rem;color:var(--ink)">Art that works<br>within your project.</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:2;color:var(--ink2);margin-bottom:2rem">Every layer in an OBOSHI painting is a decision — a footstep, a vibration held in silence. For designers who build spaces around intention, the work integrates naturally: large-format originals that anchor a room, or bespoke commissions developed for a specific project from the beginning.</div>
+      <a href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:var(--ink);color:#fff;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.6rem;text-decoration:none;transition:background .2s;font-family:'DM Mono',monospace" onmouseover="this.style.background='#b84a24'" onmouseout="this.style.background='var(--ink)'">View Portfolio 2026 (PDF)</a>
+    </div>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1px">
+
+        <div style="background:var(--bg);padding:1.6rem 1.4rem">
+          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">Custom Sizes</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">Any dimension on request — from intimate 40×50cm to large-format 100×150cm and beyond. Canvas or board, portrait or landscape.</div>
+        </div>
+
+        <div style="background:var(--bg);padding:1.6rem 1.4rem">
+          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">Lead Time</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">3–5 weeks from Berlin for standard commissions. Rush timelines available on request — discuss your project deadline.</div>
+        </div>
+
+        <div style="background:var(--bg);padding:1.6rem 1.4rem">
+          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">High-Res Files</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">Professional photography and high-resolution digital files provided with every original — ready for your client presentations and documentation.</div>
+        </div>
+
+        <div style="background:var(--bg);padding:1.6rem 1.4rem">
+          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">Invoice & Shipping</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">Invoice payment available for studios and commercial projects. Insured shipping worldwide, direct from Berlin. Certificate of authenticity included.</div>
+        </div>
+
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);padding:1.4rem 1.6rem">
+        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">Investment</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.85;color:var(--ink2)">Price list for original works and commissions is available upon request. For bespoke large-format projects, please contact me for a custom quote based on your specific requirements.</div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== EXHIBITIONS SECTION ===== -->
   <div class="ecosystem" id="exhibitions-section" style="display:none">
@@ -502,6 +558,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
       <div class="meta-row"><span class="meta-label">Medium</span><span class="meta-val">Acrylic + Collage on Canvas</span></div>
       <div class="meta-row"><span class="meta-label">YouTube</span><span class="meta-val"><a href="https://www.youtube.com/@oboshi" target="_blank">@oboshi →</a></span></div>
       <div class="meta-row"><span class="meta-label">Instagram</span><span class="meta-val"><a href="https://www.instagram.com/junichioboshi/" target="_blank">@junichioboshi →</a></span></div>
+      <div class="meta-row"><span class="meta-label">Saatchi Art</span><span class="meta-val"><a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">View Profile →</a></span></div>
       <div class="meta-row"><span class="meta-label">Singulart</span><span class="meta-val"><a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">View Profile →</a></span></div>
       <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery →</a></span></div>
       <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition →</a></span></div>
@@ -514,6 +571,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     <div class="footer-links">
       <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
       <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
+      <a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">Saatchi Art</a>
       <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
       <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
       <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
@@ -532,8 +590,8 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
     <button class="filter-tab" data-filter="oboshi">OBOSHI</button>
+    <button class="filter-tab" data-filter="goods">Experiments</button>
     <button class="filter-tab" data-filter="kids">Kids</button>
-    <button class="filter-tab" data-filter="goods">Goods</button>
   </div>
   <div class="gallery-grid" id="grid"></div>
   <div style="text-align:center;padding:4rem 3rem 3rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem">
@@ -592,7 +650,7 @@ footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:
     <select id="admin-category">
       <option value="oboshi">OBOSHI — 自分の作品</option>
       <option value="kids">Kids — 子供の絵</option>
-      <option value="goods">Goods — グッズ・その他</option>
+      <option value="goods">Experiments — その他の作品</option>
     </select>
   </div>
   <div class="admin-field" id="admin-weight-field" style="display:none">
@@ -1936,20 +1994,24 @@ document.getElementById('nav-contact').addEventListener('click',()=>{
 });
 document.getElementById('nav-buy').addEventListener('click',showGallery);
 document.getElementById('hero-cta').addEventListener('click',showGallery);
-let roomIdx = 0;
+// Room slider - shuffle + auto advance
 const roomImgs = Array.from(document.querySelectorAll('#room-slider img'));
-const roomDots = Array.from(document.querySelectorAll('.room-dot'));
-// Shuffle both arrays in sync
-for(let i=roomImgs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const si=roomImgs[i].parentNode;si.insertBefore(roomImgs[j],roomImgs[i]);roomImgs.splice(j,0,roomImgs.splice(i,1)[0]);roomDots.splice(j,0,roomDots.splice(i,1)[0]);}
-roomImgs[0].classList.add('active');roomDots[0].classList.add('active');
-function setRoom(i) {
-  roomImgs[roomIdx].classList.remove('active');
-  roomDots[roomIdx].classList.remove('active');
-  roomIdx = i;
-  roomImgs[roomIdx].classList.add('active');
-  roomDots[roomIdx].classList.add('active');
+const slider = document.getElementById('room-slider');
+// Fisher-Yates shuffle
+for(let i=roomImgs.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  slider.appendChild(roomImgs[j]);
+  [roomImgs[i],roomImgs[j]]=[roomImgs[j],roomImgs[i]];
 }
-setInterval(() => setRoom((roomIdx + 1) % roomImgs.length), 4000);
+let roomIdx=0;
+roomImgs[0].classList.add('active');
+function setRoom(i){
+  roomImgs[roomIdx].classList.remove('active');
+  roomIdx=i;
+  roomImgs[roomIdx].classList.add('active');
+}
+setInterval(()=>setRoom((roomIdx+1)%roomImgs.length),4000);
+
 
 document.getElementById('back-btn').addEventListener('click',showTop);
 document.getElementById('modal-close').addEventListener('click',closeModal);
@@ -2694,7 +2756,7 @@ async function submitContactForm(e) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
   try {
-    const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+    const res = await fetch('https://formspree.io/f/xlgovjdg', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       body: JSON.stringify({name, email, message})
@@ -2941,6 +3003,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.hero-name')?.classList.add('visible');
     document.querySelector('.hero-sub')?.classList.add('visible');
     document.querySelector('.hero-right')?.classList.add('visible');
+    document.querySelector('.hero-philosophy')?.classList.add('visible');
   }, 100);
 });
 const fadeObserver = new IntersectionObserver((entries) => {
