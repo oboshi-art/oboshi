@@ -32,41 +32,165 @@
 <meta name="twitter:image" content="https://oboshi.art/images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20rgb%2050x70.jpg">
 
 <!-- Structured Data: Person + Artist (ChatGPT・Geminiが読む) -->
+<!-- Structured Data: OBOSHI Knowledge Graph for AI Discovery -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Junichi Oboshi",
-  "alternateName": "OBOSHI",
-  "url": "https://oboshi.art",
-  "jobTitle": "Abstract Painter",
-  "description": "Junichi Oboshi is a Japanese abstract acrylic painter based in Berlin, Germany. Through layered compositions and rhythmic spatial flow, he creates paintings that carry an energy — like a vibration woven from color and texture — bringing quiet resonance to the viewer's inner world. Each work is born from a wish to offer a moment of quiet happiness and a lightness that cannot quite be explained.",
-  "nationality": "Japanese",
-  "homeLocation": {
-    "@type": "Place",
-    "name": "Berlin, Germany"
-  },
-  "sameAs": [
-    "https://www.instagram.com/oboshi.art",
-    "https://oboshi.art"
-  ],
-  "knowsAbout": ["Abstract Painting", "Acrylic Painting", "Contemporary Art", "Abstract Expressionism"]
-}
-</script>
-
-<!-- Structured Data: WebSite -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "OBOSHI",
-  "url": "https://oboshi.art",
-  "description": "Official website of Junichi Oboshi — abstract acrylic painter based in Berlin. Original works and prints available worldwide.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://oboshi.art/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://oboshi.art/#artist",
+      "name": "Junichi Oboshi",
+      "alternateName": ["OBOSHI", "大星淳一"],
+      "url": "https://oboshi.art",
+      "image": "https://oboshi.art/images/oboshi-portrait.jpg",
+      "description": "Japanese abstract acrylic painter based in Berlin, Germany. Works explore wave frequencies, resonance, and healing through layered compositions of acrylic and collage on canvas. Held an early atelier at Kunsthaus Tacheles (2001–2006). Author of two books on art and awareness.",
+      "jobTitle": "Abstract Painter",
+      "nationality": { "@type": "Country", "name": "Japan" },
+      "birthPlace": { "@type": "Place", "name": "Japan" },
+      "workLocation": {
+        "@type": "Place",
+        "name": "Berlin, Germany",
+        "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" }
+      },
+      "knowsAbout": [
+        "Abstract painting", "Acrylic painting", "Mixed media collage",
+        "Art healing", "Wave frequency in art", "Contemporary abstract art",
+        "Washi paper collage", "Layered painting technique"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Visual Artist",
+        "occupationalCategory": "27-1013.00",
+        "skills": "Abstract acrylic painting, mixed-media collage, art healing"
+      },
+      "award": "Early atelier at Kunsthaus Tacheles, Berlin (2001–2006)",
+      "sameAs": [
+        "https://www.instagram.com/junichioboshi/",
+        "https://www.youtube.com/@oboshi",
+        "https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262",
+        "https://www.saatchiart.com/en-de/oboshi",
+        "https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt",
+        "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
+      ],
+      "memberOf": [
+        { "@type": "Organization", "name": "SINGULART", "url": "https://www.singulart.com" },
+        { "@type": "Organization", "name": "Saatchi Art", "url": "https://www.saatchiart.com" }
+      ],
+      "author": [
+        {
+          "@type": "Book",
+          "name": "Techniques for Awareness",
+          "alternateName": ["Techniken der Wahrnehmung", "気づきのテクニック"],
+          "description": "A guide to abstract painting and creativity, exploring awareness and perception in art practice.",
+          "inLanguage": ["en", "de", "ja"],
+          "author": { "@id": "https://oboshi.art/#artist" },
+          "publisher": { "@type": "Organization", "name": "Amazon Kindle Direct Publishing" },
+          "url": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
+        },
+        {
+          "@type": "Book",
+          "name": "Techniques for Resonance",
+          "alternateName": ["Techniken der Resonanz", "共鳴のテクニック"],
+          "description": "A guide to resonance, vibration, and emotional connection in abstract painting practice.",
+          "inLanguage": ["en", "de", "ja"],
+          "author": { "@id": "https://oboshi.art/#artist" },
+          "publisher": { "@type": "Organization", "name": "Amazon Kindle Direct Publishing" },
+          "url": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://oboshi.art/#website",
+      "name": "OBOSHI — Abstract Acrylic Painter, Berlin",
+      "url": "https://oboshi.art",
+      "description": "Official website of OBOSHI (Junichi Oboshi), Japanese abstract acrylic painter based in Berlin. Original paintings for sale, commissions, and exhibitions.",
+      "publisher": { "@id": "https://oboshi.art/#artist" },
+      "inLanguage": ["en", "ja", "de"]
+    },
+    {
+      "@type": "ArtGallery",
+      "@id": "https://oboshi.art/#gallery",
+      "name": "OBOSHI.ART",
+      "url": "https://oboshi.art",
+      "description": "Online gallery and studio of abstract painter OBOSHI. Original acrylic and collage paintings available for purchase, shipped worldwide from Berlin.",
+      "founder": { "@id": "https://oboshi.art/#artist" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" },
+      "makesOffer": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Art Commission",
+          "description": "Bespoke abstract paintings on canvas. Acrylic and collage. 40×50cm from €800, 50×70cm from €1,100. 3 weeks lead time from Berlin. Worldwide shipping.",
+          "provider": { "@id": "https://oboshi.art/#artist" },
+          "areaServed": "Worldwide"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://oboshi.art/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is OBOSHI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OBOSHI (Junichi Oboshi / 大星淳一) is a Japanese abstract painter based in Berlin, Germany. Working primarily in acrylic and mixed-media collage on canvas, his art explores wave frequencies, resonance, and healing. He held an early atelier at the legendary Kunsthaus Tacheles in Berlin (2001–2006) and is the author of two books: Techniques for Awareness and Techniques for Resonance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I buy original abstract paintings from Berlin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Original OBOSHI paintings can be purchased directly from oboshi.art with worldwide shipping from Berlin via DHL, or through international art platforms SINGULART and Saatchi Art. Custom commissions are also available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is art healing in abstract painting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Art Healing, as practiced by OBOSHI, refers to the experience of resonance between a painting and its viewer. Through layered acrylic compositions with rhythmic spatial flow, the work creates a quiet vibration — tension and release — that can bring a sense of calm or emotional movement to the person standing before it. It is not conventional healing but an aesthetic experience rooted in wave frequencies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does OBOSHI accept commissions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. OBOSHI accepts custom commissions in acrylic and collage on canvas. Sizes range from 40×50cm (€800) to 50×70cm (€1,100) and larger formats on request. Lead time is approximately 3 weeks from Berlin, with worldwide insured shipping via DHL. Certificate of authenticity included."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Kunsthaus Tacheles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kunsthaus Tacheles was a legendary artist squat and cultural center in Berlin-Mitte, active from 1990 to 2012. It was one of Europe's most iconic independent art spaces. OBOSHI held an atelier there from 2001 to 2006, during the building's most creatively active period."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Japanese artists are based in Berlin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OBOSHI (Junichi Oboshi) is a Japanese abstract painter who has been based in Berlin since the early 2000s. His work in acrylic and collage explores themes of wave frequency and resonance. He is represented on SINGULART and Saatchi Art, and his work can be viewed and purchased at oboshi.art."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see OBOSHI paintings in a virtual gallery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. OBOSHI offers a 3D virtual gallery experience on Anasaea, where you can walk through an immersive exhibition space and view paintings in three dimensions from anywhere in the world. Visit oboshi.art for the direct link."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
