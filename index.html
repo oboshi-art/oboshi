@@ -2972,6 +2972,11 @@ async function submitContactForm(e) {
       document.getElementById('contact-success').classList.add('show');
       e.target.reset();
       btn.textContent = 'Sent ✓';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        document.getElementById('contact-success').classList.remove('show');
+      }, 3000);
     } else {
       btn.textContent = 'Send Message →';
       btn.disabled = false;
