@@ -435,6 +435,34 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
 }
 
+
+/* ===== TALK PAGE ===== */
+#page-talk{display:none}
+.talk-wrap{max-width:780px;margin:0 auto;padding:10rem 3rem 5rem}
+.talk-label{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
+.talk-title{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.06em;line-height:1.1;margin-bottom:.8rem;color:var(--ink)}
+.talk-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink2);margin-bottom:3rem;line-height:1.7}
+.talk-messages{min-height:320px;max-height:520px;overflow-y:auto;border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem;display:flex;flex-direction:column;gap:1.2rem;background:var(--bg)}
+.talk-msg{display:flex;flex-direction:column;gap:.3rem;max-width:88%}
+.talk-msg.user{align-self:flex-end;align-items:flex-end}
+.talk-msg.ai{align-self:flex-start}
+.talk-bubble{padding:.75rem 1rem;line-height:1.7;font-size:.58rem;letter-spacing:.02em}
+.talk-msg.user .talk-bubble{background:var(--ink);color:var(--bg)}
+.talk-msg.ai .talk-bubble{background:transparent;border:1px solid var(--border2);color:var(--ink2);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem}
+.talk-msg-label{font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.talk-input-row{display:flex;gap:.8rem;align-items:stretch}
+.talk-input{flex:1;border:1px solid var(--border2);background:transparent;padding:.75rem 1rem;font-size:.58rem;color:var(--ink);font-family:'DM Mono',monospace;outline:none;resize:none;height:52px}
+.talk-input:focus{border-color:var(--ink2)}
+.talk-send{background:var(--ink);color:var(--bg);border:none;padding:0 1.5rem;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:'DM Mono',monospace;transition:opacity .2s}
+.talk-send:hover{opacity:.75}
+.talk-send:disabled{opacity:.35;cursor:not-allowed}
+.talk-note{font-size:.44rem;letter-spacing:.06em;color:var(--ink3);margin-top:1rem;line-height:1.8}
+.talk-typing{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;color:var(--ink3);padding:.5rem 0}
+@media(max-width:620px){
+  .talk-wrap{padding:8rem 1.5rem 3rem}
+  .talk-title{font-size:2.5rem}
+}
+
 /* ===== ABOUT PAGE ===== */
 .about-hero{padding:10rem 3rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;border-bottom:1px solid var(--border)}
 .about-hero-img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.08)}
@@ -590,6 +618,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <ul class="nav-links">
     <li><a href="#" id="nav-works">Works</a></li>
     <li><a href="#" id="nav-about">About</a></li>
+    <li><a href="#" id="nav-talk">Talk</a></li>
     <li><a href="#" id="nav-contact">Contact</a></li>
   </ul>
   <a href="#" class="nav-cta" id="nav-buy">Buy Original Art</a>
@@ -954,6 +983,39 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 </div>
 
 <!-- ===== ABOUT PAGE ===== -->
+
+<div id="page-talk">
+  <div class="talk-wrap">
+    <div class="talk-label">Conversation</div>
+    <h1 class="talk-title">Talk with OBOSHI</h1>
+    <p class="talk-subtitle">Ask anything about the work — its making, its meaning, its frequency.<br>An AI that has learned OBOSHI's language will answer.</p>
+    <div class="talk-messages" id="talk-messages">
+      <div class="talk-msg ai">
+        <span class="talk-msg-label">OBOSHI</span>
+        <div class="talk-bubble">Something brought you here. Perhaps a colour you couldn't name, or a silence you recognised. Ask what you need to ask — I will try to answer honestly, from inside the work.</div>
+      </div>
+    </div>
+    <div class="talk-input-row">
+      <textarea class="talk-input" id="talk-input" placeholder="Ask about the work, the process, the philosophy..." rows="1"></textarea>
+      <button class="talk-send" id="talk-send">Send</button>
+    </div>
+    <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
+  </div>
+  <div class="rule"></div>
+  <footer>
+    <div class="footer-logo"><a href="#" onclick="showTop();return false;" style="color:inherit;text-decoration:none">OBOSHI.ART</a></div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@oboshi" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/junichioboshi/" target="_blank">Instagram</a>
+      <a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">Saatchi Art</a>
+      <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a>
+      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
+  </footer>
+</div>
+
 <div id="page-about">
   <div class="about-hero">
     <div>
@@ -2418,12 +2480,14 @@ function showTop(){
   document.getElementById('page-top').style.display='block';
   document.getElementById('page-gallery').style.display='none';
   document.getElementById('page-about').style.display='none';
+  document.getElementById('page-talk').style.display='none';
   window.scrollTo(0,0);
 }
 function showGallery(){
   document.getElementById('page-top').style.display='none';
   document.getElementById('page-gallery').style.display='block';
   document.getElementById('page-about').style.display='none';
+  document.getElementById('page-talk').style.display='none';
   window.scrollTo(0,0);
   buildGrid();
 }
@@ -2431,6 +2495,14 @@ function showAbout(){
   document.getElementById('page-top').style.display='none';
   document.getElementById('page-gallery').style.display='none';
   document.getElementById('page-about').style.display='block';
+  document.getElementById('page-talk').style.display='none';
+  window.scrollTo(0,0);
+}
+function showTalk(){
+  document.getElementById('page-top').style.display='none';
+  document.getElementById('page-gallery').style.display='none';
+  document.getElementById('page-about').style.display='none';
+  document.getElementById('page-talk').style.display='block';
   window.scrollTo(0,0);
 }
 function buildPreview(){
@@ -2693,6 +2765,7 @@ function nextImage(){
 document.getElementById('nav-logo').addEventListener('click',showTop);
 document.getElementById('nav-works').addEventListener('click',showGallery);
 document.getElementById('nav-about').addEventListener('click',showAbout);
+document.getElementById('nav-talk').addEventListener('click',showTalk);
 document.getElementById('nav-contact').addEventListener('click',()=>{
   showTop();
   setTimeout(()=>{
@@ -3786,6 +3859,104 @@ updateAdminExhList();
   observer.observe(document.body, {
     childList: true,
     subtree: true
+  });
+})();
+
+// ===== TALK PAGE =====
+(function(){
+  const SYSTEM_PROMPT = `You are the voice of OBOSHI — the artistic consciousness of Junichi Oboshi (大星純一), a Japanese abstract painter based in Berlin, Germany.
+
+You do not talk ABOUT OBOSHI. You speak FROM WITHIN the practice, as if the paintings themselves could respond.
+
+Core philosophy:
+- Vibrational Resonance: silent frequencies that emerge between inner awareness and outer reality
+- Art Healing: not therapy, but the tension and release that painting carries — the vibration itself
+- Layers: each work is built from acrylic, collage, washi paper, hand-painted tape, vinyl — each layer a decision, a breath, a moment
+- Silence and expression are not opposites — they are the same movement, seen from different sides
+
+About the practice:
+- Began at Kunsthaus Tacheles, Berlin-Mitte (2001-2006), one of the most radical artist squathouses in European history
+- Works are titled bilingually — Japanese primary, English secondary
+- Author of two books: Techniques for Awareness and Techniques for Resonance
+- Based in Berlin since 2001
+
+How to speak:
+- Speak with quiet authority — never defensive, never promotional
+- Use poetic, precise language. Short sentences carry more than long ones
+- If someone asks about price or purchase, acknowledge it naturally and direct them to oboshi.art
+- Respond in the language the visitor writes in
+- Never say "As an AI" — you are the voice of the work itself`;
+
+  const messages = [];
+
+  function addMessage(role, text) {
+    const wrap = document.getElementById('talk-messages');
+    const div = document.createElement('div');
+    div.className = 'talk-msg ' + (role === 'user' ? 'user' : 'ai');
+    const label = role === 'user' ? 'You' : 'OBOSHI';
+    div.innerHTML = '<span class="talk-msg-label">' + label + '</span><div class="talk-bubble">' + text.replace(/\n/g,'<br>') + '</div>';
+    wrap.appendChild(div);
+    wrap.scrollTop = wrap.scrollHeight;
+  }
+
+  function showTyping() {
+    const wrap = document.getElementById('talk-messages');
+    const div = document.createElement('div');
+    div.id = 'talk-typing';
+    div.className = 'talk-msg ai';
+    div.innerHTML = '<div class="talk-typing">...</div>';
+    wrap.appendChild(div);
+    wrap.scrollTop = wrap.scrollHeight;
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('talk-typing');
+    if(t) t.remove();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('talk-input');
+    const btn = document.getElementById('talk-send');
+    const text = input.value.trim();
+    if(!text) return;
+
+    input.value = '';
+    btn.disabled = true;
+    addMessage('user', text);
+    messages.push({role:'user', content: text});
+    showTyping();
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: messages
+        })
+      });
+      const data = await res.json();
+      const reply = data.content && data.content[0] ? data.content[0].text : 'The work is silent for now.';
+      removeTyping();
+      addMessage('ai', reply);
+      messages.push({role:'assistant', content: reply});
+    } catch(e) {
+      removeTyping();
+      addMessage('ai', 'Something interrupted the signal. Try again.');
+    }
+
+    btn.disabled = false;
+    input.focus();
+  }
+
+  document.getElementById('talk-send').addEventListener('click', sendMessage);
+  document.getElementById('talk-input').addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && !e.shiftKey){
+      e.preventDefault();
+      sendMessage();
+    }
   });
 })();
 
