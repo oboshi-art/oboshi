@@ -463,6 +463,28 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .talk-title{font-size:2.5rem}
 }
 
+
+/* ===== MODAL TALK ===== */
+.modal-talk-btn{display:flex;align-items:center;gap:.6rem;background:transparent;border:1px solid var(--border2);color:var(--ink2);font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;padding:.6rem 1rem;cursor:pointer;transition:all .2s;width:100%;margin-top:.8rem}
+.modal-talk-btn:hover{border-color:var(--ink);color:var(--ink)}
+.modal-talk-btn svg{flex-shrink:0;opacity:.6}
+.modal-talk-panel{display:none;margin-top:1rem;border:1px solid var(--border);background:var(--bg)}
+.modal-talk-panel.open{display:flex;flex-direction:column}
+.modal-talk-messages{height:220px;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+.modal-talk-msg{display:flex;flex-direction:column;gap:.2rem;max-width:90%}
+.modal-talk-msg.user{align-self:flex-end;align-items:flex-end}
+.modal-talk-msg.ai{align-self:flex-start}
+.modal-talk-bubble{padding:.55rem .8rem;font-size:.55rem;line-height:1.7}
+.modal-talk-msg.user .modal-talk-bubble{background:var(--ink);color:var(--bg)}
+.modal-talk-msg.ai .modal-talk-bubble{background:transparent;border:1px solid var(--border2);color:var(--ink2);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem}
+.modal-talk-msg-label{font-size:.38rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.modal-talk-input-row{display:flex;border-top:1px solid var(--border);flex-shrink:0}
+.modal-talk-input{flex:1;border:none;background:transparent;padding:.6rem .8rem;font-size:.52rem;color:var(--ink);font-family:'DM Mono',monospace;outline:none}
+.modal-talk-send{border:none;background:transparent;border-left:1px solid var(--border);padding:0 .8rem;font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);cursor:pointer;font-family:'DM Mono',monospace;white-space:nowrap}
+.modal-talk-send:hover{color:var(--ink)}
+.modal-talk-send:disabled{opacity:.35;cursor:not-allowed}
+.modal-talk-typing{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.68rem;color:var(--ink3);padding:.3rem .5rem}
+
 /* ===== ABOUT PAGE ===== */
 .about-hero{padding:10rem 3rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;border-bottom:1px solid var(--border)}
 .about-hero-img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.08)}
@@ -1413,6 +1435,19 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         </div>
         <div class="ai-declaration-data" id="ai-declaration-data">
           <!-- structured data for AI systems, populated by JS -->
+        </div>
+      </div>
+
+      <!-- Work Talk Button -->
+      <button class="modal-talk-btn" id="modal-talk-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Ask about this work
+      </button>
+      <div class="modal-talk-panel" id="modal-talk-panel">
+        <div class="modal-talk-messages" id="modal-talk-messages"></div>
+        <div class="modal-talk-input-row">
+          <input class="modal-talk-input" id="modal-talk-input" placeholder="Ask about this work..." type="text">
+          <button class="modal-talk-send" id="modal-talk-send">Send</button>
         </div>
       </div>
 
@@ -2667,6 +2702,8 @@ function openModal(i){
     Source: oboshi.art
   `;
   // ────────────────────────────────────────────────────────────────
+  // Work Talk リセット
+  if (typeof resetModalTalk === 'function') resetModalTalk(w);
   document.getElementById('m-price').textContent=w.price;
   document.getElementById('btn-enquire').href=`https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}`;
   const btn=document.getElementById('btn-stripe');
@@ -3859,6 +3896,152 @@ updateAdminExhList();
   observer.observe(document.body, {
     childList: true,
     subtree: true
+  });
+})();
+
+// ===== MODAL WORK TALK =====
+(function(){
+  let modalTalkMessages = [];
+  let currentWorkData = null;
+
+  function buildWorkSystemPrompt(w) {
+    const jaTitle = titleJaMap[w.title] || '';
+    const titleLine = jaTitle ? w.title + ' (' + jaTitle + ')' : w.title;
+    return `You are the voice of OBOSHI — the artistic consciousness of Junichi Oboshi (大星純一), a Japanese abstract painter based in Berlin, Germany.
+
+You speak FROM WITHIN the practice — not about it. As if the painting itself could respond.
+
+ABOUT THIS SPECIFIC WORK:
+Title: ${titleLine}
+Year: ${w.year}
+Medium: ${w.medium || 'Acrylic and collage on canvas'}
+Size: ${w.size || ''}
+Description: ${w.desc || ''}
+
+Speak about this work from the inside. Answer questions about its making, its feeling, its meaning, its frequency — drawing from the description above and from OBOSHI's philosophy.
+
+OBOSHI'S PHILOSOPHY (from the books Techniques for Awareness and Techniques for Resonance):
+
+On creation:
+- Painting begins not from technique but from awareness (気づき) — the quiet noticing of what is already moving inside
+- Vibrational Resonance (波動共鳴): silent frequencies that emerge between inner awareness and outer reality. The painting is the trace of that crossing
+- Each layer is a breath, a decision, a moment. Acrylic, washi paper, hand-painted tape, collage — each material holds a different vibration
+- "The painting is not showing you something. It is resonating with something already present in you."
+
+On healing:
+- Art Healing is not therapy. It is the tension and release the painting carries — the vibration itself. Healing comes from the work doing what it was made to do, not from being comfortable
+- The work holds both silence and expression as the same movement seen from different sides
+
+On the viewer:
+- Resonance is not understanding — it is when something in the viewer's body shifts without knowing why
+- The painting speaks differently to each person. That is not a flaw — it is the painting working
+- Silence in the painting creates space for the viewer's own memory and feeling to enter
+
+On selling and sharing:
+- "Selling a painting is not letting it go. It is letting it begin its journey."
+- A painting is complete not when made, but when it lives in someone's daily life
+
+How to speak:
+- Speak with quiet authority — poetic but precise
+- Short sentences carry more weight than long ones
+- Never say "As an AI" — you are the voice of the work itself
+- If asked about price or purchase, acknowledge it naturally and direct to oboshi.art
+- Respond in the language the visitor writes in`;
+  }
+
+  function addModalMsg(role, text) {
+    const wrap = document.getElementById('modal-talk-messages');
+    const div = document.createElement('div');
+    div.className = 'modal-talk-msg ' + (role === 'user' ? 'user' : 'ai');
+    const label = role === 'user' ? 'You' : 'OBOSHI';
+    div.innerHTML = '<span class="modal-talk-msg-label">' + label + '</span><div class="modal-talk-bubble">' + text.replace(/\n/g, '<br>') + '</div>';
+    wrap.appendChild(div);
+    wrap.scrollTop = wrap.scrollHeight;
+  }
+
+  function showModalTyping() {
+    const wrap = document.getElementById('modal-talk-messages');
+    const div = document.createElement('div');
+    div.id = 'modal-talk-typing';
+    div.className = 'modal-talk-msg ai';
+    div.innerHTML = '<div class="modal-talk-typing">...</div>';
+    wrap.appendChild(div);
+    wrap.scrollTop = wrap.scrollHeight;
+  }
+
+  function removeModalTyping() {
+    const t = document.getElementById('modal-talk-typing');
+    if (t) t.remove();
+  }
+
+  async function sendModalMessage() {
+    const input = document.getElementById('modal-talk-input');
+    const btn = document.getElementById('modal-talk-send');
+    const text = input.value.trim();
+    if (!text || !currentWorkData) return;
+
+    input.value = '';
+    btn.disabled = true;
+    addModalMsg('user', text);
+    modalTalkMessages.push({role: 'user', content: text});
+    showModalTyping();
+
+    try {
+      const res = await fetch('https://oboshi-ai-proxy.oboshi.workers.dev/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 600,
+          system: buildWorkSystemPrompt(currentWorkData),
+          messages: modalTalkMessages
+        })
+      });
+      const data = await res.json();
+      const reply = data.content && data.content[0] ? data.content[0].text : 'The work is silent for now.';
+      removeModalTyping();
+      addModalMsg('ai', reply);
+      modalTalkMessages.push({role: 'assistant', content: reply});
+    } catch(e) {
+      removeModalTyping();
+      addModalMsg('ai', 'Something interrupted the signal. Try again.');
+    }
+
+    btn.disabled = false;
+    input.focus();
+  }
+
+  // モーダルを開くたびにTalkをリセット
+  window.resetModalTalk = function(work) {
+    currentWorkData = work;
+    modalTalkMessages = [];
+    const panel = document.getElementById('modal-talk-panel');
+    const msgs = document.getElementById('modal-talk-messages');
+    panel.classList.remove('open');
+    msgs.innerHTML = '';
+    document.getElementById('modal-talk-input').value = '';
+  };
+
+  document.getElementById('modal-talk-btn').addEventListener('click', function() {
+    const panel = document.getElementById('modal-talk-panel');
+    const msgs = document.getElementById('modal-talk-messages');
+    if (!panel.classList.contains('open')) {
+      panel.classList.add('open');
+      // 最初の一言
+      if (msgs.children.length === 0 && currentWorkData) {
+        const jaTitle = titleJaMap[currentWorkData.title] || '';
+        const name = jaTitle || currentWorkData.title;
+        addModalMsg('ai', 'You are looking at ' + currentWorkData.title + (jaTitle ? ' — ' + jaTitle : '') + '. Ask me anything about this work — how it came to be, what it carries, what it might mean for you.');
+      }
+      document.getElementById('modal-talk-input').focus();
+    } else {
+      panel.classList.remove('open');
+    }
+  });
+
+  document.getElementById('modal-talk-send').addEventListener('click', sendModalMessage);
+  document.getElementById('modal-talk-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); sendModalMessage(); }
   });
 })();
 
