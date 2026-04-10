@@ -316,7 +316,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .gallery-header{padding:8rem 3rem 2rem;display:flex;align-items:baseline;gap:2rem;border-bottom:1px solid var(--border)}
 .gallery-header-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.05em}
 .gallery-header-count{font-size:.55rem;letter-spacing:.22em;color:var(--ink3);text-transform:uppercase}
-.back-btn{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;margin-left:auto;transition:color .2s}
+.back-btn{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;transition:color .2s}
 .back-btn:hover{color:var(--ink)}
 .filter-tabs{display:flex;gap:0;padding:1.5rem 3rem 0;border-bottom:1px solid var(--border)}
 .filter-tab{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;padding:.6rem 1.2rem;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s;margin-bottom:-1px}
@@ -1001,7 +1001,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="gallery-header">
     <div class="gallery-header-title">Works</div>
     <div class="gallery-header-count" id="work-count"></div>
-    <button class="back-btn" id="back-btn">← Back</button>
+    <button class="back-btn" id="back-btn" style="margin-left:auto">← Back</button>
   </div>
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
@@ -1035,7 +1035,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 <div id="page-talk">
   <div class="gallery-header">
     <div class="gallery-header-title">Talk</div>
-    <button class="back-btn" id="talk-back-btn">← Back</button>
+    <button class="back-btn" id="talk-back-btn" style="margin-left:auto">← Back</button>
   </div>
   <div class="talk-wrap">
     <div class="talk-label">Conversation</div>
@@ -1053,8 +1053,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
     <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
   </div>
-  <div style="padding:2rem 3rem;text-align:center">
-    <button class="back-btn" onclick="showTop()" style="margin:0 auto">← Back</button>
+  <div style="padding:2rem 3rem;display:flex;justify-content:flex-end">
+    <button class="back-btn" onclick="showTop()">← Back</button>
   </div>
   <div class="rule"></div>
   <footer>
@@ -1074,7 +1074,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 <div id="page-about">
   <div class="gallery-header">
     <div class="gallery-header-title">About</div>
-    <button class="back-btn" id="about-back-btn">← Back</button>
+    <button class="back-btn" id="about-back-btn" style="margin-left:auto">← Back</button>
   </div>
   <div class="about-hero">
     <div>
@@ -1231,8 +1231,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <div style="width:40px;height:1px;background:var(--border2)"></div>
     <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink2);letter-spacing:.06em;max-width:500px;line-height:2">Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness.</div>
     <a href="#" class="hero-cta" id="about-view-works">View Works →</a>
-    <button class="back-btn" onclick="showTop()" style="margin:0 auto">← Back</button>
     <div style="width:40px;height:1px;background:var(--border2)"></div>
+    <button class="back-btn" onclick="showTop()" style="margin-left:auto">← Back</button>
   </div>
 
   <footer>
