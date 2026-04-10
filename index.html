@@ -401,6 +401,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .bio-section{grid-template-columns:1fr;gap:2rem}
+  .modal{padding:0;flex-direction:column;align-items:stretch;justify-content:flex-start}
   .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:2rem;height:auto;max-height:95vh}
   .modal-img-wrap{min-height:50vh;max-height:60vh;padding:1rem}
   .modal-img{object-fit:contain;max-width:100%;max-height:100%}
@@ -416,17 +417,42 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   nav{padding:1rem 1.5rem}
   .nav-links{gap:1.2rem}
   .hero{padding:7.5rem 1.5rem 3rem}
-  .works-preview{grid-template-columns:1fr}
+
+  /* ① works-preview: 1列、両サイドに余白 */
+  .works-preview{grid-template-columns:1fr;gap:2px;padding:0 1.5rem}
+  .wp-item{aspect-ratio:3/2}
+
   .eco-grid{grid-template-columns:1fr}
+
+  /* ③ 管理パネル歯車を完全非表示 */
+  #admin-toggle{display:none !important}
+
+  .wp-view-all{min-height:80px}
   .ecosystem,.about-section,.bio-section{padding:3rem 1.5rem}
   .gallery-header{padding:6.5rem 1.5rem 1.5rem}
   .gallery-grid{columns:1;padding:1rem 1.5rem}
   .g-item{margin-bottom:2.5rem}
-  .modal{padding:1rem}
-  .modal-img-wrap{min-height:40vh;max-height:50vh;padding:0.5rem}
+  .modal{padding:0}
+  .modal-inner{gap:0;padding-top:2.8rem}
+  .modal-img-wrap{min-height:40vh;max-height:48vh;padding:0.5rem}
   .modal-title{font-size:2rem}
   .modal-price-big{font-size:1.8rem}
-  .modal-close{top:0.5rem;right:1rem;font-size:.5rem}
+
+  /* ② Close: 常に最上部に固定、必ず見える */
+  .modal-close{
+    position:fixed;
+    top:0;right:0;left:0;
+    width:100%;
+    text-align:center;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    padding:.85rem 1rem;
+    font-size:.55rem;
+    letter-spacing:.22em;
+    z-index:10010;
+    border-radius:0;
+  }
+
   footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
   .footer-links{justify-content:center;flex-wrap:wrap}
   .modal-nav-btn{width:2.4rem;height:2.4rem;font-size:1.6rem}
@@ -4022,18 +4048,46 @@ How to speak:
     document.getElementById('modal-talk-input').value = '';
   };
 
+  async function generateOpeningMessage() {
+    if (!currentWorkData) return;
+    const msgs = document.getElementById('modal-talk-messages');
+    if (msgs.children.length > 0) return; // すでに開いている
+
+    showModalTyping();
+
+    const openingPrompt = buildWorkSystemPrompt(currentWorkData) + `
+
+Now, without waiting to be asked — speak first. You are looking at this painting from the inside. Offer one opening statement: what this work is, what it holds, what it might stir in the person standing before it. 2–4 sentences. No greeting. No "I". Begin directly from the work itself.`;
+
+    try {
+      const res = await fetch('https://oboshi-ai-proxy.oboshi.workers.dev/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 200,
+          system: openingPrompt,
+          messages: [{role: 'user', content: 'Speak.'}]
+        })
+      });
+      const data = await res.json();
+      const reply = data.content && data.content[0] ? data.content[0].text : 'Something in this work is waiting to be noticed.';
+      removeModalTyping();
+      addModalMsg('ai', reply);
+      modalTalkMessages.push({role: 'assistant', content: reply});
+    } catch(e) {
+      removeModalTyping();
+      addModalMsg('ai', 'Something in this work is waiting to be noticed.');
+    }
+
+    document.getElementById('modal-talk-input').focus();
+  }
+
   document.getElementById('modal-talk-btn').addEventListener('click', function() {
     const panel = document.getElementById('modal-talk-panel');
-    const msgs = document.getElementById('modal-talk-messages');
     if (!panel.classList.contains('open')) {
       panel.classList.add('open');
-      // 最初の一言
-      if (msgs.children.length === 0 && currentWorkData) {
-        const jaTitle = titleJaMap[currentWorkData.title] || '';
-        const name = jaTitle || currentWorkData.title;
-        addModalMsg('ai', 'You are looking at ' + currentWorkData.title + (jaTitle ? ' — ' + jaTitle : '') + '. Ask me anything about this work — how it came to be, what it carries, what it might mean for you.');
-      }
-      document.getElementById('modal-talk-input').focus();
+      generateOpeningMessage();
     } else {
       panel.classList.remove('open');
     }
