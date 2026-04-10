@@ -1033,6 +1033,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 <!-- ===== ABOUT PAGE ===== -->
 
 <div id="page-talk">
+  <div class="gallery-header">
+    <div class="gallery-header-title">Talk</div>
+    <button class="back-btn" id="talk-back-btn">← Back</button>
+  </div>
   <div class="talk-wrap">
     <div class="talk-label">Conversation</div>
     <h1 class="talk-title">Talk with OBOSHI</h1>
@@ -1065,6 +1069,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 </div>
 
 <div id="page-about">
+  <div class="gallery-header">
+    <div class="gallery-header-title">About</div>
+    <button class="back-btn" id="about-back-btn">← Back</button>
+  </div>
   <div class="about-hero">
     <div>
       <img class="about-hero-img" src="images/oboshi-portrait.jpg" alt="Junichi Oboshi — Abstract Painter, Berlin">
@@ -1073,9 +1081,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="about-hero-tag">About the Artist</div>
       <div class="about-hero-name" translate="no">Junichi<br>Oboshi</div>
       <div class="about-hero-sub">Born in Japan. Based in Berlin since 2001. Abstract acrylic painter working through silence, expression, and the invisible vibrations between layers.</div>
-      <div style="margin-top:1.5rem">
-        <button class="back-btn" id="about-back-btn" style="padding:0">← Back</button>
-      </div>
     </div>
   </div>
 
@@ -2859,6 +2864,7 @@ setInterval(()=>setRoom((roomIdx+1)%roomImgs.length),4000);
 
 document.getElementById('back-btn').addEventListener('click',showTop);
 document.getElementById('about-back-btn').addEventListener('click',showTop);
+document.getElementById('talk-back-btn').addEventListener('click',showTop);
 document.getElementById('about-view-works').addEventListener('click',(e)=>{e.preventDefault();showGallery();});
 document.getElementById('bio-read-more').addEventListener('click',(e)=>{e.preventDefault();showAbout();});
 document.getElementById('modal-close').addEventListener('click',closeModal);
