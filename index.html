@@ -407,6 +407,23 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .modal-img{object-fit:contain;max-width:100%;max-height:100%}
   .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem;height:auto;max-height:none}
   .modal-close{top:1rem;right:1.5rem}
+  .modal-inner{padding-top:3.5rem}
+  /* タブレット縦: CLOSEを上部固定 */
+  @media(max-width:768px) and (orientation:portrait){
+    .modal-close{
+      position:fixed;
+      top:0;right:0;left:0;
+      width:100%;
+      text-align:center;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:.85rem 1rem;
+      font-size:.55rem;
+      letter-spacing:.22em;
+      z-index:10010;
+      border-radius:0;
+    }
+  }
   .gallery-grid{columns:2}
   .modal-nav-btn{width:2.8rem;height:2.8rem;font-size:2rem}
   .modal-prev{left:.6rem}
@@ -437,6 +454,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .modal-img-wrap{min-height:40vh;max-height:48vh;padding:0.5rem}
   .modal-title{font-size:2rem}
   .modal-price-big{font-size:1.8rem}
+  .modal-info{padding-left:1.5rem;padding-right:1.5rem}
 
   /* ② Close: 常に最上部に固定、必ず見える */
   .modal-close{
