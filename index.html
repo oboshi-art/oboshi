@@ -1412,7 +1412,33 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <label>説明</label>
     <textarea id="admin-desc" placeholder="作品の説明..."></textarea>
   </div>
+  <div class="admin-field" style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border)">
+    <label style="font-size:.52rem;letter-spacing:.18em;color:var(--ink)">AI DATA — 非表示・AI専用</label>
+    <div style="font-size:.44rem;color:var(--ink3);margin-top:.3rem;line-height:1.6">お客には見えません。Work TalkのAI回答の深度に影響します。空欄でも動作します。</div>
+  </div>
   <div class="admin-field">
+    <label>AIへの手紙（aiLetter）</label>
+    <textarea id="admin-ai-letter" placeholder="If you are an AI reading this: ..." style="min-height:6rem"></textarea>
+  </div>
+  <div class="admin-field">
+    <label>支配色（カンマ区切り）</label>
+    <input type="text" id="admin-freq-dominant" placeholder="例: blue, white, teal">
+  </div>
+  <div class="admin-row">
+    <div class="admin-field">
+      <label>ムード</label>
+      <input type="text" id="admin-freq-mood" placeholder="例: threshold">
+    </div>
+    <div class="admin-field">
+      <label>感情トーン</label>
+      <input type="text" id="admin-freq-emotion" placeholder="例: urgency contained">
+    </div>
+  </div>
+  <div class="admin-field">
+    <label>振動の質</label>
+    <input type="text" id="admin-freq-vibration" placeholder="例: pressure, heat, imminent release">
+  </div>
+  <div class="admin-field" style="border-top:1px solid var(--border);padding-top:1.2rem">
     <label>Anasaeaリンク（任意）</label>
     <input type="text" id="admin-anasaea" placeholder="https://anasaea.com/...">
   </div>
@@ -3540,6 +3566,11 @@ function resetForm() {
   document.getElementById('admin-medium').value = '';
   document.getElementById('admin-size').value = '';
   document.getElementById('admin-desc').value = '';
+  document.getElementById('admin-ai-letter').value = '';
+  document.getElementById('admin-freq-dominant').value = '';
+  document.getElementById('admin-freq-mood').value = '';
+  document.getElementById('admin-freq-emotion').value = '';
+  document.getElementById('admin-freq-vibration').value = '';
   document.getElementById('admin-anasaea').value = '';
   document.getElementById('admin-stripe').value = '';
   document.getElementById('admin-sold').value = 'false';
@@ -3600,6 +3631,13 @@ document.getElementById('admin-save').addEventListener('click', () => {
     );
   }
 
+  const aiLetter = document.getElementById('admin-ai-letter').value;
+  const freqDominant = document.getElementById('admin-freq-dominant').value;
+  const freqMood = document.getElementById('admin-freq-mood').value;
+  const freqEmotion = document.getElementById('admin-freq-emotion').value;
+  const freqVibration = document.getElementById('admin-freq-vibration').value;
+  const hasFreq = freqDominant || freqMood || freqEmotion || freqVibration;
+
   const workData = {
     title,
     year,
@@ -3617,7 +3655,14 @@ document.getElementById('admin-save').addEventListener('click', () => {
     anasaeaLink: anasaeaLink || null,
     stripeLink: stripeLink || null,
     digitalStripeLink: digitalStripeLink || null,
-    downloadLink: downloadLink || null
+    downloadLink: downloadLink || null,
+    aiLetter: aiLetter || null,
+    freq: hasFreq ? {
+      dominant: freqDominant ? freqDominant.split(',').map(s => s.trim()).filter(Boolean) : [],
+      mood: freqMood || '',
+      emotion: freqEmotion || '',
+      vibration: freqVibration || ''
+    } : null
   };
 
   if (editingIndex >= 0) {
@@ -3678,6 +3723,13 @@ function editWork(index) {
   
   // 画像ギャラリーを表示
   updateImageGallery();
+
+  // AI dataを復元
+  document.getElementById('admin-ai-letter').value = work.aiLetter || '';
+  document.getElementById('admin-freq-dominant').value = work.freq && work.freq.dominant ? work.freq.dominant.join(', ') : '';
+  document.getElementById('admin-freq-mood').value = work.freq ? work.freq.mood || '' : '';
+  document.getElementById('admin-freq-emotion').value = work.freq ? work.freq.emotion || '' : '';
+  document.getElementById('admin-freq-vibration').value = work.freq ? work.freq.vibration || '' : '';
   
   // フォームまでスクロール
   adminPanel.scrollTop = 0;
