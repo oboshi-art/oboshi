@@ -334,7 +334,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
-.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.98);opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
 .modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative}
@@ -2883,21 +2883,68 @@ function buildPreview(){
   wrap.appendChild(all);
 }
 let currentFilter = 'all';
+let _gridFiltered = [];
+let _gridPage = 0;
+const GRID_PAGE_SIZE = 12;
+let _gridObserver = null;
+let _gridSentinel = null;
+
+function _buildCard(w) {
+  const i = works.indexOf(w);
+  const el = document.createElement('div');
+  el.className = 'g-item';
+  const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
+  el.innerHTML = `${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold ? '<div class="g-sold-badge">Collected</div>' : ''}${w.digitalOnly ? '<div class="g-digital-badge">⬇ Digital</div>' : ''}`;
+  el.addEventListener('click', () => openModal(i));
+  return el;
+}
+
+function _loadNextPage(grid) {
+  const start = _gridPage * GRID_PAGE_SIZE;
+  const slice = _gridFiltered.slice(start, start + GRID_PAGE_SIZE);
+  if (!slice.length) return;
+  const frag = document.createDocumentFragment();
+  slice.forEach(w => frag.appendChild(_buildCard(w)));
+  // sentinel の前に挿入
+  if (_gridSentinel && grid.contains(_gridSentinel)) {
+    grid.insertBefore(frag, _gridSentinel);
+  } else {
+    grid.appendChild(frag);
+  }
+  _gridPage++;
+  // 全件表示済みならsentinelを削除してObserverを止める
+  if (_gridPage * GRID_PAGE_SIZE >= _gridFiltered.length) {
+    if (_gridObserver && _gridSentinel) _gridObserver.unobserve(_gridSentinel);
+    if (_gridSentinel && _gridSentinel.parentNode) _gridSentinel.parentNode.removeChild(_gridSentinel);
+    _gridSentinel = null;
+  }
+}
 
 function buildGrid(){
-  const grid=document.getElementById('grid');
-  grid.innerHTML='';
-  const filtered = currentFilter === 'all' ? works : works.filter(w => (w.category || 'oboshi') === currentFilter);
-  document.getElementById('work-count').textContent=filtered.length+' works';
-  filtered.forEach((w)=>{
-    const i = works.indexOf(w);
-    const el=document.createElement('div');
-    el.className='g-item';
-    const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
-    el.addEventListener('click',()=>openModal(i));
-    grid.appendChild(el);
-  });
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  _gridPage = 0;
+  if (_gridObserver) { _gridObserver.disconnect(); _gridObserver = null; }
+  _gridSentinel = null;
+
+  _gridFiltered = currentFilter === 'all' ? works : works.filter(w => (w.category || 'oboshi') === currentFilter);
+  document.getElementById('work-count').textContent = _gridFiltered.length + ' works';
+
+  // sentinel（無限スクロールのトリガー要素）
+  _gridSentinel = document.createElement('div');
+  _gridSentinel.style.cssText = 'height:1px;grid-column:1/-1;';
+  grid.appendChild(_gridSentinel);
+
+  // 最初の1ページをすぐ表示
+  _loadNextPage(grid);
+
+  // 残りがあればIntersectionObserverで追加ロード
+  if (_gridFiltered.length > GRID_PAGE_SIZE) {
+    _gridObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) _loadNextPage(grid);
+    }, { rootMargin: '200px' });
+    if (_gridSentinel) _gridObserver.observe(_gridSentinel);
+  }
 }
 
 // フィルタータブのイベント
