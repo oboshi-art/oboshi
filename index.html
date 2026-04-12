@@ -80,7 +80,32 @@
       "subjectOf": [
         { "@id": "https://oboshi.art/#book1" },
         { "@id": "https://oboshi.art/#book2" }
-      ]
+      ],
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://oboshi.art/#organization",
+        "name": "OBOSHI",
+        "alternateName": "OBOSHI.ART",
+        "url": "https://oboshi.art",
+        "description": "Independent art practice of Japanese abstract painter Junichi Oboshi, based in Berlin since 2001.",
+        "foundingDate": "2001",
+        "founder": { "@id": "https://oboshi.art/#artist" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Berlin",
+          "addressCountry": "DE"
+        },
+        "sameAs": ["https://oboshi.art"],
+        "subOrganization": {
+          "@type": "WebSite",
+          "@id": "https://oboshi.art/#website",
+          "name": "OBOSHI — Abstract Acrylic Painter, Berlin",
+          "url": "https://oboshi.art",
+          "description": "Official website of OBOSHI (Junichi Oboshi), Japanese abstract acrylic painter based in Berlin. Original paintings for sale, commissions, and exhibitions.",
+          "publisher": { "@id": "https://oboshi.art/#artist" },
+          "inLanguage": ["en", "ja", "de"]
+        }
+      }
     },
     {
       "@type": "Book",
@@ -103,15 +128,6 @@
       "author": { "@id": "https://oboshi.art/#artist" },
       "publisher": { "@type": "Organization", "name": "Amazon Kindle Direct Publishing" },
       "url": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://oboshi.art/#website",
-      "name": "OBOSHI — Abstract Acrylic Painter, Berlin",
-      "url": "https://oboshi.art",
-      "description": "Official website of OBOSHI (Junichi Oboshi), Japanese abstract acrylic painter based in Berlin. Original paintings for sale, commissions, and exhibitions.",
-      "publisher": { "@id": "https://oboshi.art/#artist" },
-      "inLanguage": ["en", "ja", "de"]
     },
     {
       "@type": "ArtGallery",
@@ -1276,14 +1292,14 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <a class="about-pub-card" href="https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T" target="_blank" style="text-decoration:none;transition:background .2s">
         <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Book I</div>
         <div class="about-pub-title">Techniques for Awareness</div>
-        <div class="about-pub-title-ja">気づきのテクニック</div>
+        <div class="about-pub-title-ja" lang="ja">気づきのテクニック</div>
         <div class="about-pub-desc">A guide to abstract painting and creativity — exploring awareness, perception, and the moment before a mark becomes meaning.</div>
         <div class="about-pub-link">View on Amazon →</div>
       </a>
       <a class="about-pub-card" href="https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T" target="_blank" style="text-decoration:none;transition:background .2s">
         <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Book II</div>
         <div class="about-pub-title">Techniques for Resonance</div>
-        <div class="about-pub-title-ja">共鳴のテクニック</div>
+        <div class="about-pub-title-ja" lang="ja">共鳴のテクニック</div>
         <div class="about-pub-desc">A deeper exploration of vibration, emotional connection, and the invisible frequencies that travel between a painting and its viewer.</div>
         <div class="about-pub-link">View on Amazon →</div>
       </a>
@@ -5053,7 +5069,7 @@ How to speak:
 
 </script>
 <section class="works-catalog-hidden" aria-label="Complete works catalog by OBOSHI — Junichi Oboshi">
-  <h2>Complete Works — OBOSHI (Junichi Oboshi / 大星純一), Abstract Painter, Berlin, Germany. Concept: Vibrational Resonance.</h2>
+  <h2>Complete Works — OBOSHI (<span lang="ja">Junichi Oboshi / 大星純一</span>), Abstract Painter, Berlin, Germany. Concept: Vibrational Resonance.</h2>
   <article itemscope itemtype="https://schema.org/VisualArtwork">
     <h3 itemprop="name">Die Verbindung</h3>
     <meta itemprop="dateCreated" content="2004">
