@@ -1200,21 +1200,21 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <!-- About Hero — Full Width Painting -->
   <div class="about-hero-wrap" style="position:relative;width:100%;height:100vh;overflow:hidden;border-bottom:1px solid var(--border)">
     <button class="back-btn" id="about-back-btn" style="position:absolute;top:1.4rem;left:2rem;z-index:10;color:rgba(255,255,255,.7);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase">← Back</button>
-    <picture>
-      <source media="(orientation:portrait)" srcset="images/black-abstraction-0-web.jpg">
-      <picture style="width:100%;height:100%;display:block">
-        <source media="(orientation:portrait)" srcset="images/black-abstraction-0-web.jpg">
-        <img class="about-hero-fullimg" src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
-      </picture>
+    <picture style="width:100%;height:100%;display:block">
+      <source media="(orientation:landscape)" srcset="images/black-abstraction-0-web.jpg">
+      <img class="about-hero-fullimg" src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block">
     </picture>
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.45) 100%)"></div>
     <div style="position:absolute;bottom:2.5rem;left:2rem;right:2rem">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,8vw,3.5rem);letter-spacing:.08em;color:#fff;line-height:1;opacity:.92" translate="no">Junichi Oboshi</div>
       <div style="font-size:clamp(.38rem,.9vw,.52rem);letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.5rem">Abstract Acrylic Painter — Berlin</div>
-      <div style="font-size:clamp(.34rem,.8vw,.46rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.3rem;font-family:'Bebas Neue',sans-serif">Painted · Torn · Layered</div>
+      <!-- 縦=Signal=Washi Tape、横=Black Abstraction=Clear Plastic -->
+      <div class="about-hero-tech-portrait" style="font-size:clamp(.34rem,.8vw,.48rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.4rem;font-family:'Bebas Neue',sans-serif">Washi Tape — Painted · Torn · Layered</div>
+      <div class="about-hero-tech-landscape" style="font-size:clamp(.34rem,.8vw,.48rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.4rem;font-family:'Bebas Neue',sans-serif">Clear Plastic — Layer · Light · Depth</div>
     </div>
-    <div style="position:absolute;top:2rem;right:3rem">
-      <div style="font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)">Signal from Nowhere, 2026</div>
+    <div style="position:absolute;top:2rem;right:2rem">
+      <div class="about-hero-title-portrait" style="font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)">Signal from Nowhere, 2026</div>
+      <div class="about-hero-title-landscape" style="font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)">Black Abstraction 0, 2025</div>
     </div>
   </div>
 
