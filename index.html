@@ -716,6 +716,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="hero-name" translate="no">OBOSHI</div>
       <div class="hero-sub">Abstract Acrylic Painter — Berlin</div>
       <div style="margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.08em;color:var(--ink3)">Layers of footsteps, vibrations of silence.</div>
+      <div style="margin-top:.6rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-family:'Bebas Neue',sans-serif">Painted · Torn · Layered — The OBOSHI Method</div>
     </div>
     <div class="hero-right">
       <div class="room-slider" id="room-slider">
@@ -791,7 +792,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="bio-name" translate="no">Junichi Oboshi</div>
       <div class="bio-text">
         <p>Born in Japan. Based in Berlin since 2001. Junichi Oboshi began painting at Kunsthaus Tacheles — one of Berlin's most iconic artist squathouses — where he kept an atelier from 2001 to 2006.</p>
-        <p>Working with acrylics, collage, washi paper, and hand-painted tape, he builds layered compositions that carry a quiet vibration — a resonance between the visible surface and the invisible energy beneath it. Each painting is a place where silence and expression meet.</p>
+        <p>Working with acrylics, collage, and hand-painted and torn washi tape, he builds layered compositions that carry a quiet vibration — a resonance between the visible surface and the invisible energy beneath it. Each painting is a place where silence and expression meet.</p>
         <p>His work has been shown in Berlin galleries and is held in private collections across Europe and Asia. He is the author of two books: <em>Techniques for Awareness</em> and <em>Techniques for Resonance</em>.</p>
       </div>
       <div class="bio-books">
@@ -1210,7 +1211,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <div class="about-statement-text">
       <p>I am an abstract painter working through silence and expression. Through layered compositions and rhythmic spatial flow, I create on canvas a place where inner emotion and outer reality enter into dialogue.</p>
       <p>Each work carries an energy — like a vibration woven from layers of color and texture — that brings quiet resonance to the viewer's inner world. Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</p>
-      <p>My process involves building surfaces through acrylic paint, collage, washi paper, and hand-painted elements — each layer a decision, each decision a breath.</p>
+      <p>My process involves building surfaces through acrylic paint, collage, and hand-painted and torn washi tape — each layer a decision, each decision a breath.</p>
     </div>
   </div>
 
@@ -1277,7 +1278,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="about-phil-heading">Philosophy</div>
       <div class="about-phil-title">Art as Vibration.<br>Space as Resonance.</div>
       <div class="about-phil-text">
-        <p>The work begins with a feeling — not a plan. Each painting is built through accumulated layers of acrylic, collage, washi paper, and hand-painted tape. The surface grows the way memory does: not in sequence, but through overlap, revision, and the slow emergence of a rhythm.</p>
+        <p>The work begins with a feeling — not a plan. Each painting is built through accumulated layers of acrylic, collage, and hand-painted and torn washi tape. The surface grows the way memory does: not in sequence, but through overlap, revision, and the slow emergence of a rhythm.</p>
         <p>What I call "Art Healing" is not conventional healing. It is the experience of resonance — the quiet moment when a viewer stands before a painting and feels something shift inside them. Tension and release are both intentional. The painting breathes, and in that breath, something opens.</p>
         <p>I believe that every painting carries a wave frequency. When that frequency meets the right person, something invisible becomes real — a lightness in the chest they cannot quite explain.</p>
       </div>
@@ -1291,7 +1292,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         </div>
         <div class="about-mat-item">
           <div class="about-mat-label">Collage Elements</div>
-          <div class="about-mat-val">Prints of past works, washi paper, hand-painted and torn washi tape — each piece pre-painted by hand before tearing</div>
+          <div class="about-mat-val">Prints of past works, hand-painted and torn washi tape — each piece painted by hand before tearing</div>
         </div>
         <div class="about-mat-item">
           <div class="about-mat-label">Surface</div>
@@ -3334,7 +3335,7 @@ const works = [
       "images/IMG_20251217_145909165.jpg",
       "images/IMG_20251217_145922229.jpg"
     ],
-    "medium": "Acrylic on canvas",
+    "medium": "Acrylic and hand-painted torn washi tape on Canvas",
     "size": "40x50 cm",
     "desc": "Patterns collide and dissolve — grids, stripes, dots, radiating lines, each speaking a different dialect of mark-making. Nothing is resolved, but nothing is abandoned either. The white ground moves through the layers like breath, separating what needs space and holding what needs to remain. A golden circle anchors the upper right; a deep violet form grounds the lower left. Between them, the painting searches — not for a conclusion, but for the closest possible approximation of one. This is what it feels like to reach toward an answer that keeps shifting its shape.\n",
     "sold": false,
@@ -3482,7 +3483,7 @@ function buildPreview(){
     const originalIndex = works.indexOf(w); // 元の配列でのインデックスを取得
     const el=document.createElement('div');
     el.className='wp-item';
-    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div></div>`;
+    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}</div>`;
     el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(originalIndex),80);});
     wrap.appendChild(el);
   });
