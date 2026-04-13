@@ -604,8 +604,20 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .about-portrait-grid img{aspect-ratio:4/3 !important}
 }
 @media(orientation:portrait){
-  .about-hero-fullimg{height:70vh !important;object-fit:cover !important;object-position:center center !important}
-  .about-hero-wrap{height:60vh !important}
+  .about-hero-wrap{height:70vh !important}
+}
+/* PC: JS切り替え / モバイル・タブレット: picture自動 */
+@media(max-width:1024px){
+  .about-hero-pc-img{display:none !important}
+  .about-hero-mobile-pic{display:block !important}
+  .about-tech-pc{display:none !important}
+  .about-tech-mobile{display:block !important}
+}
+@media(min-width:1025px){
+  .about-hero-pc-img{display:block !important}
+  .about-hero-mobile-pic{display:none !important}
+  .about-tech-pc{display:flex !important}
+  .about-tech-mobile{display:none !important}
 }
 
 /* ===== WORK REORDER DRAG & DROP ===== */
@@ -1200,21 +1212,29 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <!-- About Hero — Full Width Painting -->
   <div class="about-hero-wrap" style="position:relative;width:100%;height:100vh;overflow:hidden;border-bottom:1px solid var(--border)">
     <button class="back-btn" id="about-back-btn" style="position:absolute;top:1.4rem;left:2rem;z-index:10;color:rgba(255,255,255,.7);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase">← Back</button>
-    <picture style="width:100%;height:100%;display:block">
+    <!-- PC: JS切り替え / モバイル・タブレット: orientation自動 -->
+    <picture class="about-hero-mobile-pic" style="width:100%;height:100%;display:none">
+      <source media="(orientation:portrait)" srcset="images/Signal from Nowhere  50x70 rgb.jpg">
       <source media="(orientation:landscape)" srcset="images/black-abstraction-0-web.jpg">
-      <img class="about-hero-fullimg" src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block">
+      <img src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block">
     </picture>
+    <img id="about-hero-img" class="about-hero-pc-img" src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:opacity .5s ease">
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.45) 100%)"></div>
     <div style="position:absolute;bottom:2.5rem;left:2rem;right:2rem">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,8vw,3.5rem);letter-spacing:.08em;color:#fff;line-height:1;opacity:.92" translate="no">Junichi Oboshi</div>
       <div style="font-size:clamp(.38rem,.9vw,.52rem);letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.5rem">Abstract Acrylic Painter — Berlin</div>
-      <!-- 縦=Signal=Washi Tape、横=Black Abstraction=Clear Plastic -->
-      <div class="about-hero-tech-portrait" style="font-size:clamp(.34rem,.8vw,.48rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.4rem;font-family:'Bebas Neue',sans-serif">Washi Tape — Painted · Torn · Layered</div>
-      <div class="about-hero-tech-landscape" style="font-size:clamp(.34rem,.8vw,.48rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.4rem;font-family:'Bebas Neue',sans-serif">Clear Plastic — Layer · Light · Depth</div>
+      <!-- PC: クリック切り替えボタン -->
+      <div class="about-tech-pc" style="display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap">
+        <button id="about-tech-washi" onclick="switchAboutHero('washi')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.95)">Washi Tape — Painted · Torn · Layered</button>
+        <button id="about-tech-plastic" onclick="switchAboutHero('plastic')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.35)">Clear Plastic — Layer · Light · Depth</button>
+      </div>
+      <!-- モバイル・タブレット: 自動テキスト -->
+      <div class="about-tech-mobile" style="display:none">
+        <div style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;color:rgba(255,255,255,.85);margin-top:.5rem" id="about-tech-mobile-text">Washi Tape — Painted · Torn · Layered</div>
+      </div>
     </div>
     <div style="position:absolute;top:2rem;right:2rem">
-      <div class="about-hero-title-portrait" style="font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)">Signal from Nowhere, 2026</div>
-      <div class="about-hero-title-landscape" style="font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)">Black Abstraction 0, 2025</div>
+      <div id="about-hero-worktitle" style="font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)">Signal from Nowhere, 2026</div>
     </div>
   </div>
 
@@ -3510,6 +3530,49 @@ function showAbout(){
   document.getElementById('page-talk').style.display='none';
   window.scrollTo(0,0);
 }
+
+// About Hero 切り替え（PC専用）
+function switchAboutHero(type){
+  const img = document.getElementById('about-hero-img');
+  const title = document.getElementById('about-hero-worktitle');
+  const btnWashi = document.getElementById('about-tech-washi');
+  const btnPlastic = document.getElementById('about-tech-plastic');
+  if(!img) return;
+  img.style.opacity='0';
+  setTimeout(()=>{
+    if(type==='washi'){
+      img.src='images/Signal from Nowhere  50x70 rgb.jpg';
+      img.alt='Signal from Nowhere — OBOSHI';
+      title.textContent='Signal from Nowhere, 2026';
+      btnWashi.style.color='rgba(255,255,255,.95)';
+      btnPlastic.style.color='rgba(255,255,255,.35)';
+    } else {
+      img.src='images/black-abstraction-0-web.jpg';
+      img.alt='Black Abstraction 0 — OBOSHI';
+      title.textContent='Black Abstraction 0, 2025';
+      btnWashi.style.color='rgba(255,255,255,.35)';
+      btnPlastic.style.color='rgba(255,255,255,.95)';
+    }
+    img.style.opacity='1';
+  }, 300);
+}
+
+// モバイル・タブレット: orientationに応じてテキスト自動切り替え
+function updateMobileTechText(){
+  const el = document.getElementById('about-tech-mobile-text');
+  const title = document.getElementById('about-hero-worktitle');
+  if(!el) return;
+  if(window.matchMedia('(orientation:portrait)').matches){
+    el.textContent='Washi Tape — Painted · Torn · Layered';
+    if(title) title.textContent='Signal from Nowhere, 2026';
+  } else {
+    el.textContent='Clear Plastic — Layer · Light · Depth';
+    if(title) title.textContent='Black Abstraction 0, 2025';
+  }
+}
+window.addEventListener('orientationchange', updateMobileTechText);
+window.addEventListener('resize', updateMobileTechText);
+document.addEventListener('DOMContentLoaded', updateMobileTechText);
 function showTalk(){
   document.getElementById('page-top').style.display='none';
   document.getElementById('page-gallery').style.display='none';
