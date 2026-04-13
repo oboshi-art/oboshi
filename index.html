@@ -604,7 +604,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .about-portrait-grid img{aspect-ratio:4/3 !important}
 }
 @media(orientation:portrait){
-  .about-hero-fullimg{height:60vh !important;object-fit:cover !important;object-position:center center !important}
+  .about-hero-fullimg{height:70vh !important;object-fit:cover !important;object-position:center center !important}
   .about-hero-wrap{height:60vh !important}
 }
 
@@ -1200,7 +1200,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <!-- About Hero — Full Width Painting -->
   <div class="about-hero-wrap" style="position:relative;width:100%;height:100vh;overflow:hidden;border-bottom:1px solid var(--border)">
     <button class="back-btn" id="about-back-btn" style="position:absolute;top:1.4rem;left:2rem;z-index:10;color:rgba(255,255,255,.7);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase">← Back</button>
-    <img class="about-hero-fullimg" src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+    <picture>
+      <source media="(orientation:portrait)" srcset="images/black-abstraction-0-web.jpg">
+      <picture style="width:100%;height:100%;display:block">
+        <source media="(orientation:portrait)" srcset="images/black-abstraction-0-web.jpg">
+        <img class="about-hero-fullimg" src="images/Signal from Nowhere  50x70 rgb.jpg" alt="Signal from Nowhere — OBOSHI" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+      </picture>
+    </picture>
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.45) 100%)"></div>
     <div style="position:absolute;bottom:2.5rem;left:2rem;right:2rem">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,8vw,3.5rem);letter-spacing:.08em;color:#fff;line-height:1;opacity:.92" translate="no">Junichi Oboshi</div>
@@ -1218,6 +1224,68 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <div class="about-statement-text">
       <p>I paint through silence. Each work is built from layers of acrylic and hand-painted torn washi tape — destruction and reconstruction as a single act, until the painting begins to breathe.</p>
       <p>Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</p>
+    </div>
+  </div>
+
+  <!-- OBOSHI Method -->
+  <div style="padding:5rem 3rem;border-bottom:1px solid var(--border)">
+    <div style="font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem">Signature Technique</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.04em;line-height:1.05;color:var(--ink);margin-bottom:.8rem">The OBOSHI Method</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink2);margin-bottom:3.5rem;max-width:680px;line-height:1.8">Two materials. One philosophy. Both make the invisible visible — through the physical act of tearing, layering, and letting light pass through what others would call a surface.</div>
+
+    <!-- Material I: Washi Tape -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:1px">
+      <div style="padding-bottom:3rem;border-bottom:1px solid var(--border)">
+        <div style="font-size:.44rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">Material I</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;color:var(--ink);margin-bottom:1.4rem">Washi Tape</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:1.9;color:var(--ink2)">
+          <p>Every sheet begins blank. Before it touches the canvas, it is painted by hand — colours that cannot be purchased, only made. Then it is torn. The edge is irregular, alive, unrepeatable. Destruction and construction become a single act. The torn edge carries a physical frequency that no brush can replicate.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:0">
+        <div style="background:var(--bg);padding:1.6rem 1.8rem">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Act I — Creation</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65">Hand-painted to create a palette that exists nowhere else.</div>
+        </div>
+        <div style="background:var(--bg);padding:1.6rem 1.8rem">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Act II — Destruction</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65">Torn by hand. The edge is irregular, alive, unrepeatable.</div>
+        </div>
+        <div style="background:var(--bg);padding:1.6rem 1.8rem">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Act III — Resonance</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65">Fused with acrylic on canvas. Destruction rebuilds itself as frequency.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Material II: Clear Plastic -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:1px">
+      <div style="padding-top:3rem">
+        <div style="font-size:.44rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">Material II</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;color:var(--ink);margin-bottom:1.4rem">Clear Plastic</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:1.9;color:var(--ink2)">
+          <p>Transparent plastic layers are applied physically to the canvas — multiple sheets, one over another. Light passes through each layer and is changed by what lies beneath. The painting shifts with the angle of view. It is not a flat surface. It is a depth — a stratified light, a structure that only reveals itself over time.</p>
+          <p>As the practice evolves, washi tape and clear plastic converge. Torn edges beneath transparent layers. Colour invented, then buried, then glimpsed. Both materials share the same intention: to make the invisible visible.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:3rem">
+        <div style="background:var(--bg);padding:1.6rem 1.8rem">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Transparency</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65">Multiple layers of clear plastic are physically bonded to the canvas — light passes through and transforms.</div>
+        </div>
+        <div style="background:var(--bg);padding:1.6rem 1.8rem">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Depth</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65">The painting shifts with the angle of view. What is visible changes. The surface has no fixed truth.</div>
+        </div>
+        <div style="background:var(--bg);padding:1.6rem 1.8rem">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Convergence</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65">Washi and plastic are merging into a single technique — torn edges beneath transparent layers, colour buried then revealed.</div>
+        </div>
+        <div style="background:var(--bg2);padding:1.6rem 1.8rem;border-top:2px solid var(--accent)">
+          <div style="font-size:.44rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">Why it cannot be copied</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--ink2);line-height:1.8">The hand that paints, tears, and layers — that hand is the instrument. No two edges are the same. No two surfaces hold the same light. This is not technique. This is identity.</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1330,40 +1398,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.8rem">Collector's Voice</div>
         <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:2;color:var(--ink2)">"Mir gefällt Ihre Art der Kunst sehr und bin sehr froh jetzt Bilder von Ihnen zu besitzen. Mich machen die glücklich, wenn ich die anschaue."</div>
         <div style="font-size:.5rem;letter-spacing:.14em;color:var(--ink3);margin-top:.6rem">— Michalina Oleksiak · Berlin</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- OBOSHI Method -->
-  <div style="padding:5rem 3rem;border-bottom:1px solid var(--border)">
-    <div style="font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem">Signature Technique</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.04em;line-height:1.05;color:var(--ink);margin-bottom:1.8rem">The OBOSHI<br>Method</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:2;color:var(--ink2)">
-          <p>Every sheet of washi tape used in an OBOSHI painting begins as a blank surface. Before it touches the canvas, it is painted by hand — colours that cannot be purchased, only made. This is the first act: creation.</p>
-          <p>Then it is torn by hand. The edge is never the same twice — irregular, alive, carrying a physical frequency that a brush cannot replicate. This is the second act: destruction.</p>
-          <p>The torn pieces are then layered with acrylic on canvas, fused into the surface, built over and revealed. Destruction and construction become inseparable. This is the third act: resonance.</p>
-          <p>This process is not incidental to the philosophy — it is the philosophy made physical. What OBOSHI calls "wave frequency" and "vibrational resonance" is not metaphor. It is the actual energy held in a torn edge, a layered surface, a colour that had to be invented before it could be used.</p>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:1px;background:var(--border)">
-        <div style="background:var(--bg);padding:2rem 1.8rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem">Act I — Creation</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.7">Adhesive washi tape is hand-painted by the artist. A proprietary palette — colours that exist nowhere else.</div>
-        </div>
-        <div style="background:var(--bg);padding:2rem 1.8rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem">Act II — Destruction</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.7">The tape is torn by hand. The edge is irregular, alive, unrepeatable — a physical frequency that no brush can produce.</div>
-        </div>
-        <div style="background:var(--bg);padding:2rem 1.8rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem">Act III — Resonance</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.7">Torn layers are fused with acrylic on canvas. The surface becomes a record of destruction rebuilding itself into frequency.</div>
-        </div>
-        <div style="background:var(--bg2);padding:1.6rem 1.8rem;border-top:2px solid var(--accent)">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">Why it cannot be copied</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--ink2);line-height:1.8">The hand that paints the tape, tears it, and places it — that hand is the instrument. No two edges are the same. No two paintings share the same frequency. This is not technique. This is identity.</div>
-        </div>
       </div>
     </div>
   </div>
