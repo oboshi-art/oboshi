@@ -396,7 +396,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
-.modal-img-col{display:flex;align-items:center;gap:0;height:100%}
+.modal-img-col{display:flex;flex-direction:column;height:100%}
+.modal-img-nav-row{display:flex;align-items:center;flex:1;min-height:0}
 .modal-img-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative;height:100%}
 .modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
 .modal-nav-btn{flex-shrink:0;background:var(--bg2);border:1px solid var(--border2);color:var(--ink);font-size:1.4rem;width:2.8rem;height:2.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10;font-family:Arial,sans-serif;line-height:1;padding:0;align-self:center}
@@ -473,10 +474,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   }
   .modal-img-col{
     flex-shrink:0;
+    display:flex;flex-direction:column;
+    background:var(--bg2);
+  }
+  .modal-img-nav-row{
     display:flex;flex-direction:row;align-items:center;
     height:280px;
     padding:0 .5rem;
-    background:var(--bg2);
   }
   .modal-img-wrap{
     flex:1;height:100%;
@@ -516,7 +520,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .gallery-header{padding:6.5rem 1.5rem 1.5rem}
   .gallery-grid{columns:1;padding:1rem 1.5rem}
   .g-item{margin-bottom:2.5rem}
-  .modal-img-col{height:220px;padding:0 .3rem}
+  .modal-img-nav-row{height:220px;padding:0 .3rem}
   .modal-nav-btn{width:2.2rem;height:2.2rem;font-size:1.2rem}
   .modal-prev{margin-right:.2rem}
   .modal-next{margin-left:.2rem}
@@ -1282,8 +1286,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <!-- PC: クリック切り替えボタン -->
       <div class="about-tech-pc" style="display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap;align-items:center">
         <button id="about-tech-washi" onclick="switchAboutHero('washi')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.95)">Washi Tape — Painted · Torn · Layered</button>
+        <span id="about-tech-hint" style="font-size:clamp(.26rem,.55vw,.36rem);letter-spacing:.18em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;pointer-events:none">· click to switch ·</span>
         <button id="about-tech-plastic" onclick="switchAboutHero('plastic')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.35)">Clear Plastic — Layer · Light · Depth</button>
-        <span id="about-tech-hint" style="font-size:clamp(.28rem,.6vw,.38rem);letter-spacing:.22em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;margin-left:.4rem;pointer-events:none">↑ Click to switch</span>
       </div>
       <!-- モバイル・タブレット: 自動テキスト -->
       <div class="about-tech-mobile" style="display:none">
@@ -1828,13 +1832,15 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <button class="modal-close" id="modal-close">✕ Close</button>
   <div class="modal-inner">
     <div class="modal-img-col">
-      <button class="modal-nav-btn modal-prev" id="modal-prev" aria-label="Previous image">‹</button>
-      <div class="modal-img-wrap">
-        <img class="modal-img" id="m-img" src="" alt="">
+      <div class="modal-img-nav-row">
+        <button class="modal-nav-btn modal-prev" id="modal-prev" aria-label="Previous image">‹</button>
+        <div class="modal-img-wrap">
+          <img class="modal-img" id="m-img" src="" alt="">
+        </div>
+        <button class="modal-nav-btn modal-next" id="modal-next" aria-label="Next image">›</button>
       </div>
-      <button class="modal-nav-btn modal-next" id="modal-next" aria-label="Next image">›</button>
+      <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
     </div>
-    <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
     <div class="modal-info">
       <div class="modal-title" id="m-title"></div>
       <div id="m-title-ja" style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--ink2);margin-top:-.1rem;margin-bottom:.5rem;letter-spacing:.04em"></div>
