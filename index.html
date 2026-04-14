@@ -405,7 +405,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .modal-nav-btn:disabled:hover{background:var(--bg2);color:var(--ink);border-color:var(--border2)}
 .modal-prev{margin-right:.5rem}
 .modal-next{margin-left:.5rem}
-.modal-image-counter{position:absolute;bottom:.8rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);border:1px solid var(--border);padding:.35rem .8rem;font-size:.48rem;letter-spacing:.15em;color:var(--ink);z-index:10;white-space:nowrap}
+.modal-image-counter{display:none;font-size:.48rem;letter-spacing:.15em;color:var(--ink);white-space:nowrap;text-align:center;padding:.4rem .8rem;border-top:1px solid var(--border);background:var(--bg2);flex-shrink:0}
 .modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
 .modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
@@ -456,6 +456,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .digital-features li:before{content:'✓';position:absolute;left:0;color:var(--accent)}
 .digital-notice{font-size:.46rem;letter-spacing:.08em;color:var(--ink3);text-align:center;margin-top:.5rem;line-height:1.65}
 @media(max-width:1050px){
+  #admin-toggle{display:none !important}
   .hero{grid-template-columns:1fr;gap:2.5rem}
   .works-preview{grid-template-columns:1fr 1fr}
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
@@ -485,6 +486,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .modal-nav-btn{width:2.6rem;height:2.6rem;font-size:1.3rem;flex-shrink:0;background:var(--bg);border-color:var(--border)}
   .modal-prev{margin-right:.3rem}
   .modal-next{margin-left:.3rem}
+  .modal-img-wrap{position:relative}
   .modal-info{
     flex:1;
     overflow-y:auto;-webkit-overflow-scrolling:touch;
@@ -1278,9 +1280,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,8vw,3.5rem);letter-spacing:.08em;color:#fff;line-height:1;opacity:.92" translate="no">Junichi Oboshi</div>
       <div style="font-size:clamp(.38rem,.9vw,.52rem);letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.5rem">Abstract Acrylic Painter — Berlin</div>
       <!-- PC: クリック切り替えボタン -->
-      <div class="about-tech-pc" style="display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap">
+      <div class="about-tech-pc" style="display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap;align-items:center">
         <button id="about-tech-washi" onclick="switchAboutHero('washi')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.95)">Washi Tape — Painted · Torn · Layered</button>
         <button id="about-tech-plastic" onclick="switchAboutHero('plastic')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.35)">Clear Plastic — Layer · Light · Depth</button>
+        <span id="about-tech-hint" style="font-size:clamp(.28rem,.6vw,.38rem);letter-spacing:.22em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;margin-left:.4rem;pointer-events:none">↑ Click to switch</span>
       </div>
       <!-- モバイル・タブレット: 自動テキスト -->
       <div class="about-tech-mobile" style="display:none">
@@ -1828,10 +1831,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <button class="modal-nav-btn modal-prev" id="modal-prev" aria-label="Previous image">‹</button>
       <div class="modal-img-wrap">
         <img class="modal-img" id="m-img" src="" alt="">
-        <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
       </div>
       <button class="modal-nav-btn modal-next" id="modal-next" aria-label="Next image">›</button>
     </div>
+    <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
     <div class="modal-info">
       <div class="modal-title" id="m-title"></div>
       <div id="m-title-ja" style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--ink2);margin-top:-.1rem;margin-bottom:.5rem;letter-spacing:.04em"></div>
@@ -3657,16 +3660,45 @@ function showGallery(){
   window.scrollTo(0,0);
   buildGrid();
 }
+let _hintTimer=null;
+let _hintClicked=false;
+function startHintPulse(){
+  const hint=document.getElementById('about-tech-hint');
+  if(!hint||_hintClicked) return;
+  _hintClicked=false;
+  let visible=false;
+  function pulse(){
+    if(_hintClicked) return;
+    visible=!visible;
+    hint.style.opacity=visible?'1':'0';
+    _hintTimer=setTimeout(pulse, visible?2200:1200);
+  }
+  clearTimeout(_hintTimer);
+  hint.style.opacity='0';
+  _hintTimer=setTimeout(pulse, 1800);
+}
+function stopHintPulse(){
+  const hint=document.getElementById('about-tech-hint');
+  _hintClicked=true;
+  clearTimeout(_hintTimer);
+  if(hint){ hint.style.opacity='0'; hint.style.display='none'; }
+}
+
 function showAbout(){
   document.getElementById('page-top').style.display='none';
   document.getElementById('page-gallery').style.display='none';
   document.getElementById('page-about').style.display='block';
   document.getElementById('page-talk').style.display='none';
   window.scrollTo(0,0);
+  _hintClicked=false;
+  const hint=document.getElementById('about-tech-hint');
+  if(hint){ hint.style.display=''; hint.style.opacity='0'; }
+  startHintPulse();
 }
 
 // About Hero 切り替え（PC専用）
 function switchAboutHero(type){
+  stopHintPulse();
   const img = document.getElementById('about-hero-img');
   const title = document.getElementById('about-hero-worktitle');
   const btnWashi = document.getElementById('about-tech-washi');
