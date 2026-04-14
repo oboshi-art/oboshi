@@ -396,15 +396,16 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
 .modal.open{display:flex;opacity:1;pointer-events:all}
 .modal-inner{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;max-width:1140px;width:100%;max-height:90vh;height:90vh}
-.modal-img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative}
+.modal-img-col{display:flex;align-items:center;gap:0;height:100%}
+.modal-img-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;padding:1.5rem;position:relative;height:100%}
 .modal-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
-.modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.92);border:1px solid var(--border2);color:var(--ink);font-size:2.5rem;width:3.2rem;height:3.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10;font-family:Arial,sans-serif;line-height:1;padding:0}
+.modal-nav-btn{flex-shrink:0;background:var(--bg2);border:1px solid var(--border2);color:var(--ink);font-size:1.4rem;width:2.8rem;height:2.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10;font-family:Arial,sans-serif;line-height:1;padding:0;align-self:center}
 .modal-nav-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.modal-nav-btn:disabled{opacity:.3;cursor:not-allowed;background:rgba(255,255,255,.5)}
-.modal-nav-btn:disabled:hover{background:rgba(255,255,255,.5);color:var(--ink);border-color:var(--border2)}
-.modal-prev{left:1rem}
-.modal-next{right:1rem}
-.modal-image-counter{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);border:1px solid var(--border);padding:.4rem .9rem;font-size:.5rem;letter-spacing:.15em;color:var(--ink);z-index:10}
+.modal-nav-btn:disabled{opacity:.25;cursor:not-allowed}
+.modal-nav-btn:disabled:hover{background:var(--bg2);color:var(--ink);border-color:var(--border2)}
+.modal-prev{margin-right:.5rem}
+.modal-next{margin-left:.5rem}
+.modal-image-counter{position:absolute;bottom:.8rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);border:1px solid var(--border);padding:.35rem .8rem;font-size:.48rem;letter-spacing:.15em;color:var(--ink);z-index:10;white-space:nowrap}
 .modal-info{border-left:1px solid var(--border);padding-left:2.5rem;overflow-y:auto;display:flex;flex-direction:column;height:100%;min-height:0}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem;color:var(--ink)}
 .modal-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
@@ -460,14 +461,16 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .bio-section{grid-template-columns:1fr;gap:2rem}
-  .modal{padding:0;flex-direction:column;align-items:stretch;justify-content:flex-start}
-  .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:2rem;height:auto;max-height:95vh}
-  .modal-img-wrap{min-height:50vh;max-height:60vh;padding:1rem}
-  .modal-img{object-fit:contain;max-width:100%;max-height:100%}
-  .modal-info{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:1.5rem;height:auto;max-height:none}
+  .modal{padding:0;flex-direction:column;align-items:stretch;justify-content:flex-start;overflow:hidden}
+  .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;height:100vh;max-height:100vh;overflow:hidden}
+  .modal-img-col{flex-direction:column;height:auto}
+  .modal-img-wrap{width:100%;height:42vw;min-height:220px;max-height:340px;padding:.75rem;flex:none}
+  .modal-nav-btn{width:2.6rem;height:2.6rem;font-size:1.3rem}
+  .modal-prev{margin-right:.3rem}
+  .modal-next{margin-left:.3rem}
+  .modal-info{border-left:none;padding-left:1.5rem;padding-right:1.5rem;border-top:1px solid var(--border);padding-top:1.2rem;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .modal-close{top:1rem;right:1.5rem}
-  .modal-inner{padding-top:3.5rem}
-  /* タブレット縦: CLOSEを上部固定 */
+  .modal-inner{padding-top:3rem}
   @media(max-width:768px) and (orientation:portrait){
     .modal-close{
       position:fixed;
@@ -484,9 +487,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     }
   }
   .gallery-grid{columns:2}
-  .modal-nav-btn{width:2.8rem;height:2.8rem;font-size:2rem}
-  .modal-prev{left:.6rem}
-  .modal-next{right:.6rem}
   #for-professionals-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:620px){
@@ -508,14 +508,19 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .gallery-header{padding:6.5rem 1.5rem 1.5rem}
   .gallery-grid{columns:1;padding:1rem 1.5rem}
   .g-item{margin-bottom:2.5rem}
-  .modal{padding:0}
-  .modal-inner{gap:0;padding-top:2.8rem}
-  .modal-img-wrap{min-height:40vh;max-height:48vh;padding:0.5rem}
+  .modal{padding:0;overflow:hidden}
+  .modal-inner{gap:0;padding-top:2.8rem;height:100vh;max-height:100vh;overflow:hidden}
+  .modal-img-wrap{height:52vw;min-height:180px;max-height:260px;padding:.5rem;flex:none}
+  .modal-img-col{flex-direction:column}
+  .modal-nav-btn{width:2.2rem;height:2.2rem;font-size:1.2rem}
+  .modal-prev{margin-right:.2rem}
+  .modal-next{margin-left:.2rem}
+  .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
   .modal-title{font-size:2rem}
   .modal-price-big{font-size:1.8rem}
-  .modal-info{padding-left:1.5rem;padding-right:1.5rem}
+  .modal-info{padding-left:1.2rem;padding-right:1.2rem;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
 
-  /* ② Close: 常に最上部に固定、必ず見える */
+  /* ② Close: 常に最上部に固定 */
   .modal-close{
     position:fixed;
     top:0;right:0;left:0;
@@ -532,10 +537,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 
   footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
   .footer-links{justify-content:center;flex-wrap:wrap}
-  .modal-nav-btn{width:2.4rem;height:2.4rem;font-size:1.6rem}
-  .modal-prev{left:.4rem}
-  .modal-next{right:.4rem}
-  .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
 }
 
 
@@ -1836,11 +1837,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 <div class="modal" id="modal">
   <button class="modal-close" id="modal-close">✕ Close</button>
   <div class="modal-inner">
-    <div class="modal-img-wrap">
+    <div class="modal-img-col">
       <button class="modal-nav-btn modal-prev" id="modal-prev" aria-label="Previous image">‹</button>
-      <img class="modal-img" id="m-img" src="" alt="">
+      <div class="modal-img-wrap">
+        <img class="modal-img" id="m-img" src="" alt="">
+        <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
+      </div>
       <button class="modal-nav-btn modal-next" id="modal-next" aria-label="Next image">›</button>
-      <div class="modal-image-counter" id="modal-image-counter">1 / 1</div>
     </div>
     <div class="modal-info">
       <div class="modal-title" id="m-title"></div>
