@@ -461,30 +461,42 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .bio-section{grid-template-columns:1fr;gap:2rem}
-  .modal{padding:0;flex-direction:column;align-items:stretch;justify-content:flex-start;overflow:hidden}
-  .modal-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;height:100vh;max-height:100vh;overflow:hidden}
-  .modal-img-col{flex-direction:row;align-items:center;height:auto;padding:0 .3rem}
-  .modal-img-wrap{flex:1;height:42vw;min-height:220px;max-height:320px;padding:.75rem}
-  .modal-nav-btn{width:2.6rem;height:2.6rem;font-size:1.3rem;flex-shrink:0}
+  /* modal: 縦スタック、画像固定高さ、info スクロール */
+  .modal{padding:0;display:none;flex-direction:column;align-items:stretch;overflow:hidden}
+  .modal.open{display:flex}
+  .modal-inner{
+    display:flex;flex-direction:column;
+    width:100%;height:100vh;
+    overflow:hidden;
+    padding-top:2.8rem; /* CLOSEボタン分 */
+  }
+  .modal-img-col{
+    flex-shrink:0;
+    display:flex;flex-direction:row;align-items:center;
+    height:280px;
+    padding:0 .5rem;
+    background:var(--bg2);
+  }
+  .modal-img-wrap{
+    flex:1;height:100%;
+    padding:.75rem;
+    background:transparent;
+  }
+  .modal-nav-btn{width:2.6rem;height:2.6rem;font-size:1.3rem;flex-shrink:0;background:var(--bg);border-color:var(--border)}
   .modal-prev{margin-right:.3rem}
   .modal-next{margin-left:.3rem}
-  .modal-info{border-left:none;padding-left:1.5rem;padding-right:1.5rem;border-top:1px solid var(--border);padding-top:1.2rem;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-  .modal-close{top:1rem;right:1.5rem}
-  .modal-inner{padding-top:3rem}
-  @media(max-width:768px) and (orientation:portrait){
-    .modal-close{
-      position:fixed;
-      top:0;right:0;left:0;
-      width:100%;
-      text-align:center;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
-      padding:.85rem 1rem;
-      font-size:.55rem;
-      letter-spacing:.22em;
-      z-index:10010;
-      border-radius:0;
-    }
+  .modal-info{
+    flex:1;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    border-left:none;border-top:1px solid var(--border);
+    padding:1.2rem 1.5rem 3rem;
+  }
+  .modal-close{
+    position:fixed;top:0;right:0;left:0;
+    width:100%;text-align:center;
+    background:var(--bg);border-bottom:1px solid var(--border);
+    padding:.85rem 1rem;font-size:.55rem;letter-spacing:.22em;
+    z-index:10010;
   }
   .gallery-grid{columns:2}
   #for-professionals-grid{grid-template-columns:1fr !important}
@@ -493,48 +505,23 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   nav{padding:1rem 1.5rem}
   .nav-links{gap:1.2rem}
   .hero{padding:7.5rem 1.5rem 3rem}
-
-  /* ① works-preview: 1列、両サイドに余白 */
   .works-preview{grid-template-columns:1fr;gap:2px;padding:0 1.5rem}
   .wp-item{aspect-ratio:3/2}
-
   .eco-grid{grid-template-columns:1fr}
-
-  /* ③ 管理パネル歯車を完全非表示 */
   #admin-toggle{display:none !important}
-
   .wp-view-all{min-height:80px}
   .ecosystem,.about-section,.bio-section{padding:3rem 1.5rem}
   .gallery-header{padding:6.5rem 1.5rem 1.5rem}
   .gallery-grid{columns:1;padding:1rem 1.5rem}
   .g-item{margin-bottom:2.5rem}
-  .modal{padding:0;overflow:hidden}
-  .modal-inner{gap:0;padding-top:2.8rem;height:100vh;max-height:100vh;overflow:hidden}
-  .modal-img-col{flex-direction:row;align-items:center;padding:0 .2rem}
-  .modal-img-wrap{flex:1;height:52vw;min-height:180px;max-height:240px;padding:.5rem}
-  .modal-nav-btn{width:2.2rem;height:2.2rem;font-size:1.2rem;flex-shrink:0}
+  .modal-img-col{height:220px;padding:0 .3rem}
+  .modal-nav-btn{width:2.2rem;height:2.2rem;font-size:1.2rem}
   .modal-prev{margin-right:.2rem}
   .modal-next{margin-left:.2rem}
   .modal-image-counter{font-size:.45rem;padding:.3rem .7rem}
   .modal-title{font-size:2rem}
   .modal-price-big{font-size:1.8rem}
-  .modal-info{padding-left:1.2rem;padding-right:1.2rem;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-
-  /* ② Close: 常に最上部に固定 */
-  .modal-close{
-    position:fixed;
-    top:0;right:0;left:0;
-    width:100%;
-    text-align:center;
-    background:var(--bg);
-    border-bottom:1px solid var(--border);
-    padding:.85rem 1rem;
-    font-size:.55rem;
-    letter-spacing:.22em;
-    z-index:10010;
-    border-radius:0;
-  }
-
+  .modal-info{padding-left:1.2rem;padding-right:1.2rem}
   footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
   .footer-links{justify-content:center;flex-wrap:wrap}
 }
