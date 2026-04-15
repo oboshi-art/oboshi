@@ -92,19 +92,37 @@
         {
           "@type": "Event",
           "name": "ekaki 1.",
+          "url": "https://oboshi.art",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
           "location": { "@type": "Place", "name": "Hotel Bogota Berlin", "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" } },
           "startDate": "2009-06-07",
           "endDate": "2009-11-30",
           "description": "Large-scale paintings by Junichi Oboshi installed throughout Hotel Bogota Berlin for five months.",
-          "organizer": { "@type": "Organization", "name": "Hotel Bogota Berlin" }
+          "organizer": { "@type": "Organization", "name": "Hotel Bogota Berlin" },
+          "performer": { "@id": "https://oboshi.art/#artist" },
+          "image": "https://oboshi.art/images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20rgb%2050x70.jpg",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://oboshi.art",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
         },
         {
           "@type": "VideoObject",
+          "@id": "https://oboshi.art/#video1",
           "name": "Junichi Oboshi's The House of Beginnings — Episode 17",
+          "description": "The House of Beginnings by Junichi Oboshi — featured on ANASAEA Art Podcast. A captivating abstract expressionist painting explored for its vibrant colors, dynamic textures, and intriguing forms.",
+          "thumbnailUrl": "https://img.youtube.com/vi/nPZ9Itk13xw/maxresdefault.jpg",
+          "uploadDate": "2024-01-01",
+          "duration": "PT5M",
+          "embedUrl": "https://www.youtube.com/embed/nPZ9Itk13xw",
+          "contentUrl": "https://youtu.be/nPZ9Itk13xw",
           "url": "https://youtu.be/nPZ9Itk13xw",
           "publisher": { "@type": "Organization", "name": "ANASAEA Art Podcast" },
-          "description": "The House of Beginnings by Junichi Oboshi — featured on ANASAEA Art Podcast. A captivating abstract expressionist painting explored for its vibrant colors, dynamic textures, and intriguing forms.",
-          "datePublished": "2024"
+          "creator": { "@id": "https://oboshi.art/#artist" }
         }
       ],
       "sameAs": [
@@ -149,7 +167,36 @@
       "url": "https://oboshi.art",
       "description": "Official website of OBOSHI (Junichi Oboshi), Japanese abstract acrylic painter based in Berlin. Original paintings for sale, commissions, and exhibitions.",
       "publisher": { "@id": "https://oboshi.art/#organization" },
-      "inLanguage": ["en", "ja", "de"]
+      "inLanguage": ["en", "ja", "de"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://oboshi.art/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://oboshi.art/#article1",
+      "headline": "Abstract Art as a Frequency: How Painting Became a Vibrational Practice",
+      "description": "How painting became a vibrational practice — on the structural reality of frequency in acrylic and collage.",
+      "url": "https://medium.com/@oboshi/abstract-art-as-a-frequency-how-painting-became-a-vibrational-practice-1616a8860ed4",
+      "datePublished": "2026-04-12",
+      "author": { "@id": "https://oboshi.art/#artist" },
+      "publisher": { "@type": "Organization", "name": "Medium", "url": "https://medium.com" },
+      "inLanguage": "en",
+      "keywords": ["abstract art", "vibrational resonance", "Berlin painter", "acrylic painting", "OBOSHI"]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://oboshi.art/#article2",
+      "headline": "What Silence Sounds Like in Paint",
+      "description": "On silence as structure, not absence — and why the unpainted canvas is never empty.",
+      "url": "https://medium.com/@oboshi/what-silence-sounds-like-in-paint-5a9fbe414fe7",
+      "datePublished": "2026-04-15",
+      "author": { "@id": "https://oboshi.art/#artist" },
+      "publisher": { "@type": "Organization", "name": "Medium", "url": "https://medium.com" },
+      "inLanguage": "en",
+      "keywords": ["silence in painting", "washi tape", "abstract art", "layered acrylic", "vibrational resonance", "OBOSHI"]
     },
     {
       "@type": "Book",
