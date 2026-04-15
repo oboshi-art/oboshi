@@ -363,6 +363,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .about-body p+p{margin-top:1.2rem}
 .about-meta{padding-top:.5rem}
 .meta-row{display:flex;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid var(--border)}
+.meta-row-link{text-decoration:none;cursor:pointer;transition:background .15s;margin:0 -.8rem;padding:.85rem .8rem}
+.meta-row-link:hover{background:var(--bg2)}
+.meta-row-link:hover .meta-label{color:var(--ink2)}
+.meta-row-link:hover .meta-val{color:var(--accent)}
 .meta-label{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
 .meta-val{font-size:.6rem;color:var(--ink);text-align:right}
 .meta-val a{color:var(--accent);text-decoration:none}
@@ -1015,15 +1019,15 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
     <div class="about-meta">
       <div class="meta-row"><span class="meta-label">Based in</span><span class="meta-val">Berlin</span></div>
-      <div class="meta-row"><span class="meta-label">Technique</span><span class="meta-val">Layered Acrylic &amp; Collage</span></div>
-      <div class="meta-row"><span class="meta-label">YouTube</span><span class="meta-val"><a href="https://www.youtube.com/@oboshi" target="_blank">@oboshi →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Instagram</span><span class="meta-val"><a href="https://www.instagram.com/junichioboshi/" target="_blank">@junichioboshi →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Medium</span><span class="meta-val"><a href="https://medium.com/@oboshi" target="_blank">@oboshi →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Saatchi Art</span><span class="meta-val"><a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">View Profile →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Singulart</span><span class="meta-val"><a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">View Profile →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Anasaea</span><span class="meta-val"><a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition →</a></span></div>
-      <div class="meta-row"><span class="meta-label">Contact</span><span class="meta-val"><a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank"><span class="__cf_email__" data-cfemail="b5d4c7c1f5dad7dac6dddc9bd4c7c1">[email&#160;protected]</span> →</a></span></div>
+      <a class="meta-row meta-row-link" href="#" onclick="showAbout();return false;"><span class="meta-label">Technique</span><span class="meta-val">Layered Acrylic &amp; Collage →</span></a>
+      <a class="meta-row meta-row-link" href="https://www.youtube.com/@oboshi" target="_blank"><span class="meta-label">YouTube</span><span class="meta-val">@oboshi →</span></a>
+      <a class="meta-row meta-row-link" href="https://www.instagram.com/junichioboshi/" target="_blank"><span class="meta-label">Instagram</span><span class="meta-val">@junichioboshi →</span></a>
+      <a class="meta-row meta-row-link" href="https://medium.com/@oboshi" target="_blank"><span class="meta-label">Medium</span><span class="meta-val">@oboshi →</span></a>
+      <a class="meta-row meta-row-link" href="https://www.saatchiart.com/en-de/oboshi" target="_blank"><span class="meta-label">Saatchi Art</span><span class="meta-val">View Profile →</span></a>
+      <a class="meta-row meta-row-link" href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank"><span class="meta-label">Singulart</span><span class="meta-val">View Profile →</span></a>
+      <a class="meta-row meta-row-link" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank"><span class="meta-label">Anasaea</span><span class="meta-val">3D Gallery →</span></a>
+      <a class="meta-row meta-row-link" href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank"><span class="meta-label">Anasaea</span><span class="meta-val">3D Exhibition →</span></a>
+      <a class="meta-row meta-row-link" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank"><span class="meta-label">Contact</span><span class="meta-val">art@oboshi.art →</span></a>
     </div>
   </div>
 
