@@ -739,7 +739,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .exh-card.past .exh-card-venue{color:var(--ink3)}
 
 /* ===== ADMIN PANEL ===== */
-#admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
+#admin-toggle{display:none !important;position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
 
 #admin-panel{position:fixed;top:0;right:-480px;width:460px;height:100vh;background:#fff;border-left:2px solid var(--border);z-index:9998;overflow-y:auto;transition:right .3s ease;padding:2rem;font-family:'DM Mono',monospace;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
@@ -822,7 +822,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="hero-name" translate="no">OBOSHI</div>
       <div class="hero-sub">Abstract Acrylic Painter — Berlin</div>
       <div style="margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.08em;color:var(--ink3)">Layers of footsteps, vibrations of silence.</div>
-      <div style="margin-top:.6rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-family:'Bebas Neue',sans-serif">Painted · Torn · Layered — The OBOSHI Method</div>
+      <a href="#" onclick="showAbout();return false;" style="margin-top:.6rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-family:'Bebas Neue',sans-serif;text-decoration:none;display:inline-block;border-bottom:1px solid var(--ink);padding-bottom:.1rem;transition:color .2s,border-color .2s" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--ink)';this.style.borderColor='var(--ink)'">Painted · Torn · Layered — The OBOSHI Method</a>
     </div>
     <div class="hero-right">
       <div class="room-slider" id="room-slider">
@@ -961,7 +961,17 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-role">A curated global art platform reaching collectors worldwide. Discover and purchase OBOSHI works through Singulart's international network of buyers and galleries.</div>
         <div class="eco-link">View on Singulart →</div>
       </a>
+      <a class="eco-card" href="https://medium.com/@oboshi" target="_blank">
+        <div class="eco-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;font-weight:700;letter-spacing:-.04em">M</div>
+        <div class="eco-platform">Medium</div>
+        <div class="eco-title">Vibrational Resonance INDEX</div>
+        <div class="eco-role">Essays on painting as frequency — how layers of color and silence carry energy into a room. Writing from the studio, in English.</div>
+        <div class="eco-link">Read on Medium →</div>
+      </a>
       <a class="eco-card" href="https://www.redbubble.com/people/OBOSHIART/shop" target="_blank">
+        <div class="eco-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
         <div class="eco-platform">Redbubble</div>
         <div class="eco-role">Prints, posters, and goods featuring OBOSHI's abstract paintings — available worldwide at accessible prices. A different way to live with the work.</div>
         <div class="eco-link">Shop Prints &amp; Goods →</div>
