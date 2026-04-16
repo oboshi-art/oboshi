@@ -444,6 +444,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-item:hover .g-hover{opacity:1}
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
+.g-hover-inquire{display:inline-block;margin-top:.6rem;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(184,74,36,.85);padding:.35rem .8rem;text-decoration:none;transition:background .2s;cursor:pointer}
+.g-hover-inquire:hover{background:var(--accent)}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
@@ -3881,7 +3883,7 @@ function buildGrid(){
     const el=document.createElement('div');
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div>${!w.sold?`<a href="https://formspree.io/f/xlgovjdg?subject=Enquiry%3A%20${encodeURIComponent(w.title)}" class="g-hover-inquire" onclick="event.stopPropagation();window.open(this.href,'_blank');return false;">Inquire →</a>`:""}</div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
@@ -4010,7 +4012,7 @@ function openModal(i){
   // Work Talk リセット
   if (typeof resetModalTalk === 'function') resetModalTalk(w);
   document.getElementById('m-price').textContent=w.price;
-  document.getElementById('btn-enquire').href=`https://formspree.io/f/xlgovjdg?subject=Enquiry: ${encodeURIComponent(w.title)}`;
+  document.getElementById('btn-enquire').href=`mailto:art@oboshi.art?subject=Enquiry: ${encodeURIComponent(w.title)}`;
   const btn=document.getElementById('btn-stripe');
   if(w.priceNum>0){
     btn.innerHTML=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Buy Now — ${w.price}`;
