@@ -435,7 +435,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .filter-tab:hover{color:var(--ink)}
 .filter-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
 .gallery-grid{padding:2.5rem 3rem;columns:3;column-gap:1.5rem}
-.g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:transparent;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.g-item{break-inside:avoid;margin-bottom:1rem;cursor:pointer;position:relative;overflow:hidden;background:none;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .g-item.visible{opacity:1;transform:translateY(0)}
 .g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
 .g-item:hover img{transform:scale(1.03);filter:saturate(1.15)}
@@ -444,8 +444,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-item:hover .g-hover{opacity:1}
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
-.g-hover-inquire{display:inline-block;margin-top:.5rem;font-family:'DM Mono',monospace;font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(184,74,36,.45);padding:.25rem .6rem;text-decoration:none;transition:all .2s;cursor:pointer;backdrop-filter:blur(2px)}
-.g-hover-inquire:hover{background:rgba(184,74,36,.75)}
+.g-hover-inquire{display:inline-block;margin-top:.4rem;font-family:'DM Mono',monospace;font-size:.34rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(184,74,36,.3);padding:.2rem .45rem;text-decoration:none;transition:all .2s;cursor:pointer}
+.g-hover-inquire:hover{background:rgba(184,74,36,.6)}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
@@ -518,14 +518,14 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .bio-section{grid-template-columns:1fr;gap:2rem}
-  /* modal: 縦スタック、画像固定高さ、info スクロール */
+  /* modal: タッチデバイス縦画面 — 上に画像、下にinfo */
   .modal{padding:0;display:none;flex-direction:column;align-items:stretch;overflow:hidden}
   .modal.open{display:flex}
   .modal-inner{
     display:flex;flex-direction:column;
     width:100%;height:100vh;
     overflow:hidden;
-    padding-top:2.8rem; /* CLOSEボタン分 */
+    padding-top:2.8rem;
     box-sizing:border-box;
   }
   .modal-img-col{
@@ -543,11 +543,11 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     flex:1;height:100%;
     padding:.5rem;
     background:transparent;
+    position:relative;
   }
   .modal-nav-btn{width:2.6rem;height:2.6rem;font-size:1.3rem;flex-shrink:0;background:var(--bg);border-color:var(--border)}
   .modal-prev{margin-right:.3rem}
   .modal-next{margin-left:.3rem}
-  .modal-img-wrap{position:relative}
   .modal-info{
     flex:1;
     overflow-y:auto;-webkit-overflow-scrolling:touch;
@@ -561,6 +561,37 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     padding:.85rem 1rem;font-size:.55rem;letter-spacing:.22em;
     z-index:10010;
   }
+}
+/* 携帯横画面 + タブレット縦画面: 左に画像、右にinfo（PCと同じ2カラム） */
+@media(max-width:1050px) and (orientation:landscape),
+       (min-width:621px) and (max-width:1050px) and (orientation:portrait){
+  .modal-inner{
+    display:grid;
+    grid-template-columns:1fr 320px;
+    flex-direction:unset;
+    height:100vh;
+    padding-top:2.8rem;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .modal-img-col{
+    max-height:none;
+    height:100%;
+    display:flex;flex-direction:column;
+  }
+  .modal-img-nav-row{
+    height:100%;
+    flex:1;
+  }
+  .modal-info{
+    border-left:1px solid var(--border);
+    border-top:none;
+    padding:1.2rem 1.5rem 3rem;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+@media(max-width:1050px){
   .gallery-grid{columns:2}
   #for-professionals-grid{grid-template-columns:1fr !important}
 }
