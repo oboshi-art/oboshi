@@ -351,6 +351,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .wp-item:hover .wp-overlay{opacity:1}
 .wp-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.06em;color:#fff}
 .wp-overlay-price{font-size:.5rem;letter-spacing:.14em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-top:.2rem}
+.wp-overlay-inquire{display:inline-block;margin-top:.35rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.32);padding:.18rem .4rem;text-decoration:none;transition:all .2s;cursor:pointer}
+.wp-overlay-inquire:hover{background:rgba(184,74,36,.6);color:#fff}
 .wp-view-all{background:var(--bg2);display:flex;align-items:center;justify-content:center;cursor:pointer;aspect-ratio:4/5;flex-direction:column;gap:1rem;transition:background .2s}
 .wp-view-all:hover{background:var(--ink)}
 .wp-view-all:hover .wp-all-label{color:#fff}
@@ -444,6 +446,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-item:hover .g-hover{opacity:1}
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
+.g-hover-inquire{display:inline-block;margin-top:.35rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.32);padding:.18rem .4rem;text-decoration:none;transition:all .2s;cursor:pointer}
+.g-hover-inquire:hover{background:rgba(184,74,36,.6);color:#fff}
+.g-hover-inquire{display:inline-block;margin-top:.4rem;font-family:'DM Mono',monospace;font-size:.34rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.25);padding:.18rem .4rem;text-decoration:none;transition:all .2s;cursor:pointer}
+.g-hover-inquire:hover{background:rgba(184,74,36,.55);color:rgba(255,255,255,.95)}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
@@ -3905,7 +3911,7 @@ function buildPreview(){
     const originalIndex = works.indexOf(w); // 元の配列でのインデックスを取得
     const el=document.createElement('div');
     el.className='wp-item';
-    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}</div>`;
+    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}<a href="mailto:art@oboshi.art?subject=Enquiry: ${encodeURIComponent(w.title)}" class="wp-overlay-inquire" onclick="event.stopPropagation()">Inquire →</a></div>`;
     el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(originalIndex),80);});
     wrap.appendChild(el);
   });
@@ -3928,7 +3934,7 @@ function buildGrid(){
     const el=document.createElement('div');
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div>${!w.sold?`<a href="mailto:art@oboshi.art?subject=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" onclick="event.stopPropagation()">Inquire →</a>`:""}</div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
