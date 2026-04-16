@@ -351,6 +351,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .wp-item:hover .wp-overlay{opacity:1}
 .wp-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.06em;color:#fff}
 .wp-overlay-price{font-size:.5rem;letter-spacing:.14em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-top:.2rem}
+.wp-overlay-inquire{display:inline-block;margin-top:.35rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.32);padding:.18rem .4rem;text-decoration:none;transition:all .2s;cursor:pointer}
+.wp-overlay-inquire:hover{background:rgba(184,74,36,.6);color:#fff}
 .wp-view-all{background:var(--bg2);display:flex;align-items:center;justify-content:center;cursor:pointer;aspect-ratio:4/5;flex-direction:column;gap:1rem;transition:background .2s}
 .wp-view-all:hover{background:var(--ink)}
 .wp-view-all:hover .wp-all-label{color:#fff}
@@ -434,8 +436,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .filter-tab{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;padding:.6rem 1.2rem;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s;margin-bottom:-1px}
 .filter-tab:hover{color:var(--ink)}
 .filter-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
-.gallery-grid{padding:2.5rem 3rem;columns:3;column-gap:1.5rem}
-.g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:var(--bg2);opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.gallery-grid{padding:1.5rem;columns:3;column-gap:.8rem}
+.g-item{break-inside:avoid;margin-bottom:.8rem;cursor:pointer;position:relative;overflow:hidden;background:none;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .g-item.visible{opacity:1;transform:translateY(0)}
 .g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
 .g-item:hover img{transform:scale(1.03);filter:saturate(1.15)}
@@ -444,6 +446,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-item:hover .g-hover{opacity:1}
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
+.g-hover-inquire{display:inline-block;margin-top:.35rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.32);padding:.18rem .4rem;text-decoration:none;transition:all .2s;cursor:pointer}
+.g-hover-inquire:hover{background:rgba(184,74,36,.6);color:#fff}
+.g-hover-inquire{display:inline-block;margin-top:.4rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.25);padding:.15rem .22rem;text-decoration:none;transition:all .2s;cursor:pointer;-webkit-mask-image:linear-gradient(to right,black 45%,transparent 100%);mask-image:linear-gradient(to right,black 45%,transparent 100%)}
+.g-hover-inquire:hover{background:rgba(184,74,36,.55);color:rgba(255,255,255,.95)}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
@@ -516,34 +522,36 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .bio-section{grid-template-columns:1fr;gap:2rem}
-  /* modal: 縦スタック、画像固定高さ、info スクロール */
+  /* modal: タッチデバイス縦画面 */
   .modal{padding:0;display:none;flex-direction:column;align-items:stretch;overflow:hidden}
   .modal.open{display:flex}
   .modal-inner{
     display:flex;flex-direction:column;
     width:100%;height:100vh;
     overflow:hidden;
-    padding-top:2.8rem; /* CLOSEボタン分 */
+    padding-top:2.8rem;
+    box-sizing:border-box;
   }
   .modal-img-col{
     flex-shrink:0;
     display:flex;flex-direction:column;
     background:var(--bg2);
+    max-height:45vh;
   }
   .modal-img-nav-row{
     display:flex;flex-direction:row;align-items:center;
-    height:280px;
+    height:220px;
     padding:0 .5rem;
   }
   .modal-img-wrap{
     flex:1;height:100%;
-    padding:.75rem;
+    padding:.5rem;
     background:transparent;
+    position:relative;
   }
   .modal-nav-btn{width:2.6rem;height:2.6rem;font-size:1.3rem;flex-shrink:0;background:var(--bg);border-color:var(--border)}
   .modal-prev{margin-right:.3rem}
   .modal-next{margin-left:.3rem}
-  .modal-img-wrap{position:relative}
   .modal-info{
     flex:1;
     overflow-y:auto;-webkit-overflow-scrolling:touch;
@@ -556,6 +564,31 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     background:var(--bg);border-bottom:1px solid var(--border);
     padding:.85rem 1rem;font-size:.55rem;letter-spacing:.22em;
     z-index:10010;
+  }
+}
+/* 携帯横画面＋タブレット縦画面: 左画像・右info */
+@media(max-width:1050px) and (orientation:landscape),
+       (min-width:621px) and (max-width:1050px) and (orientation:portrait){
+  .modal-inner{
+    display:grid;
+    grid-template-columns:1fr 320px;
+    height:100vh;
+    padding-top:2.8rem;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .modal-img-col{
+    max-height:none;
+    height:100%;
+    display:flex;flex-direction:column;
+  }
+  .modal-img-nav-row{height:100%;flex:1;}
+  .modal-info{
+    border-left:1px solid var(--border);
+    border-top:none;
+    padding:1.2rem 1.5rem 3rem;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
   }
   .gallery-grid{columns:2}
   #for-professionals-grid{grid-template-columns:1fr !important}
@@ -694,13 +727,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .about-hero-wrap{height:70vh !important}
 }
 /* PC: JS切り替え / モバイル・タブレット: picture自動 */
-@media(max-width:1024px){
+@media(max-width:1050px),(hover:none),(pointer:coarse){
   .about-hero-pc-img{display:none !important}
   .about-hero-mobile-pic{display:block !important}
   .about-tech-pc{display:none !important}
   .about-tech-mobile{display:block !important}
 }
-@media(min-width:1025px){
+@media(min-width:1051px) and (hover:hover) and (pointer:fine){
   .about-hero-pc-img{display:block !important}
   .about-hero-mobile-pic{display:none !important}
   .about-tech-pc{display:flex !important}
@@ -741,6 +774,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 /* ===== ADMIN PANEL ===== */
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
+@media(hover:none),(pointer:coarse){#admin-toggle{display:none !important}}
 
 #admin-panel{position:fixed;top:0;right:-480px;width:460px;height:100vh;background:#fff;border-left:2px solid var(--border);z-index:9998;overflow-y:auto;transition:right .3s ease;padding:2rem;font-family:'DM Mono',monospace;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
 #admin-panel.open{right:0}
@@ -822,7 +856,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="hero-name" translate="no">OBOSHI</div>
       <div class="hero-sub">Abstract Acrylic Painter — Berlin</div>
       <div style="margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.08em;color:var(--ink3)">Layers of footsteps, vibrations of silence.</div>
-      <div style="margin-top:.6rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-family:'Bebas Neue',sans-serif">Painted · Torn · Layered — The OBOSHI Method</div>
+      <a href="#" onclick="showAbout();return false;" style="margin-top:.6rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-family:'Bebas Neue',sans-serif;text-decoration:none;display:inline-block;padding-bottom:.1rem;transition:color .2s" onmouseover="this.style.color='var(--accent)';this.style.borderBottom='1px solid var(--accent)'" onmouseout="this.style.color='var(--ink)';this.style.borderBottom='none'">Painted · Torn · Layered — The OBOSHI Method</a>
     </div>
     <div class="hero-right">
       <div class="room-slider" id="room-slider">
@@ -884,7 +918,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div class="hero-tag">Artist Statement</div>
       <div class="hero-quote">I am an abstract painter working through silence and expression. Through layered compositions and rhythmic spatial flow, I create on canvas a place where inner emotion and outer reality enter into dialogue. Each work carries an energy — like a vibration woven from layers of color and texture — that brings quiet resonance to the viewer's inner world. Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</div>
       <a class="hero-cta" id="hero-cta" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">View 3D Virtual Gallery →</a>
-      <a class="hero-cta" href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="background:transparent;color:var(--ink2);border:1px solid var(--border2);margin-top:-.4rem">View Portfolio 2026 (PDF)</a>
+      <a class="hero-cta" href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="background:var(--accent);color:#fff;border:1px solid var(--accent);margin-top:-.4rem" onmouseover="this.style.background='#94341a';this.style.borderColor='#94341a'" onmouseout="this.style.background='var(--accent)';this.style.borderColor='var(--accent)'">View Portfolio 2026 (PDF)</a>
     </div>
   </div>
 
@@ -961,7 +995,17 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-role">A curated global art platform reaching collectors worldwide. Discover and purchase OBOSHI works through Singulart's international network of buyers and galleries.</div>
         <div class="eco-link">View on Singulart →</div>
       </a>
+      <a class="eco-card" href="https://medium.com/@oboshi" target="_blank">
+        <div class="eco-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;font-weight:700;letter-spacing:-.04em">M</div>
+        <div class="eco-platform">Medium</div>
+        <div class="eco-title">Vibrational Resonance INDEX</div>
+        <div class="eco-role">Essays on painting as frequency — how layers of color and silence carry energy into a room. Writing from the studio, in English.</div>
+        <div class="eco-link">Read on Medium →</div>
+      </a>
       <a class="eco-card" href="https://www.redbubble.com/people/OBOSHIART/shop" target="_blank">
+        <div class="eco-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
         <div class="eco-platform">Redbubble</div>
         <div class="eco-role">Prints, posters, and goods featuring OBOSHI's abstract paintings — available worldwide at accessible prices. A different way to live with the work.</div>
         <div class="eco-link">Shop Prints &amp; Goods →</div>
@@ -1348,7 +1392,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <!-- PC: クリック切り替えボタン -->
       <div class="about-tech-pc" style="display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap;align-items:center">
         <button id="about-tech-washi" onclick="switchAboutHero('washi')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.95)">Washi Tape — Painted · Torn · Layered</button>
-        <span id="about-tech-hint" style="font-size:clamp(.26rem,.55vw,.36rem);letter-spacing:.18em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;pointer-events:none">· click to switch ·</span>
+        <span id="about-tech-hint" onclick="toggleAboutHero()" style="font-size:clamp(.26rem,.55vw,.36rem);letter-spacing:.18em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;cursor:pointer;pointer-events:auto" onmouseenter="hintHoverIn()" onmouseleave="hintHoverOut()">· click to switch ·</span>
         <button id="about-tech-plastic" onclick="switchAboutHero('plastic')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.35)">Clear Plastic — Layer · Light · Depth</button>
       </div>
       <!-- モバイル・タブレット: 自動テキスト -->
@@ -3785,6 +3829,26 @@ function showAbout(){
 }
 
 // About Hero 切り替え（PC専用）
+let _currentTech = 'washi';
+function toggleAboutHero(){
+  _currentTech = _currentTech === 'washi' ? 'plastic' : 'washi';
+  switchAboutHero(_currentTech);
+}
+function hintHoverIn(){
+  const btnPlastic = document.getElementById('about-tech-plastic');
+  const btnWashi = document.getElementById('about-tech-washi');
+  if(_currentTech === 'washi'){
+    btnPlastic.style.color = 'rgba(255,255,255,.95)';
+  } else {
+    btnWashi.style.color = 'rgba(255,255,255,.95)';
+  }
+}
+function hintHoverOut(){
+  const btnPlastic = document.getElementById('about-tech-plastic');
+  const btnWashi = document.getElementById('about-tech-washi');
+  btnPlastic.style.color = '';
+  btnWashi.style.color = '';
+}
 function switchAboutHero(type){
   stopHintPulse();
   const img = document.getElementById('about-hero-img');
@@ -3847,7 +3911,7 @@ function buildPreview(){
     const originalIndex = works.indexOf(w); // 元の配列でのインデックスを取得
     const el=document.createElement('div');
     el.className='wp-item';
-    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}</div>`;
+    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="wp-overlay-inquire" target="_blank" onclick="event.stopPropagation()">Inquire →</a></div>`;
     el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(originalIndex),80);});
     wrap.appendChild(el);
   });
@@ -3870,7 +3934,7 @@ function buildGrid(){
     const el=document.createElement('div');
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div>${(!w.sold||w.digitalStripeLink)?`<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" target="_blank" onclick="event.stopPropagation()">Inquire →</a>`:""}</div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
