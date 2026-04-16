@@ -435,7 +435,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .filter-tab:hover{color:var(--ink)}
 .filter-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
 .gallery-grid{padding:2.5rem 3rem;columns:3;column-gap:1.5rem}
-.g-item{break-inside:avoid;margin-bottom:1rem;cursor:pointer;position:relative;overflow:hidden;background:none;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.g-item{break-inside:avoid;margin-bottom:1.5rem;cursor:pointer;position:relative;overflow:hidden;background:var(--bg2);opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .g-item.visible{opacity:1;transform:translateY(0)}
 .g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
 .g-item:hover img{transform:scale(1.03);filter:saturate(1.15)}
@@ -444,8 +444,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-item:hover .g-hover{opacity:1}
 .g-hover-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff}
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
-.g-hover-inquire{display:inline-block;margin-top:.5rem;font-family:'DM Mono',monospace;font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(184,74,36,.45);padding:.25rem .6rem;text-decoration:none;transition:all .2s;cursor:pointer;backdrop-filter:blur(2px)}
-.g-hover-inquire:hover{background:rgba(184,74,36,.75)}
 .g-sold-badge{position:absolute;top:.7rem;right:.7rem;background:rgba(255,255,255,.94);font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;color:var(--ink3)}
 .g-digital-badge{position:absolute;top:.7rem;left:.7rem;background:var(--accent);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .65rem;color:#fff}
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:#fff;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
@@ -602,7 +600,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .gallery-header{padding:6.5rem 1.5rem 1.5rem}
   .gallery-grid{columns:1;padding:1rem 1.5rem}
   .g-item{margin-bottom:2.5rem}
-  .modal-img-nav-row{height:180px;padding:0 .3rem}
+  .modal-img-nav-row{height:220px;padding:0 .3rem}
   .modal-nav-btn{width:2.2rem;height:2.2rem;font-size:1.2rem}
   .modal-prev{margin-right:.2rem}
   .modal-next{margin-left:.2rem}
@@ -1388,7 +1386,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <!-- PC: クリック切り替えボタン -->
       <div class="about-tech-pc" style="display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap;align-items:center">
         <button id="about-tech-washi" onclick="switchAboutHero('washi')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.95)">Washi Tape — Painted · Torn · Layered</button>
-        <span id="about-tech-hint" style="font-size:clamp(.26rem,.55vw,.36rem);letter-spacing:.18em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;pointer-events:none">· click to switch ·</span>
+        <span id="about-tech-hint" onclick="toggleAboutHero()" style="font-size:clamp(.26rem,.55vw,.36rem);letter-spacing:.18em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--accent);opacity:0;transition:opacity 1s ease;cursor:pointer;pointer-events:auto" onmouseenter="hintHoverIn()" onmouseleave="hintHoverOut()">· click to switch ·</span>
         <button id="about-tech-plastic" onclick="switchAboutHero('plastic')" style="font-size:clamp(.32rem,.8vw,.46rem);letter-spacing:.22em;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;background:none;border:none;cursor:pointer;padding:0;transition:color .3s;color:rgba(255,255,255,.35)">Clear Plastic — Layer · Light · Depth</button>
       </div>
       <!-- モバイル・タブレット: 自動テキスト -->
@@ -3825,6 +3823,26 @@ function showAbout(){
 }
 
 // About Hero 切り替え（PC専用）
+let _currentTech = 'washi';
+function toggleAboutHero(){
+  _currentTech = _currentTech === 'washi' ? 'plastic' : 'washi';
+  switchAboutHero(_currentTech);
+}
+function hintHoverIn(){
+  const btnPlastic = document.getElementById('about-tech-plastic');
+  const btnWashi = document.getElementById('about-tech-washi');
+  if(_currentTech === 'washi'){
+    btnPlastic.style.color = 'rgba(255,255,255,.95)';
+  } else {
+    btnWashi.style.color = 'rgba(255,255,255,.95)';
+  }
+}
+function hintHoverOut(){
+  const btnPlastic = document.getElementById('about-tech-plastic');
+  const btnWashi = document.getElementById('about-tech-washi');
+  btnPlastic.style.color = '';
+  btnWashi.style.color = '';
+}
 function switchAboutHero(type){
   stopHintPulse();
   const img = document.getElementById('about-hero-img');
@@ -3910,7 +3928,7 @@ function buildGrid(){
     const el=document.createElement('div');
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div>${!w.sold?`<a href="mailto:art@oboshi.art?subject=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" onclick="event.stopPropagation();">Inquire →</a>`:""}</div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div></div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
