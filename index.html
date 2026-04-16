@@ -511,6 +511,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .digital-notice{font-size:.46rem;letter-spacing:.08em;color:var(--ink3);text-align:center;margin-top:.5rem;line-height:1.65}
 @media(max-width:1050px){
   #admin-toggle{display:none !important}
+@media(hover:none),(pointer:coarse){
+  #admin-toggle{display:none !important}
+}
   .hero{grid-template-columns:1fr;gap:2.5rem}
   .works-preview{grid-template-columns:1fr 1fr}
   .eco-grid{grid-template-columns:1fr 1fr 1fr}
@@ -739,7 +742,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .exh-card.past .exh-card-venue{color:var(--ink3)}
 
 /* ===== ADMIN PANEL ===== */
-#admin-toggle{display:none !important;position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
+#admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
 
 #admin-panel{position:fixed;top:0;right:-480px;width:460px;height:100vh;background:#fff;border-left:2px solid var(--border);z-index:9998;overflow-y:auto;transition:right .3s ease;padding:2rem;font-family:'DM Mono',monospace;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
