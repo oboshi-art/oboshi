@@ -848,33 +848,34 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 /* ===== BOOKS SHELF ===== */
 .books-shelf-row{
   display:flex;
-  gap:20px;
-  width:100%;
-  overflow-x:auto;
-  padding-bottom:1.5rem;
-  scroll-behavior:smooth;
-  -ms-overflow-style:none;
-  scrollbar-width:none;
-  justify-content:stretch;
+  flex-direction:row;
+  justify-content:center;
+  gap:40px;
+  margin-top:30px;
 }
-.books-shelf-row::-webkit-scrollbar{display:none}
 .book-card{
-  flex-shrink:0;
-  width:calc(33.333% - 14px);
-  min-width:220px;
-  display:flex;
-  flex-direction:column;
+  text-align:center;
   cursor:pointer;
-  transition:filter .2s ease,transform .2s ease,box-shadow .2s ease;
-  box-shadow:0px 0px 4px rgba(0,0,0,0.08);
-  background:var(--bg2);
   z-index:1;
 }
-.book-card:hover{
+.book-card img{
+  max-width:220px;
+  height:auto;
+  transition:all .25s ease;
+  display:block;
+}
+.book-card img:hover{
   filter:brightness(1.05);
   transform:translateY(-2px);
-  box-shadow:0px 2px 6px rgba(0,0,0,0.12);
   z-index:2;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+.book-card p{
+  margin-top:10px;
+  font-size:.9rem;
+  letter-spacing:.04em;
+  font-family:'DM Mono',monospace;
+  color:var(--ink2);
 }
 .book-spine{
   width:100%;
@@ -1666,17 +1667,34 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <button class="filter-tab" data-filter="goods">Experiments</button>
     <button class="filter-tab" data-filter="kids">Kids</button>
   </div>
-  <div id="experiments-intro" style="display:none;padding:0;border-bottom:1px solid var(--border);margin-bottom:0">
+  <div id="experiments-intro" style="display:none">
+    <!-- EXPERIMENTS — intentionally left empty -->
   </div>
 
   <!-- ===== BOOKS SHELF ===== -->
   <div id="books-shelf" style="display:none;padding:4rem 3rem 5rem;border-bottom:1px solid var(--border)">
     <div style="font-size:.46rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">The Techniques Series</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink2);line-height:1.9;max-width:600px;margin-bottom:3rem">Three books. One cycle. Awareness — Resonance — Dialogue. The inner layer, the vibrating layer, the co-created layer.</div>
-    <div class="books-shelf-row" id="books-shelf-row"></div>
-    <div class="books-shelf-nav">
-      <button class="books-nav-btn" id="books-prev" aria-label="Previous">‹</button>
-      <button class="books-nav-btn" id="books-next" aria-label="Next">›</button>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink2);line-height:1.9;max-width:600px;margin-bottom:2rem">Three books. One cycle. Awareness — Resonance — Dialogue. The inner layer, the vibrating layer, the co-created layer.</div>
+    <div class="books-shelf-row" id="books-shelf-row">
+
+      <!-- 1. Techniques of Awareness -->
+      <div class="book-card" onclick="openModal(works.findIndex(w=>w.title==='Techniques of Awareness'))">
+        <img src="images/Techniques_of_Awareness_e.png" alt="Techniques of Awareness">
+        <p>Techniques of Awareness</p>
+      </div>
+
+      <!-- 2. Techniques of Resonance -->
+      <div class="book-card" onclick="openModal(works.findIndex(w=>w.title==='Techniques of Resonance'))">
+        <img src="images/Techniques_of_Resonance_E.jpg" alt="Techniques of Resonance">
+        <p>Techniques of Resonance</p>
+      </div>
+
+      <!-- 3. Techniques of Dialogue -->
+      <div class="book-card" onclick="openModal(works.findIndex(w=>w.title==='Techniques of Dialogue'))">
+        <img src="images/techniques_of_dialogue_E.jpg" alt="Techniques of Dialogue">
+        <p>Techniques of Dialogue</p>
+      </div>
+
     </div>
   </div>
   <div class="gallery-grid" id="grid"></div>
@@ -4630,37 +4648,7 @@ function buildGrid(){
 }
 
 // ===== BOOKS SHELF RENDER =====
-function buildBooksShelf() {
-  const row = document.getElementById('books-shelf-row');
-  if (!row) return;
-  const books = works.filter(w => w.category === 'books');
-  row.innerHTML = books.map((w, idx) => {
-    const i = works.indexOf(w);
-    const spineImg = w.img
-      ? `<img class="book-spine" src="${w.img}" alt="${w.title}">`
-      : `<div class="book-spine-placeholder">
-           <div class="book-spine-vol">${w.seriesLabel || ''}</div>
-           <div class="book-spine-title">${w.title}</div>
-           <div class="book-spine-ja">${w.titleJa || ''}</div>
-         </div>`;
-    return `
-      <div class="book-card" onclick="openModal(${i})">
-        ${spineImg}
-        <div class="book-info">
-          <div class="book-info-label">${w.seriesLabel || 'Book'}</div>
-          <div class="book-info-title">${w.title}</div>
-          <div class="book-info-ja">${w.titleJa || ''}</div>
-          <div class="book-info-desc">${w.desc.slice(0, 120)}…</div>
-        </div>
-      </div>`;
-  }).join('');
-
-  // 手動スライド
-  const prev = document.getElementById('books-prev');
-  const next = document.getElementById('books-next');
-  if (prev) prev.onclick = () => row.scrollBy({ left: -260, behavior: 'smooth' });
-  if (next) next.onclick = () => row.scrollBy({ left: 260, behavior: 'smooth' });
-}
+function buildBooksShelf() { /* static HTML — no JS render needed */ }
 
 
 // フィルタータブのイベント
