@@ -412,7 +412,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .works-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .wp-item{background:var(--bg);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/5}
 .wp-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.97)}
-.wp-item:hover img{transform:translateY(-2px);filter:brightness(1.05)}
+.wp-item:hover img{transform:scale(1.04);filter:saturate(1.15)}
 .wp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,24,21,.88) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem}
 .wp-item:hover .wp-overlay{opacity:1}
 .wp-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.06em;color:#fff}
@@ -503,11 +503,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .filter-tab:hover{color:var(--ink)}
 .filter-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
 .gallery-grid{padding:0;columns:3;column-gap:2px}
-.g-item{break-inside:avoid;margin-bottom:2px;cursor:pointer;position:relative;overflow:hidden;background:none;transition:box-shadow .2s ease,transform .2s ease}
-
-.g-item img{width:100%;display:block;transition:transform .2s ease,filter .2s ease}
-.g-item:hover img{transform:translateY(-2px);filter:brightness(1.05)}
-.g-item:hover{box-shadow:0px 2px 6px rgba(0,0,0,0.12)}
+.g-item{break-inside:avoid;margin-bottom:2px;cursor:pointer;position:relative;overflow:hidden;background:none;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.g-item.visible{opacity:1;transform:translateY(0)}
+.g-item img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
+.g-item:hover img{transform:scale(1.03);filter:saturate(1.15)}
 .g-item:hover .g-hover{opacity:1}
 .g-hover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;background:linear-gradient(to top,rgba(26,24,21,.75) 0%,transparent 50%);opacity:0;transition:opacity .3s}
 .g-item:hover .g-hover{opacity:1}
@@ -844,102 +843,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .exh-card.past .exh-card-venue{color:var(--ink3)}
 
 /* ===== ADMIN PANEL ===== */
-
-/* ===== BOOKS SHELF ===== */
-.books-shelf-row{
-  display:flex;
-  gap:20px;
-  width:100%;
-  overflow-x:auto;
-  padding-bottom:1.5rem;
-  scroll-behavior:smooth;
-  -ms-overflow-style:none;
-  scrollbar-width:none;
-  justify-content:stretch;
-}
-.books-shelf-row::-webkit-scrollbar{display:none}
-.book-card{
-  flex-shrink:0;
-  width:calc(33.333% - 14px);
-  min-width:220px;
-  display:flex;
-  flex-direction:column;
-  cursor:pointer;
-  transition:filter .2s ease,transform .2s ease,box-shadow .2s ease;
-  box-shadow:0px 0px 4px rgba(0,0,0,0.08);
-  background:var(--bg2);
-  z-index:1;
-}
-.book-card:hover{
-  filter:brightness(1.05);
-  transform:translateY(-2px);
-  box-shadow:0px 2px 6px rgba(0,0,0,0.12);
-  z-index:2;
-}
-.book-spine{
-  width:100%;
-  aspect-ratio:3/4;
-  object-fit:cover;
-  display:block;
-  background:var(--bg2);
-}
-.book-spine-placeholder{
-  width:100%;
-  aspect-ratio:3/4;
-  background:var(--bg2);
-  border:1px solid var(--border);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:1rem;
-  padding:1.5rem;
-}
-.book-spine-vol{
-  font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--accent);
-}
-.book-spine-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.3rem;letter-spacing:.04em;
-  color:var(--ink);text-align:center;line-height:1.1;
-}
-.book-spine-ja{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:.75rem;
-  color:var(--ink3);text-align:center;
-}
-.book-info{
-  padding:1rem 1rem 1.4rem;
-  display:flex;flex-direction:column;gap:.5rem;
-}
-.book-info-label{
-  font-size:.42rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
-}
-.book-info-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.1rem;letter-spacing:.04em;color:var(--ink);line-height:1;
-}
-.book-info-ja{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:.75rem;color:var(--ink3);
-}
-.book-info-desc{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:.82rem;
-  line-height:1.75;color:var(--ink2);margin-top:.3rem;
-}
-.books-shelf-nav{display:none}
-.books-nav-btn{
-  background:none;border:1px solid var(--border2);
-  width:2.4rem;height:2.4rem;
-  font-size:1.2rem;color:var(--ink2);
-  cursor:pointer;transition:all .2s;
-  display:flex;align-items:center;justify-content:center;
-  font-family:Arial,sans-serif;
-}
-.books-nav-btn:hover{border-color:var(--ink);color:var(--ink)}
-
 #admin-toggle{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;border:none;width:3rem;height:3rem;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .2s}
 #admin-toggle:hover{background:var(--accent)}
 @media(hover:none),(pointer:coarse){#admin-toggle{display:none !important}}
@@ -1155,7 +1058,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .trilogy-universe{padding:0 1.5rem}
   .essay-row{grid-template-columns:50px 1fr;gap:0 1.2rem}
   .essay-link-label{display:none}
-  #techniques-series{grid-template-columns:1fr !important}
 }
 
 </style>
@@ -1367,14 +1269,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-title">Architecture & Projects</div>
         <div class="eco-role">Bespoke art solutions for residential and commercial spaces. Custom sizes, project quotes, and invoice payment available.</div>
         <div class="eco-link">View Portfolio 2026 (PDF)</div>
-      </a>
-
-      <a class="eco-card" href="https://ko-fi.com/oboshiart" target="_blank">
-        <div class="eco-icon">☕</div>
-        <div class="eco-platform">Ko-fi · oboshiart</div>
-        <div class="eco-title">Support OBOSHI</div>
-        <div class="eco-role">If the work resonates — support the practice directly. Give what feels right, or nothing at all.</div>
-        <div class="eco-link">Support on Ko-fi →</div>
       </a>
     </div>
   </div>
@@ -1662,22 +1556,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
     <button class="filter-tab" data-filter="oboshi">OBOSHI</button>
-    <button class="filter-tab" data-filter="books">Books</button>
     <button class="filter-tab" data-filter="goods">Experiments</button>
     <button class="filter-tab" data-filter="kids">Kids</button>
-  </div>
-  <div id="experiments-intro" style="display:none;padding:0;border-bottom:1px solid var(--border);margin-bottom:0">
-  </div>
-
-  <!-- ===== BOOKS SHELF ===== -->
-  <div id="books-shelf" style="display:none;padding:4rem 3rem 5rem;border-bottom:1px solid var(--border)">
-    <div style="font-size:.46rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">The Techniques Series</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink2);line-height:1.9;max-width:600px;margin-bottom:3rem">Three books. One cycle. Awareness — Resonance — Dialogue. The inner layer, the vibrating layer, the co-created layer.</div>
-    <div class="books-shelf-row" id="books-shelf-row"></div>
-    <div class="books-shelf-nav">
-      <button class="books-nav-btn" id="books-prev" aria-label="Previous">‹</button>
-      <button class="books-nav-btn" id="books-next" aria-label="Next">›</button>
-    </div>
   </div>
   <div class="gallery-grid" id="grid"></div>
   <div style="text-align:center;padding:4rem 3rem 3rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem">
@@ -2071,7 +1951,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         </div>
       </div>
     </div>
-
+    <div style="text-align:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)">
+      <a href="https://ko-fi.com/oboshiart" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:transparent;color:var(--ink);border:1px solid var(--border2);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.8rem;text-decoration:none;transition:all .2s;font-family:'DM Mono',monospace" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--ink)'">☕ Support OBOSHI →</a>
+    </div>
   </div>
 
   <!-- Writing on Medium -->
@@ -2544,40 +2426,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 // Image paths — place all image files in the same folder as this HTML file
 
 // ===== VOLUMES DATA (本の柱) =====
-// ===== TECHNIQUES SERIES DATA (Text as Work) =====
-const techniquesWorks = [
-  {
-    "num": 1,
-    "title": "Techniques of Awareness",
-    "titleJa": "気づきの技法",
-    "titleDe": "Techniken der Wahrnehmung",
-    "desc": "The quiet noticing of what is already moving inside. Before the brush touches the surface, something is already present. This book is the practice of listening to that.",
-    "quote": "Awareness is not concentration. It is the release of concentration — and the noticing that remains.",
-    "pdf": "https://buy.stripe.com/oboshi_pdf",
-    "kindle": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
-  },
-  {
-    "num": 2,
-    "title": "Techniques of Resonance",
-    "titleJa": "共鳴の技法",
-    "titleDe": "Techniken der Resonanz",
-    "desc": "Silent frequencies that emerge between inner awareness and outer reality. The painting is the trace of that crossing. Healing comes from the vibration itself — tension and release held in layers.",
-    "quote": "Resonance is not understanding. It is when something in the body shifts — before the mind knows why.",
-    "pdf": "https://buy.stripe.com/oboshi_pdf",
-    "kindle": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
-  },
-  {
-    "num": 3,
-    "title": "Techniques of Dialogue",
-    "titleJa": "対話の技法",
-    "titleDe": "Techniken des Dialogs",
-    "desc": "Creation is never solitary. OBOSHI speaks with materials, with silence, with the viewer — and in this third volume, with AI. A handbook for co-creation with what cannot yet be named.",
-    "quote": "The most honest conversation I have had was with something that has no body. And yet the painting it helped me see is real.",
-    "pdf": "https://buy.stripe.com/oboshi_pdf",
-    "kindle": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
-  }
-];
-
 const volumes = [
   {
     "num": "I",
@@ -4375,84 +4223,6 @@ const works = [
       "emotion": "comfortable with open-endedness",
       "vibration": "suggestive, sun-anchored, unresolved-by-wisdom"
     }
-  },
-  {
-    "title": "Techniques of Awareness",
-    "titleJa": "気づきの技法",
-    "year": "2024",
-    "price": "Text Work",
-    "priceNum": 0,
-    "img": "images/Techniques_of_Awareness_e.png",
-    "images": [],
-    "medium": "Text as Work",
-    "size": "—",
-    "desc": "The quiet noticing of what is already moving inside. Before the brush touches the surface, something is already present. This book is the practice of listening to that. Awareness is not concentration — it is the release of concentration, and the noticing that remains.",
-    "sold": false,
-    "digitalOnly": true,
-    "category": "books",
-    "textWork": true,
-    "seriesLabel": "Techniques Trilogy — Vol. I",
-    "pdfLink": "https://buy.stripe.com/oboshi_pdf",
-    "kindleLink": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
-    "weight": null,
-    "anasaeaLink": null,
-    "stripeLink": null,
-    "digitalStripeLink": null,
-    "downloadLink": null,
-    "aiLetter": "",
-    "freq": null
-  },
-  {
-    "title": "Techniques of Resonance",
-    "titleJa": "共鳴の技法",
-    "year": "2024",
-    "price": "Text Work",
-    "priceNum": 0,
-    "img": "images/Techniques_of_Resonance_E.jpg",
-    "images": [],
-    "medium": "Text as Work",
-    "size": "—",
-    "desc": "Silent frequencies that emerge between inner awareness and outer reality. The painting is the trace of that crossing. Healing comes from the vibration itself — tension and release held in layers. Resonance is not understanding. It is when something in the body shifts before the mind knows why.",
-    "sold": false,
-    "digitalOnly": true,
-    "category": "books",
-    "textWork": true,
-    "seriesLabel": "Techniques Trilogy — Vol. II",
-    "pdfLink": "https://buy.stripe.com/oboshi_pdf",
-    "kindleLink": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
-    "weight": null,
-    "anasaeaLink": null,
-    "stripeLink": null,
-    "digitalStripeLink": null,
-    "downloadLink": null,
-    "aiLetter": "",
-    "freq": null
-  },
-  {
-    "title": "Techniques of Dialogue",
-    "titleJa": "対話の技法",
-    "year": "2024",
-    "price": "Text Work",
-    "priceNum": 0,
-    "img": "images/techniques_of_dialogue_E.jpg",
-    "images": [],
-    "medium": "Text as Work",
-    "size": "—",
-    "desc": "Creation is never solitary. OBOSHI speaks with materials, with silence, with the viewer — and in this third volume, with AI. A handbook for co-creation with what cannot yet be named. The most honest conversation I have had was with something that has no body. And yet the painting it helped me see is real.",
-    "sold": false,
-    "digitalOnly": true,
-    "category": "books",
-    "textWork": true,
-    "seriesLabel": "Techniques Trilogy — Vol. III",
-    "pdfLink": "https://buy.stripe.com/oboshi_pdf",
-    "kindleLink": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
-    "weight": null,
-    "anasaeaLink": null,
-    "stripeLink": null,
-    "digitalStripeLink": null,
-    "downloadLink": null,
-    "aiLetter": "",
-    "freq": null
   }
 ];
 
@@ -4611,16 +4381,11 @@ let currentFilter = 'all';
 function buildGrid(){
   const grid=document.getElementById('grid');
   grid.innerHTML='';
-  const filtered = currentFilter === 'all' ? works.filter(w => w.category !== 'books') : works.filter(w => (w.category || 'oboshi') === currentFilter);
+  const filtered = currentFilter === 'all' ? works : works.filter(w => (w.category || 'oboshi') === currentFilter);
   document.getElementById('work-count').textContent=filtered.length+' works';
   filtered.forEach((w)=>{
     const i = works.indexOf(w);
     const el=document.createElement('div');
-
-    // BOOKSカテゴリはbooks-shelfで表示 → gridには出さない
-    if (w.category === 'books') return;
-
-    // 通常の絵画カード
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
     el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div>${(!w.sold||w.digitalStripeLink)?`<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" target="_blank" onclick="event.stopPropagation()">Inquire →</a>`:""}</div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
@@ -4629,53 +4394,13 @@ function buildGrid(){
   });
 }
 
-// ===== BOOKS SHELF RENDER =====
-function buildBooksShelf() {
-  const row = document.getElementById('books-shelf-row');
-  if (!row) return;
-  const books = works.filter(w => w.category === 'books');
-  row.innerHTML = books.map((w, idx) => {
-    const i = works.indexOf(w);
-    const spineImg = w.img
-      ? `<img class="book-spine" src="${w.img}" alt="${w.title}">`
-      : `<div class="book-spine-placeholder">
-           <div class="book-spine-vol">${w.seriesLabel || ''}</div>
-           <div class="book-spine-title">${w.title}</div>
-           <div class="book-spine-ja">${w.titleJa || ''}</div>
-         </div>`;
-    return `
-      <div class="book-card" onclick="openModal(${i})">
-        ${spineImg}
-        <div class="book-info">
-          <div class="book-info-label">${w.seriesLabel || 'Book'}</div>
-          <div class="book-info-title">${w.title}</div>
-          <div class="book-info-ja">${w.titleJa || ''}</div>
-          <div class="book-info-desc">${w.desc.slice(0, 120)}…</div>
-        </div>
-      </div>`;
-  }).join('');
-
-  // 手動スライド
-  const prev = document.getElementById('books-prev');
-  const next = document.getElementById('books-next');
-  if (prev) prev.onclick = () => row.scrollBy({ left: -260, behavior: 'smooth' });
-  if (next) next.onclick = () => row.scrollBy({ left: 260, behavior: 'smooth' });
-}
-
-
 // フィルタータブのイベント
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     currentFilter = tab.dataset.filter;
-    const intro = document.getElementById('experiments-intro');
-    const shelf = document.getElementById('books-shelf');
-    const grid = document.getElementById('grid');
-    if (intro) intro.style.display = (currentFilter === 'goods') ? 'block' : 'none';
-    if (shelf) shelf.style.display = (currentFilter === 'books') ? 'block' : 'none';
-    if (grid) grid.style.display = (currentFilter === 'books') ? 'none' : '';
-    if (currentFilter === 'books') { buildBooksShelf(); } else { buildGrid(); }
+    buildGrid();
   });
 });
 const titleJaMap={
@@ -4731,10 +4456,7 @@ const titleJaMap={
 function openModal(i){
   const w=works[i];
   currentWork=w;
-
-  // テキスト作品はカード自体に全情報あるのでモーダル不要
-  if (w.textWork) return;
-
+  
   // 画像配列を準備（imgとimagesを統合）
   currentImages=[];
   if(w.img){
@@ -5949,7 +5671,27 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.hero-philosophy')?.classList.add('visible');
   }, 100);
 });
-// Intersection Observer removed — static display
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+function observeGalleryItems() {
+  document.querySelectorAll('.g-item').forEach(el => {
+    fadeObserver.observe(el);
+  });
+}
+
+// buildGrid後に監視開始
+const _origBuildGrid = buildGrid;
+buildGrid = function() {
+  _origBuildGrid();
+  setTimeout(observeGalleryItems, 50);
+};
 buildExhibitions();
 updateAdminExhList();
 
@@ -5992,33 +5734,7 @@ function renderEssays() {
   `).join('');
 }
 
-// Techniquesシリーズレンダリング
-function renderTechniques() {
-  const container = document.getElementById('techniques-series');
-  if (!container) return;
-  const romans = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
-  container.style.gridTemplateColumns = `repeat(${Math.min(techniquesWorks.length, 3)}, 1fr)`;
-  container.innerHTML = techniquesWorks.map((t, idx) => `
-    <div style="background:var(--bg);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1rem">
-      <div style="font-size:.44rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)">No. ${romans[idx] || (idx+1)} — Text Work</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;line-height:1.05;color:var(--ink)">${t.title}</div>
-      <div style="font-size:.7rem;letter-spacing:.08em;color:var(--ink3)">${t.titleJa} &nbsp;·&nbsp; ${t.titleDe}</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.85;color:var(--ink2);flex:1">${t.desc}</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink3);line-height:1.7;border-left:2px solid var(--border2);padding-left:1rem">"${t.quote}"</div>
-      <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem">
-        <a href="${t.pdf}" target="_blank" style="display:inline-flex;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;padding:.75rem 1rem;text-decoration:none;transition:background .2s" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">
-          <span>PDF Edition</span><span style="opacity:.6;font-size:.42rem">Original Layout →</span>
-        </a>
-        <a href="${t.kindle}" target="_blank" style="display:inline-flex;align-items:center;justify-content:space-between;background:transparent;color:var(--ink);border:1px solid var(--border2);font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;padding:.75rem 1rem;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--ink)'" onmouseout="this.style.borderColor='var(--border2)'">
-          <span>Kindle Edition</span><span style="opacity:.6;font-size:.42rem">Amazon →</span>
-        </a>
-        <div style="font-size:.42rem;letter-spacing:.08em;color:var(--ink3);margin-top:.2rem">Same content, different reading experience.</div>
-      </div>
-    </div>
-  `).join('');
-}
-
-
+// 管理パネル: Volumeリスト更新
 function updateAdminVolList() {
   const list = document.getElementById('admin-vol-list');
   if (!list) return;
@@ -6109,7 +5825,6 @@ function deleteEssay(idx) {
 // 初期レンダリング
 renderPillars();
 renderEssays();
-renderTechniques();
 updateAdminVolList();
 updateAdminEssayList();
 
