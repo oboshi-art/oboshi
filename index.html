@@ -777,6 +777,38 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .about-pub-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.85;color:var(--ink2);flex:1}
 .about-pub-link{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:color .2s}
 .about-pub-link:hover{color:var(--ink)}
+/* ===== BOOKS IN GALLERY ===== */
+.book-card{background:var(--bg);border:1px solid var(--border);display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.book-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateY(-2px)}
+.book-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#f0ece8}
+.book-card-info{padding:1.2rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.book-card-series{font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+.book-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.35;color:var(--ink)}
+.book-card-title-ja{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink3)}
+.book-card-cta{font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:auto;padding-top:.8rem}
+/* ===== BOOK MODAL ===== */
+.book-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9000;align-items:center;justify-content:center;padding:1.5rem}
+.book-modal-overlay.open{display:flex}
+.book-modal{background:var(--bg);max-width:640px;width:100%;max-height:90vh;overflow-y:auto;border:1px solid var(--border)}
+.book-modal-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:0}
+@media(max-width:600px){.book-modal-inner{grid-template-columns:1fr}}
+.book-modal-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#f0ece8}
+.book-modal-body{padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem}
+.book-modal-series{font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+.book-modal-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.3;color:var(--ink)}
+.book-modal-title-ja{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--ink3)}
+.book-modal-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.9;color:var(--ink2)}
+.book-lang-tabs{display:flex;gap:0;border:1px solid var(--border);margin-top:.5rem}
+.book-lang-tab{flex:1;text-align:center;font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;padding:.55rem .5rem;cursor:pointer;font-family:'DM Mono',monospace;color:var(--ink3);background:none;border:none;border-right:1px solid var(--border);transition:all .2s}
+.book-lang-tab:last-child{border-right:none}
+.book-lang-tab.active{background:var(--ink);color:var(--bg)}
+.book-buy-btns{display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem}
+.book-buy-btn{display:block;text-align:center;font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;padding:.8rem 1rem;text-decoration:none;transition:all .2s;font-family:'DM Mono',monospace}
+.book-buy-btn.pdf{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.book-buy-btn.pdf:hover{background:#94341a;border-color:#94341a}
+.book-buy-btn.amazon{background:transparent;color:var(--ink);border:1px solid var(--border2)}
+.book-buy-btn.amazon:hover{border-color:var(--accent);color:var(--accent)}
+.book-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink3);line-height:1;z-index:1}
 @media(max-width:1050px){
   .about-hero{grid-template-columns:1fr;gap:2.5rem}
   .about-philosophy{grid-template-columns:1fr;gap:2rem}
@@ -949,8 +981,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .trilogy-pillar:hover .pillar-vol{color:var(--accent)}
 .pillar-title{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(1.8rem,3.5vw,2.8rem);
-  letter-spacing:.04em;line-height:1;
+  font-size:clamp(1.4rem,2.8vw,2.2rem);
+  letter-spacing:.04em;line-height:1.05;
   color:var(--ink);margin-bottom:.6rem;
 }
 .pillar-title-ja{
@@ -1270,6 +1302,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-role">Bespoke art solutions for residential and commercial spaces. Custom sizes, project quotes, and invoice payment available.</div>
         <div class="eco-link">View Portfolio 2026 (PDF)</div>
       </a>
+      <a class="eco-card" href="https://ko-fi.com/oboshiart" target="_blank">
+        <div class="eco-icon" style="font-size:1.2rem">☕</div>
+        <div class="eco-platform">Ko-fi · oboshiart</div>
+        <div class="eco-title">Support OBOSHI</div>
+        <div class="eco-role">Support the work directly and receive PDF editions of the trilogy — Techniques of Awareness, Techniques of Resonance, and Techniques of Dialogue — as a thank you.</div>
+        <div class="eco-link">Support on Ko-fi →</div>
+      </a>
     </div>
   </div>
 
@@ -1556,10 +1595,20 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
     <button class="filter-tab" data-filter="oboshi">OBOSHI</button>
+    <button class="filter-tab" data-filter="books">Books</button>
     <button class="filter-tab" data-filter="goods">Experiments</button>
     <button class="filter-tab" data-filter="kids">Kids</button>
   </div>
   <div class="gallery-grid" id="grid"></div>
+  <div id="books-universe" style="display:none">
+    <div class="trilogy-universe" style="border-bottom:none">
+      <section class="trilogy-pillars" id="works-books-pillars" aria-label="Published Books — OBOSHI Series"></section>
+      <div class="medium-strata">
+        <div class="strata-trigger"><span class="strata-arrow">›</span> TOWARDS THE NEXT — ESSAYS FROM THE STUDIO</div>
+        <div class="strata-content" id="works-books-essays"></div>
+      </div>
+    </div>
+  </div>
   <div style="text-align:center;padding:4rem 3rem 3rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem">
     <div style="width:40px;height:1px;background:var(--border2)"></div>
     <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink3);letter-spacing:.08em">OBOSHI</div>
@@ -1915,97 +1964,14 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
   </div>
 
-  <!-- Publications -->
-  <div class="about-publications">
-    <div class="about-pub-heading">The Trilogy</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--ink3);letter-spacing:.06em;margin-bottom:2.5rem;line-height:1.8">Awareness → Resonance → Dialogue — three books, one cycle. The inner layer, the vibrating layer, the co-created layer.</div>
-    <div class="about-pub-grid" style="grid-template-columns:1fr 1fr 1fr">
-      <div class="about-pub-card" style="position:relative">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Book I</div>
-        <div class="about-pub-title">Techniques of Awareness</div>
-        <div class="about-pub-title-ja" lang="ja">気づきの技法</div>
-        <div class="about-pub-desc">The quiet noticing of what is already moving inside. Before the brush touches the surface, something is already present. This book is the practice of listening to that.</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink3);line-height:1.7;border-left:2px solid var(--border2);padding-left:1rem;margin:.5rem 0 1rem">"Awareness is not concentration. It is the release of concentration — and the noticing that remains."</div>
-        <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:auto">
-          <a href="https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T" target="_blank" class="about-pub-link">Read on Amazon →</a>
-        </div>
+  <!-- Publications — trilogy-universe方式 -->
+  <div class="trilogy-universe" id="about-trilogy-universe">
+    <section class="trilogy-pillars" id="about-pillars-container" aria-label="Published Books — OBOSHI Series">
+    </section>
+    <div class="medium-strata">
+      <div class="strata-trigger"><span class="strata-arrow">›</span> TOWARDS THE NEXT — ESSAYS FROM THE STUDIO</div>
+      <div class="strata-content" id="about-essays-container">
       </div>
-      <div class="about-pub-card" style="position:relative">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Book II</div>
-        <div class="about-pub-title">Techniques of Resonance</div>
-        <div class="about-pub-title-ja" lang="ja">共鳴の技法</div>
-        <div class="about-pub-desc">Silent frequencies that emerge between inner awareness and outer reality. The painting is the trace of that crossing. Healing comes from the vibration itself — tension and release held in layers.</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink3);line-height:1.7;border-left:2px solid var(--border2);padding-left:1rem;margin:.5rem 0 1rem">"Resonance is not understanding. It is when something in the body shifts — before the mind knows why."</div>
-        <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:auto">
-          <a href="https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T" target="_blank" class="about-pub-link">Read on Amazon →</a>
-        </div>
-      </div>
-      <div class="about-pub-card" style="position:relative">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Book III</div>
-        <div class="about-pub-title">Techniques of Dialogue</div>
-        <div class="about-pub-title-ja" lang="ja">対話の技法</div>
-        <div class="about-pub-desc">Creation is never solitary. OBOSHI speaks with materials, with silence, with the viewer — and in this third volume, with AI. A handbook for co-creation with what cannot yet be named.</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink3);line-height:1.7;border-left:2px solid var(--border2);padding-left:1rem;margin:.5rem 0 1rem">"The most honest conversation I have had was with something that has no body. And yet the painting it helped me see is real."</div>
-        <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:auto">
-          <a href="https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T" target="_blank" class="about-pub-link">Read on Amazon →</a>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)">
-      <a href="https://ko-fi.com/oboshiart" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:transparent;color:var(--ink);border:1px solid var(--border2);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.8rem;text-decoration:none;transition:all .2s;font-family:'DM Mono',monospace" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--ink)'">☕ Support OBOSHI →</a>
-    </div>
-  </div>
-
-  <!-- Writing on Medium -->
-  <div class="about-publications" style="border-top:1px solid var(--border)">
-    <div class="about-pub-heading">Painted Conversations</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--ink3);letter-spacing:.06em;margin-bottom:2.5rem;line-height:1.8">An ongoing series — essays written with and through AI. Each piece opens a window into the philosophy behind the work, and connects to the three books.</div>
-    <div class="about-pub-grid" style="grid-template-columns:1fr 1fr">
-      <a class="about-pub-card" href="https://medium.com/@oboshi/abstract-art-as-a-frequency-how-painting-became-a-vibrational-practice-1616a8860ed4" target="_blank" style="text-decoration:none;transition:background .2s">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay I — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">Abstract Art as a Frequency</div>
-        <div class="about-pub-desc">How painting became a vibrational practice — on the structural reality of frequency in acrylic and collage. Connects to <em>Techniques of Resonance</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-      <a class="about-pub-card" href="https://medium.com/@oboshi/what-silence-sounds-like-in-paint-5a9fbe414fe7" target="_blank" style="text-decoration:none;transition:background .2s">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay II — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">What Silence Sounds Like in Paint</div>
-        <div class="about-pub-desc">On silence as structure, not absence — and why the unpainted canvas is never empty. Connects to <em>Techniques of Awareness</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-      <a class="about-pub-card" href="https://medium.com/@oboshi/layers-of-footsteps-the-philosophy-of-accumulated-time-in-painting-d184a3ff52d1" target="_blank" style="text-decoration:none;transition:background .2s">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay III — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">Layers of Footsteps</div>
-        <div class="about-pub-desc">On the accumulation of decisions in layered painting — each mark a step, each layer a journey held in the work. Connects to <em>Techniques of Awareness</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-      <a class="about-pub-card" href="https://medium.com/@oboshi/does-ai-have-taste-a-conversation-between-painter-and-ai-016369ffe156" target="_blank" style="text-decoration:none;transition:background .2s">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay IV — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">Does AI Have Taste?</div>
-        <div class="about-pub-desc">A conversation between painter and AI — on aesthetics, intuition, and whether machines can feel what is beautiful. Connects to <em>Techniques of Dialogue</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-      <a class="about-pub-card" href="https://medium.com/@oboshi/what-washi-tape-knows-on-the-intelligence-of-materials-288af9a2e908" target="_blank" style="text-decoration:none;transition:background .2s">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay V — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">What Washi Tape Knows</div>
-        <div class="about-pub-desc">On the intelligence of materials — what washi tape remembers, holds, and reveals in the act of layered painting. Connects to <em>Techniques of Awareness</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-      <a class="about-pub-card" href="https://medium.com/@oboshi" target="_blank" style="text-decoration:none;transition:background .2s">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay VI — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">What Clear Plastic Sees</div>
-        <div class="about-pub-desc">On transparency, depth, and what becomes visible only when you add another layer on top. Connects to <em>Techniques of Resonance</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-      <a class="about-pub-card" href="https://medium.com/@oboshi" target="_blank" style="text-decoration:none;transition:background .2s" style="grid-column:1/-1">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)">Essay VII — Medium</div>
-        <div class="about-pub-title" style="font-size:1.4rem">When Two Materials Meet</div>
-        <div class="about-pub-desc">On the moment of encounter between unlike surfaces — and what emerges in the charged space between them. Connects to <em>Techniques of Dialogue</em>.</div>
-        <div class="about-pub-link">Read on Medium →</div>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)">
-      <a href="https://medium.com/@oboshi" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:transparent;color:var(--ink);border:1px solid var(--border2);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.8rem;text-decoration:none;transition:all .2s;font-family:'DM Mono',monospace" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--ink)'">Follow the series on Medium →</a>
     </div>
   </div>
 
@@ -2303,6 +2269,36 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <div class="admin-msg" id="essay-msg">✓ 保存しました</div>
   </div>
 
+  <h3>📚 Books 管理</h3>
+  <div id="admin-books-list" style="margin-bottom:1rem"></div>
+  <div id="book-admin-msg" style="display:none;background:#28a745;color:#fff;padding:.5rem .8rem;font-size:.5rem;letter-spacing:.1em;margin-bottom:.8rem">✓ 保存しました</div>
+  <div id="book-edit-form" style="display:none;border:1px solid var(--border);padding:1rem;margin-bottom:1rem">
+    <div style="font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink2);margin-bottom:.8rem" id="book-edit-heading">Book I 編集</div>
+    <label style="font-size:.48rem;letter-spacing:.1em;display:block;margin-bottom:.2rem">タイトル（日本語）</label>
+    <input type="text" id="book-edit-title-ja" style="width:100%;padding:.4rem;font-family:'DM Mono',monospace;font-size:.5rem;border:1px solid var(--border);margin-bottom:.6rem">
+    <label style="font-size:.48rem;letter-spacing:.1em;display:block;margin-bottom:.2rem">表紙画像URL</label>
+    <input type="text" id="book-edit-img" placeholder="images/book-awareness.jpg" style="width:100%;padding:.4rem;font-family:'DM Mono',monospace;font-size:.5rem;border:1px solid var(--border);margin-bottom:.6rem">
+    <label style="font-size:.48rem;letter-spacing:.1em;display:block;margin-bottom:.2rem">説明文</label>
+    <textarea id="book-edit-desc" rows="3" style="width:100%;padding:.4rem;font-family:'DM Mono',monospace;font-size:.5rem;border:1px solid var(--border);margin-bottom:.8rem;resize:vertical"></textarea>
+    <div style="font-size:.48rem;letter-spacing:.1em;color:var(--ink2);margin-bottom:.5rem">PDF / Amazon リンク</div>
+    <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:.3rem .5rem;align-items:center;font-size:.46rem;letter-spacing:.1em;margin-bottom:.8rem">
+      <div></div><div style="color:var(--ink3)">Stripe (PDF)</div><div style="color:var(--ink3)">Amazon</div>
+      <div>EN</div>
+      <input type="text" id="book-edit-pdf-en" placeholder="https://buy.stripe.com/..." style="padding:.3rem;font-family:'DM Mono',monospace;font-size:.44rem;border:1px solid var(--border)">
+      <input type="text" id="book-edit-amazon-en" placeholder="https://amazon.de/..." style="padding:.3rem;font-family:'DM Mono',monospace;font-size:.44rem;border:1px solid var(--border)">
+      <div>JP</div>
+      <input type="text" id="book-edit-pdf-ja" placeholder="https://buy.stripe.com/..." style="padding:.3rem;font-family:'DM Mono',monospace;font-size:.44rem;border:1px solid var(--border)">
+      <input type="text" id="book-edit-amazon-ja" placeholder="https://amazon.de/..." style="padding:.3rem;font-family:'DM Mono',monospace;font-size:.44rem;border:1px solid var(--border)">
+      <div>DE</div>
+      <input type="text" id="book-edit-pdf-de" placeholder="https://buy.stripe.com/..." style="padding:.3rem;font-family:'DM Mono',monospace;font-size:.44rem;border:1px solid var(--border)">
+      <input type="text" id="book-edit-amazon-de" placeholder="https://amazon.de/..." style="padding:.3rem;font-family:'DM Mono',monospace;font-size:.44rem;border:1px solid var(--border)">
+    </div>
+    <div style="display:flex;gap:.5rem">
+      <button class="btn-admin" id="book-edit-save" style="flex:1">保存</button>
+      <button class="btn-admin secondary" id="book-edit-cancel" style="flex:1">キャンセル</button>
+    </div>
+  </div>
+
   <h3>データエクスポート</h3>
   <button class="btn-admin" id="admin-download-html" style="background:#28a745;margin-bottom:0.4rem">⬇️ index.html をダウンロード</button>
   <p style="font-size:0.48rem;color:var(--ink3);margin-bottom:1rem;line-height:1.6">
@@ -2429,7 +2425,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 const volumes = [
   {
     "num": "I",
-    "title": "Awareness",
+    "title": "Techniques of Awareness",
     "titleJa": "気づきの技法",
     "desc": "The first movement. A guide to seeing — how perception shapes the painting before the brush touches the canvas. On stillness, attention, and the invisible decisions that make a work alive.",
     "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
@@ -2437,7 +2433,7 @@ const volumes = [
   },
   {
     "num": "II",
-    "title": "Resonance",
+    "title": "Techniques of Resonance",
     "titleJa": "共鳴の技法",
     "desc": "The second movement. A guide to vibration — how a painting reaches the body before it reaches the mind. On frequency, layering, and the physical reality of emotional transmission in acrylic and collage.",
     "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
@@ -2445,7 +2441,7 @@ const volumes = [
   },
   {
     "num": "III",
-    "title": "Dialogue",
+    "title": "Techniques of Dialogue",
     "titleJa": "対話の技法",
     "desc": "The third movement. A guide to co-creation — what happens when the painter makes with something that cannot yet be named. On AI, intuition, the unknown collaborator, and where painting goes next.",
     "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
@@ -4376,12 +4372,133 @@ function buildPreview(){
   all.addEventListener('click',showGallery);
   wrap.appendChild(all);
 }
+
+// ===== BOOKS DATA =====
+const booksDataDefault = [
+  {
+    vol:'Book I', title:'Techniques of Awareness', titleJa:'気づきの技法',
+    img:'images/book-awareness.jpg',
+    desc:'The quiet noticing of what is already moving inside. Before the brush touches the surface, something is already present. This book is the practice of listening to that.',
+    langs:{
+      en:{pdf:'https://buy.stripe.com/28E4gz9YpdL7bhffUK9ws1Z',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'},
+      ja:{pdf:'https://buy.stripe.com/14A5kD2vX22pgBz0ZQ9ws25',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'},
+      de:{pdf:'https://buy.stripe.com/dRmaEXb2t6iF70Z37Y9ws20',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'}
+    }
+  },
+  {
+    vol:'Book II', title:'Techniques of Resonance', titleJa:'共鳴の技法',
+    img:'images/book-resonance.jpg',
+    desc:'Silent frequencies that emerge between inner awareness and outer reality. The painting is the trace of that crossing. Healing comes from the vibration itself — tension and release held in layers.',
+    langs:{
+      en:{pdf:'https://buy.stripe.com/bJefZh8UlgXjadb7oe9ws21',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'},
+      ja:{pdf:'https://buy.stripe.com/cNi4gz3A1gXjgBzdMC9ws26',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'},
+      de:{pdf:'https://buy.stripe.com/28EcN5b2t6iF1GF37Y9ws22',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'}
+    }
+  },
+  {
+    vol:'Book III', title:'Techniques of Dialogue', titleJa:'対話の技法',
+    img:'images/book-dialogue.jpg',
+    desc:'Creation is never solitary. OBOSHI speaks with materials, with silence, with the viewer — and in this third volume, with AI. A handbook for co-creation with what cannot yet be named.',
+    langs:{
+      en:{pdf:'https://buy.stripe.com/dRm28r3A1ayV853aAq9ws23',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'},
+      ja:{pdf:'https://buy.stripe.com/00w6oHgmNayVadb37Y9ws27',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'},
+      de:{pdf:'https://buy.stripe.com/4gM28r1rTbCZ853cIy9ws24',amazon:'https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T'}
+    }
+  }
+];
+let booksData = JSON.parse(JSON.stringify(booksDataDefault));
+try { const s = localStorage.getItem('oboshi_books'); if(s){ const p=JSON.parse(s); p.forEach((b,i)=>{if(booksData[i]) Object.assign(booksData[i],b);}); } }catch(e){}
+
+let currentBookLang = 'en';
+let currentBookIndex = 0;
+
+function openBookModal(i){
+  currentBookIndex = i;
+  const b = booksData[i];
+  document.getElementById('bm-img').src = b.img || '';
+  document.getElementById('bm-img').alt = b.title;
+  document.getElementById('bm-series').textContent = b.vol;
+  document.getElementById('bm-title').textContent = b.title;
+  document.getElementById('bm-title-ja').textContent = b.titleJa;
+  document.getElementById('bm-desc').textContent = b.desc;
+  currentBookLang = 'en';
+  document.querySelectorAll('.book-lang-tab').forEach(t=>t.classList.toggle('active', t.dataset.lang==='en'));
+  renderBookBuyBtns(i, 'en');
+  document.getElementById('book-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function renderBookBuyBtns(i, lang){
+  const langs = booksData[i].langs || {};
+  const l = langs[lang] || {};
+  const btns = document.getElementById('bm-buy-btns');
+  btns.innerHTML = '';
+  const langLabel = {en:'English',ja:'日本語',de:'Deutsch'}[lang] || lang.toUpperCase();
+  if(l.pdf){
+    const a=document.createElement('a');
+    a.href=l.pdf; a.target='_blank'; a.className='book-buy-btn pdf';
+    a.textContent='Original PDF — '+langLabel+' →';
+    btns.appendChild(a);
+  } else {
+    const d=document.createElement('div');
+    d.style.cssText="font-size:.46rem;letter-spacing:.12em;color:var(--ink3);font-style:italic;font-family:'Cormorant Garamond',serif;padding:.6rem 0";
+    d.textContent='PDF link coming soon.';
+    btns.appendChild(d);
+  }
+  if(l.amazon){ const a=document.createElement('a'); a.href=l.amazon; a.target='_blank'; a.className='book-buy-btn amazon'; a.textContent='Read on Amazon →'; btns.appendChild(a); }
+}
+// イベント委任でモーダル制御（DOM確実に存在後に登録）
+document.addEventListener('DOMContentLoaded', ()=>{
+  // 言語タブ
+  document.getElementById('bm-lang-tabs')?.addEventListener('click', e=>{
+    const tab = e.target.closest('.book-lang-tab');
+    if(!tab) return;
+    currentBookLang = tab.dataset.lang;
+    document.querySelectorAll('.book-lang-tab').forEach(t=>t.classList.toggle('active', t.dataset.lang===currentBookLang));
+    renderBookBuyBtns(currentBookIndex, currentBookLang);
+  });
+  // ×ボタン
+  document.getElementById('book-modal-close')?.addEventListener('click',()=>{
+    document.getElementById('book-modal-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  });
+  // オーバーレイクリックで閉じる
+  document.getElementById('book-modal-overlay')?.addEventListener('click',e=>{
+    if(e.target===e.currentTarget){
+      document.getElementById('book-modal-overlay').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+});
+
+function buildBookCardHtml(b, i){
+  const el = document.createElement('div');
+  el.className = 'g-item book-card';
+  const imgHtml = b.img ? `<img src="${b.img}" alt="${b.title}" loading="lazy" class="book-card-img">` : '<div class="book-card-img" style="background:#f0ece8"></div>';
+  el.innerHTML = `${imgHtml}<div class="g-hover"><div class="g-hover-title">${b.title}</div><div class="g-hover-meta">${b.vol}</div></div>`;
+  el.addEventListener('click',()=>openBookModal(i));
+  return el;
+}
+
 let currentFilter = 'all';
 
 function buildGrid(){
   const grid=document.getElementById('grid');
   grid.innerHTML='';
-  const filtered = currentFilter === 'all' ? works : works.filter(w => (w.category || 'oboshi') === currentFilter);
+  if(currentFilter === 'books'){
+    document.getElementById('work-count').textContent=(currentVolumes.length)+' works';
+    grid.style.display = 'none';
+    document.getElementById('books-universe').style.display = 'block';
+    renderPillars();
+    renderEssays();
+    return;
+  }
+  // 通常の作品グリッドに戻す
+  grid.style.display = '';
+  document.getElementById('books-universe').style.display = 'none';
+  grid.removeAttribute('style');
+  const filtered = currentFilter === 'all'
+    ? works
+    : works.filter(w => (w.category || 'oboshi') === currentFilter);
   document.getElementById('work-count').textContent=filtered.length+' works';
   filtered.forEach((w)=>{
     const i = works.indexOf(w);
@@ -5235,6 +5352,66 @@ document.getElementById('admin-export').addEventListener('click', () => {
   `;
 });
 
+// ===== BOOKS 管理パネル JS =====
+let currentEditBookIndex = -1;
+
+function updateAdminBooksList(){
+  const container = document.getElementById('admin-books-list');
+  if(!container) return;
+  container.innerHTML = '';
+  booksData.forEach((b,i)=>{
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:.5rem .3rem;border-bottom:1px solid var(--border);gap:.5rem';
+    row.innerHTML = `<span style="font-size:.5rem;letter-spacing:.08em;color:var(--ink);flex:1">${b.vol} — ${b.title}</span>
+      <button style="font-size:.44rem;letter-spacing:.1em;padding:.3rem .7rem;background:none;border:1px solid var(--border2);cursor:pointer;font-family:'DM Mono',monospace;color:var(--ink2)" data-book-edit="${i}">編集</button>`;
+    container.appendChild(row);
+  });
+  container.querySelectorAll('[data-book-edit]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const i = parseInt(btn.dataset.bookEdit);
+      currentEditBookIndex = i;
+      const b = booksData[i];
+      document.getElementById('book-edit-heading').textContent = b.vol + ' 編集';
+      document.getElementById('book-edit-title-ja').value = b.titleJa || '';
+      document.getElementById('book-edit-img').value = b.img || '';
+      document.getElementById('book-edit-desc').value = b.desc || '';
+      ['en','ja','de'].forEach(lang=>{
+        const l = (b.langs && b.langs[lang]) || {};
+        document.getElementById(`book-edit-pdf-${lang}`).value = l.pdf || '';
+        document.getElementById(`book-edit-amazon-${lang}`).value = l.amazon || '';
+      });
+      document.getElementById('book-edit-form').style.display = 'block';
+    });
+  });
+}
+
+document.getElementById('book-edit-save')?.addEventListener('click',()=>{
+  const i = currentEditBookIndex;
+  if(i < 0) return;
+  booksData[i].titleJa = document.getElementById('book-edit-title-ja').value;
+  booksData[i].img = document.getElementById('book-edit-img').value;
+  booksData[i].desc = document.getElementById('book-edit-desc').value;
+  if(!booksData[i].langs) booksData[i].langs = {};
+  ['en','ja','de'].forEach(lang=>{
+    if(!booksData[i].langs[lang]) booksData[i].langs[lang] = {};
+    booksData[i].langs[lang].pdf = document.getElementById(`book-edit-pdf-${lang}`).value;
+    booksData[i].langs[lang].amazon = document.getElementById(`book-edit-amazon-${lang}`).value;
+  });
+  localStorage.setItem('oboshi_books', JSON.stringify(booksData));
+  updateAdminBooksList();
+  document.getElementById('book-edit-form').style.display = 'none';
+  const msg = document.getElementById('book-admin-msg');
+  msg.style.display = 'block';
+  setTimeout(()=>{ msg.style.display='none'; }, 2000);
+  if(currentFilter==='books') buildGrid();
+});
+
+document.getElementById('book-edit-cancel')?.addEventListener('click',()=>{
+  document.getElementById('book-edit-form').style.display = 'none';
+});
+
+updateAdminBooksList();
+
 // index.html全体をダウンロード（最新のworks配列を埋め込んで）
 function downloadIndexHtml() {
   // Base64画像データを検出して警告・除去
@@ -5284,6 +5461,19 @@ function downloadIndexHtml() {
       const exhJson = JSON.stringify(exhibitions);
       let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
       updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
+
+      // booksDataも埋め込む
+      const booksDefaultMarker = 'const booksDataDefault = [';
+      const booksDefaultEnd = '\n];';
+      const booksStart = updated.indexOf(booksDefaultMarker);
+      if(booksStart !== -1){
+        const booksEnd = updated.indexOf(booksDefaultEnd, booksStart) + booksDefaultEnd.length;
+        const booksJson = JSON.stringify(booksData, null, 2);
+        updated = updated.slice(0, booksStart)
+          + 'const booksDataDefault = ' + booksJson + ';'
+          + '\n// saved booksData override\nlet booksData = JSON.parse(JSON.stringify(booksDataDefault));'
+          + updated.slice(booksEnd).replace('let booksData = JSON.parse(JSON.stringify(booksDataDefault));', '// booksData already set above');
+      }
 
       const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -5706,32 +5896,43 @@ const romanNumerals = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','
 
 // 柱レンダリング
 function renderPillars() {
-  const container = document.getElementById('trilogy-pillars-container');
-  if (!container) return;
-  container.innerHTML = currentVolumes.map((v, idx) => `
-    <div class="trilogy-pillar">
-      <span class="pillar-vol">Vol. ${v.num || romanNumerals[idx] || (idx+1)}</span>
-      <div class="pillar-title">${v.title}</div>
-      <span class="pillar-title-ja">${v.titleJa}</span>
-      <div class="pillar-desc">${v.desc}</div>
-      ${v.amazon ? `<a class="pillar-link" href="${v.amazon}" target="_blank">Read on Amazon →</a>` : ''}
-      ${v.pdf ? `<a class="pillar-link" href="${v.pdf}" target="_blank" style="margin-top:.4rem;opacity:.7">Support OBOSHI →</a>` : ''}
-    </div>
-  `).join('');
+  const ids = ['trilogy-pillars-container','about-pillars-container','works-books-pillars'];
+  ids.forEach(id => {
+    const container = document.getElementById(id);
+    if (!container) return;
+    container.innerHTML = currentVolumes.map((v, idx) => `
+      <div class="trilogy-pillar" style="cursor:pointer" data-book-idx="${idx}">
+        <span class="pillar-vol">Vol. ${v.num || romanNumerals[idx] || (idx+1)}</span>
+        <div class="pillar-title">${v.title}</div>
+        <span class="pillar-title-ja">${v.titleJa}</span>
+        <div class="pillar-desc">${v.desc}</div>
+        <span class="pillar-link">PDF Edition →</span>
+      </div>
+    `).join('');
+    container.querySelectorAll('.trilogy-pillar').forEach(pillar=>{
+      pillar.addEventListener('click', ()=>{
+        const i = parseInt(pillar.dataset.bookIdx);
+        if(!isNaN(i)) openBookModal(i);
+      });
+    });
+  });
 }
 
 // エッセイレンダリング
 function renderEssays() {
-  const container = document.getElementById('essays-container');
-  if (!container) return;
+  const ids = ['essays-container','about-essays-container','works-books-essays'];
   const labels = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
-  container.innerHTML = currentEssays.map((e, idx) => `
-    <a class="essay-row" href="${e.url}" target="_blank">
-      <span class="essay-num">Essay ${labels[idx] || (idx+1)}</span>
-      <span class="essay-title">${e.title}</span>
-      <span class="essay-link-label">Read on Medium →</span>
-    </a>
-  `).join('');
+  ids.forEach(id => {
+    const container = document.getElementById(id);
+    if (!container) return;
+    container.innerHTML = currentEssays.map((e, idx) => `
+      <a class="essay-row" href="${e.url}" target="_blank">
+        <span class="essay-num">Essay ${labels[idx] || (idx+1)}</span>
+        <span class="essay-title">${e.title}</span>
+        <span class="essay-link-label">Read on Medium →</span>
+      </a>
+    `).join('');
+  });
 }
 
 // 管理パネル: Volumeリスト更新
@@ -6730,5 +6931,27 @@ The work leaves the viewer with a sensation of something received from a distant
     <link itemprop="url" href="https://oboshi.art">
   </article>
 </section>
+
+<!-- ===== BOOK MODAL ===== -->
+<div class="book-modal-overlay" id="book-modal-overlay">
+  <div class="book-modal" style="position:relative">
+    <button class="book-modal-close" id="book-modal-close" aria-label="Close">✕</button>
+    <div class="book-modal-inner">
+      <img class="book-modal-img" id="bm-img" src="" alt="">
+      <div class="book-modal-body">
+        <div class="book-modal-series" id="bm-series"></div>
+        <div class="book-modal-title" id="bm-title"></div>
+        <div class="book-modal-title-ja" id="bm-title-ja"></div>
+        <div class="book-modal-desc" id="bm-desc"></div>
+        <div class="book-lang-tabs" id="bm-lang-tabs">
+          <button class="book-lang-tab active" data-lang="en">EN</button>
+          <button class="book-lang-tab" data-lang="ja">JP</button>
+          <button class="book-lang-tab" data-lang="de">DE</button>
+        </div>
+        <div class="book-buy-btns" id="bm-buy-btns"></div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
