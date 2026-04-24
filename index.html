@@ -713,6 +713,22 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .talk-label{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
 .talk-title{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.06em;line-height:1.1;margin-bottom:.8rem;color:var(--ink)}
 .talk-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink2);margin-bottom:3rem;line-height:1.7}
+.tark-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.tark-left{}
+.tark-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2.4rem);letter-spacing:.06em;line-height:1;color:var(--ink);margin:0;white-space:nowrap}
+.tark-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink2);margin:.8rem 0 1.2rem;line-height:1.6}
+.tark-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--ink3);line-height:1.8;max-width:480px}
+.tark-steps{display:flex;flex-direction:column;gap:0;align-items:flex-end;padding-top:.4rem}
+.tark-steps-label{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;text-align:right}
+.tark-step-row{} /* table rows now */
+.tark-step:last-child{border-bottom:none}
+.tark-step-letter{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--ink);line-height:1;width:2rem;padding-right:.2rem}
+.tark-step-dash{font-family:'DM Mono',monospace;font-size:.44rem;color:var(--border2);text-align:center;width:.8rem;padding:0 .3rem}
+.tark-steps table{border-collapse:collapse;width:auto}
+.tark-steps td{padding:.38rem 0;border-bottom:1px solid var(--border);vertical-align:middle}
+.tark-steps tr:last-child td{border-bottom:none}
+.tark-step-word{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+@media(max-width:600px){.tark-header{grid-template-columns:1fr}.tark-steps{align-items:flex-start}.tark-step-letter{text-align:left}}
 .talk-messages{min-height:320px;max-height:520px;overflow-y:auto;border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem;display:flex;flex-direction:column;gap:1.2rem;background:var(--bg)}
 .talk-msg{display:flex;flex-direction:column;gap:.3rem;max-width:88%}
 .talk-msg.user{align-self:flex-end;align-items:flex-end}
@@ -1083,6 +1099,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .medium-strata:hover .essay-row:nth-child(4){transition-delay:.32s}
 .medium-strata:hover .essay-row:nth-child(5){transition-delay:.4s}
 .essay-num{font-size:.44rem;letter-spacing:.2em;color:var(--ink3)}
+.essay-num.extra{color:var(--accent);letter-spacing:.18em}
 .essay-title{
   font-family:'Cormorant Garamond',serif;
   font-style:italic;font-size:1.05rem;
@@ -1656,9 +1673,25 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   </div>
   <div class="talk-wrap">
     <div class="talk-main">
-      <div class="talk-label">Conversation</div>
-      <h1 class="talk-title">Talk with OBOSHI</h1>
-      <p class="talk-subtitle">Ask anything about the work — its making, its meaning, its frequency.<br>An AI that has learned OBOSHI's language will answer.</p>
+      <div class="tark-header">
+        <div class="tark-left">
+          <div class="talk-label">OBOSHI · AI · Berlin</div>
+          <h1 class="tark-title">TARK WITH OBOSHI<br>SYSTEM</h1>
+          <p class="tark-sub">From the work, to you.</p>
+          <p class="tark-desc">Speak, if you wish.</p>
+        </div>
+        <div class="tark-steps">
+          <div class="tark-steps-label">T · A · R · K</div>
+          <table>
+            <tr><td class="tark-step-letter">T</td><td class="tark-step-dash">—</td><td class="tark-step-word">Talk</td></tr>
+            <tr><td class="tark-step-letter">A</td><td class="tark-step-dash">—</td><td class="tark-step-word">Archive</td></tr>
+            <tr><td class="tark-step-letter">R</td><td class="tark-step-dash">—</td><td class="tark-step-word">Reflect</td></tr>
+            <tr><td class="tark-step-letter">K</td><td class="tark-step-dash">—</td><td class="tark-step-word">Keep</td></tr>
+          </table>
+        </div>
+      </div>
+      </div>
+      </div>
       <div class="talk-messages" id="talk-messages">
         <div class="talk-msg ai">
           <span class="talk-msg-label">OBOSHI</span>
@@ -2490,7 +2523,16 @@ const essays = [
   },
   {
     "title": "The Torn Edge — Why Washi Tape Cannot Be Replaced by a Brushstroke",
-    "url": "https://medium.com/@oboshi"
+    "url": "https://medium.com/@oboshi/what-washi-tape-knows-on-the-intelligence-of-materials-288af9a2e908"
+  },
+  {
+    "title": "What Clear Plastic Sees: On Transparency, Depth, and What Becomes Visible Only When You Add Another Layer",
+    "url": "https://medium.com/@oboshi/what-clear-plastic-sees-on-transparency-depth-and-what-becomes-visible-only-when-you-add-another-c57d716fb0fa"
+  },
+  {
+    "title": "TARK WITH OBOSHI",
+    "url": "https://medium.com/@oboshi/extra-article-tark-with-oboshi-333688e32380",
+    "extra": true
   }
 ];
 
@@ -4367,6 +4409,7 @@ function showTalk(){
   document.getElementById('page-gallery').style.display='none';
   document.getElementById('page-about').style.display='none';
   document.getElementById('page-talk').style.display='block';
+  currentTalkLabel = 'OBOSHI';
   const panel = document.getElementById('talk-work-panel');
   if(panel){ panel.classList.remove('visible'); panel.innerHTML=''; }
   const input = document.getElementById('talk-input');
@@ -4409,7 +4452,10 @@ function showRelatedWorks(responseText){
     card.innerHTML = `<img class="talk-work-img" src="${w.img}" alt="${w.title}" loading="lazy">
       <div class="talk-work-name">${w.title}</div>
       <div class="talk-work-meta">${w.year || ''}${w.size ? ' · '+w.size : ''}</div>`;
-    card.addEventListener('click', () => openWorkTalk(i));
+    card.addEventListener('click', () => {
+      currentTalkLabel = w.title;
+      openWorkTalk(i);
+    });
     panel.appendChild(card);
   });
   panel.classList.add('visible');
@@ -4417,6 +4463,7 @@ function showRelatedWorks(responseText){
 
 function openWorkTalk(i){
   const w = works[i];
+  currentTalkLabel = w.title;
   showTalk();
   const panel = document.getElementById('talk-work-panel');
   if(panel && w.img){
@@ -6016,13 +6063,23 @@ function renderEssays() {
   ids.forEach(id => {
     const container = document.getElementById(id);
     if (!container) return;
-    container.innerHTML = currentEssays.map((e, idx) => `
-      <a class="essay-row" href="${e.url}" target="_blank">
-        <span class="essay-num">Essay ${labels[idx] || (idx+1)}</span>
-        <span class="essay-title">${e.title}</span>
-        <span class="essay-link-label">Read on Medium →</span>
-      </a>
-    `).join('');
+    const regularEssays = currentEssays.filter(e => !e.extra);
+    const extraEssays = currentEssays.filter(e => e.extra);
+    const rows = [
+      ...regularEssays.map((e, idx) => `
+        <a class="essay-row" href="${e.url}" target="_blank">
+          <span class="essay-num">Essay ${labels[idx] || (idx+1)}</span>
+          <span class="essay-title">${e.title}</span>
+          <span class="essay-link-label">Read on Medium →</span>
+        </a>`),
+      ...extraEssays.map((e, idx) => `
+        <a class="essay-row" href="${e.url}" target="_blank">
+          <span class="essay-num extra">Extra${extraEssays.length > 1 ? ' '+(idx+1) : ''}</span>
+          <span class="essay-title" style="color:var(--accent)">${e.title}</span>
+          <span class="essay-link-label">Read on Medium →</span>
+        </a>`)
+    ];
+    container.innerHTML = rows.join('');
   });
 }
 
@@ -6395,11 +6452,13 @@ How to speak:
 
   const messages = [];
 
+  let currentTalkLabel = 'OBOSHI';
+
   function addMessage(role, text) {
     const wrap = document.getElementById('talk-messages');
     const div = document.createElement('div');
     div.className = 'talk-msg ' + (role === 'user' ? 'user' : 'ai');
-    const label = role === 'user' ? 'You' : 'OBOSHI';
+    const label = role === 'user' ? 'You' : currentTalkLabel;
     div.innerHTML = '<span class="talk-msg-label">' + label + '</span><div class="talk-bubble">' + text.replace(/\n/g,'<br>') + '</div>';
     wrap.appendChild(div);
     wrap.scrollTop = wrap.scrollHeight;
