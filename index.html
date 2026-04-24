@@ -696,11 +696,18 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 #page-talk{display:none}
 .talk-wrap{max-width:1100px;margin:0 auto;padding:10rem 3rem 5rem;display:grid;grid-template-columns:1fr minmax(180px,26vw);gap:4rem;align-items:start}
 .talk-main{min-width:0}
-.talk-work-panel{position:sticky;top:6rem;display:none;flex-direction:column;gap:.8rem;border:1px solid var(--border);padding:1.2rem;max-height:calc(100vh - 8rem);overflow:hidden}
+.talk-work-panel{position:sticky;top:6rem;display:none;flex-direction:column;gap:1rem;max-height:calc(100vh - 8rem);overflow-y:auto}
 .talk-work-panel.visible{display:flex}
-.talk-work-img{width:100%;height:auto;max-height:55vh;object-fit:contain;display:block;background:#f0ece8;flex-shrink:0}
-.talk-work-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--ink);line-height:1.2}
-.talk-work-meta{font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.talk-work-card{border:1px solid var(--border);padding:.8rem;cursor:pointer;transition:border-color .2s,transform .2s;opacity:0;transform:translateY(8px);animation:talkCardIn .5s ease forwards}
+.talk-work-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+@keyframes talkCardIn{to{opacity:1;transform:translateY(0)}}
+.talk-work-card:nth-child(1){animation-delay:.05s}
+.talk-work-card:nth-child(2){animation-delay:.15s}
+.talk-work-card:nth-child(3){animation-delay:.25s}
+.talk-work-img{width:100%;height:auto;max-height:38vh;object-fit:contain;display:block;background:#f0ece8}
+.talk-work-name{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.06em;color:var(--ink);line-height:1.2;margin-top:.5rem}
+.talk-work-meta{font-size:.4rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:.2rem}
+.talk-panel-label{font-size:.4rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);padding-bottom:.5rem;border-bottom:1px solid var(--border)}
 @media(max-width:900px){.talk-wrap{grid-template-columns:1fr 180px;gap:2rem}}
 @media(max-width:768px){.talk-wrap{grid-template-columns:1fr}.talk-work-panel{position:static;flex-direction:row;align-items:center;gap:1rem;max-height:none}.talk-work-img{width:80px;height:auto;max-height:80px;flex-shrink:0}}
 .talk-label{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
@@ -1112,7 +1119,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <ul class="nav-links">
     <li><a href="#" id="nav-works">Works</a></li>
     <li><a href="#" id="nav-about">About</a></li>
-    <li><a href="#" id="nav-talk">Talk</a></li>
+    <li><a href="#" id="nav-talk">Talk <span style="width:5px;height:5px;border-radius:50%;background:#4caf50;display:inline-block;vertical-align:middle;margin-left:2px;animation:pulse 1.5s infinite"></span></a></li>
     <li><a href="#" id="nav-contact">Contact</a></li>
   </ul>
   <a href="#" class="nav-cta" id="nav-buy">Buy Original Art</a>
@@ -1665,9 +1672,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
     </div>
     <div class="talk-work-panel" id="talk-work-panel">
-      <img class="talk-work-img" id="talk-work-img" src="" alt="">
-      <div class="talk-work-name" id="talk-work-name"></div>
-      <div class="talk-work-meta" id="talk-work-meta"></div>
     </div>
   </div>
   <div style="padding:2rem 3rem;display:flex;justify-content:flex-end">
@@ -4363,26 +4367,67 @@ function showTalk(){
   document.getElementById('page-gallery').style.display='none';
   document.getElementById('page-about').style.display='none';
   document.getElementById('page-talk').style.display='block';
-  // 作品パネルをリセット（ナビから直接来たとき）
   const panel = document.getElementById('talk-work-panel');
-  if(panel) panel.classList.remove('visible');
+  if(panel){ panel.classList.remove('visible'); panel.innerHTML=''; }
   const input = document.getElementById('talk-input');
   if(input) input.placeholder = 'Ask about the work, the process, the philosophy...';
   window.scrollTo(0,0);
 }
+
+// AIレスポンスのテキストから関連作品を最大3点選ぶ
+function scoredWorks(responseText){
+  const text = responseText.toLowerCase();
+  const worksWithImg = works.filter(w => w.img && w.freq);
+  const scored = worksWithImg.map(w => {
+    let score = 0;
+    const freq = w.freq || {};
+    const letter = (w.aiLetter || '').toLowerCase();
+    const mood = (freq.mood || '').toLowerCase();
+    const emotion = (freq.emotion || '').toLowerCase();
+    const vibration = (freq.vibration || '').toLowerCase();
+    const dominant = (freq.dominant || []).join(' ').toLowerCase();
+    const combined = mood + ' ' + emotion + ' ' + vibration + ' ' + dominant + ' ' + letter;
+    const words = text.replace(/[^a-z\s]/g,'').split(/\s+/).filter(w=>w.length>3);
+    words.forEach(word => { if(combined.includes(word)) score += 1; });
+    if(text.includes(w.title.toLowerCase())) score += 10;
+    score += Math.random() * 1.5;
+    return { w, score, i: works.indexOf(w) };
+  });
+  scored.sort((a,b) => b.score - a.score);
+  return scored.slice(0, 3).filter(s => s.score > 0);
+}
+
+function showRelatedWorks(responseText){
+  const panel = document.getElementById('talk-work-panel');
+  if(!panel) return;
+  const related = scoredWorks(responseText);
+  if(related.length === 0) return;
+  panel.innerHTML = '<div class="talk-panel-label">Related works</div>';
+  related.forEach(({w, i}) => {
+    const card = document.createElement('div');
+    card.className = 'talk-work-card';
+    card.innerHTML = `<img class="talk-work-img" src="${w.img}" alt="${w.title}" loading="lazy">
+      <div class="talk-work-name">${w.title}</div>
+      <div class="talk-work-meta">${w.year || ''}${w.size ? ' · '+w.size : ''}</div>`;
+    card.addEventListener('click', () => openWorkTalk(i));
+    panel.appendChild(card);
+  });
+  panel.classList.add('visible');
+}
+
 function openWorkTalk(i){
   const w = works[i];
   showTalk();
-  // 作品パネルを表示
   const panel = document.getElementById('talk-work-panel');
-  const img = document.getElementById('talk-work-img');
-  const name = document.getElementById('talk-work-name');
-  const meta = document.getElementById('talk-work-meta');
   if(panel && w.img){
-    img.src = w.img;
-    img.alt = w.title;
-    name.textContent = w.title;
-    meta.textContent = (w.year || '') + (w.size ? ' · ' + w.size : '') + (w.medium ? ' · ' + w.medium : '');
+    panel.innerHTML = '<div class="talk-panel-label">Talking about</div>';
+    const card = document.createElement('div');
+    card.className = 'talk-work-card';
+    card.style.cursor = 'default';
+    card.innerHTML = `<img class="talk-work-img" src="${w.img}" alt="${w.title}" loading="lazy">
+      <div class="talk-work-name">${w.title}</div>
+      <div class="talk-work-meta">${w.year || ''}${w.size ? ' · '+w.size : ''}</div>`;
+    panel.appendChild(card);
     panel.classList.add('visible');
   }
   setTimeout(()=>{
@@ -6401,6 +6446,11 @@ How to speak:
       removeTyping();
       addMessage('ai', reply);
       messages.push({role:'assistant', content: reply});
+      // AIの返答に関連する作品を表示（TALKから入った場合のみ：パネルが空のとき）
+      const panel = document.getElementById('talk-work-panel');
+      if(panel && !panel.classList.contains('visible')){
+        showRelatedWorks(reply);
+      }
     } catch(e) {
       removeTyping();
       addMessage('ai', 'Something interrupted the signal. Try again.');
