@@ -516,8 +516,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-hover-inquire:hover{background:rgba(184,74,36,.6);color:#fff}
 .g-hover-inquire{display:inline-block;margin-top:.4rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.25);padding:.15rem .22rem;text-decoration:none;transition:all .2s;cursor:pointer;-webkit-mask-image:linear-gradient(to right,black 45%,transparent 100%);mask-image:linear-gradient(to right,black 45%,transparent 100%)}
 .g-hover-inquire:hover{background:rgba(184,74,36,.55);color:rgba(255,255,255,.95)}
-.g-hover-talk{display:block;margin:.6rem auto .3rem;font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.55);padding:.4rem 1.1rem;cursor:pointer;background:transparent;transition:all .25s;text-align:center;width:fit-content}
-.g-hover-talk:hover{background:rgba(184,74,36,.7);border-color:var(--accent);color:#fff}
+.g-hover-talk{display:block;margin:.6rem auto .3rem;font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.92);border:1px solid rgba(160,210,160,.55);padding:.4rem 1.1rem;cursor:pointer;background:rgba(80,150,80,.22);transition:all .25s;text-align:center;width:fit-content}
+.g-hover-talk:hover{background:rgba(80,150,80,.45);border-color:rgba(160,210,160,.85);color:#fff}
 /* タッチデバイス: g-hover 常時表示 */
 @media(hover:none),(pointer:coarse){
   .g-hover{opacity:1}
@@ -694,7 +694,15 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 
 /* ===== TALK PAGE ===== */
 #page-talk{display:none}
-.talk-wrap{max-width:780px;margin:0 auto;padding:10rem 3rem 5rem}
+.talk-wrap{max-width:1100px;margin:0 auto;padding:10rem 3rem 5rem;display:grid;grid-template-columns:1fr minmax(180px,26vw);gap:4rem;align-items:start}
+.talk-main{min-width:0}
+.talk-work-panel{position:sticky;top:6rem;display:none;flex-direction:column;gap:.8rem;border:1px solid var(--border);padding:1.2rem;max-height:calc(100vh - 8rem);overflow:hidden}
+.talk-work-panel.visible{display:flex}
+.talk-work-img{width:100%;height:auto;max-height:55vh;object-fit:contain;display:block;background:#f0ece8;flex-shrink:0}
+.talk-work-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--ink);line-height:1.2}
+.talk-work-meta{font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+@media(max-width:900px){.talk-wrap{grid-template-columns:1fr 180px;gap:2rem}}
+@media(max-width:768px){.talk-wrap{grid-template-columns:1fr}.talk-work-panel{position:static;flex-direction:row;align-items:center;gap:1rem;max-height:none}.talk-work-img{width:80px;height:auto;max-height:80px;flex-shrink:0}}
 .talk-label{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
 .talk-title{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.06em;line-height:1.1;margin-bottom:.8rem;color:var(--ink)}
 .talk-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink2);margin-bottom:3rem;line-height:1.7}
@@ -1640,20 +1648,27 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <button class="back-btn" id="talk-back-btn" style="margin-left:auto">← Back</button>
   </div>
   <div class="talk-wrap">
-    <div class="talk-label">Conversation</div>
-    <h1 class="talk-title">Talk with OBOSHI</h1>
-    <p class="talk-subtitle">Ask anything about the work — its making, its meaning, its frequency.<br>An AI that has learned OBOSHI's language will answer.</p>
-    <div class="talk-messages" id="talk-messages">
-      <div class="talk-msg ai">
-        <span class="talk-msg-label">OBOSHI</span>
-        <div class="talk-bubble">Something brought you here. Perhaps a colour you couldn't name, or a silence you recognised. Ask what you need to ask — I will try to answer honestly, from inside the work.</div>
+    <div class="talk-main">
+      <div class="talk-label">Conversation</div>
+      <h1 class="talk-title">Talk with OBOSHI</h1>
+      <p class="talk-subtitle">Ask anything about the work — its making, its meaning, its frequency.<br>An AI that has learned OBOSHI's language will answer.</p>
+      <div class="talk-messages" id="talk-messages">
+        <div class="talk-msg ai">
+          <span class="talk-msg-label">OBOSHI</span>
+          <div class="talk-bubble">Something brought you here. Perhaps a colour you couldn't name, or a silence you recognised. Ask what you need to ask — I will try to answer honestly, from inside the work.</div>
+        </div>
       </div>
+      <div class="talk-input-row">
+        <textarea class="talk-input" id="talk-input" placeholder="Ask about the work, the process, the philosophy..." rows="1"></textarea>
+        <button class="talk-send" id="talk-send">Send</button>
+      </div>
+      <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
     </div>
-    <div class="talk-input-row">
-      <textarea class="talk-input" id="talk-input" placeholder="Ask about the work, the process, the philosophy..." rows="1"></textarea>
-      <button class="talk-send" id="talk-send">Send</button>
+    <div class="talk-work-panel" id="talk-work-panel">
+      <img class="talk-work-img" id="talk-work-img" src="" alt="">
+      <div class="talk-work-name" id="talk-work-name"></div>
+      <div class="talk-work-meta" id="talk-work-meta"></div>
     </div>
-    <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
   </div>
   <div style="padding:2rem 3rem;display:flex;justify-content:flex-end">
     <button class="back-btn" onclick="showTop()">← Back</button>
@@ -4348,20 +4363,36 @@ function showTalk(){
   document.getElementById('page-gallery').style.display='none';
   document.getElementById('page-about').style.display='none';
   document.getElementById('page-talk').style.display='block';
+  // 作品パネルをリセット（ナビから直接来たとき）
+  const panel = document.getElementById('talk-work-panel');
+  if(panel) panel.classList.remove('visible');
+  const input = document.getElementById('talk-input');
+  if(input) input.placeholder = 'Ask about the work, the process, the philosophy...';
   window.scrollTo(0,0);
 }
 function openWorkTalk(i){
   const w = works[i];
   showTalk();
+  // 作品パネルを表示
+  const panel = document.getElementById('talk-work-panel');
+  const img = document.getElementById('talk-work-img');
+  const name = document.getElementById('talk-work-name');
+  const meta = document.getElementById('talk-work-meta');
+  if(panel && w.img){
+    img.src = w.img;
+    img.alt = w.title;
+    name.textContent = w.title;
+    meta.textContent = (w.year || '') + (w.size ? ' · ' + w.size : '') + (w.medium ? ' · ' + w.medium : '');
+    panel.classList.add('visible');
+  }
   setTimeout(()=>{
     const input = document.getElementById('talk-input');
     if(input){
-      input.value = w.title + 'について話したい。';
-      input.dispatchEvent(new Event('input'));
-      const sendBtn = document.getElementById('talk-send');
-      if(sendBtn) sendBtn.click();
+      input.value = '';
+      input.placeholder = w.title + ' — ask anything...';
+      input.focus();
     }
-  }, 400);
+  }, 200);
 }
 function buildPreview(){
   const wrap=document.getElementById('works-preview');
@@ -4376,7 +4407,7 @@ function buildPreview(){
     const originalIndex = works.indexOf(w); // 元の配列でのインデックスを取得
     const el=document.createElement('div');
     el.className='wp-item';
-    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="wp-overlay-inquire" target="_blank" onclick="event.stopPropagation()">Inquire →</a></div>`;
+    el.innerHTML=`<img src="${w.img}" alt="${w.title}" loading="lazy"><div class="wp-overlay"><div class="wp-overlay-title">${w.title}</div><div class="wp-overlay-price">${w.price}</div>${w.medium && w.medium.includes('washi') ? '<div style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-top:.3rem">Acrylic · Torn Washi · Berlin</div>' : ''}<button class="g-hover-talk" onclick="event.stopPropagation();openWorkTalk(${originalIndex})">TALK</button><a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="wp-overlay-inquire" target="_blank" onclick="event.stopPropagation()">Inquire →</a></div>`;
     el.addEventListener('click',()=>{showGallery();setTimeout(()=>openModal(originalIndex),80);});
     wrap.appendChild(el);
   });
