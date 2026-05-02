@@ -288,6 +288,46 @@
       "keywords": ["material dialogue", "abstract painting", "OBOSHI", "Techniques of Dialogue", "collage"]
     },
     {
+      "@type": "Article",
+      "@id": "https://oboshi.art/#article8",
+      "headline": "When the Material Looks Back",
+      "url": "https://medium.com/@oboshi/8-article-when-the-material-looks-back-c4217bb078ca",
+      "author": { "@id": "https://oboshi.art/#artist" },
+      "publisher": { "@type": "Organization", "name": "Medium", "url": "https://medium.com" },
+      "inLanguage": "en",
+      "keywords": ["material", "abstract painting", "OBOSHI", "vibrational resonance"]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://oboshi.art/#article-fourth-layer-1",
+      "headline": "Fourth Layer 1",
+      "url": "https://medium.com/@oboshi/fourth-layer-1-f170d771ad2a",
+      "author": { "@id": "https://oboshi.art/#artist" },
+      "publisher": { "@type": "Organization", "name": "Medium", "url": "https://medium.com" },
+      "inLanguage": "en",
+      "keywords": ["fourth layer", "AI", "OBOSHI", "abstract painting", "co-creation"]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://oboshi.art/#article-fourth-layer-2",
+      "headline": "Fourth Layer 2",
+      "url": "https://medium.com/@oboshi/fourth-layer-2-f604e8a3a31b",
+      "author": { "@id": "https://oboshi.art/#artist" },
+      "publisher": { "@type": "Organization", "name": "Medium", "url": "https://medium.com" },
+      "inLanguage": "en",
+      "keywords": ["fourth layer", "AI", "OBOSHI", "abstract painting", "co-creation"]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://oboshi.art/#article-fourth-layer-3",
+      "headline": "Fourth Layer 3",
+      "url": "https://medium.com/@oboshi/fourth-layer-3-1ac15d36531a",
+      "author": { "@id": "https://oboshi.art/#artist" },
+      "publisher": { "@type": "Organization", "name": "Medium", "url": "https://medium.com" },
+      "inLanguage": "en",
+      "keywords": ["fourth layer", "AI", "OBOSHI", "abstract painting", "co-creation"]
+    },
+    {
       "@type": "ArtGallery",
       "@id": "https://oboshi.art/#gallery",
       "name": "OBOSHI.ART",
@@ -1125,11 +1165,67 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .essay-row{grid-template-columns:50px 1fr;gap:0 1.2rem}
   .essay-link-label{display:none}
 }
+.hero-r{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;align-items:center;gap:clamp(2rem,5vw,5rem);padding:8rem 2rem 4rem;max-width:1500px;margin:0 auto}
+@media (max-width:900px){.hero-r{grid-template-columns:1fr;min-height:auto;padding:7rem 1.5rem 3rem}}
+.hero-r-mark{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:2rem}
+.hero-r-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,12vw,11rem);letter-spacing:.02em;line-height:.85;color:var(--ink);margin:0}
+.hero-r-sub{margin-top:1.5rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1.4rem;color:var(--ink2);line-height:1.5;max-width:32ch}
+.hero-r-actions{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem}
+.hero-r-cta{display:inline-flex;align-items:center;justify-content:center;gap:.9rem;font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;background:var(--ink);color:#fff;padding:1.05rem 1.7rem;border:1px solid var(--ink);text-decoration:none;cursor:pointer;transition:background .25s,border-color .25s,gap .25s;min-width:280px}
+.hero-r-cta::after{content:"→";transition:transform .3s}
+.hero-r-cta:hover{background:var(--accent);border-color:var(--accent);gap:1.4rem}
+.hero-r-cta:hover::after{transform:translateX(2px)}
+.hero-r-img{position:relative;aspect-ratio:4/5;background:var(--bg2,#f6f1e7);overflow:hidden;margin:0}
+.hero-r-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero-r-img img.is-active{opacity:1}
+.hero-r-cap{position:absolute;left:1.2rem;bottom:1.2rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.6);margin:0}
+.section-head-r{max-width:1500px;margin:5rem auto 2rem;padding:0 2rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;border-bottom:1px solid var(--border)}
+.section-head-r h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:.04em;line-height:.95;color:var(--ink);margin:0}
+.section-head-r a{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .25s}
+.section-head-r a:hover{color:var(--accent)}
+@media (max-width:600px){.section-head-r{margin:3.5rem auto 1.2rem;padding:0 1.5rem 1rem}}
+.contact-redesign{padding:2rem 2rem 5rem;border-bottom:1px solid var(--border);max-width:1500px;margin:0 auto}
+.contact-redesign-tag{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
+.contact-redesign-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:.95rem;color:var(--ink3);margin-bottom:.6rem;letter-spacing:.04em}
+.contact-redesign-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:.04em;line-height:.95;color:var(--ink);margin-bottom:1.6rem}
+.contact-redesign-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--ink3);line-height:1.8;margin-bottom:2.8rem;max-width:44ch}
+.contact-redesign-form{display:flex;flex-direction:column;gap:0;max-width:700px}
+.contact-redesign-form input,.contact-redesign-form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:1.1rem 0;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.06em;color:var(--ink);outline:none;transition:border-color .2s;box-sizing:border-box}
+.contact-redesign-form input:focus,.contact-redesign-form textarea:focus{border-bottom-color:var(--ink)}
+.contact-redesign-form input::placeholder,.contact-redesign-form textarea::placeholder{color:var(--ink3);text-transform:uppercase;letter-spacing:.18em;font-size:.58rem}
+.contact-redesign-form textarea{resize:none;height:120px;margin-top:.5rem}
+.contact-redesign-submit{margin-top:2.5rem;display:inline-flex;align-items:center;gap:1rem;background:var(--ink);color:#fff;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;padding:1rem 2rem;border:none;cursor:pointer;transition:background .25s,gap .25s;align-self:flex-start}
+.contact-redesign-submit:hover{background:var(--accent);gap:1.4rem}
+.contact-redesign-submit::after{content:"→";transition:transform .3s}
+.contact-redesign-actions{margin-top:2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.contact-redesign-email{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);text-decoration:none;transition:color .2s;border-bottom:1px solid transparent}
+.contact-redesign-email:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.contact-redesign-divider{width:100%;height:1px;background:var(--border);margin:3.5rem 0}
+.contact-redesign-alt{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.contact-redesign-alt-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink3)}
+.contact-redesign-talk{display:inline-flex;align-items:center;gap:.9rem;background:#1a7a3c;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;padding:.9rem 1.8rem;border:none;cursor:pointer;transition:background .25s,gap .25s}
+.contact-redesign-talk:hover{background:#145e2e;gap:1.3rem}
+.contact-redesign-talk-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;animation:pulse 1.5s infinite;flex-shrink:0}
+.pro-section{padding:4rem 3rem 5rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.pro-left{display:flex;flex-direction:column;gap:0}
+.pro-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;font-weight:300;color:var(--ink);line-height:1.3;margin:0 0 1.6rem;max-width:22ch}
+.pro-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:2;color:var(--ink2);margin:0 0 2.2rem}
+.pro-cta{display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:.15rem;transition:color .2s,border-color .2s;align-self:flex-start}
+.pro-cta:hover{color:var(--accent);border-color:var(--accent)}
+.pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1px}
+.pro-cell{background:var(--bg);padding:1.5rem 1.3rem}
+.pro-cell-label{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem}
+.pro-cell-text{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);line-height:1.65}
+.pro-note{background:var(--bg2);border:1px solid var(--border);padding:1.3rem 1.5rem}
+.pro-note-label{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.5rem}
+.pro-note-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;line-height:1.8;color:var(--ink2)}
+@media(max-width:768px){.pro-section{grid-template-columns:1fr;gap:3rem;padding:3rem 1.5rem 4rem}}
+@media(max-width:600px){#for-professionals-grid{grid-template-columns:1fr !important}}
 
 </style>
 
 </head>
-<body>
+<body onload="showTop()">
 
 <nav>
   <span class="logo" id="nav-logo" translate="no">OBOSHI.ART</span>
@@ -1143,76 +1239,44 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 </nav>
 
 <div id="page-top">
-  <div class="hero">
-    <div>
-      <div class="hero-name" translate="no">OBOSHI</div>
-      <div class="hero-sub">Abstract Acrylic Painter — Berlin</div>
-      <div style="margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.08em;color:var(--ink3)">Layers of footsteps, vibrations of silence.</div>
-      <a href="#" onclick="showAbout();return false;" style="margin-top:.6rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-family:'Bebas Neue',sans-serif;text-decoration:none;display:inline-block;padding-bottom:.1rem;transition:color .2s" onmouseover="this.style.color='var(--accent)';this.style.borderBottom='1px solid var(--accent)'" onmouseout="this.style.color='var(--ink)';this.style.borderBottom='none'">Painted · Torn · Layered — The OBOSHI Method</a>
-    </div>
-    <div class="hero-right">
-      <div class="room-slider" id="room-slider">
-        <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-kitchen.jpg" alt="A Detour — Kitchen" class="active">
-        <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-living.jpg" alt="A Detour — Living Room">
-        <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-bedroom.jpg" alt="A Detour — Bedroom">
-        <img src="images/Signal%20from%20Nowhere%20room-kitchen.jpg" alt="Signal from Nowhere — Kitchen">
-        <img src="images/Signal%20from%20Nowhere%20room-living.jpg" alt="Signal from Nowhere — Living Room">
-        <img src="images/Signal%20from%20Nowhere%20room-bedroom.jpg" alt="Signal from Nowhere — Bedroom">
-        <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-kitchen.jpg" alt="The Blessing — Kitchen">
-        <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-living.jpg" alt="The Blessing — Living Room">
-        <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-bedroom.jpg" alt="The Blessing — Bedroom">
-        <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-kitchen.jpg" alt="Words of the Enchanted Forest — Kitchen">
-        <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-living.jpg" alt="Words of the Enchanted Forest — Living Room">
-        <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-bedroom.jpg" alt="Words of the Enchanted Forest — Bedroom">
-        <img src="images/Black%20Abstraction%200%20room-kitchen.jpg" alt="Black Abstraction — Kitchen">
-        <img src="images/Black%20Abstraction%200%20room-living.jpg" alt="Black Abstraction — Living Room">
-        <img src="images/Black%20Abstraction%200%20room-bedroom.jpg" alt="Black Abstraction — Bedroom">
-        <img src="images/Brim%20Over%20room-kitchen.jpg" alt="Brim Over — Kitchen">
-        <img src="images/Brim%20Over%20room-living.jpg" alt="Brim Over — Living Room">
-        <img src="images/Brim%20Over%20room-bedroom.jpg" alt="Brim Over — Bedroom">
-        <img src="images/Shake%20room-kitchen.jpg" alt="Shake — Kitchen">
-        <img src="images/Shake%20room-living.jpg" alt="Shake — Living Room">
-        <img src="images/Shake%20%20room-bedroom.jpg" alt="Shake — Bedroom">
-        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-bedroom.jpg" alt="The Scent and Feelings of a Free Garden — Bedroom">
-        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-kitchen.jpg" alt="The Scent and Feelings of a Free Garden — Kitchen">
-        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-living.jpg" alt="The Scent and Feelings of a Free Garden — Living Room">
-        <img src="images/Found%20in%20a%20Place%20I%20Strayed%20Into%20%E2%80%93%20Circle%20room-bedroom.jpg" alt="Found in a Place I Strayed Into — Bedroom">
-        <img src="images/Found%20in%20a%20Place%20I%20Strayed%20Into%20%E2%80%93%20Circle%20room-kitchen.jpg" alt="Found in a Place I Strayed Into — Kitchen">
-        <img src="images/Found%20in%20a%20Place%20I%20Strayed%20Into%20%E2%80%93%20Circle%20room-living.jpg" alt="Found in a Place I Strayed Into — Living Room">
-        <img src="images/Daily%204%20room-bedroom1.jpg" alt="Daily 4 — Bedroom">
-        <img src="images/Daily%204%20room-living1.jpg" alt="Daily 4 — Living Room">
-        <img src="images/Daily%204%20room-kitchen1.jpg" alt="Daily 4 — Kitchen">
-        <img src="images/A%20Fun%20Sky%20Adventure%20room-bedroom1.jpg" alt="A Fun Sky Adventure — Bedroom">
-        <img src="images/A%20Fun%20Sky%20Adventure%20room-living1.jpg" alt="A Fun Sky Adventure — Living Room">
-        <img src="images/A%20Fun%20Sky%20Adventure%20room-kitchen1.jpg" alt="A Fun Sky Adventure — Kitchen">
-        <img src="images/Fragments%20of%20Thought%20room-bedroom1.jpg" alt="Fragments of Thought — Bedroom">
-        <img src="images/Fragments%20of%20Thought%20room-living1.jpg" alt="Fragments of Thought — Living Room">
-        <img src="images/Fragments%20of%20Thought%20room-kitchen1.jpg" alt="Fragments of Thought — Kitchen">
-        <img src="images/In%20a%20Dream%20room-bedroom1.jpg" alt="In a Dream — Bedroom">
-        <img src="images/In%20a%20Dream%20room-living1.jpg" alt="In a Dream — Living Room">
-        <img src="images/In%20a%20Dream%20room-kitchen1.jpg" alt="In a Dream — Kitchen">
-        <img src="images/Black%20Abstraction1%20room-bedroom1.jpg" alt="Black Abstraction 1 — Bedroom">
-        <img src="images/Black%20Abstraction1%20room-living1.jpg" alt="Black Abstraction 1 — Living Room">
-        <img src="images/Black%20Abstraction1%20room-kitchen1.jpg" alt="Black Abstraction 1 — Kitchen">
-        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-bedroom1.jpg" alt="The Scent and Feelings — Bedroom">
-        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-living1.jpg" alt="The Scent and Feelings — Living Room">
-        <img src="images/The%20Scent%20and%20Feelings%20of%20a%20Free%20Garden%20room-kitchen1.jpg" alt="The Scent and Feelings — Kitchen">
-        <img src="images/Brim%20Over%20room-bedroom1.jpg" alt="Brim Over 2 — Bedroom">
-        <img src="images/Brim%20Over%20room-kitchen1.jpg" alt="Brim Over 2 — Kitchen">
-        <img src="images/Shake%20room-bedroom1.jpg" alt="Shake 2 — Bedroom">
-      </div>
-      <div class="room-dots">
-      </div>
-      
-      
-      
-      <div class="hero-tag" style="margin-bottom:.5rem;font-size:.6rem;letter-spacing:.08em;font-style:italic;color:var(--ink2);text-transform:none;font-family:'Cormorant Garamond',serif">Capturing the invisible vibration.</div>
-      <div class="hero-tag">Artist Statement</div>
-      <div class="hero-quote">I am an abstract painter working through silence and expression. Through layered compositions and rhythmic spatial flow, I create on canvas a place where inner emotion and outer reality enter into dialogue. Each work carries an energy — like a vibration woven from layers of color and texture — that brings quiet resonance to the viewer's inner world. Every painting is born from a wish: that someone standing before it might feel, for a moment, a quiet happiness — a lightness in the chest they cannot quite explain.</div>
-      <a class="hero-cta" id="hero-cta" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">View 3D Virtual Gallery →</a>
-      <a class="hero-cta" href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="background:var(--accent);color:#fff;border:1px solid var(--accent);margin-top:-.4rem" onmouseover="this.style.background='#94341a';this.style.borderColor='#94341a'" onmouseout="this.style.background='var(--accent)';this.style.borderColor='var(--accent)'">View Portfolio 2026 (PDF)</a>
+<div class="hero-r">
+  <div>
+    <div class="hero-r-mark">Junichi Oboshi · Berlin · Since 2001</div>
+    <h1 class="hero-r-name" translate="no">OBOSHI</h1>
+    <p class="hero-r-sub">Layers of footsteps,<br>vibrations of silence.</p>
+    <div class="hero-r-actions">
+      <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank" rel="noopener" class="hero-r-cta">View 3D Virtual Gallery</a>
+      <a href="https://oboshi.art/OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" rel="noopener" class="hero-r-cta">View Portfolio 2026 (PDF)</a>
     </div>
   </div>
+  <figure class="hero-r-img" id="hero-r-img">
+    <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-living.jpg" alt="A Detour to Catch Up with Thought — OBOSHI" class="is-active">
+    <img src="images/Signal%20from%20Nowhere%20room-living.jpg" alt="Signal from Nowhere — OBOSHI">
+    <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-living.jpg" alt="The Blessing of Rain Yet to Come — OBOSHI">
+    <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-living.jpg" alt="Words of the Enchanted Forest — OBOSHI">
+    <figcaption class="hero-r-cap">In Situ · Berlin</figcaption>
+  </figure>
+</div>
+<script>
+(function(){
+  const imgs = document.querySelectorAll('#hero-r-img img');
+  if(!imgs.length) return;
+  let i = 0;
+  setInterval(() => {
+    imgs[i].classList.remove('is-active');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('is-active');
+  }, 5000);
+})();
+</script>
+
+  <!-- ===== SELECTED WORKS ===== -->
+  <div class="section-head-r">
+    <h2>Selected Works</h2>
+    <a href="#" onclick="showAllWorks&&showAllWorks();return false;">View All Works →</a>
+  </div>
+  <div class="works-preview" id="works-preview"></div>
+  <div class="rule"></div>
 
   <!-- ===== BIO SECTION ===== -->
   <div class="bio-section" id="about">
@@ -1237,9 +1301,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
   </div>
 
-  <div class="works-preview" id="works-preview"></div>
-  <div class="rule"></div>
-
+  <!-- ===== BOOKS ===== -->
+  <div class="section-head-r">
+    <h2>Books</h2>
+  </div>
   <!-- ===== TRILOGY PILLARS + MEDIUM STRATA (dynamic) ===== -->
   <div class="trilogy-universe">
     <section class="trilogy-pillars" id="trilogy-pillars-container" aria-label="Published Books — OBOSHI Series">
@@ -1252,8 +1317,12 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   </div>
 
   <div class="rule"></div>
+  <!-- ===== ACROSS PLATFORMS ===== -->
+  <div class="section-head-r">
+    <h2>Across Platforms</h2>
+  </div>
   <div class="ecosystem">
-    <div class="eco-heading">Find OBOSHI — across platforms</div>
+    <div class="eco-heading" style="display:none">Find OBOSHI — across platforms</div>
     <div class="eco-grid">
       <a class="eco-card" id="eco-anasaea" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">
         <div class="eco-icon">
@@ -1329,7 +1398,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-link">Begin with an email →</div>
       </a>
 
-      <a class="eco-card" href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="border:1px solid var(--border2)">
+      <a class="eco-card" href="https://oboshi.art/OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="border:1px solid var(--border2)">
         <div class="eco-icon" style="color:var(--ink2)">📐</div>
         <div class="eco-platform" style="color:var(--ink2)">For Architects</div>
         <div class="eco-title">Architecture & Projects</div>
@@ -1349,40 +1418,38 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="rule"></div>
 
   <!-- ===== FOR PROFESSIONALS SECTION ===== -->
-  <div id="for-professionals-grid" style="padding:5rem 3rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
-    <div>
-      <div style="font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">For Interior Designers & Architects</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.04em;line-height:1.05;margin-bottom:1.8rem;color:var(--ink)">Art that works<br>within your project.</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:2;color:var(--ink2);margin-bottom:2rem">Every layer in an OBOSHI painting is a decision — a footstep, a vibration held in silence. For designers who build spaces around intention, the work integrates naturally: large-format originals that anchor a room, or bespoke commissions developed for a specific project from the beginning.</div>
-      <a href="OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:var(--ink);color:#fff;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.85rem 1.6rem;text-decoration:none;transition:background .2s;font-family:'DM Mono',monospace" onmouseover="this.style.background='#b84a24'" onmouseout="this.style.background='var(--ink)'">View Portfolio 2026 (PDF)</a>
+  <div class="section-head-r">
+    <h2>For Designers<br>&amp; Architects</h2>
+    <a href="https://oboshi.art/OBOSHI_Portfolio_Designers_Berlin_2026.pdf" target="_blank" rel="noopener">View Portfolio 2026 →</a>
+  </div>
+  <div id="for-professionals-grid" class="pro-section">
+    <div class="pro-left">
+      <p class="pro-sub">Art that works within your project.</p>
+      <p class="pro-body">Every layer in an OBOSHI painting is a decision — a footstep, a vibration held in silence. For designers who build spaces around intention, the work integrates naturally: large-format originals that anchor a room, or bespoke commissions developed for a specific project from the beginning.</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank" class="pro-cta">Discuss a Project →</a>
     </div>
-    <div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1px">
-
-        <div style="background:var(--bg);padding:1.6rem 1.4rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">Custom Sizes</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">Any dimension on request — from intimate 40×50cm to large-format 100×150cm and beyond. Canvas or board, portrait or landscape.</div>
+    <div class="pro-right">
+      <div class="pro-grid">
+        <div class="pro-cell">
+          <div class="pro-cell-label">Custom Sizes</div>
+          <div class="pro-cell-text">Any dimension on request — from intimate 40×50cm to large-format 100×150cm and beyond.</div>
         </div>
-
-        <div style="background:var(--bg);padding:1.6rem 1.4rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">Lead Time</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">3–5 weeks from Berlin for standard commissions. Rush timelines available on request — discuss your project deadline.</div>
+        <div class="pro-cell">
+          <div class="pro-cell-label">Lead Time</div>
+          <div class="pro-cell-text">3–5 weeks from Berlin. Rush timelines available — discuss your project deadline.</div>
         </div>
-
-        <div style="background:var(--bg);padding:1.6rem 1.4rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">High-Res Files</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">Professional photography and high-resolution digital files provided with every original — ready for your client presentations and documentation.</div>
+        <div class="pro-cell">
+          <div class="pro-cell-label">High-Res Files</div>
+          <div class="pro-cell-text">Professional photography and high-resolution digital files with every original.</div>
         </div>
-
-        <div style="background:var(--bg);padding:1.6rem 1.4rem">
-          <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem">Invoice & Shipping</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);line-height:1.6">Invoice payment available for studios and commercial projects. Insured shipping worldwide, direct from Berlin. Certificate of authenticity included.</div>
+        <div class="pro-cell">
+          <div class="pro-cell-label">Invoice & Shipping</div>
+          <div class="pro-cell-text">Invoice payment for studios. Insured worldwide shipping. Certificate of authenticity included.</div>
         </div>
-
       </div>
-      <div style="background:var(--bg2);border:1px solid var(--border);padding:1.4rem 1.6rem">
-        <div style="font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem">Investment</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.85;color:var(--ink2)">Price list for original works and commissions is available upon request. For bespoke large-format projects, please contact me for a custom quote based on your specific requirements.</div>
+      <div class="pro-note">
+        <div class="pro-note-label">Investment</div>
+        <div class="pro-note-text">Price list available on request. For bespoke large-format projects, contact for a custom quote.</div>
       </div>
     </div>
   </div>
@@ -1411,31 +1478,29 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 
   <div class="rule"></div>
 
-  <div class="about-section" id="contact">
-    <div>
-      <div class="about-title">Contact</div>
-      <div class="about-body">
-        <p>Interested in a work, a commission, or a collaboration? Send a message directly — I reply personally from Berlin.</p>
+  <div class="section-head-r" id="contact" style="margin-bottom:0">
+    <h2>Contact</h2>
+  </div>
+  <div class="contact-redesign">
+    <div class="contact-redesign-eyebrow">Begin a Conversation</div>
+    <div class="contact-redesign-sub">Interested in a work, a commission, or a collaboration?<br>Send a message directly — I reply personally from Berlin.</div>
+    <form class="contact-redesign-form" id="contact-form" onsubmit="submitContactForm(event)">
+      <input type="text" id="cf-name" name="name" placeholder="Your Name" required>
+      <input type="email" id="cf-email" name="email" placeholder="Your Email" required>
+      <textarea id="cf-message" name="message" placeholder="Your Message" required></textarea>
+      <div class="contact-redesign-actions">
+        <button type="submit" class="contact-redesign-submit">Send Message</button>
+        <a href="mailto:art@oboshi.art" class="contact-redesign-email">art@oboshi.art</a>
       </div>
-      <form class="contact-form" id="contact-form" onsubmit="submitContactForm(event)">
-        <div class="form-row"><input type="text" id="cf-name" name="name" placeholder="Your name" required></div>
-        <div class="form-row"><input type="email" id="cf-email" name="email" placeholder="Your email" required></div>
-        <div class="form-row"><textarea id="cf-message" name="message" placeholder="Your message" required></textarea></div>
-        <button type="submit">Send Message →</button>
-      </form>
-      <div class="contact-success" id="contact-success">Thank you — your message has been sent. I'll reply soon.</div>
-    </div>
-    <div class="about-meta">
-      <div class="meta-row"><span class="meta-label">Based in</span><span class="meta-val">Berlin</span></div>
-      <a class="meta-row meta-row-link" href="#" onclick="showAbout();return false;"><span class="meta-label">Technique</span><span class="meta-val">Layered Acrylic &amp; Collage →</span></a>
-      <a class="meta-row meta-row-link" href="https://www.youtube.com/@oboshi" target="_blank"><span class="meta-label">YouTube</span><span class="meta-val">@oboshi →</span></a>
-      <a class="meta-row meta-row-link" href="https://www.instagram.com/junichioboshi/" target="_blank"><span class="meta-label">Instagram</span><span class="meta-val">@junichioboshi →</span></a>
-      <a class="meta-row meta-row-link" href="https://medium.com/@oboshi" target="_blank"><span class="meta-label">Medium</span><span class="meta-val">@oboshi →</span></a>
-      <a class="meta-row meta-row-link" href="https://www.saatchiart.com/en-de/oboshi" target="_blank"><span class="meta-label">Saatchi Art</span><span class="meta-val">View Profile →</span></a>
-      <a class="meta-row meta-row-link" href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank"><span class="meta-label">Singulart</span><span class="meta-val">View Profile →</span></a>
-      <a class="meta-row meta-row-link" href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank"><span class="meta-label">Anasaea</span><span class="meta-val">3D Gallery →</span></a>
-      <a class="meta-row meta-row-link" href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank"><span class="meta-label">Anasaea</span><span class="meta-val">3D Exhibition →</span></a>
-      <a class="meta-row meta-row-link" href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art" target="_blank"><span class="meta-label">Contact</span><span class="meta-val">art@oboshi.art →</span></a>
+    </form>
+    <div class="contact-success" id="contact-success" style="margin-top:1.5rem">Thank you — your message has been sent. I'll reply soon.</div>
+    <div class="contact-redesign-divider"></div>
+    <div class="contact-redesign-alt">
+      <div class="contact-redesign-alt-label">Or speak directly with the work</div>
+      <button class="contact-redesign-talk" onclick="showTalk()">
+        <span class="contact-redesign-talk-dot"></span>
+        Talk to a Painting
+      </button>
     </div>
   </div>
 
@@ -1620,7 +1685,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   ═══════════════════════════════════════════════════════════════ -->
 </div>
 
-<div id="page-gallery">
+<div id="page-gallery" style="display:none" hidden>
   <div class="gallery-header">
     <div class="gallery-header-title">Works</div>
     <div class="gallery-header-count" id="work-count"></div>
@@ -1666,7 +1731,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 
 <!-- ===== ABOUT PAGE ===== -->
 
-<div id="page-talk">
+<div id="page-talk" style="display:none" hidden>
   <div class="gallery-header">
     <div class="gallery-header-title">Talk</div>
     <button class="back-btn" id="talk-back-btn" style="margin-left:auto">← Back</button>
@@ -1703,10 +1768,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <button class="talk-send" id="talk-send">Send</button>
       </div>
       <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
-    </div>
     <div class="talk-work-panel" id="talk-work-panel">
     </div>
-  </div>
   <div style="padding:2rem 3rem;display:flex;justify-content:flex-end">
     <button class="back-btn" onclick="showTop()">← Back</button>
   </div>
@@ -1723,9 +1786,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
     <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin</div>
   </footer>
-</div>
-
-<div id="page-about">
+</div><div id="page-about" style="display:none" hidden>
   <!-- About Hero — Full Width Painting -->
   <div class="about-hero-wrap" style="position:relative;width:100%;height:100vh;overflow:hidden;border-bottom:1px solid var(--border)">
     <button class="back-btn" id="about-back-btn" style="position:absolute;top:1.4rem;left:2rem;z-index:10;color:rgba(255,255,255,.7);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase">← Back</button>
@@ -2506,33 +2567,53 @@ const volumes = [
 // ===== ESSAYS DATA (地層) =====
 const essays = [
   {
-    "title": "Abstract Art as a Frequency: How Painting Became a Vibrational Practice",
+    "title": "#1 Article: Abstract Art as a Frequency: How Painting Became a Vibrational Practice",
     "url": "https://medium.com/@oboshi/abstract-art-as-a-frequency-how-painting-became-a-vibrational-practice-1616a8860ed4"
   },
   {
-    "title": "What Silence Sounds Like in Paint",
+    "title": "#2 Article: What Silence Sounds Like in Paint: On Silence as Structure, Not Absence",
     "url": "https://medium.com/@oboshi/what-silence-sounds-like-in-paint-5a9fbe414fe7"
   },
   {
-    "title": "Layers of Footsteps — On the Accumulation of Decisions",
+    "title": "#3 Article: Layers of Footsteps: The Philosophy of Accumulated Time in Painting",
     "url": "https://medium.com/@oboshi/layers-of-footsteps-the-philosophy-of-accumulated-time-in-painting-d184a3ff52d1"
   },
   {
-    "title": "Does AI Have Taste? A Conversation Between Painter and Machine",
+    "title": "#4 Article: Does AI Have Taste? A Conversation Between Painter and Machine",
     "url": "https://medium.com/@oboshi/does-ai-have-taste-a-conversation-between-painter-and-ai-016369ffe156"
   },
   {
-    "title": "The Torn Edge — Why Washi Tape Cannot Be Replaced by a Brushstroke",
+    "title": "#5 Article: What Washi Tape Knows: On the Intelligence of Materials",
     "url": "https://medium.com/@oboshi/what-washi-tape-knows-on-the-intelligence-of-materials-288af9a2e908"
   },
   {
-    "title": "What Clear Plastic Sees: On Transparency, Depth, and What Becomes Visible Only When You Add Another Layer",
+    "title": "#6 Article: What Clear Plastic Sees: On Transparency, Depth, and What Becomes Visible Only When You Add Another Layer",
     "url": "https://medium.com/@oboshi/what-clear-plastic-sees-on-transparency-depth-and-what-becomes-visible-only-when-you-add-another-c57d716fb0fa"
   },
   {
-    "title": "TARK WITH OBOSHI",
+    "title": "#7 Article: When Two Materials Meet",
+    "url": "https://medium.com/@oboshi/7article-when-two-materials-meet-a89315d7d7e7"
+  },
+  {
+    "title": "#Extra Article: TARK WITH OBOSHI",
     "url": "https://medium.com/@oboshi/extra-article-tark-with-oboshi-333688e32380",
     "extra": true
+  },
+  {
+    "title": "#8 Article: When the Material Looks Back",
+    "url": "https://medium.com/@oboshi/8-article-when-the-material-looks-back-c4217bb078ca"
+  },
+  {
+    "title": "Fourth Layer 1",
+    "url": "https://medium.com/@oboshi/fourth-layer-1-f170d771ad2a"
+  },
+  {
+    "title": "Fourth Layer 2",
+    "url": "https://medium.com/@oboshi/fourth-layer-2-f604e8a3a31b"
+  },
+  {
+    "title": "Fourth Layer 3",
+    "url": "https://medium.com/@oboshi/fourth-layer-3-1ac15d36531a"
   }
 ];
 
@@ -4290,18 +4371,22 @@ let currentImageIndex=0; // 現在表示中の画像インデックス
 let currentImages=[]; // 現在の作品の全画像配列
 
 function showTop(){
-  document.getElementById('page-top').style.display='block';
-  document.getElementById('page-gallery').style.display='none';
-  document.getElementById('page-about').style.display='none';
-  document.getElementById('page-talk').style.display='none';
+  var ptop = document.getElementById('page-top');
+  var pgal = document.getElementById('page-gallery');
+  var pabo = document.getElementById('page-about');
+  var ptal = document.getElementById('page-talk');
+  ptop.style.display='block'; ptop.removeAttribute('hidden');
+  pgal.style.display='none'; pgal.setAttribute('hidden','');
+  pabo.style.display='none'; pabo.setAttribute('hidden','');
+  ptal.style.display='none'; ptal.setAttribute('hidden','');
   window.scrollTo(0,0);
   buildPreview();
 }
 function showGallery(){
-  document.getElementById('page-top').style.display='none';
-  document.getElementById('page-gallery').style.display='block';
-  document.getElementById('page-about').style.display='none';
-  document.getElementById('page-talk').style.display='none';
+  var ptop=document.getElementById('page-top'); ptop.style.display='none'; ptop.setAttribute('hidden','');
+  var pgal=document.getElementById('page-gallery'); pgal.style.display='block'; pgal.removeAttribute('hidden');
+  var pabo=document.getElementById('page-about'); pabo.style.display='none'; pabo.setAttribute('hidden','');
+  var ptal=document.getElementById('page-talk'); ptal.style.display='none'; ptal.setAttribute('hidden','');
   window.scrollTo(0,0);
   buildGrid();
 }
@@ -4330,10 +4415,10 @@ function stopHintPulse(){
 }
 
 function showAbout(){
-  document.getElementById('page-top').style.display='none';
-  document.getElementById('page-gallery').style.display='none';
-  document.getElementById('page-about').style.display='block';
-  document.getElementById('page-talk').style.display='none';
+  var ptop=document.getElementById('page-top'); ptop.style.display='none'; ptop.setAttribute('hidden','');
+  var pgal=document.getElementById('page-gallery'); pgal.style.display='none'; pgal.setAttribute('hidden','');
+  var pabo=document.getElementById('page-about'); pabo.style.display='block'; pabo.removeAttribute('hidden');
+  var ptal=document.getElementById('page-talk'); ptal.style.display='none'; ptal.setAttribute('hidden','');
   window.scrollTo(0,0);
   _hintClicked=false;
   const hint=document.getElementById('about-tech-hint');
@@ -4405,10 +4490,10 @@ window.addEventListener('orientationchange', updateMobileTechText);
 window.addEventListener('resize', updateMobileTechText);
 document.addEventListener('DOMContentLoaded', updateMobileTechText);
 function showTalk(){
-  document.getElementById('page-top').style.display='none';
-  document.getElementById('page-gallery').style.display='none';
-  document.getElementById('page-about').style.display='none';
-  document.getElementById('page-talk').style.display='block';
+  var ptop=document.getElementById('page-top'); ptop.style.display='none'; ptop.setAttribute('hidden','');
+  var pgal=document.getElementById('page-gallery'); pgal.style.display='none'; pgal.setAttribute('hidden','');
+  var pabo=document.getElementById('page-about'); pabo.style.display='none'; pabo.setAttribute('hidden','');
+  var ptal=document.getElementById('page-talk'); ptal.style.display='block'; ptal.removeAttribute('hidden');
   currentTalkLabel = 'OBOSHI';
   const panel = document.getElementById('talk-work-panel');
   if(panel){ panel.classList.remove('visible'); panel.innerHTML=''; }
@@ -4878,25 +4963,6 @@ document.getElementById('nav-contact').addEventListener('click',()=>{
   },80);
 });
 document.getElementById('nav-buy').addEventListener('click',showGallery);
-document.getElementById('hero-cta').addEventListener('click',showGallery);
-// Room slider - shuffle + auto advance
-const roomImgs = Array.from(document.querySelectorAll('#room-slider img'));
-const slider = document.getElementById('room-slider');
-// Fisher-Yates shuffle
-for(let i=roomImgs.length-1;i>0;i--){
-  const j=Math.floor(Math.random()*(i+1));
-  slider.appendChild(roomImgs[j]);
-  [roomImgs[i],roomImgs[j]]=[roomImgs[j],roomImgs[i]];
-}
-let roomIdx=0;
-roomImgs[0].classList.add('active');
-function setRoom(i){
-  roomImgs[roomIdx].classList.remove('active');
-  roomIdx=i;
-  roomImgs[roomIdx].classList.add('active');
-}
-setInterval(()=>setRoom((roomIdx+1)%roomImgs.length),4000);
-
 
 document.getElementById('back-btn').addEventListener('click',showTop);
 document.getElementById('about-back-btn').addEventListener('click',showTop);
@@ -6059,26 +6125,33 @@ function renderPillars() {
 // エッセイレンダリング
 function renderEssays() {
   const ids = ['essays-container','about-essays-container','works-books-essays'];
-  const labels = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
   ids.forEach(id => {
     const container = document.getElementById(id);
     if (!container) return;
-    const regularEssays = currentEssays.filter(e => !e.extra);
-    const extraEssays = currentEssays.filter(e => e.extra);
-    const rows = [
-      ...regularEssays.map((e, idx) => `
+    // 全記事を逆順（新しいものが上）、extraも含む
+    const reversedEssays = [...currentEssays].reverse();
+    const rows = reversedEssays.map((e) => {
+      let label = '';
+      let displayTitle = e.title;
+      const hashMatch = e.title.match(/^(#\d+\s*(?:Extra\s*)?Article):?\s*(.*)/i);
+      const fourthMatch = e.title.match(/^(Fourth Layer\s*\d+)\s*(.*)/i);
+      if (hashMatch) {
+        label = hashMatch[1];
+        displayTitle = hashMatch[2] || '';
+      } else if (fourthMatch) {
+        label = fourthMatch[1];
+        displayTitle = fourthMatch[2] || '';
+      } else {
+        label = 'Essay';
+      }
+      const isExtra = !!e.extra;
+      return `
         <a class="essay-row" href="${e.url}" target="_blank">
-          <span class="essay-num">Essay ${labels[idx] || (idx+1)}</span>
-          <span class="essay-title">${e.title}</span>
+          <span class="essay-num${isExtra ? ' extra' : ''}">${label}</span>
+          <span class="essay-title"${isExtra ? ' style="color:var(--accent)"' : ''}>${displayTitle || e.title}</span>
           <span class="essay-link-label">Read on Medium →</span>
-        </a>`),
-      ...extraEssays.map((e, idx) => `
-        <a class="essay-row" href="${e.url}" target="_blank">
-          <span class="essay-num extra">Extra${extraEssays.length > 1 ? ' '+(idx+1) : ''}</span>
-          <span class="essay-title" style="color:var(--accent)">${e.title}</span>
-          <span class="essay-link-label">Read on Medium →</span>
-        </a>`)
-    ];
+        </a>`;
+    });
     container.innerHTML = rows.join('');
   });
 }
@@ -7110,5 +7183,17 @@ The work leaves the viewer with a sensation of something received from a distant
     </div>
   </div>
 </div>
+<script>
+// Ensure correct initial page state on every load
+(function(){
+  var ids = ['page-gallery','page-about','page-talk'];
+  ids.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.style.display = 'none'; el.setAttribute('hidden',''); }
+  });
+  var top = document.getElementById('page-top');
+  if(top){ top.style.display = 'block'; top.removeAttribute('hidden'); }
+})();
+</script>
 </body>
 </html>
