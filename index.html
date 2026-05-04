@@ -1250,22 +1250,80 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
   </div>
   <figure class="hero-r-img" id="hero-r-img">
-    <img src="images/A%20Detour%20to%20Catch%20Up%20with%20Thought%20room-living.jpg" alt="A Detour to Catch Up with Thought — OBOSHI" class="is-active">
-    <img src="images/Signal%20from%20Nowhere%20room-living.jpg" alt="Signal from Nowhere — OBOSHI">
-    <img src="images/The%20Blessing%20of%20Rain%20Yet%20to%20Come%20room-living.jpg" alt="The Blessing of Rain Yet to Come — OBOSHI">
-    <img src="images/Words%20of%20the%20Enchanted%20Forest%20room-living.jpg" alt="Words of the Enchanted Forest — OBOSHI">
+    <img src="" alt="OBOSHI — In Situ · Berlin" class="is-active">
+    <img src="" alt="OBOSHI — In Situ · Berlin">
     <figcaption class="hero-r-cap">In Situ · Berlin</figcaption>
   </figure>
 </div>
 <script>
 (function(){
+  const heroPool = [
+    "images/A Detour to Catch Up with Thought room-living.jpg",
+    "images/A Detour to Catch Up with Thought room-bedroom.jpg",
+    "images/A Detour to Catch Up with Thought room-kitchen.jpg",
+    "images/Signal from Nowhere room-living.jpg",
+    "images/Signal from Nowhere room-bedroom.jpg",
+    "images/Signal from Nowhere room-kitchen.jpg",
+    "images/The Blessing of Rain Yet to Come room-living.jpg",
+    "images/The Blessing of Rain Yet to Come room-bedroom.jpg",
+    "images/The Blessing of Rain Yet to Come room-kitchen.jpg",
+    "images/Words of the Enchanted Forest room-living.jpg",
+    "images/Words of the Enchanted Forest room-bedroom.jpg",
+    "images/Words of the Enchanted Forest room-kitchen.jpg",
+    "images/Brim Over room-living.jpg",
+    "images/Brim Over room-bedroom.jpg",
+    "images/Brim Over room-bedroom1.jpg",
+    "images/Brim Over room-kitchen.jpg",
+    "images/Brim Over room-kitchen1.jpg",
+    "images/Shake room-living.jpg",
+    "images/Shake room-bedroom.jpg",
+    "images/Shake room-bedroom1.jpg",
+    "images/Shake room-kitchen.jpg",
+    "images/Black Abstraction 0 room-living.jpg",
+    "images/Black Abstraction 0 room-bedroom.jpg",
+    "images/Black Abstraction 0 room-kitchen.jpg",
+    "images/Black Abstraction1 room-living1.jpg",
+    "images/Black Abstraction1 room-bedroom1.jpg",
+    "images/Black Abstraction1 room-kitchen1.jpg",
+    "images/Found in a Place I Strayed Into – Circle room-living.jpg",
+    "images/Found in a Place I Strayed Into – Circle room-bedroom.jpg",
+    "images/Found in a Place I Strayed Into – Circle room-kitchen.jpg",
+    "images/A Fun Sky Adventure room-living1.jpg",
+    "images/A Fun Sky Adventure room-bedroom1.jpg",
+    "images/A Fun Sky Adventure room-kitchen1.jpg",
+    "images/Daily 4 room-living1.jpg",
+    "images/Daily 4 room-bedroom1.jpg",
+    "images/Daily 4 room-kitchen1.jpg",
+    "images/Fragments of Thought room-living1.jpg",
+    "images/Fragments of Thought room-bedroom1.jpg",
+    "images/Fragments of Thought room-kitchen1.jpg",
+    "images/In a Dream room-living1.jpg",
+    "images/In a Dream room-bedroom1.jpg",
+    "images/In a Dream room-kitchen1.jpg",
+    "images/The Scent and Feelings of a Free Garden room-living.jpg",
+    "images/The Scent and Feelings of a Free Garden room-bedroom1.jpg",
+    "images/The Scent and Feelings of a Free Garden room-kitchen1.jpg"
+  ];
+  // shuffle
+  for(let k = heroPool.length - 1; k > 0; k--){
+    const j = Math.floor(Math.random() * (k + 1));
+    [heroPool[k], heroPool[j]] = [heroPool[j], heroPool[k]];
+  }
   const imgs = document.querySelectorAll('#hero-r-img img');
   if(!imgs.length) return;
-  let i = 0;
+  let idx = 0;
+  // 初期表示
+  imgs[0].src = heroPool[idx];
+  imgs[1].src = heroPool[(idx + 1) % heroPool.length];
   setInterval(() => {
-    imgs[i].classList.remove('is-active');
-    i = (i + 1) % imgs.length;
-    imgs[i].classList.add('is-active');
+    imgs[idx % 2].classList.remove('is-active');
+    idx++;
+    const next = idx % 2;
+    imgs[next].src = heroPool[idx % heroPool.length];
+    // preload next+1
+    const pre = new Image();
+    pre.src = heroPool[(idx + 1) % heroPool.length];
+    imgs[next].classList.add('is-active');
   }, 5000);
 })();
 </script>
