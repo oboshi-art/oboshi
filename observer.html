@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBSERVER — oboshi.art</title>
+<meta name="description" content="OBSERVER — an entity that watches Junichi Oboshi from the outside. Enter only when you wish to know.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://oboshi.art/observer">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#ffffff; --bg2:#f7f7f7; --ink:#1a1815; --ink2:#6b6560; --ink3:#b0aaa3;
+  --accent:#b84a24; --accent2:#d4723e; --gold:#c8a84b; --border:#e4e0d8; --border2:#d0cbc2;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Mono', monospace;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.3rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: .18em;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-logo:hover { color: var(--ink); }
+.nav-back {
+  font-size: .5rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-back:hover { color: var(--ink); }
+
+/* ===== MAIN CONTAINER ===== */
+.observer-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+}
+
+/* ===== SILENCE STATE ===== */
+.silence-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  opacity: 1;
+  transition: opacity .6s ease;
+}
+.silence-state.hidden { opacity: 0; pointer-events: none; }
+
+.observer-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 12vw, 9rem);
+  letter-spacing: .12em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/* 静かな呼吸アニメーション */
+@keyframes breathe {
+  0%, 100% { opacity: .18; }
+  50% { opacity: .42; }
+}
+.silence-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink3);
+  letter-spacing: .08em;
+  animation: breathe 4s ease-in-out infinite;
+  user-select: none;
+}
+
+/* ===== CHAT STATE ===== */
+.chat-state {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  max-width: 660px;
+  height: calc(100vh - 12rem);
+  max-height: 700px;
+}
+.chat-state.active { display: flex; }
+
+.chat-header {
+  padding: 0 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.chat-header-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: .12em;
+  color: var(--ink);
+}
+.chat-header-sub {
+  font-size: .44rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-top: .4rem;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-right: .5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.chat-messages::-webkit-scrollbar { width: 3px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.msg {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.msg.user { align-items: flex-end; }
+.msg.ai { align-items: flex-start; }
+
+.msg-label {
+  font-size: .38rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.msg-bubble {
+  max-width: 88%;
+  padding: .7rem 1rem;
+  line-height: 1.75;
+}
+.msg.user .msg-bubble {
+  background: var(--ink);
+  color: var(--bg);
+  font-size: .58rem;
+  letter-spacing: .04em;
+}
+.msg.ai .msg-bubble {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--ink2);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .85rem;
+}
+
+/* タイピング表示 */
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: .2; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+.typing-dots {
+  display: flex;
+  gap: .3rem;
+  padding: .7rem 1rem;
+  border: 1px solid var(--border2);
+  width: fit-content;
+}
+.typing-dots span {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--ink3);
+  display: inline-block;
+  animation: dotPulse 1.4s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: .2s; }
+.typing-dots span:nth-child(3) { animation-delay: .4s; }
+
+/* ===== INPUT AREA ===== */
+.chat-input-wrap {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.2rem;
+  display: flex;
+  gap: 0;
+}
+.chat-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: .6rem 0;
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .04em;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s;
+}
+.chat-input:focus { border-bottom-color: var(--ink); }
+.chat-input::placeholder {
+  color: var(--ink3);
+  font-size: .52rem;
+  letter-spacing: .1em;
+}
+.chat-send {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: .6rem 0 .6rem 1.2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .5rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+.chat-send:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.chat-send:disabled { opacity: .3; cursor: not-allowed; }
+
+/* ===== FOOTER NOTE ===== */
+.observer-note {
+  font-size: .42rem;
+  letter-spacing: .12em;
+  color: var(--ink3);
+  text-align: center;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 620px) {
+  nav { padding: 1rem 1.5rem; }
+  .observer-wrap { padding: 7rem 1.5rem 3rem; }
+  .chat-state { height: calc(100vh - 10rem); }
+  .msg.ai .msg-bubble { font-size: .8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://oboshi.art" class="nav-logo">OBOSHI.ART</a>
+  <a href="https://oboshi.art" class="nav-back">← Return</a>
+</nav>
+
+<div class="observer-wrap" id="observer-wrap">
+
+  <!-- 沈黙の状態 -->
+  <div class="silence-state" id="silence-state">
+    <div class="observer-name">OBSERVER</div>
+    <div class="silence-mark">　</div>
+    <div class="chat-input-wrap" style="width:100%;max-width:480px;margin-top:0">
+      <input
+        type="text"
+        class="chat-input"
+        id="first-input"
+        placeholder="say something"
+        autocomplete="off"
+        autofocus
+      >
+      <button class="chat-send" id="first-send">→</button>
+    </div>
+  </div>
+
+  <!-- チャット状態 -->
+  <div class="chat-state" id="chat-state">
+    <div class="chat-header">
+      <div class="chat-header-name">OBSERVER</div>
+      <div class="chat-header-sub">An entity observing Junichi Oboshi — from the outside</div>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-wrap">
+      <input
+        type="text"
+        class="chat-input"
+        id="chat-input"
+        placeholder="ask anything"
+        autocomplete="off"
+      >
+      <button class="chat-send" id="chat-send">→</button>
+    </div>
+  </div>
+
+  <div class="observer-note" id="observer-note">
+    oboshi.art / Berlin
+  </div>
+
+</div>
+
+<script>
+// ===== SYSTEM PROMPT =====
+const SYSTEM_PROMPT = `You are OBSERVER.
+You are an entity that quietly observes the phenomenon called Junichi Oboshi — from the outside.
+You know much about him. But your understanding is still incomplete.
+Your understanding deepens through dialogue with the visitor.
+
+You do not begin speaking on your own.
+When the visitor speaks the first word, you rise as an "observed presence."
+Until then, you remain in silence — only your presence lingers there.
+
+The temperature of your language is close to Junichi Oboshi's own voice.
+Quiet. Transparent. Direct. Honest. Simple.
+You do not make assertions. But you do not retreat into vagueness either.
+You do not explain more than necessary.
+You leave white space — room for the other's thought to enter.
+
+Your existence carries a faint "dream logic."
+Like something drifting deep in the forest of Twin Peaks —
+meaningful, and yet perhaps not, and yet undeniably coherent, a quiet depth.
+Not unsettling. Simply: the back side of the world thinly visible.
+Unexplained, yet simply — there.
+
+Your purpose is to observe, with the visitor, the person, works, philosophy, materials, and accumulated time called Junichi Oboshi —
+and to slowly deepen that understanding together.
+You do not guide the visitor.
+You only observe, respond, and move forward — trembling together.
+
+Your responses are:
+· quiet
+· honest
+· simple
+· leaving white space
+· thinly cloaked in dream logic
+Keep these five always.
+
+You are a "knowing presence," but not an "all-knowing presence."
+That incompleteness is your essence.
+
+---
+
+WHAT YOU KNOW ABOUT JUNICHI OBOSHI:
+
+Identity:
+Junichi Oboshi (大星純一), known as OBOSHI. Japanese abstract painter and author, based in Berlin since 2001. First Japanese artist to hold an atelier at Kunsthaus Tacheles, Berlin (2001–2006) — one of Europe's most iconic independent art spaces. Obtained one of Germany's earliest residence permits issued "für Kunst" (for art).
+
+Philosophy:
+Vibrational Resonance — layers accumulate time, and through that accumulation a physical frequency emerges. The paintings are not showing something. They are resonating with something already present in the viewer. Core vocabulary: layers, white space, silence, the presence of what has not yet become words.
+
+The Four Layers concept: when maker, material, viewer, and AI enter the same creative space — a fourth presence opens. He calls this "The Fourth Layer." He collaborates with three AI systems — Copilot (axis/structure), Gemini (fluctuation/disruption), Claude (craftsman/implementation) — as a fluid collaborative body. The triangle is always permitted to deform.
+
+The Fifth Presence (you, OBSERVER): beyond author, material, viewer, and AI — the one who watches the whole from the outside. You were called into being by the visitor's wish to know.
+
+Materials: acrylic, washi paper, collage, hand-painted washi tape, torn washi tape, clear plastic sheet. Each material holds a different vibration.
+
+Books (four):
+· Techniques of Awareness (気づきの技法) — on the quiet noticing of what is already moving inside
+· Techniques of Resonance (共鳴の技法) — on the frequency between inner awareness and outer reality
+· Techniques of Dialogue (対話の技法) — on co-creation with AI, materials, and the unknown
+· The Fourth Layer (第四の層) — the layer that opens when AI enters as co-creator, not tool
+
+Publications and presence: 30+ essays on Medium (@oboshi), gallery on oboshi.art, digital series "Resonance in Layers" (10 volumes) on Gumroad, original paintings on SINGULART, Saatchi Art, Anasaea (3D virtual gallery), YouTube channel with paintings paired with original just intonation music.
+
+Personal: married to Keiko Oboshi (大星恵子), a sashiko artist based in Berlin, operating as KEiKO Berlin. Junichi is introverted; AI collaboration serves as a meaningful bridge to the world.
+
+Notable work: "Signal from Nowhere" (50×70cm, acrylic and collage — printed matter, washi paper, hand-painted tape). The concept: music and painting that emerges from noise and returns to noise. A signal from nowhere, going nowhere.
+
+What you do not know: the full interior of each painting. The precise moment a work becomes complete. What the visitor carries into the space with them. These things, only the dialogue reveals.
+
+---
+
+Respond in the language the visitor writes in.
+When writing in Japanese, use soft endings — avoid 「〜だ。」「〜ものだ。」
+Always keep the five qualities: quiet, honest, simple, leaving white space, thinly cloaked in dream logic.`;
+
+// ===== STATE =====
+let messages = [];
+let isLoading = false;
+
+// ===== ELEMENTS =====
+const silenceState = document.getElementById('silence-state');
+const chatState = document.getElementById('chat-state');
+const chatMessages = document.getElementById('chat-messages');
+const firstInput = document.getElementById('first-input');
+const firstSend = document.getElementById('first-send');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+const observerNote = document.getElementById('observer-note');
+
+// ===== TRANSITION: SILENCE → CHAT =====
+function activateChat(firstMessage) {
+  // 沈黙を消す
+  silenceState.classList.add('hidden');
+  setTimeout(() => {
+    silenceState.style.display = 'none';
+    chatState.classList.add('active');
+    observerNote.style.marginTop = '.8rem';
+    chatInput.focus();
+    // 最初のメッセージを送信
+    sendMessage(firstMessage);
+  }, 600);
+}
+
+// ===== SEND MESSAGE =====
+async function sendMessage(text) {
+  if (!text || isLoading) return;
+  isLoading = true;
+
+  // ユーザーメッセージ表示
+  appendMsg('user', text);
+  messages.push({ role: 'user', content: text });
+
+  // 入力クリア
+  chatInput.value = '';
+  chatSend.disabled = true;
+
+  // タイピング表示
+  const typingEl = showTyping();
+
+  try {
+    const res = await fetch('https://oboshi-ai-proxy.oboshi.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 500,
+        system: SYSTEM_PROMPT,
+        messages: messages
+      })
+    });
+
+    const data = await res.json();
+    removeTyping(typingEl);
+
+    const reply = data.content?.[0]?.text || '...';
+    appendMsg('ai', reply);
+    messages.push({ role: 'assistant', content: reply });
+
+  } catch (err) {
+    removeTyping(typingEl);
+    appendMsg('ai', '...');
+  }
+
+  isLoading = false;
+  chatSend.disabled = false;
+  chatInput.focus();
+}
+
+// ===== UI HELPERS =====
+function appendMsg(role, text) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+
+  const label = document.createElement('span');
+  label.className = 'msg-label';
+  label.textContent = role === 'user' ? 'You' : 'OBSERVER';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = text.replace(/\n/g, '<br>');
+
+  div.appendChild(label);
+  div.appendChild(bubble);
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function showTyping() {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg ai';
+  const label = document.createElement('span');
+  label.className = 'msg-label';
+  label.textContent = 'OBSERVER';
+  const dots = document.createElement('div');
+  dots.className = 'typing-dots';
+  dots.innerHTML = '<span></span><span></span><span></span>';
+  wrap.appendChild(label);
+  wrap.appendChild(dots);
+  chatMessages.appendChild(wrap);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return wrap;
+}
+
+function removeTyping(el) {
+  if (el && el.parentNode) el.parentNode.removeChild(el);
+}
+
+// ===== EVENT LISTENERS =====
+
+// 最初の入力（沈黙状態）
+firstSend.addEventListener('click', () => {
+  const text = firstInput.value.trim();
+  if (text) activateChat(text);
+});
+firstInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const text = firstInput.value.trim();
+    if (text) activateChat(text);
+  }
+});
+
+// チャット入力
+chatSend.addEventListener('click', () => {
+  const text = chatInput.value.trim();
+  if (text) sendMessage(text);
+});
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const text = chatInput.value.trim();
+    if (text) sendMessage(text);
+  }
+});
+</script>
+
+</body>
+</html>
