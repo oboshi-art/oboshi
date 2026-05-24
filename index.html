@@ -1262,6 +1262,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <li><a href="#" id="nav-about">About</a></li>
     <li><a href="#" id="nav-talk">Talk <span style="width:5px;height:5px;border-radius:50%;background:#4caf50;display:inline-block;vertical-align:middle;margin-left:2px;animation:pulse 1.5s infinite"></span></a></li>
     <li><a href="/observer" style="opacity:.45;transition:opacity .3s,color .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.45">OBSERVER</a></li>
+    <li><a href="#frequency-map" id="nav-freq" onclick="showTop();setTimeout(()=>document.getElementById('frequency-map').scrollIntoView({behavior:'smooth'}),300);return false;" style="color:var(--ink3)">Freq Map</a></li>
     <li><a href="#" id="nav-contact">Contact</a></li>
   </ul>
   <a href="#" class="nav-cta" id="nav-buy">Buy Original Art</a>
@@ -1564,6 +1565,102 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Past Exhibitions</div>
       <div id="exh-past-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
     </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- ===== FREQUENCY MAP ===== -->
+  <div class="section-head-r" id="frequency-map">
+    <h2>Frequency<br>Map</h2>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:var(--ink3);max-width:28ch;text-align:right;line-height:1.7">Berlin · 9 Locations · 9 Frequencies</span>
+  </div>
+
+  <div style="padding:0 3rem 5rem;border-bottom:1px solid var(--border);max-width:1500px;margin:0 auto">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:2;color:var(--ink2);max-width:52ch;margin-bottom:3rem">ベルリンの9つの地点に割り当てられた周波数と、その場所のために書かれたAI Letter、作品、そして静かに呼吸する色のレイヤー。都市と作品をつなぐ新しい地図。</p>
+
+    <!-- 3層 × 3地点 -->
+    <div style="display:flex;flex-direction:column;gap:1px;background:var(--border)">
+
+      <!-- 第一層 -->
+      <div style="display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:1px;background:var(--border)">
+        <div style="background:var(--bg2);padding:1.6rem 1.2rem;display:flex;align-items:center">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);writing-mode:vertical-rl;transform:rotate(180deg)">第一層 · 中心</span>
+        </div>
+        <a href="/frequency/schoeneberg" style="background:var(--bg);padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:background .2s;position:relative;overflow:hidden" onmouseover="this.style.background='#f0ede8'" onmouseout="this.style.background='var(--bg)'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">432Hz · 調和</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--ink)">Schöneberg</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink2);line-height:1.7">あなたの呼吸と街の呼吸が<br>最も自然に重なる地点。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.4rem">Enter →</span>
+        </a>
+        <a href="/frequency/warschauer" style="background:var(--bg);padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:background .2s;border-left:1px solid var(--border)" onmouseover="this.style.background='#eef2f5'" onmouseout="this.style.background='var(--bg)'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">512Hz · 境界</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--ink)">Warschauer Brücke</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink2);line-height:1.7">動きと静けさが<br>同時に存在する。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.4rem">Enter →</span>
+        </a>
+        <a href="/frequency/gleisdreieck" style="background:#1e2e44;padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:opacity .2s;border-left:1px solid var(--border)" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4)">128Hz · 地面</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:#fff">Gleisdreieck Park</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.7">あなたの影が、<br>あなたより先に歩き出す。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.4rem">Enter →</span>
+        </a>
+      </div>
+
+      <!-- 第二層 -->
+      <div style="display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:1px;background:var(--border)">
+        <div style="background:var(--bg2);padding:1.6rem 1.2rem;display:flex;align-items:center">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);writing-mode:vertical-rl;transform:rotate(180deg)">第二層 · 空・記憶</span>
+        </div>
+        <a href="/frequency/tempelhof" style="background:var(--bg);padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:background .2s" onmouseover="this.style.background='#dde0da'" onmouseout="this.style.background='var(--bg)'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">256Hz · 広がり</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--ink)">Tempelhof</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink2);line-height:1.7">空があなたを<br>押し広げる。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.4rem">Enter →</span>
+        </a>
+        <a href="/frequency/neukoelln" style="background:#18202e;padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:opacity .2s;border-left:1px solid var(--border)" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4)">384Hz · 影</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:#fff">Neukölln</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.7">影があなたの<br>輪郭を描き直す。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.4rem">Enter →</span>
+        </a>
+        <a href="/frequency/museum-island" style="background:var(--bg);padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:background .2s;border-left:1px solid var(--border)" onmouseover="this.style.background='#f0ece0'" onmouseout="this.style.background='var(--bg)'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">640Hz · 記憶</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--ink)">Museum Island</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink2);line-height:1.7">過去と現在が<br>同じ呼吸をしている。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.4rem">Enter →</span>
+        </a>
+      </div>
+
+      <!-- 第三層 -->
+      <div style="display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:1px;background:var(--border)">
+        <div style="background:var(--bg2);padding:1.6rem 1.2rem;display:flex;align-items:center">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);writing-mode:vertical-rl;transform:rotate(180deg)">第三層 · 境界</span>
+        </div>
+        <a href="/frequency/potsdamer" style="background:#1a1410;padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4)">96Hz · 断絶</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:#fff">Potsdamer Platz</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.7">過去の断片が<br>静かに呼吸している。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.4rem">Enter →</span>
+        </a>
+        <a href="/frequency/tiergarten" style="background:var(--bg);padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:background .2s;border-left:1px solid var(--border)" onmouseover="this.style.background='#f4f8f4'" onmouseout="this.style.background='var(--bg)'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">720Hz · 光</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--ink)">Tiergarten</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink2);line-height:1.7">あなたの輪郭が<br>空気に溶けていく。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.4rem">Enter →</span>
+        </a>
+        <a href="/frequency/savignyplatz" style="background:var(--bg);padding:1.8rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;transition:background .2s;border-left:1px solid var(--border)" onmouseover="this.style.background='#e8ddb8'" onmouseout="this.style.background='var(--bg)'">
+          <span style="font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3)">1024Hz · 余白</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--ink)">Savignyplatz</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--ink2);line-height:1.7">時間がやわらかく<br>曲がる。</span>
+          <span style="font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:.4rem">Enter →</span>
+        </a>
+      </div>
+
+    </div>
+
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;line-height:2;color:var(--ink3);margin-top:2rem;text-align:center">
+      各地点に、作品とAI Letterと呼吸する色がある。&nbsp;·&nbsp; QRコードをスキャンして、その場所の周波数に入る。
+    </p>
   </div>
 
   <div class="rule"></div>
