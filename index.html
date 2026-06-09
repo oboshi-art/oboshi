@@ -628,6 +628,14 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .gallery-header-count{font-size:.55rem;letter-spacing:.22em;color:var(--ink3);text-transform:uppercase}
 .back-btn{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;transition:color .2s}
 .back-btn:hover{color:var(--ink)}
+
+.gallery-buy-banner{
+  padding:.6rem 3rem;
+  font-family:'DM Mono',monospace;font-size:.42rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink3);
+  border-bottom:1px solid var(--border);
+}
 .filter-tabs{display:flex;gap:0;padding:1.5rem 3rem 0;border-bottom:1px solid var(--border)}
 .filter-tab{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;padding:.6rem 1.2rem;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s;margin-bottom:-1px}
 .filter-tab:hover{color:var(--ink)}
@@ -644,6 +652,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .g-hover-meta{font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:.25rem}
 .g-hover-inquire{display:inline-block;margin-top:.35rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.32);padding:.18rem .4rem;text-decoration:none;transition:all .2s;cursor:pointer}
 .g-hover-inquire:hover{background:rgba(184,74,36,.6);color:#fff}
+.g-hover-price{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.06em;color:#fff;margin-top:.3rem;line-height:1}
+.g-hover-buy{display:inline-block;margin-top:.25rem;font-family:'DM Mono',monospace;font-size:.34rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--accent);padding:.28rem .7rem;border:none;cursor:pointer;transition:background .2s}
+.g-hover-buy:hover{background:#a03d1e}
 .g-hover-inquire{display:inline-block;margin-top:.4rem;font-family:'DM Mono',monospace;font-size:.32rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(184,74,36,.25);padding:.15rem .22rem;text-decoration:none;transition:all .2s;cursor:pointer;-webkit-mask-image:linear-gradient(to right,black 45%,transparent 100%);mask-image:linear-gradient(to right,black 45%,transparent 100%)}
 .g-hover-inquire:hover{background:rgba(184,74,36,.55);color:rgba(255,255,255,.95)}
 .g-hover-talk{display:block;margin:.6rem auto .3rem;font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.92);border:1px solid rgba(160,210,160,.55);padding:.4rem 1.1rem;cursor:pointer;background:rgba(80,150,80,.22);transition:all .25s;text-align:center;width:fit-content}
@@ -1904,6 +1915,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <div class="gallery-header-title">Works</div>
     <div class="gallery-header-count" id="work-count"></div>
     <button class="back-btn" id="back-btn" style="margin-left:auto">← Back</button>
+  </div>
+  <div class="gallery-buy-banner">
+    All works available for direct purchase &nbsp;·&nbsp; Worldwide shipping from Berlin &nbsp;·&nbsp; Certificate of authenticity included
   </div>
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
@@ -4996,7 +5010,7 @@ function buildGrid(){
     const el=document.createElement('div');
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year} · ${w.price}</div><button class="g-hover-talk" onclick="event.stopPropagation();openWorkTalk(${i})">TALK</button>${(!w.sold||w.digitalStripeLink)?`<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" target="_blank" onclick="event.stopPropagation()">Inquire →</a>`:""}</div>${w.sold?'<div class="g-sold-badge">Collected</div>':''}${w.digitalOnly?'<div class="g-digital-badge">⬇ Digital</div>':''}`;
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year}${w.size ? " · " + w.size : ""}</div>${!w.sold && w.stripeLink ? `<div class="g-hover-price">${w.price}</div><button class="g-hover-buy" onclick="event.stopPropagation();openModal(${i})">Buy Now →</button>` : (!w.sold ? `<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" target="_blank" onclick="event.stopPropagation()">Enquire →</a>` : "")}<button class="g-hover-talk" onclick="event.stopPropagation();openWorkTalk(${i})">TALK</button></div>${w.sold?'<div class=\"g-sold-badge\">Collected</div>':''}${w.digitalOnly?'<div class=\"g-digital-badge\">⬇ Digital</div>':''}` ;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
