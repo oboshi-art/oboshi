@@ -630,11 +630,22 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .back-btn:hover{color:var(--ink)}
 
 .gallery-buy-banner{
-  padding:.6rem 3rem;
+  display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+  padding:.7rem 3rem;
   font-family:'DM Mono',monospace;font-size:.42rem;
   letter-spacing:.18em;text-transform:uppercase;
   color:var(--ink3);
   border-bottom:1px solid var(--border);
+}
+.gallery-buy-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--accent);flex-shrink:0;
+  animation:pulse-dot 2.4s ease-in-out infinite;
+}
+.gallery-buy-divider{opacity:.35}
+@keyframes pulse-dot{
+  0%,100%{opacity:.4;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.5)}
 }
 .filter-tabs{display:flex;gap:0;padding:1.5rem 3rem 0;border-bottom:1px solid var(--border)}
 .filter-tab{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;padding:.6rem 1.2rem;cursor:pointer;font-family:'DM Mono',monospace;transition:all .2s;margin-bottom:-1px}
@@ -1917,7 +1928,12 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <button class="back-btn" id="back-btn" style="margin-left:auto">← Back</button>
   </div>
   <div class="gallery-buy-banner">
-    All works available for direct purchase &nbsp;·&nbsp; Worldwide shipping from Berlin &nbsp;·&nbsp; Certificate of authenticity included
+    <span class="gallery-buy-dot"></span>
+    All works available for direct purchase
+    <span class="gallery-buy-divider">·</span>
+    Worldwide shipping from Berlin
+    <span class="gallery-buy-divider">·</span>
+    Certificate of authenticity included
   </div>
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
