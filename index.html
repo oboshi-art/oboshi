@@ -1193,17 +1193,59 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .admin-img-remove:hover{background:#94341a}
 .admin-img-order{position:absolute;bottom:.3rem;left:.3rem;background:rgba(255,255,255,.95);color:var(--ink);font-size:.45rem;padding:.2rem .5rem;letter-spacing:.1em;font-weight:600}
 
-/* Works catalog: visible to crawlers, hidden to human eye */
-.works-catalog-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
+/* Works archive: full catalogue, genuinely visible, collapsed by default */
+.works-archive {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding: 2rem 3rem 3rem;
+}
+.works-archive-summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  padding: .6rem 0;
+  transition: color .3s ease;
+}
+.works-archive-summary::-webkit-details-marker { display: none; }
+.works-archive-summary:hover { color: var(--accent); }
+.works-archive-summary::after { content: ' ▾'; }
+.works-archive[open] .works-archive-summary::after { content: ' ▴'; }
+.works-archive-body { padding-top: 1.5rem; }
+.works-archive-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--ink2);
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+.works-archive-body article {
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0;
+}
+.works-archive-body article h3 {
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .04em;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+.works-archive-body article p {
+  font-size: .58rem;
+  line-height: 1.6;
+  color: var(--ink2);
+  max-width: 60ch;
+  white-space: pre-line;
+}
+.works-archive-body article span[itemprop] {
+  font-size: .5rem;
+  color: var(--ink3);
+  margin-right: .8rem;
+  display: inline-block;
 }
 
 /* ===== TRILOGY PILLARS + MEDIUM STRATA ===== */
@@ -2027,6 +2069,578 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <button class="filter-tab" data-filter="kids">Kids</button>
   </div>
   <div class="gallery-grid" id="grid"></div>
+<details class="works-archive" id="works-archive">
+  <summary class="works-archive-summary">Full Catalogue — All Works (47)</summary>
+  <div class="works-archive-body" aria-label="Complete works catalog by OBOSHI — Junichi Oboshi">
+  <h2>Complete Works — OBOSHI (<span lang="ja">Junichi Oboshi / 大星純一</span>), Abstract Painter, Berlin, Germany. Concept: Vibrational Resonance.</h2>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Die Verbindung</h3>
+    <meta itemprop="dateCreated" content="2004">
+    <span itemprop="artMedium">Oil on canvas</span>
+    <span itemprop="width height">350x750 cm</span>
+    <p itemprop="description">This work consists of twenty‑six small paintings.
+Each piece stands as an independent artwork, yet together they form one large image.
+In this project, the small paintings that compose the larger image are exhibited separately across twenty‑five EU countries and Japan — twenty‑six locations in total.
+The wishes and intentions embedded in each piece connect across distance and reunite into a single image, giving rise to a larger message.
+By placing the works in different places, the project fosters a sense of connection, community, and calm. Through this, I hope to deepen the cultural understanding between Japan and Europe.</p>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Brim Over — 溢れる</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">65x80 cm</span>
+    <p itemprop="description">A work that overflows — colour and form pressing against the edges of the canvas, held in and yet bursting with quiet energy.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,800"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Signal from Nowhere — どこにもない場所から届く信号</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">Layers of collaged materials — prints of past works, washi paper, and hand-painted tape — form the foundation of this painting, built up further with acrylic in a process of accumulation and erasure. Vertical white strokes cut through the composition, creating space to breathe between color and form. Magenta, blue, and teal resonate across the canvas, generating a quiet, persistent vibration.
+The work leaves the viewer with a sensation of something received from a distant, unidentifiable place.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">The Blessing of Rain Yet to Come — これから表われる雨の恵み</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">Anticipation of rain as grace — the charged air before weather changes, the blessing held in suspension.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,450"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Words of the Enchanted Forest — 不思議の森の言葉</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">The forest speaks in colour and texture — a language older than words, felt rather than understood.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,450"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Found in a Place I Strayed Into – Circle — 迷い込んだ場所で見つけた丸</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">Discovery through accident — the unexpected place that becomes, in retrospect, exactly where you needed to be.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">A Thought Rising from the Cold — 寒いの中からの想い</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">Cold as a condition of clarity — thought emerging slowly, deliberately, from a still and wintry ground.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Fragments of the Night When the Answer Was Found — 答えが見つかった夜の断片</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">40x50 cm</span>
+    <p itemprop="description">Night as a place of revelation — fragments of darkness carrying unexpected light. An answer arrived not as certainty, but as recognition.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">In a Dream — 夢の中で</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">70x100 cm</span>
+    <p itemprop="description">Suspended between waking and sleep — forms dissolve and reconstitute themselves in layered hues, evoking the logic of the dreaming mind.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€2,500"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">A Fun Sky Adventure — 楽しい空の冒険</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">Lightness as a serious subject — the joy of ascent, of open sky, of colour freed from gravity.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Fragments of Thought — 思いの断片</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">70x100 cm</span>
+    <p itemprop="description">Thought arrives in pieces — partial images, interrupted lines, colour that remembers what language cannot hold.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€2,500"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Toward a Place I Cannot Reach — たどり着けない場所へ</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">This painting is a poetic meditation on longing and the eternal horizon. The expansive, ethereal blues suggest an inaccessible distance, contrasted by the warm, tactile pinks that represent human presence and emotion. The ladder-like motifs lead the eye upward, only to dissolve into abstraction, symbolizing a destination that remains perpetually out of grasp. It celebrates the beauty of the yearning itself—the act of reaching for an ideal that stays forever beyond the horizon.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Harboring Tangled Currents — 混線する気持ちを蓄える</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas Board</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">A harbour of complexity — currents crossing and tangling beneath a surface that appears still. Tension held with grace.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Kousaku 20 — 工作２０</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, Clear Plastic and collage on Canvas</span>
+    <span itemprop="width height">30×40 cm</span>
+    <p itemprop="description">The twentieth in the Kousaku series — work as practice, as repetition, as daily ritual. Each piece a record of presence.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">A Calculation to Find Something Sought — 探し物を見つけるための計算</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">40×50 cm</span>
+    <p itemprop="description">Searching through marks and colour — a methodical seeking that finds its answer not in logic but in feeling.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Blue Conversations in the Garden — 庭の会話の青</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">40×60 cm</span>
+    <p itemprop="description">Dialogue in blue — an exchange between forms that mirrors the easy rhythm of a conversation held outdoors, unhurried.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">A Walk in Mind — 散歩の気分</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Paper</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">Walking not through space but through thought — a meandering path of associations, memories, and quiet observations.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Preparing to Make a Decision — 決断を前にして</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">Poised at the threshold — forms gather and pause before committing to direction. A painting about the charged stillness before action.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">The Kindness Found Within a Sense of Stories — 物語感が出会えたやさしさ</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">40×60 cm</span>
+    <p itemprop="description">Stories as acts of kindness — the warmth that comes from being held within a narrative, from being seen through someone else's telling.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Shake — ゆれる</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">70x100 cm</span>
+    <p itemprop="description">Vibration made visible. The canvas trembles with overlapping gestures — a record of the body moving through space, of energy passing through matter.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€2,500"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Within the Time of the Sky — 天空の時間の中</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">40x60 cm</span>
+    <p itemprop="description">Sky as duration, not backdrop — a painting that asks us to inhabit time rather than observe it.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Stairs of Thrill — スリルの階段</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">40×60 cm</span>
+    <p itemprop="description">Ascent as excitement — each step upward charged with anticipation, the destination unknown but urgently desired.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Daily 5</h3>
+    <meta itemprop="dateCreated" content="2024">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">A quiet accumulation of days. Pink and white settle like morning light over a city half-remembered — blue and green pulse beneath, refusing to be buried. The grid-like marks and collaged layers suggest a map drawn from feeling rather than geography. Something is being covered; something is pushing through.</p>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Daily Painting 1</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Paper</span>
+    <span itemprop="width height">31×40 cm</span>
+    <p itemprop="description">The first daily painting — a commitment to showing up, to making, to the ordinary miracle of paint meeting canvas.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">A Detour to Catch Up with Thought — 思考に追いつくためのまわり道</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">A dynamic collage that captures the non-linear process of the human mind. The fragmented patches of color represent fleeting ideas, while the intricate, web-like lines illustrate the logical threads trying to connect them. The "detour" is not a sign of lost direction, but a necessary journey where chaos and order coexist. It depicts the moment when scattered fragments of intuition finally resonate into a singular realization.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="1300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">The Scent and Feelings of a Free Garden</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic , Clear Plastic on Canvas Board</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">In this compelling work, a vibrant world of patterns, grids, and organic forms is navigated through a rhythmic veil of white acrylic. These bold, structured white strokes move across the canvas like the blocks of a language still being formed, creating windows that reveal the dense, multicolored collage beneath.
+A striking eruption of bright yellow in the upper left serves as a source of primordial energy, grounding the composition. The "OBOSHI Method" of layering is here at its most complex: the torn edges of past memories and hand-painted textures vibrate against the silence of the white surface. It is a painting that documents the act of selective memory—the profound decision of what to hold close to the surface and what to allow to sink into the beautiful, layered depths of time.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,450"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Black Abstraction 0 — 黒い抽象０</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic , Clear Plastic on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">The origin of the Black Abstraction series. Dark grounds carry luminous traces — light emerging from within, not imposed from without.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Escape turned out to be a dream — 逃げようと思ったら夢だった</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">40×50 cm</span>
+    <p itemprop="description">The escape that seemed real dissolves into colour and memory. What we flee from and what we long for are sometimes the same thing.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Daily 8</h3>
+    <meta itemprop="dateCreated" content="2024">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">A day that arrives with warmth and noise. Yellow and orange dominate like afternoon sun breaking into a crowded room, while green anchors the left side with quiet insistence. The black scaffolding of drawn lines holds the composition together — not as a frame, but as a rhythm. Every color here is speaking at once, and yet nothing shouts. It hums.</p>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Lifestyle — ライフスタイル</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Paper</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">The aesthetic of everyday life examined — how we arrange our hours, our objects, our attention.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Daily Painting 2</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas Board</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">The second daily painting — small, immediate, alive. Made in a single session, carrying the full atmosphere of that day.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Daily 4 — Selection　セレクション</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">The fourth in a series of daily paintings — each one a single sitting, a single mood, a single conversation between hand and canvas.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Black Abstraction 1 — 黒い抽象１</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">50x70 cm</span>
+    <p itemprop="description">The first of the Black Abstraction series — a foundational work exploring depth, restraint, and the space between forms.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Daily painting 3</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas Board</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">The third daily painting — proof of continued practice, of showing up again, of the studio as sanctuary.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Selection — セレクション</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">Every mark a choice — every colour a commitment. This work is about the act of selection itself, the quiet authority of the artist's hand.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Enjoy — お楽しみください</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">30×40 cm</span>
+    <p itemprop="description">Permission to delight — a painting that asks nothing of the viewer except presence and pleasure.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">White Abstraction 2 — 白い抽象２</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">White as substance, not absence. The second White Abstraction explores silence, surface, and the texture of emptiness.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Lunch Break Amid Inner Conflict — 葛藤の中での昼休み</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">A pause in the middle of things — the ordinary moment interrupted by something unresolved beneath the surface.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Structures to Control — コントロールするための構造</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">40×50 cm</span>
+    <p itemprop="description">The architecture of control — how we build systems to contain what cannot be contained.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Encounter — 出会い</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas Board</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">Two presences, two fields of colour — drawn together by some quiet gravity. An encounter without narrative, only atmosphere.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Just a matter of time — 時間の問題</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas Board</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">Patience as a subject — the certainty that things unfold in their own time, regardless of our wanting otherwise.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">The Mood for Shopping — 買い物の気分</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas Board</span>
+    <span itemprop="width height">30×40 cm</span>
+    <p itemprop="description">Consumer desire rendered in paint — the restless energy of wanting, browsing, almost buying.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">On the Terrace at Noon — 晴天の昼にテラスで</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">50×70 cm</span>
+    <p itemprop="description">Midday light on a terrace — the particular brightness of noon, the way shadows retreat and colour intensifies.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">turned around Umgedreht — それ</h3>
+    <meta itemprop="dateCreated" content="2026">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">30x40 cm</span>
+    <p itemprop="description">Turned around. A reversal of expectation — what was ground becomes sky, what was heavy becomes light.</p>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">Memory Beyond the Choice — 選択した先の記憶</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">40×50 cm</span>
+    <p itemprop="description">Memory as a kind of choosing — what we keep and what we release, what returns unbidden in colour and form.</p>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">The Garden of Restrained Rising Emotions — 湧き上がる感情を抑えた庭</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic on Canvas</span>
+    <span itemprop="width height">40×50 cm</span>
+    <p itemprop="description">Feeling held within form — emotion that rises slowly, quietly, like something growing in a sheltered garden.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">An-Answer-Close-to-For-Example — 例えばに寄り添う答え</h3>
+    <meta itemprop="dateCreated" content="2025">
+    <span itemprop="artMedium">Acrylic, hand-painted torn washi tape, and clear plastic sheets on Canvas</span>
+    <span itemprop="width height">40x50 cm</span>
+    <p itemprop="description">Not a definitive answer but an approximation — the kind of truth that gestures rather than declares.</p>
+    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>
+  </div>
+</details>
+
   <div id="books-universe" style="display:none">
     <div class="trilogy-universe" style="border-bottom:none">
       <section class="trilogy-pillars" id="works-books-pillars" aria-label="Published Books — OBOSHI Series"></section>
@@ -2510,6 +3124,14 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="admin-field">
     <label>タイトル</label>
     <input type="text" id="admin-title" placeholder="例: Silence No. 12">
+  </div>
+  <div class="admin-field">
+    <label>日本語タイトル（任意・カタログ表示用）</label>
+    <input type="text" id="admin-title-ja" placeholder="例: 静寂 No.12">
+  </div>
+  <div class="admin-field">
+    <label>短縮説明文（任意・空欄なら本文descを使用）</label>
+    <input type="text" id="admin-short-desc" placeholder="カタログ用の一文サマリー">
   </div>
   <div class="admin-row">
     <div class="admin-field">
@@ -3014,6 +3636,8 @@ const essays = [
 const works = [
   {
     "title": "Die Verbindung",
+    "titleJa": null,
+    "shortDesc": "This work consists of twenty‑six small paintings.\nEach piece stands as an independent artwork, yet together they form one large image.\nIn this project, the small paintings that compose the larger image are exhibited separately across twenty‑five EU countries and Japan — twenty‑six locations in total.\nThe wishes and intentions embedded in each piece connect across distance and reunite into a single image, giving rise to a larger message.\nBy placing the works in different places, the project fosters a sense of connection, community, and calm. Through this, I hope to deepen the cultural understanding between Japan and Europe.",
     "year": "2004",
     "price": "0",
     "priceNum": 0,
@@ -3048,6 +3672,8 @@ const works = [
   },
   {
     "title": "Brim Over",
+    "titleJa": "溢れる",
+    "shortDesc": "A work that overflows — colour and form pressing against the edges of the canvas, held in and yet bursting with quiet energy.",
     "year": "2026",
     "price": "€1,800",
     "priceNum": 1800,
@@ -3088,6 +3714,8 @@ const works = [
   },
   {
     "title": "Signal from Nowhere",
+    "titleJa": "どこにもない場所から届く信号",
+    "shortDesc": "Layers of collaged materials — prints of past works, washi paper, and hand-painted tape — form the foundation of this painting, built up further with acrylic in a process of accumulation and erasure. Vertical white strokes cut through the composition, creating space to breathe between color and form. Magenta, blue, and teal resonate across the canvas, generating a quiet, persistent vibration.\nThe work leaves the viewer with a sensation of something received from a distant, unidentifiable place.",
     "year": "2026",
     "price": "€1300",
     "priceNum": 1300,
@@ -3129,6 +3757,8 @@ const works = [
   },
   {
     "title": "The Blessing of Rain Yet to Come",
+    "titleJa": "これから表われる雨の恵み",
+    "shortDesc": "Anticipation of rain as grace — the charged air before weather changes, the blessing held in suspension.",
     "year": "2026",
     "price": "€1,450",
     "priceNum": 1450,
@@ -3168,6 +3798,8 @@ const works = [
   },
   {
     "title": "Words of the Enchanted Forest",
+    "titleJa": "不思議の森の言葉",
+    "shortDesc": "The forest speaks in colour and texture — a language older than words, felt rather than understood.",
     "year": "2026",
     "price": "€1,450",
     "priceNum": 1450,
@@ -3207,6 +3839,8 @@ const works = [
   },
   {
     "title": "Found in a Place I Strayed Into – Circle",
+    "titleJa": "迷い込んだ場所で見つけた丸",
+    "shortDesc": "Discovery through accident — the unexpected place that becomes, in retrospect, exactly where you needed to be.",
     "year": "2026",
     "price": "€1,300",
     "priceNum": 1300,
@@ -3246,6 +3880,8 @@ const works = [
   },
   {
     "title": "A Thought Rising from the Cold",
+    "titleJa": "寒いの中からの想い",
+    "shortDesc": "Cold as a condition of clarity — thought emerging slowly, deliberately, from a still and wintry ground.",
     "year": "2026",
     "price": "€1,300",
     "priceNum": 1300,
@@ -3282,6 +3918,8 @@ const works = [
   },
   {
     "title": "Fragments of the Night When the Answer Was Found",
+    "titleJa": "答えが見つかった夜の断片",
+    "shortDesc": "Night as a place of revelation — fragments of darkness carrying unexpected light. An answer arrived not as certainty, but as recognition.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -3319,6 +3957,8 @@ const works = [
   },
   {
     "title": "In a Dream",
+    "titleJa": "夢の中で",
+    "shortDesc": "Suspended between waking and sleep — forms dissolve and reconstitute themselves in layered hues, evoking the logic of the dreaming mind.",
     "year": "2025",
     "price": "€2,500",
     "priceNum": 2500,
@@ -3357,6 +3997,8 @@ const works = [
   },
   {
     "title": "A Fun Sky Adventure",
+    "titleJa": "楽しい空の冒険",
+    "shortDesc": "Lightness as a serious subject — the joy of ascent, of open sky, of colour freed from gravity.",
     "year": "2026",
     "price": "€1,300",
     "priceNum": 1300,
@@ -3394,6 +4036,8 @@ const works = [
   },
   {
     "title": "Fragments of Thought",
+    "titleJa": "思いの断片",
+    "shortDesc": "Thought arrives in pieces — partial images, interrupted lines, colour that remembers what language cannot hold.",
     "year": "2025",
     "price": "€2,500",
     "priceNum": 2500,
@@ -3432,6 +4076,8 @@ const works = [
   },
   {
     "title": "Toward a Place I Cannot Reach",
+    "titleJa": "たどり着けない場所へ",
+    "shortDesc": "This painting is a poetic meditation on longing and the eternal horizon. The expansive, ethereal blues suggest an inaccessible distance, contrasted by the warm, tactile pinks that represent human presence and emotion. The ladder-like motifs lead the eye upward, only to dissolve into abstraction, symbolizing a destination that remains perpetually out of grasp. It celebrates the beauty of the yearning itself—the act of reaching for an ideal that stays forever beyond the horizon.",
     "year": "2026",
     "price": "€1300",
     "priceNum": 1300,
@@ -3468,6 +4114,8 @@ const works = [
   },
   {
     "title": "Harboring Tangled Currents",
+    "titleJa": "混線する気持ちを蓄える",
+    "shortDesc": "A harbour of complexity — currents crossing and tangling beneath a surface that appears still. Tension held with grace.",
     "year": "2025",
     "price": "€650",
     "priceNum": 650,
@@ -3505,6 +4153,8 @@ const works = [
   },
   {
     "title": "Kousaku 20",
+    "titleJa": "工作２０",
+    "shortDesc": "The twentieth in the Kousaku series — work as practice, as repetition, as daily ritual. Each piece a record of presence.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -3541,6 +4191,8 @@ const works = [
   },
   {
     "title": "A Calculation to Find Something Sought",
+    "titleJa": "探し物を見つけるための計算",
+    "shortDesc": "Searching through marks and colour — a methodical seeking that finds its answer not in logic but in feeling.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -3575,6 +4227,8 @@ const works = [
   },
   {
     "title": "Blue Conversations in the Garden",
+    "titleJa": "庭の会話の青",
+    "shortDesc": "Dialogue in blue — an exchange between forms that mirrors the easy rhythm of a conversation held outdoors, unhurried.",
     "year": "2026",
     "price": "€1,100",
     "priceNum": 1100,
@@ -3611,6 +4265,8 @@ const works = [
   },
   {
     "title": "A Walk in Mind",
+    "titleJa": "散歩の気分",
+    "shortDesc": "Walking not through space but through thought — a meandering path of associations, memories, and quiet observations.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -3647,6 +4303,8 @@ const works = [
   },
   {
     "title": "Preparing to Make a Decision",
+    "titleJa": "決断を前にして",
+    "shortDesc": "Poised at the threshold — forms gather and pause before committing to direction. A painting about the charged stillness before action.",
     "year": "2025",
     "price": "€1,300",
     "priceNum": 1300,
@@ -3684,6 +4342,8 @@ const works = [
   },
   {
     "title": "The Kindness Found Within a Sense of Stories",
+    "titleJa": "物語感が出会えたやさしさ",
+    "shortDesc": "Stories as acts of kindness — the warmth that comes from being held within a narrative, from being seen through someone else's telling.",
     "year": "2026",
     "price": "€1,100",
     "priceNum": 1100,
@@ -3720,6 +4380,8 @@ const works = [
   },
   {
     "title": "Shake",
+    "titleJa": "ゆれる",
+    "shortDesc": "Vibration made visible. The canvas trembles with overlapping gestures — a record of the body moving through space, of energy passing through matter.",
     "year": "2025",
     "price": "€2,500",
     "priceNum": 2500,
@@ -3761,6 +4423,8 @@ const works = [
   },
   {
     "title": "Within the Time of the Sky",
+    "titleJa": "天空の時間の中",
+    "shortDesc": "Sky as duration, not backdrop — a painting that asks us to inhabit time rather than observe it.",
     "year": "2026",
     "price": "€1,100",
     "priceNum": 1100,
@@ -3798,6 +4462,8 @@ const works = [
   },
   {
     "title": "Stairs of Thrill",
+    "titleJa": "スリルの階段",
+    "shortDesc": "Ascent as excitement — each step upward charged with anticipation, the destination unknown but urgently desired.",
     "year": "2026",
     "price": "€1,100",
     "priceNum": 1100,
@@ -3834,6 +4500,8 @@ const works = [
   },
   {
     "title": "Daily 5",
+    "titleJa": null,
+    "shortDesc": "A quiet accumulation of days. Pink and white settle like morning light over a city half-remembered — blue and green pulse beneath, refusing to be buried. The grid-like marks and collaged layers suggest a map drawn from feeling rather than geography. Something is being covered; something is pushing through.",
     "year": "2024",
     "price": "0",
     "priceNum": 0,
@@ -3871,6 +4539,8 @@ const works = [
   },
   {
     "title": "Daily Painting 1",
+    "titleJa": null,
+    "shortDesc": "The first daily painting — a commitment to showing up, to making, to the ordinary miracle of paint meeting canvas.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -3907,6 +4577,8 @@ const works = [
   },
   {
     "title": "A Detour to Catch Up with Thought",
+    "titleJa": "思考に追いつくためのまわり道",
+    "shortDesc": "A dynamic collage that captures the non-linear process of the human mind. The fragmented patches of color represent fleeting ideas, while the intricate, web-like lines illustrate the logical threads trying to connect them. The \"detour\" is not a sign of lost direction, but a necessary journey where chaos and order coexist. It depicts the moment when scattered fragments of intuition finally resonate into a singular realization.",
     "year": "2026",
     "price": "1300",
     "priceNum": 1300,
@@ -3947,6 +4619,8 @@ const works = [
   },
   {
     "title": "The Scent and Feelings of a Free Garden",
+    "titleJa": null,
+    "shortDesc": null,
     "year": "2026",
     "price": "€1,450",
     "priceNum": 1450,
@@ -3988,6 +4662,8 @@ const works = [
   },
   {
     "title": "Black Abstraction 0",
+    "titleJa": "黒い抽象０",
+    "shortDesc": "The origin of the Black Abstraction series. Dark grounds carry luminous traces — light emerging from within, not imposed from without.",
     "year": "2025",
     "price": "€1,300",
     "priceNum": 1300,
@@ -4028,6 +4704,8 @@ const works = [
   },
   {
     "title": "Escape turned out to be a dream",
+    "titleJa": "逃げようと思ったら夢だった",
+    "shortDesc": "The escape that seemed real dissolves into colour and memory. What we flee from and what we long for are sometimes the same thing.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -4064,6 +4742,8 @@ const works = [
   },
   {
     "title": "Daily 8",
+    "titleJa": null,
+    "shortDesc": "A day that arrives with warmth and noise. Yellow and orange dominate like afternoon sun breaking into a crowded room, while green anchors the left side with quiet insistence. The black scaffolding of drawn lines holds the composition together — not as a frame, but as a rhythm. Every color here is speaking at once, and yet nothing shouts. It hums.",
     "year": "2024",
     "price": "0",
     "priceNum": 0,
@@ -4101,6 +4781,8 @@ const works = [
   },
   {
     "title": "Lifestyle",
+    "titleJa": "ライフスタイル",
+    "shortDesc": "The aesthetic of everyday life examined — how we arrange our hours, our objects, our attention.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4138,6 +4820,8 @@ const works = [
   },
   {
     "title": "Daily Painting 2",
+    "titleJa": null,
+    "shortDesc": "The second daily painting — small, immediate, alive. Made in a single session, carrying the full atmosphere of that day.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4175,6 +4859,8 @@ const works = [
   },
   {
     "title": "Daily 4",
+    "titleJa": "Selection　セレクション",
+    "shortDesc": "The fourth in a series of daily paintings — each one a single sitting, a single mood, a single conversation between hand and canvas.",
     "year": "2025",
     "price": "€1,300",
     "priceNum": 1300,
@@ -4215,6 +4901,8 @@ const works = [
   },
   {
     "title": "Black Abstraction 1",
+    "titleJa": "黒い抽象１",
+    "shortDesc": "The first of the Black Abstraction series — a foundational work exploring depth, restraint, and the space between forms.",
     "year": "2025",
     "price": "€1,300",
     "priceNum": 1300,
@@ -4255,6 +4943,8 @@ const works = [
   },
   {
     "title": "Daily painting 3",
+    "titleJa": null,
+    "shortDesc": "The third daily painting — proof of continued practice, of showing up again, of the studio as sanctuary.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4292,6 +4982,8 @@ const works = [
   },
   {
     "title": "Selection",
+    "titleJa": "セレクション",
+    "shortDesc": "Every mark a choice — every colour a commitment. This work is about the act of selection itself, the quiet authority of the artist's hand.",
     "year": "2025",
     "price": "€1,300",
     "priceNum": 1300,
@@ -4328,6 +5020,8 @@ const works = [
   },
   {
     "title": "Enjoy",
+    "titleJa": "お楽しみください",
+    "shortDesc": "Permission to delight — a painting that asks nothing of the viewer except presence and pleasure.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4364,6 +5058,8 @@ const works = [
   },
   {
     "title": "White Abstraction 2",
+    "titleJa": "白い抽象２",
+    "shortDesc": "White as substance, not absence. The second White Abstraction explores silence, surface, and the texture of emptiness.",
     "year": "2026",
     "price": "€1,300",
     "priceNum": 1300,
@@ -4398,6 +5094,8 @@ const works = [
   },
   {
     "title": "Lunch Break Amid Inner Conflict",
+    "titleJa": "葛藤の中での昼休み",
+    "shortDesc": "A pause in the middle of things — the ordinary moment interrupted by something unresolved beneath the surface.",
     "year": "2025",
     "price": "€650",
     "priceNum": 650,
@@ -4435,6 +5133,8 @@ const works = [
   },
   {
     "title": "Structures to Control",
+    "titleJa": "コントロールするための構造",
+    "shortDesc": "The architecture of control — how we build systems to contain what cannot be contained.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -4469,6 +5169,8 @@ const works = [
   },
   {
     "title": "Encounter",
+    "titleJa": "出会い",
+    "shortDesc": "Two presences, two fields of colour — drawn together by some quiet gravity. An encounter without narrative, only atmosphere.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4506,6 +5208,8 @@ const works = [
   },
   {
     "title": "Just a matter of time",
+    "titleJa": "時間の問題",
+    "shortDesc": "Patience as a subject — the certainty that things unfold in their own time, regardless of our wanting otherwise.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4542,6 +5246,8 @@ const works = [
   },
   {
     "title": "The Mood for Shopping",
+    "titleJa": "買い物の気分",
+    "shortDesc": "Consumer desire rendered in paint — the restless energy of wanting, browsing, almost buying.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4578,6 +5284,8 @@ const works = [
   },
   {
     "title": "On the Terrace at Noon",
+    "titleJa": "晴天の昼にテラスで",
+    "shortDesc": "Midday light on a terrace — the particular brightness of noon, the way shadows retreat and colour intensifies.",
     "year": "2026",
     "price": "€1,300",
     "priceNum": 1300,
@@ -4615,6 +5323,8 @@ const works = [
   },
   {
     "title": "turned around Umgedreht",
+    "titleJa": "それ",
+    "shortDesc": "Turned around. A reversal of expectation — what was ground becomes sky, what was heavy becomes light.",
     "year": "2026",
     "price": "€650",
     "priceNum": 650,
@@ -4650,6 +5360,8 @@ const works = [
   },
   {
     "title": "Memory Beyond the Choice",
+    "titleJa": "選択した先の記憶",
+    "shortDesc": "Memory as a kind of choosing — what we keep and what we release, what returns unbidden in colour and form.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -4687,6 +5399,8 @@ const works = [
   },
   {
     "title": "The Garden of Restrained Rising Emotions",
+    "titleJa": "湧き上がる感情を抑えた庭",
+    "shortDesc": "Feeling held within form — emotion that rises slowly, quietly, like something growing in a sheltered garden.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -4723,6 +5437,8 @@ const works = [
   },
   {
     "title": "An-Answer-Close-to-For-Example",
+    "titleJa": "例えばに寄り添う答え",
+    "shortDesc": "Not a definitive answer but an approximation — the kind of truth that gestures rather than declares.",
     "year": "2025",
     "price": "€900",
     "priceNum": 900,
@@ -5743,6 +6459,8 @@ function resetForm() {
   document.getElementById('admin-cancel').style.display = 'none';
   
   document.getElementById('admin-title').value = '';
+  document.getElementById('admin-title-ja').value = '';
+  document.getElementById('admin-short-desc').value = '';
   document.getElementById('admin-year').value = '';
   document.getElementById('admin-price').value = '';
   document.getElementById('admin-img').value = '';
@@ -5780,6 +6498,8 @@ document.getElementById('admin-cancel').addEventListener('click', () => {
 // 作品保存（追加または更新）
 document.getElementById('admin-save').addEventListener('click', () => {
   const title = document.getElementById('admin-title').value;
+  const titleJa = document.getElementById('admin-title-ja').value;
+  const shortDesc = document.getElementById('admin-short-desc').value;
   const year = document.getElementById('admin-year').value;
   const price = document.getElementById('admin-price').value;
   const img = currentImageData || document.getElementById('admin-img').value;
@@ -5823,6 +6543,8 @@ document.getElementById('admin-save').addEventListener('click', () => {
 
   const workData = {
     title,
+    titleJa: titleJa || null,
+    shortDesc: shortDesc || null,
     year,
     price,
     priceNum,
@@ -5879,6 +6601,8 @@ function editWork(index) {
   document.getElementById('admin-cancel').style.display = 'block';
   
   document.getElementById('admin-title').value = work.title;
+  document.getElementById('admin-title-ja').value = work.titleJa || '';
+  document.getElementById('admin-short-desc').value = work.shortDesc || '';
   document.getElementById('admin-year').value = work.year;
   document.getElementById('admin-price').value = work.price;
   document.getElementById('admin-img').value = work.img.startsWith('data:') ? '' : work.img;
@@ -5930,25 +6654,71 @@ function deleteWork(index) {
   }
 }
 
+// 静的カタログ（works-archive）をworks配列から自動生成
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function generateArchiveHTML(worksArr) {
+  const articles = worksArr.map(w => {
+    const name = w.titleJa ? `${w.title} — ${w.titleJa}` : w.title;
+    const desc = w.shortDesc || w.desc || '';
+    const showOffer = !w.sold && (w.priceNum || 0) > 0;
+    const offerHtml = showOffer
+      ? `\n    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="${escapeHtml(w.price)}"><meta itemprop="priceCurrency" content="EUR"></span>`
+      : '';
+    return `  <article itemscope itemtype="https://schema.org/VisualArtwork">
+    <h3 itemprop="name">${escapeHtml(name)}</h3>
+    <meta itemprop="dateCreated" content="${escapeHtml(w.year)}">
+    <span itemprop="artMedium">${escapeHtml(w.medium)}</span>
+    <span itemprop="width height">${escapeHtml(w.size)}</span>
+    <p itemprop="description">${escapeHtml(desc)}</p>${offerHtml}
+    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
+    <meta itemprop="locationCreated" content="Berlin, Germany">
+    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
+    <link itemprop="url" href="https://oboshi.art">
+  </article>`;
+  }).join('\n');
+
+  return `<details class="works-archive" id="works-archive">
+  <summary class="works-archive-summary">Full Catalogue — All Works (${worksArr.length})</summary>
+  <div class="works-archive-body" aria-label="Complete works catalog by OBOSHI — Junichi Oboshi">
+  <h2>Complete Works — OBOSHI (<span lang="ja">Junichi Oboshi / 大星純一</span>), Abstract Painter, Berlin, Germany. Concept: Vibrational Resonance.</h2>
+${articles}
+  </div>
+</details>`;
+}
+
 // JSONエクスポート
 document.getElementById('admin-export').addEventListener('click', () => {
   const output = document.getElementById('admin-json-output');
   const json = JSON.stringify(works, null, 2);
-  
+  const archiveHtml = generateArchiveHTML(works);
+
   output.innerHTML = `
     <div class="admin-output-label">
-      <strong>手順：</strong>
-      <ol style="font-size:0.5rem;margin:0.5rem 0;padding-left:1.2rem;line-height:1.6">
-        <li>下のJSONをすべてコピー</li>
-        <li>index.htmlを開いて <code>const works = [</code> で検索</li>
-        <li>その配列全体（<code>const works = [...];</code>）を下のコードで置き換え</li>
-        <li>ファイルを保存してGitHubにプッシュ</li>
-      </ol>
-      <button class="copy-btn" onclick="copyToClipboard()">📋 コピー</button>
+      <strong>⚠️ これは手動フォールバック用です。通常は上の「⬇️ index.html をダウンロード」だけで、全作品カタログも自動的に同期されます。</strong>
+      <p style="font-size:0.48rem;margin:0.5rem 0;line-height:1.6">
+        ダウンロードボタンが使えない場合のみ、下のJSONをコピーしてindex.htmlの <code>const works = [</code> 〜 <code>];</code> を手動で置き換えてください（その場合、全作品カタログ部分は別途②のHTMLも置き換える必要があります）。
+      </p>
+      <button class="copy-btn" onclick="copyToClipboard()">📋 ①JSONをコピー</button>
     </div>
     <div class="admin-output" id="json-data">const works = ${json};</div>
+    <div class="admin-output-label" style="margin-top:1rem">
+      <button class="copy-btn" onclick="copyArchiveToClipboard()">📋 ②カタログHTMLをコピー（フォールバック用）</button>
+    </div>
+    <div class="admin-output" id="archive-html-data">${escapeHtml(archiveHtml)}</div>
   `;
 });
+
+function copyArchiveToClipboard() {
+  const text = document.getElementById('archive-html-data').textContent;
+  navigator.clipboard.writeText(text);
+}
 
 // ===== BOOKS 管理パネル JS =====
 let currentEditBookIndex = -1;
@@ -6071,6 +6841,15 @@ function downloadIndexHtml() {
           + 'const booksDataDefault = ' + booksJson + ';'
           + '\n// saved booksData override\nlet booksData = JSON.parse(JSON.stringify(booksDataDefault));'
           + updated.slice(booksEnd).replace('let booksData = JSON.parse(JSON.stringify(booksDataDefault));', '// booksData already set above');
+      }
+
+      // works-archive（静的カタログ）も自動生成して同期
+      const archiveMarker = '<details class="works-archive"';
+      const archiveStart = updated.indexOf(archiveMarker);
+      if (archiveStart !== -1) {
+        const archiveEnd = updated.indexOf('</details>', archiveStart) + '</details>'.length;
+        const archiveHtml = generateArchiveHTML(cleanWorks);
+        updated = updated.slice(0, archiveStart) + archiveHtml + updated.slice(archiveEnd);
       }
 
       const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
@@ -7039,563 +7818,6 @@ How to speak:
 })();
 
 </script>
-<section class="works-catalog-hidden" aria-label="Complete works catalog by OBOSHI — Junichi Oboshi">
-  <h2>Complete Works — OBOSHI (<span lang="ja">Junichi Oboshi / 大星純一</span>), Abstract Painter, Berlin, Germany. Concept: Vibrational Resonance.</h2>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Die Verbindung</h3>
-    <meta itemprop="dateCreated" content="2004">
-    <span itemprop="artMedium">Oil on canvas</span>
-    <span itemprop="width height">350x750 cm</span>
-    <p itemprop="description">This work consists of twenty‑six small paintings.
-Each piece stands as an independent artwork, yet together they form one large image.
-In this project, the small paintings that compose the larger image are exhibited separately across twenty‑five EU countries and Japan — twenty‑six locations in total.
-The wishes and intentions embedded in each piece connect across distance and reunite into a single image, giving rise to a larger message.
-By placing the works in different places, the project fosters a sense of connection, community, and calm. Through this, I hope to deepen the cultural understanding between Japan and Europe.</p>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Brim Over — 溢れる</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">65x80 cm</span>
-    <p itemprop="description">A work that overflows — colour and form pressing against the edges of the canvas, held in and yet bursting with quiet energy.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,800"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Signal from Nowhere — どこにもない場所から届く信号</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">Layers of collaged materials — prints of past works, washi paper, and hand-painted tape — form the foundation of this painting, built up further with acrylic in a process of accumulation and erasure. Vertical white strokes cut through the composition, creating space to breathe between color and form. Magenta, blue, and teal resonate across the canvas, generating a quiet, persistent vibration.
-The work leaves the viewer with a sensation of something received from a distant, unidentifiable place.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">The Blessing of Rain Yet to Come — これから表われる雨の恵み</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">Anticipation of rain as grace — the charged air before weather changes, the blessing held in suspension.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,450"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">In a Dream — 夢の中で</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">70x100 cm</span>
-    <p itemprop="description">Suspended between waking and sleep — forms dissolve and reconstitute themselves in layered hues, evoking the logic of the dreaming mind.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€2,500"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Fragments of Thought — 思いの断片</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">70x100 cm</span>
-    <p itemprop="description">Thought arrives in pieces — partial images, interrupted lines, colour that remembers what language cannot hold.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€2,500"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Harboring Tangled Currents — 混線する気持ちを蓄える</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">A harbour of complexity — currents crossing and tangling beneath a surface that appears still. Tension held with grace.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Escape turned out to be a dream — 逃げようと思ったら夢だった</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×50 cm</span>
-    <p itemprop="description">The escape that seemed real dissolves into colour and memory. What we flee from and what we long for are sometimes the same thing.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Found in a Place I Strayed Into – Circle — 迷い込んだ場所で見つけた丸</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">Discovery through accident — the unexpected place that becomes, in retrospect, exactly where you needed to be.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Fragments of the Night When the Answer Was Found — 答えが見つかった夜の断片</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40x50 cm</span>
-    <p itemprop="description">Night as a place of revelation — fragments of darkness carrying unexpected light. An answer arrived not as certainty, but as recognition.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">A Calculation to Find Something Sought — 探し物を見つけるための計算</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×50 cm</span>
-    <p itemprop="description">Searching through marks and colour — a methodical seeking that finds its answer not in logic but in feeling.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">A Fun Sky Adventure — 楽しい空の冒険</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">Lightness as a serious subject — the joy of ascent, of open sky, of colour freed from gravity.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">A Thought Rising from the Cold — 寒いの中からの想い</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">Cold as a condition of clarity — thought emerging slowly, deliberately, from a still and wintry ground.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Kousaku 20 — 工作２０</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30×40 cm</span>
-    <p itemprop="description">The twentieth in the Kousaku series — work as practice, as repetition, as daily ritual. Each piece a record of presence.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Blue Conversations in the Garden — 庭の会話の青</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×60 cm</span>
-    <p itemprop="description">Dialogue in blue — an exchange between forms that mirrors the easy rhythm of a conversation held outdoors, unhurried.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Within the Time of the Sky — 天空の時間の中</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40x60 cm</span>
-    <p itemprop="description">Sky as duration, not backdrop — a painting that asks us to inhabit time rather than observe it.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Stairs of Thrill — スリルの階段</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×60 cm</span>
-    <p itemprop="description">Ascent as excitement — each step upward charged with anticipation, the destination unknown but urgently desired.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">The Kindness Found Within a Sense of Stories — 物語感が出会えたやさしさ</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×60 cm</span>
-    <p itemprop="description">Stories as acts of kindness — the warmth that comes from being held within a narrative, from being seen through someone else's telling.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,100"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Daily Painting 1</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">31×40 cm</span>
-    <p itemprop="description">The first daily painting — a commitment to showing up, to making, to the ordinary miracle of paint meeting canvas.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Daily painting 3</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">The third daily painting — proof of continued practice, of showing up again, of the studio as sanctuary.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Enjoy — お楽しみください</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30×40 cm</span>
-    <p itemprop="description">Permission to delight — a painting that asks nothing of the viewer except presence and pleasure.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Preparing to Make a Decision — 決断を前にして</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">Poised at the threshold — forms gather and pause before committing to direction. A painting about the charged stillness before action.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Shake — ゆれる</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">70x100 cm</span>
-    <p itemprop="description">Vibration made visible. The canvas trembles with overlapping gestures — a record of the body moving through space, of energy passing through matter.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€2,500"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">A Walk in Mind — 散歩の気分</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">Walking not through space but through thought — a meandering path of associations, memories, and quiet observations.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Words of the Enchanted Forest — 不思議の森の言葉</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">The forest speaks in colour and texture — a language older than words, felt rather than understood.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,450"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">A Detour to Catch Up with Thought — 思考に追いつくためのまわり道</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">A dynamic collage that captures the non-linear process of the human mind. The fragmented patches of color represent fleeting ideas, while the intricate, web-like lines illustrate the logical threads trying to connect them. The "detour" is not a sign of lost direction, but a necessary journey where chaos and order coexist. It depicts the moment when scattered fragments of intuition finally resonate into a singular realization.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="1300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Toward a Place I Cannot Reach — たどり着けない場所へ</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">This painting is a poetic meditation on longing and the eternal horizon. The expansive, ethereal blues suggest an inaccessible distance, contrasted by the warm, tactile pinks that represent human presence and emotion. The ladder-like motifs lead the eye upward, only to dissolve into abstraction, symbolizing a destination that remains perpetually out of grasp. It celebrates the beauty of the yearning itself—the act of reaching for an ideal that stays forever beyond the horizon.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Daily 4 — Selection　セレクション</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">The fourth in a series of daily paintings — each one a single sitting, a single mood, a single conversation between hand and canvas.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Black Abstraction 1 — 黒い抽象１</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">The first of the Black Abstraction series — a foundational work exploring depth, restraint, and the space between forms.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Selection — セレクション</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">Every mark a choice — every colour a commitment. This work is about the act of selection itself, the quiet authority of the artist's hand.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Black Abstraction 0 — 黒い抽象０</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">The origin of the Black Abstraction series. Dark grounds carry luminous traces — light emerging from within, not imposed from without.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">White Abstraction 2 — 白い抽象２</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">White as substance, not absence. The second White Abstraction explores silence, surface, and the texture of emptiness.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Daily Painting 2</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">The second daily painting — small, immediate, alive. Made in a single session, carrying the full atmosphere of that day.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Lunch Break Amid Inner Conflict — 葛藤の中での昼休み</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">A pause in the middle of things — the ordinary moment interrupted by something unresolved beneath the surface.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Lifestyle — ライフスタイル</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">The aesthetic of everyday life examined — how we arrange our hours, our objects, our attention.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Structures to Control — コントロールするための構造</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×50 cm</span>
-    <p itemprop="description">The architecture of control — how we build systems to contain what cannot be contained.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Encounter — 出会い</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">Two presences, two fields of colour — drawn together by some quiet gravity. An encounter without narrative, only atmosphere.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Just a matter of time — 時間の問題</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">Patience as a subject — the certainty that things unfold in their own time, regardless of our wanting otherwise.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">The Mood for Shopping — 買い物の気分</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30×40 cm</span>
-    <p itemprop="description">Consumer desire rendered in paint — the restless energy of wanting, browsing, almost buying.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">On the Terrace at Noon — 晴天の昼にテラスで</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50×70 cm</span>
-    <p itemprop="description">Midday light on a terrace — the particular brightness of noon, the way shadows retreat and colour intensifies.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€1,300"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">turned around Umgedreht — それ</h3>
-    <meta itemprop="dateCreated" content="2026">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">30x40 cm</span>
-    <p itemprop="description">Turned around. A reversal of expectation — what was ground becomes sky, what was heavy becomes light.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€650"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Memory Beyond the Choice — 選択した先の記憶</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×50 cm</span>
-    <p itemprop="description">Memory as a kind of choosing — what we keep and what we release, what returns unbidden in colour and form.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">The Garden of Restrained Rising Emotions — 湧き上がる感情を抑えた庭</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">40×50 cm</span>
-    <p itemprop="description">Feeling held within form — emotion that rises slowly, quietly, like something growing in a sheltered garden.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">An-Answer-Close-to-For-Example — 例えばに寄り添う答え</h3>
-    <meta itemprop="dateCreated" content="2025">
-    <span itemprop="artMedium">Acrylic on canvas</span>
-    <span itemprop="width height">40x50 cm</span>
-    <p itemprop="description">Not a definitive answer but an approximation — the kind of truth that gestures rather than declares.</p>
-    <span itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="€900"><meta itemprop="priceCurrency" content="EUR"></span>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Daily 5</h3>
-    <meta itemprop="dateCreated" content="2024">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">A quiet accumulation of days. Pink and white settle like morning light over a city half-remembered — blue and green pulse beneath, refusing to be buried. The grid-like marks and collaged layers suggest a map drawn from feeling rather than geography. Something is being covered; something is pushing through.</p>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-  <article itemscope itemtype="https://schema.org/VisualArtwork">
-    <h3 itemprop="name">Daily 8</h3>
-    <meta itemprop="dateCreated" content="2024">
-    <span itemprop="artMedium">Acrylic on Canvas</span>
-    <span itemprop="width height">50x70 cm</span>
-    <p itemprop="description">A day that arrives with warmth and noise. Yellow and orange dominate like afternoon sun breaking into a crowded room, while green anchors the left side with quiet insistence. The black scaffolding of drawn lines holds the composition together — not as a frame, but as a rhythm. Every color here is speaking at once, and yet nothing shouts. It hums.</p>
-    <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
-    <meta itemprop="locationCreated" content="Berlin, Germany">
-    <meta itemprop="genre" content="Abstract art, Vibrational Resonance">
-    <link itemprop="url" href="https://oboshi.art">
-  </article>
-</section>
 
 <!-- ===== BOOK MODAL ===== -->
 <div class="book-modal-overlay" id="book-modal-overlay">
