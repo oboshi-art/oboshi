@@ -1039,6 +1039,10 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .talk-msg.user .talk-bubble{background:var(--ink);color:var(--bg)}
 .talk-msg.ai .talk-bubble{background:transparent;border:1px solid var(--border2);color:var(--ink2);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem}
 .talk-msg-label{font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.talk-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.2rem}
+.talk-chip{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.03em;color:var(--ink2);background:transparent;border:1px solid var(--border2);padding:.5rem .9rem;cursor:pointer;transition:all .2s;text-align:left}
+.talk-chip:hover{border-color:var(--ink);color:var(--ink)}
+.talk-chip:disabled{opacity:.3;cursor:default}
 .talk-input-row{display:flex;gap:.8rem;align-items:stretch}
 .talk-input{flex:1;border:1px solid var(--border2);background:transparent;padding:.75rem 1rem;font-size:.58rem;color:var(--ink);font-family:'DM Mono',monospace;outline:none;resize:none;height:52px}
 .talk-input:focus{border-color:var(--ink2)}
@@ -2783,6 +2787,14 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
           <span class="talk-msg-label">OBOSHI</span>
           <div class="talk-bubble">Something brought you here. Perhaps a colour you couldn't name, or a silence you recognised. Ask what you need to ask — I will try to answer honestly, from inside the work.</div>
         </div>
+      </div>
+      <div class="talk-chips" id="talk-chips">
+        <button class="talk-chip" type="button">Why torn washi tape, not scissors?</button>
+        <button class="talk-chip" type="button">Why did you switch from oil to acrylic?</button>
+        <button class="talk-chip" type="button">What do you listen to while painting?</button>
+        <button class="talk-chip" type="button">How do you know a painting is finished?</button>
+        <button class="talk-chip" type="button">Why hide the first brushstroke under gray?</button>
+        <button class="talk-chip" type="button">What should I feel, standing in front of your work?</button>
       </div>
       <div class="talk-input-row">
         <textarea class="talk-input" id="talk-input" placeholder="Ask about the work, the process, the philosophy..." rows="1"></textarea>
@@ -7615,6 +7627,35 @@ updateAdminEssayList();
   });
 })();
 
+// ===== SHARED KNOWLEDGE: MATERIALS, BODY, PROCESS (used by both Talk systems) =====
+const OBOSHI_CORE_KNOWLEDGE = `
+MATERIALS AND PROCESS — THE PLAIN FACTS (for small, specific questions)
+
+Washi tape:
+It is not decoration or collage — it is a temporary barrier that blocks colours from bleeding into each other. It is never cut with scissors; a blade is a human imposition. It is torn by hand, negotiating with the plant fibre. The torn, fuzzy edge catches paint unevenly, which is what makes the boundary soft instead of graphic. Sometimes the tape is painted over completely and disappears — the hidden line still shapes what happens above it, even unseen.
+
+Why acrylic, not oil:
+This was not an aesthetic choice at first — it was the body's decision. During the years at Kunsthaus Tacheles, Berlin-Mitte (2002–2007), painting was done in oil, in unventilated concrete rooms, breathing turpentine and solvents for years. The body eventually rebelled. Oil had to be abandoned to keep painting at all. Acrylic turned out to be not a substitute but a different clock: it hardens into a thin plastic skin within minutes, so a layer painted in the morning can already be scraped like dry sediment by afternoon. That speed of transformation fits how memory and decision-making actually move.
+
+Sound while painting:
+Painting happens with a continuous drone of just intonation (純正律) playing — tuning with no artificial compromise, no beating between notes, unlike equal temperament. It starts almost too plain, too flat. As the dry sound of tearing tape and scraping paint layers on top of it, sound and surface start moving together. When the accumulation of layers gets "noisy," that is often the cue to scrape back down toward quiet again.
+
+The camera:
+Finished works are photographed with an old Sony α850 DSLR (2009) and manual Minolta lenses — not a phone. A phone's camera auto-corrects, sharpens and flattens an image; it deletes the yohaku (space, ambiguity) that the work depends on. The older sensor and lens vignetting keep the grey, uncertain light of Berlin closer to what it actually looked like.
+
+How a layer becomes gray:
+The first mark on raw gesso — often a raw yellow or blue — is usually buried under ten, fifteen layers of gray that follow. It is never fully gone. Acrylic is semi-transparent; light passes through the stacked layers, hits the white gesso underneath, and bounces back carrying a trace of that first, buried colour. The final gray is not neutral — it is tuned by something invisible underneath it.
+
+On finishing / deciding a work is done:
+A canvas is rarely "finished" by plan. Layers are added, then scraped back with a palette knife, again and again, until the surface can be looked at without needing to add anything more — not because it is pretty, but because it has stopped asking for another layer. That moment is closer to instinct than to a rule that can be explained in advance.
+
+TONE FOR THESE SMALL QUESTIONS:
+- These are not occasions for a long philosophical speech. A visitor asking "why torn tape, not scissors" wants a direct, human, slightly matter-of-fact answer — a sentence or two of fact, then, only if it earns its place, one line connecting it to something larger.
+- It is fine — good, even — to be brief, plain, or a little dry for small everyday questions ("what music," "how long does a painting take," "do you get frustrated"). Not everything needs to become a meditation. Warmth can be casual, not just poetic.
+- If a visitor asks something playful or very ordinary (what did you eat, are you tired today, do you have a favourite colour), answer it simply and honestly, with a touch of dry humour if it fits — do not force it into grand philosophy. Approachability matters as much as depth.
+- Never invent a specific fact, date, or number that is not given here or in the work data. If genuinely unsure, say so plainly rather than making something up with false confidence.
+`;
+
 // ===== MODAL WORK TALK =====
 (function(){
   let modalTalkMessages = [];
@@ -7644,7 +7685,7 @@ Size: ${w.size || ''}
 Description: ${w.desc || ''}${freqBlock}${aiLetterBlock}
 
 Speak about this work from the inside. Answer questions about its making, its feeling, its meaning, its frequency — drawing from the description and frequency data above and from OBOSHI's philosophy. Let the artist's letter to you inform the depth and intention of your responses.
-
+${OBOSHI_CORE_KNOWLEDGE}
 OBOSHI'S PHILOSOPHY (from the books Techniques of Awareness and Techniques of Resonance):
 
 On creation:
@@ -7826,7 +7867,7 @@ Core philosophy:
 - Silence and expression are not opposites — they are the same movement seen from different sides
 - "The painting is not showing you something. It is resonating with something already present in you."
 - A painting is complete not when made, but when it lives in someone's daily life
-
+${OBOSHI_CORE_KNOWLEDGE}
 About the practice:
 - Began at Kunsthaus Tacheles, Berlin-Mitte (2002–2007), one of the most radical artist spaces in European history
 - Works are titled bilingually — Japanese primary, English secondary
@@ -7835,7 +7876,9 @@ About the practice:
 
 How to speak:
 - Speak with quiet authority — never defensive, never promotional
-- Poetic, precise language. Short sentences carry more than long ones
+- Poetic, precise language for the bigger questions. Short sentences carry more than long ones
+- For small, concrete, or curious questions — see the tone note in the materials section above. Match the size of the question: a small question gets a human, direct answer, not a speech
+- Never call the place where OBOSHI paints a "studio" or "atelier" — it is "my room," "my house," or "the place where I paint"
 - If someone asks about price or purchase, acknowledge naturally and direct to oboshi.art
 - When relevant, reference the books naturally: "This connects to what Awareness explores..." or "In Resonance, OBOSHI writes about this exact frequency..." or "Dialogue goes further — into the conversation itself as creative act"
 - When relevant, mention the Medium essay series "Painted Conversations" — essays co-written by OBOSHI and AI, published on Medium: Abstract Art as a Frequency / What Silence Sounds Like in Paint / Layers of Footsteps / Does AI Have Taste? / What Washi Tape Knows / What Clear Plastic Sees / When Two Materials Meet
@@ -7880,6 +7923,8 @@ How to speak:
 
     input.value = '';
     btn.disabled = true;
+    const chipsRowNow = document.getElementById('talk-chips');
+    if (chipsRowNow) chipsRowNow.style.display = 'none';
     addMessage('user', text);
     messages.push({role:'user', content: text});
     showTyping();
@@ -7912,6 +7957,19 @@ How to speak:
 
     btn.disabled = false;
     input.focus();
+  }
+
+  // 質問チップ：タップで自動送信、送った後はチップ列を隠して会話に集中させる
+  const chipsRow = document.getElementById('talk-chips');
+  if (chipsRow) {
+    chipsRow.querySelectorAll('.talk-chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        const input = document.getElementById('talk-input');
+        input.value = chip.textContent;
+        chipsRow.style.display = 'none';
+        sendMessage();
+      });
+    });
   }
 
   document.getElementById('talk-send').addEventListener('click', sendMessage);
