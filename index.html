@@ -996,7 +996,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 
 /* ===== TALK PAGE ===== */
 #page-talk{display:none}
-.talk-wrap{max-width:1100px;margin:0 auto;padding:10rem 3rem 5rem;display:grid;grid-template-columns:1fr minmax(180px,26vw);gap:4rem;align-items:start}
+.talk-wrap{max-width:1100px;margin:0 auto;padding:7rem 3rem 5rem;display:grid;grid-template-columns:1fr minmax(180px,26vw);gap:4rem;align-items:start}
 .talk-main{min-width:0}
 .talk-work-panel{position:sticky;top:6rem;display:none;flex-direction:column;gap:1rem;max-height:calc(100vh - 8rem);overflow-y:auto}
 .talk-work-panel.visible{display:flex}
@@ -1015,7 +1015,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .talk-label{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
 .talk-title{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.06em;line-height:1.1;margin-bottom:.8rem;color:var(--ink)}
 .talk-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink2);margin-bottom:3rem;line-height:1.7}
-.tark-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.tark-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:1.3rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
 .tark-left{}
 .tark-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2.4rem);letter-spacing:.06em;line-height:1;color:var(--ink);margin:0;white-space:nowrap}
 .tark-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink2);margin:.8rem 0 1.2rem;line-height:1.6}
@@ -1031,7 +1031,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .tark-steps tr:last-child td{border-bottom:none}
 .tark-step-word{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
 @media(max-width:600px){.tark-header{grid-template-columns:1fr}.tark-steps{align-items:flex-start}.tark-step-letter{text-align:left}}
-.talk-messages{min-height:320px;max-height:520px;overflow-y:auto;border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem;display:flex;flex-direction:column;gap:1.2rem;background:var(--bg)}
+.talk-messages{min-height:110px;max-height:420px;overflow-y:auto;border:1px solid var(--border);padding:1.5rem;margin-bottom:1rem;display:flex;flex-direction:column;gap:1.2rem;background:var(--bg)}
 .talk-msg{display:flex;flex-direction:column;gap:.3rem;max-width:88%}
 .talk-msg.user{align-self:flex-end;align-items:flex-end}
 .talk-msg.ai{align-self:flex-start}
@@ -1039,11 +1039,11 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .talk-msg.user .talk-bubble{background:var(--ink);color:var(--bg)}
 .talk-msg.ai .talk-bubble{background:transparent;border:1px solid var(--border2);color:var(--ink2);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem}
 .talk-msg-label{font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
-.talk-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.2rem}
+.talk-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem;margin-bottom:1.2rem}
 .talk-chip{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.03em;color:var(--ink2);background:transparent;border:1px solid var(--border2);padding:.5rem .9rem;cursor:pointer;transition:all .2s;text-align:left}
 .talk-chip:hover{border-color:var(--ink);color:var(--ink)}
 .talk-chip:disabled{opacity:.3;cursor:default}
-.talk-input-row{display:flex;gap:.8rem;align-items:stretch}
+.talk-input-row{display:flex;gap:.8rem;align-items:stretch;position:sticky;top:4.6rem;background:var(--bg);padding:.5rem 0;z-index:5}
 .talk-input{flex:1;border:1px solid var(--border2);background:transparent;padding:.75rem 1rem;font-size:.58rem;color:var(--ink);font-family:'DM Mono',monospace;outline:none;resize:none;height:52px}
 .talk-input:focus{border-color:var(--ink2)}
 .talk-send{background:var(--ink);color:var(--bg);border:none;padding:0 1.5rem;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:'DM Mono',monospace;transition:opacity .2s}
@@ -1052,8 +1052,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .talk-note{font-size:.44rem;letter-spacing:.06em;color:var(--ink3);margin-top:1rem;line-height:1.8}
 .talk-typing{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;color:var(--ink3);padding:.5rem 0}
 @media(max-width:620px){
-  .talk-wrap{padding:8rem 1.5rem 3rem}
+  .talk-wrap{padding:6rem 1.5rem 3rem}
   .talk-title{font-size:2.5rem}
+  .talk-input-row{top:3.6rem}
 }
 
 
@@ -1877,7 +1878,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <div class="contact-success" id="contact-success" style="margin-top:1.5rem">Thank you — your message has been sent. I'll reply soon.</div>
     <div class="contact-redesign-divider"></div>
     <div class="contact-redesign-alt">
-      <div class="contact-redesign-alt-label">Or just ask — about the work, the process, anything at all.</div>
+      <div class="contact-redesign-alt-label">Or speak directly with the work</div>
       <button class="contact-redesign-talk" onclick="showTalk()">
         <span class="contact-redesign-talk-dot"></span>
         Talk to a Painting
@@ -2788,6 +2789,10 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
           <div class="talk-bubble">Something brought you here. Perhaps a colour you couldn't name, or a silence you recognised. Ask what you need to ask — I will try to answer honestly, from inside the work.</div>
         </div>
       </div>
+      <div class="talk-input-row">
+        <textarea class="talk-input" id="talk-input" placeholder="Ask about the work, the process, the philosophy..." rows="1"></textarea>
+        <button class="talk-send" id="talk-send">Send</button>
+      </div>
       <div class="talk-chips" id="talk-chips">
         <button class="talk-chip" type="button">Why torn washi tape, not scissors?</button>
         <button class="talk-chip" type="button">Why did you switch from oil to acrylic?</button>
@@ -2795,10 +2800,6 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
         <button class="talk-chip" type="button">How do you know a painting is finished?</button>
         <button class="talk-chip" type="button">Why hide the first brushstroke under gray?</button>
         <button class="talk-chip" type="button">What should I feel, standing in front of your work?</button>
-      </div>
-      <div class="talk-input-row">
-        <textarea class="talk-input" id="talk-input" placeholder="Ask about the work, the process, the philosophy..." rows="1"></textarea>
-        <button class="talk-send" id="talk-send">Send</button>
       </div>
       <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
     <div class="talk-work-panel" id="talk-work-panel">
