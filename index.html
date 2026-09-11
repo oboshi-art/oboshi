@@ -6217,6 +6217,20 @@ document.getElementById('nav-contact').addEventListener('click',()=>{
 });
 document.getElementById('nav-buy').addEventListener('click',showGallery);
 
+(function(){
+  var h = window.location.hash;
+  if(h === '#works'){ showGallery(); }
+  else if(h === '#about'){ showAbout(); }
+  else if(h === '#talk'){ showTalk(); }
+  else if(h === '#contact'){
+    showTop();
+    setTimeout(()=>{
+      var contactEl = document.getElementById('contact');
+      if(contactEl) contactEl.scrollIntoView({behavior:'smooth'});
+    },80);
+  }
+})();
+
 document.getElementById('back-btn').addEventListener('click',showTop);
 document.getElementById('about-back-btn').addEventListener('click',showTop);
 document.getElementById('talk-back-btn').addEventListener('click',showTop);
