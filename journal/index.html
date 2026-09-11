@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — OBOSHI | Notes on Layered Painting, Berlin</title>
+
+<meta name="description" content="Journal by Junichi Oboshi (OBOSHI) — Painted Conversations and notes on layered acrylic painting, materials, and process, written from a studio in Berlin.">
+<meta name="keywords" content="abstract painting journal, Berlin artist blog, layered acrylic painting process, OBOSHI notes, Painted Conversations">
+<meta name="author" content="Junichi Oboshi">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oboshi.art/journal/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Journal — OBOSHI">
+<meta property="og:description" content="Painted Conversations and notes on layered acrylic painting, materials, and process — from a Berlin studio.">
+<meta property="og:url" content="https://oboshi.art/journal/">
+<meta property="og:site_name" content="OBOSHI">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://oboshi.art/journal/#blog",
+  "name": "OBOSHI Journal",
+  "url": "https://oboshi.art/journal/",
+  "description": "Painted Conversations and notes on layered acrylic painting, materials, and process, written by Junichi Oboshi (OBOSHI) in Berlin.",
+  "author": { "@id": "https://oboshi.art/#artist" },
+  "publisher": { "@id": "https://oboshi.art/#organization" },
+  "blogPost": [
+    { "@type": "BlogPosting", "headline": "When Two Materials Meet", "url": "https://oboshi.art/journal/two-materials.html", "datePublished": "2026-04-25" },
+    { "@type": "BlogPosting", "headline": "What Clear Plastic Sees", "url": "https://oboshi.art/journal/clear-plastic.html", "datePublished": "2026-04-22" },
+    { "@type": "BlogPosting", "headline": "What Washi Tape Knows", "url": "https://oboshi.art/journal/washi-tape.html", "datePublished": "2026-04-21" },
+    { "@type": "BlogPosting", "headline": "Does AI Have Taste?", "url": "https://oboshi.art/journal/ai-taste.html", "datePublished": "2026-04-21" },
+    { "@type": "BlogPosting", "headline": "Layers of Footsteps", "url": "https://oboshi.art/journal/footsteps.html", "datePublished": "2026-04-19" },
+    { "@type": "BlogPosting", "headline": "What Silence Sounds Like in Paint", "url": "https://oboshi.art/journal/silence.html", "datePublished": "2026-04-15" },
+    { "@type": "BlogPosting", "headline": "Abstract Art as a Frequency", "url": "https://oboshi.art/journal/frequency.html", "datePublished": "2026-04-11" }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#ffffff; --bg2:#f7f7f7; --ink:#1a1815; --ink2:#6b6560; --ink3:#b0aaa3;
+  --accent:#b84a24; --accent2:#d4723e; --gold:#c8a84b; --border:#e4e0d8; --border2:#d0cbc2;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+
+main{max-width:900px;margin:0 auto;padding:9rem 2rem 6rem}
+
+.journal-head{margin-bottom:3rem;border-bottom:1px solid var(--border);padding-bottom:2.5rem}
+.journal-tag{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3);margin-bottom:.8rem}
+.journal-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,5.5rem);line-height:.9;letter-spacing:.03em}
+.journal-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink2);margin-top:1rem;max-width:46ch;line-height:1.6}
+
+.series-tag{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);margin:3rem 0 .5rem}
+
+.post-list{display:flex;flex-direction:column}
+.post-item{display:grid;grid-template-columns:110px 1fr;gap:2rem;padding:2.2rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:opacity .2s}
+.post-item:hover{opacity:.7}
+.post-date{font-size:.55rem;letter-spacing:.12em;color:var(--ink3);text-transform:uppercase;padding-top:.3rem}
+.post-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.02em;color:var(--ink);margin-bottom:.5rem}
+.post-excerpt{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink2);line-height:1.6;max-width:60ch}
+.post-meta{margin-top:.6rem;font-size:.5rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+
+footer{border-top:1px solid var(--border);padding:2.5rem 3rem;text-align:center;font-size:.55rem;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase}
+footer a{color:var(--ink3);text-decoration:none}
+
+@media(max-width:640px){
+  nav{padding:1rem 1.3rem}
+  .nav-links{gap:1.2rem}
+  main{padding:7rem 1.3rem 4rem}
+  .post-item{grid-template-columns:1fr;gap:.4rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo" translate="no">OBOSHI.ART</a>
+  <ul class="nav-links">
+    <li><a href="/#works">Works</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/journal/" class="active">Journal</a></li>
+    <li><a href="/#talk">Talk</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="journal-head">
+    <div class="journal-tag">Notes from the room where I paint</div>
+    <h1 class="journal-title">JOURNAL</h1>
+    <p class="journal-sub">Layers, materials, and what surfaces along the way. Written in Berlin.</p>
+  </div>
+
+  <div class="series-tag">Painted Conversations — essays co-written by OBOSHI and AI</div>
+
+  <div class="post-list">
+
+    <a class="post-item" href="/journal/two-materials.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">When Two Materials Meet</div>
+        <p class="post-excerpt">What happens when washi tape and clear plastic appear in the same painting — the closing piece in a three-part study of materials that wait, reveal, and protect.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+    <a class="post-item" href="/journal/clear-plastic.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">What Clear Plastic Sees</div>
+        <p class="post-excerpt">On transparency, depth, and what becomes visible only once another layer sits on top.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+    <a class="post-item" href="/journal/washi-tape.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">What Washi Tape Knows</div>
+        <p class="post-excerpt">On the intelligence of materials — the one element in the practice that can subtract rather than add.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+    <a class="post-item" href="/journal/ai-taste.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">Does AI Have Taste?</div>
+        <p class="post-excerpt">A dialogue between painter and AI on honesty, preference, and what an unguarded opinion actually requires.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+    <a class="post-item" href="/journal/footsteps.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">Layers of Footsteps</div>
+        <p class="post-excerpt">The philosophy of accumulated time in painting — how a canvas works like a path worn by footsteps.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+    <a class="post-item" href="/journal/silence.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">What Silence Sounds Like in Paint</div>
+        <p class="post-excerpt">On silence as structure rather than absence — how unpainted space and held tension build the quiet in a layered painting.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+    <a class="post-item" href="/journal/frequency.html">
+      <div class="post-date">2026 · 04</div>
+      <div>
+        <div class="post-title">Abstract Art as a Frequency</div>
+        <p class="post-excerpt">How layered acrylic painting can carry a structural frequency — and what a name taught its painter about the work.</p>
+        <div class="post-meta">Read the piece →</div>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  OBOSHI · Berlin · <a href="/">oboshi.art</a>
+</footer>
+
+</body>
+</html>
