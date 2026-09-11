@@ -44,10 +44,13 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;-webkit-font-smoothing:antialiased}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:var(--ink);text-decoration:none}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:var(--ink);text-decoration:none;cursor:pointer;transition:letter-spacing .4s ease,opacity .3s ease}
 .nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
-.nav-links a{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);text-decoration:none}
-.nav-links a:hover{color:var(--accent)}
+.nav-links a{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:.5rem 1.1rem;cursor:pointer;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--accent)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 article{max-width:680px;margin:0 auto;padding:9rem 2rem 6rem}
 
@@ -84,8 +87,11 @@ footer a{color:var(--ink3);text-decoration:none}
     <li><a href="/#works">Works</a></li>
     <li><a href="/#about">About</a></li>
     <li><a href="/journal/">Journal</a></li>
-    <li><a href="/#talk">Talk</a></li>
+    <li><a href="/#talk">Talk <span style="width:5px;height:5px;border-radius:50%;background:#4caf50;display:inline-block;vertical-align:middle;margin-left:2px;animation:pulse 1.5s infinite"></span></a></li>
+    <li><a href="/observer" style="opacity:.45;transition:opacity .3s,color .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.45">OBSERVER</a></li>
+    <li><a href="/#contact">Contact</a></li>
   </ul>
+  <a href="/#works" class="nav-cta">Buy Original Art</a>
 </nav>
 
 <article>
