@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://oboshi.art/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://oboshi.art/observer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://oboshi.art/journal/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://oboshi.art/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://oboshi.art/observer</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://oboshi.art/journal/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <url><loc>https://oboshi.art/journal/frequency.html</loc><lastmod>2026-04-11</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oboshi.art/journal/silence.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -30,6 +16,13 @@
   <url><loc>https://oboshi.art/journal/torn-edge.html</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oboshi.art/journal/inevitability.html</loc><lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oboshi.art/journal/slips.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/one-slip-after-another.html</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/fifth-position.html</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/begins-before-you-do.html</loc><lastmod>2026-05-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oboshi.art/journal/loudest-silence.html</loc><lastmod>2026-05-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/work-refuses.html</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/after-refusal.html</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/found-before-searched.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://oboshi.art/journal/pressing-against-canvas.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
 </urlset>
