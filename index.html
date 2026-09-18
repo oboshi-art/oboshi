@@ -6091,6 +6091,9 @@ const titleJaMap={
 "Daily Painting 2":"",
 "Daily painting 3":""
 };
+function slugifyTitle(str){
+  return String(str).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+}
 function openModal(i){
   const w=works[i];
   currentWork=w;
@@ -6199,12 +6202,14 @@ function openModal(i){
     document.getElementById('buy-sold').style.display=w.sold?'block':'none';
   }
   document.getElementById('modal').classList.add('open');
+  try{ history.replaceState(null,'',location.pathname+location.search+'#work-'+slugifyTitle(w.title)); }catch(e){}
 }
 function closeModal(){
   document.getElementById('modal').classList.remove('open');
   currentWork=null;
   currentImages=[];
   currentImageIndex=0;
+  try{ history.replaceState(null,'',location.pathname+location.search+'#works'); }catch(e){}
 }
 
 // 🎯 画像スライダー機能
@@ -6265,6 +6270,16 @@ document.getElementById('nav-buy').addEventListener('click',showGallery);
 function routeInitialView(){
   var h = window.location.hash;
   if(h === '#works'){ showGallery(); }
+  else if(h.indexOf('#work-') === 0){
+    var slug = h.slice(6);
+    var idx = works.findIndex(function(w){ return slugifyTitle(w.title) === slug; });
+    if(idx >= 0){
+      showGallery();
+      setTimeout(function(){ openModal(idx); }, 80);
+    } else {
+      showGallery();
+    }
+  }
   else if(h === '#about'){ showAbout(); }
   else if(h === '#talk'){ showTalk(); }
   else if(h === '#contact'){
