@@ -3622,6 +3622,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
         <div class="buy-section">
           <div class="buy-title">Purchase this original work</div>
           <div class="dev-notice" id="dev-notice">⚙ Stripe未設定 — Payment Linkを設定すると有効になります</div>
+          <div class="exhibition-notice" id="exhibition-notice" style="display:none;font-family:'DM Mono',monospace;font-size:.62rem;line-height:1.7;color:var(--ink2);background:var(--bg);border:1px solid var(--border);padding:.9rem 1rem;margin-bottom:.8rem;text-transform:none;letter-spacing:normal"></div>
           <button class="btn-stripe" id="btn-stripe">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
             Buy Now — Secure Checkout
@@ -3899,6 +3900,8 @@ const works = [
     "size": "70x100 cm",
     "desc": "I painted it as if I had gathered and layered color impressions from pieces of washi tape, only to suddenly realize that spring had arrived. Deep teal and forest-green vibrate across the canvas, cut through by tall green stripes that rise like new growth. Fragments of magenta, blue and mustard collage sit half-buried beneath — colour that was painted, torn, applied, and painted over again. A dark red form opens on the right like a held breath. Nothing here announces the season directly. It simply accumulates, layer by layer, until the accumulation itself becomes spring.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
+    "exhibitionHold": true,
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -3943,6 +3946,8 @@ const works = [
     "size": "70x100 cm",
     "desc": "I painted it as if vibrations carrying heat repeatedly failed to linger in this single moment. A vivid cerulean field holds the canvas like open sky, restless the moment it is looked at. Crimson-red brushwork gathers and drips through the lower centre, dense and unresolved. Pink, yellow and green torn-tape fragments scatter across the blue like heat rising off a surface too quickly to hold. Pale grey squares of vinyl sit quietly among the intensity — small pauses inside a field that keeps moving.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
+    "exhibitionHold": true,
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -3986,6 +3991,8 @@ const works = [
     "size": "70x100 cm",
     "desc": "I painted it as if someone were singing a song that gives the feeling of something filling up and then returning again. Crimson and burnt orange gather across the upper field like a held note, dripping downward into forest green. Yellow-green torn-tape stripes fall through the lower half like the song's own rhythm, repeating and repeating. Pale mint and white vinyl panels sit to the right — a quieter register, where the singing softens but never quite stops.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
+    "exhibitionHold": true,
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -4030,6 +4037,8 @@ const works = [
     "size": "70x100 cm",
     "desc": "I painted it as if it had become a Go board — only the structure remains, without feeling. Pale blue, mint, cream and soft yellow-green settle into a quiet grid of torn washi and vinyl squares, each one distinct, none of them raised above the others. The palette that carried heat and colour through the other three seasons goes still here — muted, evenly spaced, almost administrative. What is left is pure structure: the scaffolding beneath the year, visible now that everything else has receded.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
+    "exhibitionHold": true,
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -6258,7 +6267,7 @@ function buildGrid(){
     const el=document.createElement('div');
     el.className='g-item';
     const imgHtml = w.img ? `<img src="${w.img}" alt="${w.title}" loading="lazy">` : '';
-    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year}${w.size ? " · " + w.size : ""}</div>${!w.sold && w.stripeLink ? `<div class="g-hover-price">${w.price}</div><button class="g-hover-buy" onclick="event.stopPropagation();openModal(${i})">Buy Now →</button>` : (!w.sold ? `<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" target="_blank" onclick="event.stopPropagation()">Enquire →</a>` : "")}<button class="g-hover-talk" onclick="event.stopPropagation();openWorkTalk(${i})">TALK</button></div>${w.sold?'<div class=\"g-sold-badge\">Collected</div>':''}${w.digitalOnly?'<div class=\"g-digital-badge\">⬇ Digital</div>':''}` ;
+    el.innerHTML=`${imgHtml}<div class="g-hover"><div class="g-hover-title">${w.title}</div><div class="g-hover-meta">${w.year}${w.size ? " · " + w.size : ""}</div>${!w.sold && w.stripeLink && !w.exhibitionHold ? `<div class="g-hover-price">${w.price}</div><button class="g-hover-buy" onclick="event.stopPropagation();openModal(${i})">Buy Now →</button>` : (!w.sold ? `<a href="https://mail.google.com/mail/?view=cm&to=art@oboshi.art&su=Enquiry: ${encodeURIComponent(w.title)}" class="g-hover-inquire" target="_blank" onclick="event.stopPropagation()">Enquire →</a>` : "")}<button class="g-hover-talk" onclick="event.stopPropagation();openWorkTalk(${i})">TALK</button></div>${w.sold?'<div class=\"g-sold-badge\">Collected</div>':''}${w.digitalOnly?'<div class=\"g-digital-badge\">⬇ Digital</div>':''}` ;
     el.addEventListener('click',()=>openModal(i));
     grid.appendChild(el);
   });
@@ -6397,6 +6406,20 @@ function openModal(i){
     btn.style.display='flex';
   } else { btn.style.display='none'; }
   document.getElementById('dev-notice').classList.toggle('show',w.priceNum>0&&!w.stripeLink);
+  const exNotice=document.getElementById('exhibition-notice');
+  const shipInfo=document.querySelector('#buy-available .shipping-info');
+  const trustRow=document.querySelector('#buy-available .trust-row');
+  if(w.exhibitionHold){
+    if(btn) btn.style.display='none';
+    if(shipInfo) shipInfo.style.display='none';
+    if(trustRow) trustRow.style.display='none';
+    exNotice.style.display='block';
+    exNotice.textContent=w.exhibitionHoldNote||'Currently on view at Q Gallery Berlin — please inquire to purchase.';
+  } else {
+    if(shipInfo) shipInfo.style.display='';
+    if(trustRow) trustRow.style.display='';
+    exNotice.style.display='none';
+  }
   const al=document.getElementById('m-anasaea-link');
   // 常に固定のAnasaea展覧会ページへリンク
   al.href='https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt';
