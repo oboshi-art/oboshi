@@ -1883,14 +1883,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <!-- ===== EXHIBITIONS SECTION ===== -->
   <div class="ecosystem" id="exhibitions-section" style="display:none">
     <div class="eco-heading">Exhibitions</div>
-    <div id="exh-current-wrap">
-      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Current & Upcoming</div>
-      <div id="exh-current-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
-    </div>
-    <div id="exh-past-wrap" style="margin-top:3rem;display:none">
-      <div style="font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem">Past Exhibitions</div>
-      <div id="exh-past-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
-    </div>
+    <div id="exh-all-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
   </div>
 
   <div class="rule"></div>
@@ -3105,7 +3098,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
       <div class="timeline-line"><div class="timeline-dot"></div></div>
       <div class="timeline-content">
         <div class="timeline-title">Group Exhibitions — QGallery Berlin</div>
-        <div class="timeline-desc">"Spring Stories" — group exhibition at QGallery, Berlin. Vernissage March 19, 2026. Works shown alongside other Berlin-based contemporary artists. Also planned for November 2026: "Meguru" — a group exhibition of Japanese artists in Berlin at QGallery, part of Schöneberger Art.</div>
+        <div class="timeline-desc">"Spring Stories" — group exhibition at QGallery, Berlin. Vernissage March 19, 2026. Works shown alongside other Berlin-based contemporary artists. Also November 7–8, 2026: "Meguru (巡る)" — a group exhibition of Japanese artists in Berlin at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin, part of Schöneberger Art 2026. <a href="https://oboshi.art/SArt_Flyer_2026.pdf" target="_blank" rel="noopener">View official flyer (PDF) →</a></div>
       </div>
 
       <div class="timeline-year">Now</div>
@@ -3901,7 +3894,7 @@ const works = [
     "desc": "I painted it as if I had gathered and layered color impressions from pieces of washi tape, only to suddenly realize that spring had arrived. Deep teal and forest-green vibrate across the canvas, cut through by tall green stripes that rise like new growth. Fragments of magenta, blue and mustard collage sit half-buried beneath — colour that was painted, torn, applied, and painted over again. A dark red form opens on the right like a held breath. Nothing here announces the season directly. It simply accumulates, layer by layer, until the accumulation itself becomes spring.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
     "exhibitionHold": true,
-    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin (Schöneberger Art 2026, Nov 7–8 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -3947,7 +3940,7 @@ const works = [
     "desc": "I painted it as if vibrations carrying heat repeatedly failed to linger in this single moment. A vivid cerulean field holds the canvas like open sky, restless the moment it is looked at. Crimson-red brushwork gathers and drips through the lower centre, dense and unresolved. Pink, yellow and green torn-tape fragments scatter across the blue like heat rising off a surface too quickly to hold. Pale grey squares of vinyl sit quietly among the intensity — small pauses inside a field that keeps moving.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
     "exhibitionHold": true,
-    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin (Schöneberger Art 2026, Nov 7–8 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -3992,7 +3985,7 @@ const works = [
     "desc": "I painted it as if someone were singing a song that gives the feeling of something filling up and then returning again. Crimson and burnt orange gather across the upper field like a held note, dripping downward into forest green. Yellow-green torn-tape stripes fall through the lower half like the song's own rhythm, repeating and repeating. Pale mint and white vinyl panels sit to the right — a quieter register, where the singing softens but never quite stops.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
     "exhibitionHold": true,
-    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin (Schöneberger Art 2026, Nov 7–8 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -4038,7 +4031,7 @@ const works = [
     "desc": "I painted it as if it had become a Go board — only the structure remains, without feeling. Pale blue, mint, cream and soft yellow-green settle into a quiet grid of torn washi and vinyl squares, each one distinct, none of them raised above the others. The palette that carried heat and colour through the other three seasons goes still here — muted, evenly spaced, almost administrative. What is left is pure structure: the scaffolding beneath the year, visible now that everything else has receded.\nPart of \"Shiki (四季)\", OBOSHI's four-painting contribution to the group exhibition \"Meguru (巡る)\" — Schöneberger Art 2026, Q Gallery Berlin, November 7–8.",
     "sold": false,
     "exhibitionHold": true,
-    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin (Schöneberger Art 2026 → extended display). Please inquire to purchase the original — digital download remains available below.",
+    "exhibitionHoldNote": "Currently on view at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin (Schöneberger Art 2026, Nov 7–8 → extended display). Please inquire to purchase the original — digital download remains available below.",
     "digitalOnly": false,
     "category": "oboshi",
     "weight": null,
@@ -7299,7 +7292,7 @@ function downloadIndexHtml() {
       }
 
       // 展覧会データも埋め込む
-      const exhMarker = 'let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];';
+      const exhMarker = 'let exhibitions = [{"title":"Meguru (巡る)","venue":"Q Gallery Berlin","start":"07.11.2026","end":"08.11.2026","vernissage":"","desc":"“Meguru (巡る)” is a group exhibition of Japanese artists in Berlin, part of Schöneberger Art 2026 — the district-wide open-studio and gallery walk, now in its 18th year. OBOSHI presents “Shiki (四季)”, a four-painting cycle moving through spring, summer, autumn and winter, built with the OBOSHI Washi Tape Method and OBOSHI Vinylayer Method.","poster":"images/fruhlingsbild-web.jpg","url":"https://www.schoeneberger-art.de/","archived":false},{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];';
       const exhJson = JSON.stringify(exhibitions);
       let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
       updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
@@ -7485,7 +7478,7 @@ async function submitContactForm(e) {
 
 // ============================================
 // ===== EXHIBITIONS =====
-let exhibitions = [{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];
+let exhibitions = [{"title":"Meguru (巡る)","venue":"Q Gallery Berlin","start":"07.11.2026","end":"08.11.2026","vernissage":"","desc":"“Meguru (巡る)” is a group exhibition of Japanese artists in Berlin, part of Schöneberger Art 2026 — the district-wide open-studio and gallery walk, now in its 18th year. OBOSHI presents “Shiki (四季)”, a four-painting cycle moving through spring, summer, autumn and winter, built with the OBOSHI Washi Tape Method and OBOSHI Vinylayer Method.","poster":"images/fruhlingsbild-web.jpg","url":"https://www.schoeneberger-art.de/","archived":false},{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];
 let editingExhIndex = -1;
 
 function loadExhibitions() {
@@ -7538,13 +7531,11 @@ function getExhStatus(e) {
 
 function buildExhibitions() {
   const sec = document.getElementById('exhibitions-section');
-  const currentList = document.getElementById('exh-current-list');
-  const pastList = document.getElementById('exh-past-list');
-  const pastWrap = document.getElementById('exh-past-wrap');
+  const allList = document.getElementById('exh-all-list');
   const ecoTitle = document.getElementById('eco-exh-title');
   const ecoPreview = document.getElementById('eco-exh-preview');
 
-  // 日付で自動振り分け
+  // 日付で自動振り分け（表示は1列にまとめ、ステータスはバッジの点滅で区別）
   const current = exhibitions.filter(e => ['current','soon','upcoming'].includes(getExhStatus(e)));
   const past = exhibitions.filter(e => getExhStatus(e) === 'past');
 
@@ -7566,9 +7557,8 @@ function buildExhibitions() {
     if (ecoPreview) ecoPreview.textContent = past.length + ' exhibitions';
   }
 
-  currentList.innerHTML = current.map(e => renderExhCard(e, false)).join('');
-  pastList.innerHTML = past.map(e => renderExhCard(e, true)).join('');
-  pastWrap.style.display = past.length > 0 ? 'block' : 'none';
+  const all = [...current, ...past];
+  allList.innerHTML = all.map(e => renderExhCard(e, getExhStatus(e) === 'past')).join('');
 }
 
 function renderExhCard(e, isPast) {
