@@ -3115,7 +3115,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
       <div class="timeline-line"><div class="timeline-dot"></div></div>
       <div class="timeline-content">
         <div class="timeline-title">Group Exhibitions — QGallery Berlin</div>
-        <div class="timeline-desc">"Spring Stories" — group exhibition at QGallery, Berlin. Vernissage March 19, 2026. Works shown alongside other Berlin-based contemporary artists. Also November 7–8, 2026: "Meguru (廻る)" — a group exhibition of Japanese artists in Berlin at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin, part of Schöneberger Art 2026. <a href="https://oboshi.art/SArt_Flyer_2026.pdf" target="_blank" rel="noopener">View official flyer (PDF) →</a></div>
+        <div class="timeline-desc">"Spring Stories" — group exhibition at QGallery, Berlin. Vernissage March 19, 2026. Works shown alongside other Berlin-based contemporary artists. Also November 7–8, 2026: "Meguru (廻る)" — a group exhibition of Japanese artists in Berlin at Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin, part of Schöneberger Art 2026. <a href="https://www.google.com/maps/search/?api=1&query=Q%20Gallery%20Berlin%2C%20Gro%C3%9Fg%C3%B6rschenstr.%207%2C%2010827%20Berlin" target="_blank" rel="noopener">Open in Google Maps →</a> · <a href="https://oboshi.art/SArt_Flyer_2026.pdf" target="_blank" rel="noopener">View official flyer (PDF) →</a></div>
       </div>
 
       <div class="timeline-year">Now</div>
@@ -7595,6 +7595,11 @@ function renderExhCard(e, isPast) {
   const vernissage = e.vernissage ? `<div class="exh-card-vernissage">Vernissage: ${e.vernissage}</div>` : '';
   const desc = e.desc ? `<div class="exh-card-desc">${e.desc}</div>` : '';
   const galleryLink = e.url ? `<a href="${e.url}" target="_blank" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">View Gallery Website →</a>` : '';
+  // Google Maps link (venue address lookup; works even if saved data has no mapUrl)
+  const venueAddresses = { 'q gallery berlin': 'Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin', 'qgallery berlin': 'Q Gallery Berlin, Großgörschenstr. 7, 10827 Berlin' };
+  const mapQuery = e.mapUrl ? '' : (venueAddresses[(e.venue || '').toLowerCase().trim()] || '');
+  const mapHref = e.mapUrl || (mapQuery ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(mapQuery) : '');
+  const mapLink = mapHref ? `<a href="${mapHref}" target="_blank" rel="noopener" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">📍 Open in Google Maps →</a>` : '';
   return `
     <div class="exh-card${isPast ? ' past' : ''}">
       ${poster}
@@ -7605,6 +7610,7 @@ function renderExhCard(e, isPast) {
       ${vernissage}
       ${desc}
       ${galleryLink}
+      ${mapLink}
     </div>
   `;
 }
