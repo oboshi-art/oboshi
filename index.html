@@ -869,7 +869,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .btn-enquire:hover{border-color:var(--ink);color:var(--ink)}
 .btn-platform{background:none;border:1px solid var(--border);color:var(--ink3);font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem;cursor:pointer;transition:all .2s;width:100%;text-align:center;text-decoration:none;display:block;margin-bottom:.4rem}
 .btn-platform:hover{border-color:var(--gold);color:var(--gold)}
-.print-block{margin-top:1rem}
+.btn-print{display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 1.2rem;text-decoration:none;cursor:pointer;transition:background .25s;width:100%;margin-bottom:.5rem}
+.btn-print:hover{background:#94341a}
+.btn-print:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sold-msg{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);text-align:center;padding:1.2rem;border:1px solid var(--border);line-height:1.85}
 .shipping-info{background:var(--bg2);border:1px solid var(--border);padding:.8rem 1rem;margin:.5rem 0 .7rem;display:flex;gap:.8rem;align-items:flex-start}
 .shipping-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem}
@@ -888,6 +890,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .btn-digital{display:flex;align-items:center;justify-content:center;gap:.8rem;background:var(--accent);color:#fff;border:none;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 1.2rem;cursor:pointer;transition:background .25s;width:100%;margin-bottom:.5rem}
 .btn-digital:hover{background:#94341a}
 .btn-digital svg{flex-shrink:0}
+.btn-digital.is-secondary{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);transition:background .25s,color .25s}
+.btn-digital.is-secondary:hover{background:var(--accent);color:#fff}
 .digital-features{background:var(--bg2);border:1px solid var(--border);padding:.8rem 1rem;margin:.5rem 0;font-size:.48rem;letter-spacing:.05em;color:var(--ink2);line-height:1.85}
 .digital-features strong{color:var(--ink);display:block;font-size:.5rem;letter-spacing:.12em;margin-bottom:.3rem}
 .digital-features ul{margin:.4rem 0 0 1rem;list-style:none}
@@ -3665,8 +3669,10 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
         </div>
 
         <!-- Art print (Meisterdrucke): shown only for works listed in printLinks -->
-        <div class="print-block" id="m-print-block" style="display:none">
-          <a class="btn-platform" id="m-print-link" href="#" target="_blank" rel="noopener">Also available as an art print — Meisterdrucke →</a>
+        <div class="digital-section" id="m-print-block" style="display:none">
+          <div class="digital-title">Art Print Available</div>
+          <div class="digital-subtitle">Choose your size, paper or canvas, and frame at Meisterdrucke.</div>
+          <a class="btn-print" id="m-print-link" href="#" target="_blank" rel="noopener">Configure Your Print — Meisterdrucke →</a>
         </div>
 
         <!-- Digital Download Section -->
@@ -6475,6 +6481,8 @@ function openModal(i){
   const printBlock=document.getElementById('m-print-block');
   if(printUrl){document.getElementById('m-print-link').href=printUrl;printBlock.style.display='block';}
   else{printBlock.style.display='none';}
+  // With a print option shown, digital becomes the outlined (secondary) button; digital-only works keep it filled
+  document.getElementById('btn-digital').classList.toggle('is-secondary',!!printUrl&&!w.digitalOnly);
   
   // デジタルダウンロードセクションの表示制御
   const digitalSection=document.getElementById('digital-section');
