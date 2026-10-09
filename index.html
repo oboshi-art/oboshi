@@ -6313,6 +6313,7 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
   });
 });
 // Meisterdrucke art-print pages. Key = work title. Add a line when a new work goes live there.
+const SHOW_DIGITAL=false; // デジタルダウンロード表示：再開するときは true に変更
 const printLinks={
 "A Detour to Catch Up with Thought":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757645/A-Detour-to-Catch-Up-with-Thought.html",
 "A Fun Sky Adventure":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757646/A-Fun-Sky-Adventure.html",
@@ -6486,7 +6487,7 @@ function openModal(i){
   
   // デジタルダウンロードセクションの表示制御
   const digitalSection=document.getElementById('digital-section');
-  digitalSection.style.display='block'; // 常に表示（全作品でデジタル版を提供）
+  digitalSection.style.display=(SHOW_DIGITAL||w.digitalOnly)?'block':'none'; // SHOW_DIGITAL=false で非表示（デジタル専用作品は常に表示）
   const digitalTitle=digitalSection.querySelector('.digital-title');
   const digitalSubtitle=digitalSection.querySelector('.digital-subtitle');
   if(w.digitalOnly){
