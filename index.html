@@ -1219,6 +1219,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .exh-card-dates{font-size:.55rem;letter-spacing:.1em;color:var(--ink2);margin-top:.2rem}
 .exh-card-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;line-height:1.8;color:var(--ink2)}
 .exh-card-vernissage{font-size:.5rem;letter-spacing:.12em;color:var(--ink3);border-top:1px solid var(--border);padding-top:.6rem}
+.exh-card-poster-sq{width:100%;height:auto;display:block;margin-bottom:.4rem}
+.exh-card-more{display:flex;gap:.5rem;margin-bottom:.4rem}
+.exh-card-more img{flex:1 1 0;min-width:0;width:50%;height:auto;object-fit:cover;display:block}
+.exh-vern{border:1px solid var(--accent);border-left-width:4px;background:rgba(184,72,28,.06);padding:.8rem 1rem;display:flex;flex-direction:column;gap:.25rem}
+.exh-vern-label{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.exh-vern-date{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.05em;color:var(--ink);line-height:1.15}
+.exh-vern-sub{font-size:.5rem;letter-spacing:.1em;color:var(--ink2)}
 .exh-card.past{opacity:.65}
 .exh-card.past .exh-card-venue{color:var(--ink3)}
 
@@ -7359,7 +7366,7 @@ function downloadIndexHtml() {
       }
 
       // 展覧会データも埋め込む
-      const exhMarker = 'let exhibitions = [{"title":"Meguru","venue":"Q Gallery Berlin","start":"07.11.2026","end":"08.11.2026","vernissage":"","desc":"“Meguru (廻る)” is a group exhibition of Japanese artists in Berlin, hosted at Q Gallery Berlin as part of Schöneberger Art 2026 — the district-wide open-studio and gallery walk, now in its 18th year. OBOSHI presents “Shiki (四季)”, a four-painting cycle moving through spring, summer, autumn and winter, built with the OBOSHI Washi Tape Method™ and OBOSHI Vinylayer Method™.","poster":"images/schoeneberger-art-2026-flyer.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];';
+      const exhMarker = 'let exhibitions = [{"title":"Meguru","venue":"Q Gallery Berlin","start":"07.11.2026","end":"08.11.2026","vernissage":"","desc":"“Meguru (廻る)” is a group exhibition of Japanese artists in Berlin, hosted at Q Gallery Berlin as part of Schöneberger Art 2026 — the district-wide open-studio and gallery walk, now in its 18th year. OBOSHI presents “Shiki (四季)”, a four-painting cycle moving through spring, summer, autumn and winter, built with the OBOSHI Washi Tape Method™ and OBOSHI Vinylayer Method™.","poster":"images/meguru-qgallery-1.jpg","morePosters":["images/meguru-qgallery-vernissage.jpg","images/schoeneberger-art-2026-flyer.jpg"],"vernissageText":"Friday, November 6, 2026 · 6:30 PM","vernissageEnd":"2026-11-06","instagram":"https://www.instagram.com/p/DeL3GhAEfGo/","url":"https://qgalleryberlin.de/","archived":false},{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];';
       const exhJson = JSON.stringify(exhibitions);
       let updated = html.slice(0, start) + 'const works = ' + currentWorksJson + ';' + html.slice(end);
       updated = updated.replace(exhMarker, 'let exhibitions = ' + exhJson + ';');
@@ -7545,7 +7552,7 @@ async function submitContactForm(e) {
 
 // ============================================
 // ===== EXHIBITIONS =====
-let exhibitions = [{"title":"Meguru","venue":"Q Gallery Berlin","start":"07.11.2026","end":"08.11.2026","vernissage":"","desc":"“Meguru (廻る)” is a group exhibition of Japanese artists in Berlin, hosted at Q Gallery Berlin as part of Schöneberger Art 2026 — the district-wide open-studio and gallery walk, now in its 18th year. OBOSHI presents “Shiki (四季)”, a four-painting cycle moving through spring, summer, autumn and winter, built with the OBOSHI Washi Tape Method™ and OBOSHI Vinylayer Method™.","poster":"images/schoeneberger-art-2026-flyer.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];
+let exhibitions = [{"title":"Meguru","venue":"Q Gallery Berlin","start":"07.11.2026","end":"08.11.2026","vernissage":"","desc":"“Meguru (廻る)” is a group exhibition of Japanese artists in Berlin, hosted at Q Gallery Berlin as part of Schöneberger Art 2026 — the district-wide open-studio and gallery walk, now in its 18th year. OBOSHI presents “Shiki (四季)”, a four-painting cycle moving through spring, summer, autumn and winter, built with the OBOSHI Washi Tape Method™ and OBOSHI Vinylayer Method™.","poster":"images/meguru-qgallery-1.jpg","morePosters":["images/meguru-qgallery-vernissage.jpg","images/schoeneberger-art-2026-flyer.jpg"],"vernissageText":"Friday, November 6, 2026 · 6:30 PM","vernissageEnd":"2026-11-06","instagram":"https://www.instagram.com/p/DeL3GhAEfGo/","url":"https://qgalleryberlin.de/","archived":false},{"title":"Spring Stories","venue":"QGallery Berlin","start":"20.03.2026","end":"14.04.2026","vernissage":"19.03.2026/19:00","desc":"“Spring Stories” is a group exhibition at Q Gallery Berlin celebrating the arrival of spring and the traditional Nowruz festival. Artists present works inspired by the atmosphere, colors, and renewal associated with the season, offering diverse interpretations of spring through painting and small-format artworks.","poster":"images/spring stories.jpg","url":"https://qgalleryberlin.de/","archived":false},{"title":"Radiant Spring","venue":"QGallery Berlin","start":"22.03.2025","end":"11.04.2025","vernissage":"","desc":"","poster":"images/Radiant Spring.jpeg","url":"https://qgalleryberlin.de/","archived":true}];
 let editingExhIndex = -1;
 
 function loadExhibitions() {
@@ -7618,7 +7625,13 @@ function buildExhibitions() {
   // エコカードのプレビューを更新
   if (current.length > 0) {
     if (ecoTitle) ecoTitle.textContent = current[0].title;
-    if (ecoPreview) ecoPreview.textContent = current[0].venue + ' · ' + current[0].start + (current[0].end ? ' – ' + current[0].end : '');
+    if (ecoPreview) {
+      const c0 = current[0];
+      const vActive = c0.vernissageText && (!c0.vernissageEnd || new Date(c0.vernissageEnd + 'T23:59:59') >= new Date());
+      ecoPreview.textContent = vActive
+        ? 'Vernissage ' + c0.vernissageText + ' · ' + c0.venue
+        : c0.venue + ' · ' + c0.start + (c0.end ? ' – ' + c0.end : '');
+    }
   } else {
     if (ecoTitle) ecoTitle.textContent = 'Past Exhibitions';
     if (ecoPreview) ecoPreview.textContent = past.length + ' exhibitions';
@@ -7637,9 +7650,19 @@ function renderExhCard(e, isPast) {
     past:    '<span style="font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)">— Archive</span>',
   }[status] || '';
 
+  const posterCls = (e.morePosters && e.morePosters.length) ? 'exh-card-poster-sq' : 'exh-card-poster';
   const poster = e.poster
-    ? `<img class="exh-card-poster" src="${e.poster}" alt="${e.title}" loading="lazy">`
+    ? `<img class="${posterCls}" src="${e.poster}" alt="${e.title}" loading="lazy">`
     : `<div class="exh-card-poster-placeholder">🗓</div>`;
+  const morePosters = (e.morePosters && e.morePosters.length)
+    ? `<div class="exh-card-more">${e.morePosters.map(u => `<img src="${u}" alt="${e.title}" loading="lazy">`).join('')}</div>`
+    : '';
+  // ヴェルニサージ告知（当日まで目立たせる。終了日 vernissageEnd を過ぎたら自動で消える）
+  const vernActive = e.vernissageText && (!e.vernissageEnd || new Date(e.vernissageEnd + 'T23:59:59') >= new Date());
+  const vernHighlight = vernActive
+    ? `<div class="exh-vern"><div class="exh-vern-label">Vernissage · Opening Party</div><div class="exh-vern-date">📅 ${e.vernissageText}</div><div class="exh-vern-sub">${e.venue} · Großgörschenstr. 7, Berlin</div></div>`
+    : '';
+  const instaLink = e.instagram ? `<a href="${e.instagram}" target="_blank" rel="noopener" style="font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem;display:inline-block">View on Instagram →</a>` : '';
   const dates = e.start + (e.end ? ' – ' + e.end : '');
   const vernissage = e.vernissage ? `<div class="exh-card-vernissage">Vernissage: ${e.vernissage}</div>` : '';
   const desc = e.desc ? `<div class="exh-card-desc">${e.desc}</div>` : '';
@@ -7652,13 +7675,16 @@ function renderExhCard(e, isPast) {
   return `
     <div class="exh-card${isPast ? ' past' : ''}">
       ${poster}
+      ${morePosters}
       <div style="margin-bottom:.3rem">${statusBadge}</div>
       <div class="exh-card-name">${e.title}</div>
       <div class="exh-card-venue">${e.venue}</div>
+      ${vernHighlight}
       <div class="exh-card-dates">${dates}</div>
       ${vernissage}
       ${desc}
       ${galleryLink}
+      ${instaLink}
       ${mapLink}
     </div>
   `;
@@ -7740,6 +7766,7 @@ document.getElementById('exh-save').addEventListener('click', () => {
     return;
   }
   const exh = {
+    ...(editingExhIndex >= 0 ? exhibitions[editingExhIndex] : {}),
     title,
     venue,
     start,
