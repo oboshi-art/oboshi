@@ -869,6 +869,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .btn-enquire:hover{border-color:var(--ink);color:var(--ink)}
 .btn-platform{background:none;border:1px solid var(--border);color:var(--ink3);font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem;cursor:pointer;transition:all .2s;width:100%;text-align:center;text-decoration:none;display:block;margin-bottom:.4rem}
 .btn-platform:hover{border-color:var(--gold);color:var(--gold)}
+.print-block{margin-top:1rem}
 .sold-msg{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);text-align:center;padding:1.2rem;border:1px solid var(--border);line-height:1.85}
 .shipping-info{background:var(--bg2);border:1px solid var(--border);padding:.8rem 1rem;margin:.5rem 0 .7rem;display:flex;gap:.8rem;align-items:flex-start}
 .shipping-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem}
@@ -1803,6 +1804,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-title">International Platform</div>
         <div class="eco-role">One of the world's largest online art galleries. Discover and collect original OBOSHI works through Saatchi Art's global network of collectors.</div>
         <div class="eco-link">View on Saatchi Art →</div>
+      </a>
+      <a class="eco-card" href="https://www.meisterdrucke.de/k%C3%BCnstler/OBOSHI.html" target="_blank" rel="noopener">
+        <div class="eco-icon" style="font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:var(--ink2)">MD</div>
+        <div class="eco-platform">Meisterdrucke</div>
+        <div class="eco-title">Fine Art Prints</div>
+        <div class="eco-role">Selected works available as fine art prints.</div>
+        <div class="eco-link">View on Meisterdrucke →</div>
       </a>
       <!-- Singulart — 一時休止中（2026-09-13〜）。復帰したらこのコメントを外して復活させる
       <a class="eco-card" href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">
@@ -3654,6 +3662,11 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
             <span class="trust-badge">✓ Original Unique Work</span>
             <span class="trust-badge">↩ 14-day Return</span>
           </div>
+        </div>
+
+        <!-- Art print (Meisterdrucke): shown only for works listed in printLinks -->
+        <div class="print-block" id="m-print-block" style="display:none">
+          <a class="btn-platform" id="m-print-link" href="#" target="_blank" rel="noopener">Also available as an art print — Meisterdrucke →</a>
         </div>
 
         <!-- Digital Download Section -->
@@ -6293,6 +6306,29 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
     buildGrid();
   });
 });
+// Meisterdrucke art-print pages. Key = work title. Add a line when a new work goes live there.
+const printLinks={
+"A Detour to Catch Up with Thought":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757645/A-Detour-to-Catch-Up-with-Thought.html",
+"A Fun Sky Adventure":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757646/A-Fun-Sky-Adventure.html",
+"A Thought Rising from the Cold":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757647/A-Thought-Rising-from-the-Cold.html",
+"A Walk in Mind":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757649/A-Walk-in-Mind.html",
+"Blue Conversations in the Garden":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757650/Blaue-Gespr%C3%A4che-im-Garten.html",
+"Daily Painting 1":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757651/Daily-Painting-1.html",
+"Enjoy":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757652/Enjoy.html",
+"Found in a Place I Strayed Into – Circle":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757653/Found-in-a-Place-I-Strayed-Into-%E2%80%93-Circle.html",
+"Lifestyle":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757654/Lifestyle.html",
+"Memory Beyond the Choice":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757655/Memory-Beyond-the-Choice.html",
+"On the Terrace at Noon":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757656/On-the-Terrace-at-Noon.html",
+"Preparing to Make a Decision":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757657/Preparing-to-Make-a-Decision.html",
+"Signal from Nowhere":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757658/Signal-from-Nowhere.html",
+"The Blessing of Rain Yet to Come":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757659/The-Blessing-of-Rain-Yet-to-Come.html",
+"The Scent and Feelings of a Free Garden":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757661/The-Scent-and-Feelings-of-a-Free-Garden.html",
+"Toward a Place I Cannot Reach":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757662/Toward-a-Place-I-Cannot-Reach.html",
+"White Abstraction 2":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757663/White-Abstraction-2.html",
+"Words of the Enchanted Forest":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757664/Words-of-the-Enchanted-Forest.html",
+"Black Abstraction 0":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757665/Black-Abstraction-0.html",
+"Black Abstraction 1":"https://www.meisterdrucke.de/kunstdrucke/OBOSHI/1757666/Black-Abstraction-7.html"
+};
 const titleJaMap={
 "The Forest of Sudden Memory":"とっさに現れる記憶の森",
 "Signal from Nowhere":"どこにもない場所から届く信号",
@@ -6435,6 +6471,10 @@ function openModal(i){
   // 常に固定のAnasaea展覧会ページへリンク
   al.href='https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt';
   al.style.display='block';
+  const printUrl=printLinks[w.title];
+  const printBlock=document.getElementById('m-print-block');
+  if(printUrl){document.getElementById('m-print-link').href=printUrl;printBlock.style.display='block';}
+  else{printBlock.style.display='none';}
   
   // デジタルダウンロードセクションの表示制御
   const digitalSection=document.getElementById('digital-section');
