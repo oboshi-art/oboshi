@@ -12,6 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oboshi.art/impressum/">
 <style>
+@font-face{font-family:'Bebas Neue';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/bebas-neue-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-latin-300-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/dm-mono-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/dm-mono-latin-400-normal.woff2) format('woff2')}
 :root{--bg:#fff;--ink:#1a1815;--ink2:#6b6560;--ink3:#b0aaa3;--accent:#b84a24;--border:#e4e0d8}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -46,6 +54,17 @@ ul.plain{padding-left:1.1rem}
 .legal-bar{padding:1.4rem 1rem 2.4rem;text-align:center;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;border-top:1px solid var(--border)}
 .legal-bar a{color:var(--ink3);margin:0 .7rem}
 .legal-bar a:hover{color:var(--accent)}
+.notify{border-top:1px solid var(--border);padding:3rem 1.5rem;text-align:center;background:#f7f7f7}
+.notify-in{max-width:520px;margin:0 auto}
+.notify-title{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.08em;margin-bottom:.3rem}
+.notify p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink2);margin:0 0 1rem}
+.notify-form{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.notify-form input{flex:1 1 220px;border:1px solid #d0cbc2;background:#fff;padding:.8rem 1rem;font-family:'DM Mono',monospace;font-size:.7rem;min-width:0}
+.notify-form button{background:var(--ink);color:#fff;border:0;padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.notify-form button:hover{background:var(--accent)}
+.notify-msg{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--accent);min-height:1.2em;margin-top:.7rem}
+.notify .notify-fine{font-size:.85rem;color:var(--ink3);margin:.4rem 0 0}
+.notify .notify-fine a{color:var(--ink3);text-decoration:underline}
 @media(max-width:640px){header.top{padding:1rem 1.2rem}.top nav{display:none}.strip{grid-template-columns:1fr}}
 </style>
 </head>
@@ -69,9 +88,11 @@ ul.plain{padding-left:1.1rem}
 <p>Provider: Junichi Oboshi, Leberstr. 8, 10829 Berlin, Germany. Contact: <a href="mailto:art@oboshi.art">art@oboshi.art</a>. All paintings, photographs and texts on this website are protected by copyright (© Junichi Oboshi). Links to external websites are provided for convenience; their operators are solely responsible for their content.</p>
 
 </main>
+
 <div class="legal-bar"><a href="/">Home</a><a href="/for-galleries/">Galerien</a><a href="/for-spaces/">Räume</a><a href="/">English</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
 <script>
 (function(){var GC_CODE='oboshi';if(!GC_CODE)return;var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://'+GC_CODE+'.goatcounter.com/count');document.head.appendChild(s);})();
 </script>
+
 </body>
 </html>

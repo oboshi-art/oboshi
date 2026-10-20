@@ -12,6 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oboshi.art/for-galleries/">
 <style>
+@font-face{font-family:'Bebas Neue';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/bebas-neue-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-latin-300-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/dm-mono-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/dm-mono-latin-400-normal.woff2) format('woff2')}
 :root{--bg:#fff;--ink:#1a1815;--ink2:#6b6560;--ink3:#b0aaa3;--accent:#b84a24;--border:#e4e0d8}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -46,6 +54,17 @@ ul.plain{padding-left:1.1rem}
 .legal-bar{padding:1.4rem 1rem 2.4rem;text-align:center;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;border-top:1px solid var(--border)}
 .legal-bar a{color:var(--ink3);margin:0 .7rem}
 .legal-bar a:hover{color:var(--accent)}
+.notify{border-top:1px solid var(--border);padding:3rem 1.5rem;text-align:center;background:#f7f7f7}
+.notify-in{max-width:520px;margin:0 auto}
+.notify-title{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.08em;margin-bottom:.3rem}
+.notify p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink2);margin:0 0 1rem}
+.notify-form{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.notify-form input{flex:1 1 220px;border:1px solid #d0cbc2;background:#fff;padding:.8rem 1rem;font-family:'DM Mono',monospace;font-size:.7rem;min-width:0}
+.notify-form button{background:var(--ink);color:#fff;border:0;padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.notify-form button:hover{background:var(--accent)}
+.notify-msg{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--accent);min-height:1.2em;margin-top:.7rem}
+.notify .notify-fine{font-size:.85rem;color:var(--ink3);margin:.4rem 0 0}
+.notify .notify-fine a{color:var(--ink3);text-decoration:underline}
 @media(max-width:640px){header.top{padding:1rem 1.2rem}.top nav{display:none}.strip{grid-template-columns:1fr}}
 </style>
 </head>
@@ -82,9 +101,32 @@ ul.plain{padding-left:1.1rem}
 <p><a class="btn" href="mailto:art@oboshi.art?subject=Gallery%20inquiry">Write to OBOSHI</a><a class="btn ghost" href="/#works">View works</a></p>
 
 </main>
+<section class="notify"><div class="notify-in"><div class="notify-title">New works, first</div><p>An occasional note when a new painting or exhibition is ready. No spam.</p><form class="notify-form"><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"><button type="submit">Notify me</button></form><div class="notify-msg" role="status"></div><p class="notify-fine">By subscribing you agree to the <a href="/datenschutz/">privacy policy</a>. Unsubscribe anytime.</p></div></section>
 <div class="legal-bar"><a href="/">Home</a><a href="/for-galleries/">For Galleries</a><a href="/for-spaces/">For Spaces</a><a href="/de/">Deutsch</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
 <script>
 (function(){var GC_CODE='oboshi';if(!GC_CODE)return;var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://'+GC_CODE+'.goatcounter.com/count');document.head.appendChild(s);})();
 </script>
+<script>
+(function(){
+  var BD_USER = ''; /* Buttondown のユーザー名。空のあいだは、メールアプリが開く方式で動きます */
+  document.querySelectorAll('.notify-form').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      var email = (f.email.value || '').trim();
+      var msg = f.parentNode.querySelector('.notify-msg');
+      if(BD_USER){
+        f.action = 'https://buttondown.com/api/emails/embed-subscribe/' + encodeURIComponent(BD_USER);
+        f.method = 'post'; f.target = 'popupwindow';
+        window.open('https://buttondown.com/' + encodeURIComponent(BD_USER), 'popupwindow');
+        if(msg) msg.textContent = 'Thank you — please confirm in the email I just sent.';
+        return;
+      }
+      e.preventDefault();
+      location.href = 'mailto:art@oboshi.art?subject=' + encodeURIComponent('New works list') + '&body=' + encodeURIComponent('Please add me to the new works list.\n\n' + email);
+      if(msg) msg.textContent = 'Your email app will open — just press send. Thank you!';
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
