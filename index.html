@@ -5952,6 +5952,7 @@ function showGallery(){
   var ptal=document.getElementById('page-talk'); ptal.style.display='none'; ptal.setAttribute('hidden','');
   window.scrollTo(0,0);
   buildGrid();
+  try{window.gcEvent&&gcEvent('view/gallery','Gallery view')}catch(e){}
 }
 let _hintTimer=null;
 let _hintClicked=false;
@@ -5987,6 +5988,7 @@ function showAbout(){
   const hint=document.getElementById('about-tech-hint');
   if(hint){ hint.style.display=''; hint.style.opacity='0'; }
   startHintPulse();
+  try{window.gcEvent&&gcEvent('view/about','About view')}catch(e){}
 }
 
 // About Hero 切り替え（PC専用）
@@ -6063,6 +6065,7 @@ function showTalk(){
   const input = document.getElementById('talk-input');
   if(input) input.placeholder = 'Ask about the work, the process, the philosophy...';
   window.scrollTo(0,0);
+  try{window.gcEvent&&gcEvent('view/talk','Talk view')}catch(e){}
 }
 
 // AIレスポンスのテキストから関連作品を最大3点選ぶ
@@ -6465,6 +6468,7 @@ function slugifyTitle(str){
 function openModal(i){
   const w=works[i];
   currentWork=w;
+  try{window.gcEvent&&gcEvent('work/'+slugifyTitle(w.title),'Work: '+w.title)}catch(e){}
   
   // 画像配列を準備（imgとimagesを統合）
   currentImages=[];
@@ -6712,6 +6716,7 @@ document.addEventListener('keydown',(e)=>{
 
 document.getElementById('btn-stripe').addEventListener('click',()=>{
   if(!currentWork)return;
+  try{window.gcEvent&&gcEvent('buy/'+slugifyTitle(currentWork.title),'Buy click: '+currentWork.title)}catch(e){}
   if(currentWork.stripeLink){
     window.open(currentWork.stripeLink,'_blank');
   } else {
@@ -6721,6 +6726,7 @@ document.getElementById('btn-stripe').addEventListener('click',()=>{
 });
 document.getElementById('btn-digital').addEventListener('click',()=>{
   if(!currentWork)return;
+  try{window.gcEvent&&gcEvent('digital/'+slugifyTitle(currentWork.title),'Digital click: '+currentWork.title)}catch(e){}
   if(currentWork.digitalStripeLink){
     window.open(currentWork.digitalStripeLink,'_blank');
   } else if(currentWork.downloadLink){
@@ -8539,10 +8545,32 @@ How to speak:
 })();
 </script>
 <script>
-/* アクセス解析（GoatCounter・Cookieなし）。GC_CODE にGoatCounterのサイト名（xxxx.goatcounter.com の xxxx）を入れると有効になります。空のままなら何も読み込みません。 */
+/* アクセス解析（GoatCounter・Cookieなし）。
+   - 自分のアクセス除外：一度だけ https://oboshi.art/?skipgc=1 を開くと、そのブラウザは計測されません（解除は ?skipgc=0）。
+   - 営業リンクのキャンペーン名：?utm_campaign=xxxx を付けると GoatCounter の Campaigns に出ます（自動）。
+   - gcEvent(path, title)：作品閲覧・購入ボタン・問い合わせなどのクリックを Events として記録します。 */
 (function(){
   var GC_CODE = 'oboshi';
   if(!GC_CODE) return;
+  try{
+    var q = location.search + location.hash;
+    if(/[?&#]skipgc=1/.test(q)) localStorage.setItem('skipgc','t');
+    if(/[?&#]skipgc=0/.test(q)) localStorage.removeItem('skipgc');
+  }catch(e){}
+  var skip = false;
+  try{ skip = localStorage.getItem('skipgc') === 't'; }catch(e){}
+  window.gcEvent = function(path, title){
+    if(skip) return;
+    var tries = 0;
+    (function send(){
+      if(window.goatcounter && typeof window.goatcounter.count === 'function'){
+        try{ window.goatcounter.count({path: path, title: title || path, event: true}); }catch(e){}
+      } else if(tries++ < 10){
+        setTimeout(send, 600);
+      }
+    })();
+  };
+  if(skip) return;
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://gc.zgo.at/count.js';
@@ -8568,6 +8596,31 @@ How to speak:
       location.href = 'mailto:art@oboshi.art?subject=' + encodeURIComponent('New works list') + '&body=' + encodeURIComponent('Please add me to the new works list.\n\n' + email);
       if(msg) msg.textContent = 'Your email app will open — just press send. Thank you!';
     });
+  });
+})();
+</script>
+<script>
+/* クリック計測（Cookieなし）：メール・Gumroad・外部リンク・Notifyフォーム */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]');
+    if(!a || !window.gcEvent) return;
+    var h = a.getAttribute('href') || '';
+    if(a.id === 'btn-enquire'){
+      var t = (typeof currentWork !== 'undefined' && currentWork) ? currentWork.title : '';
+      gcEvent('click/enquire', 'Enquire click: ' + t);
+    } else if(h.indexOf('mailto:') === 0){
+      gcEvent('click/mailto', 'Mail click');
+    } else if(h.indexOf('gumroad.com') > -1){
+      gcEvent('click/gumroad', 'Gumroad click');
+    } else if(/^https?:\/\//.test(h) && h.indexOf('oboshi.art') === -1){
+      try{ gcEvent('click/outbound/' + new URL(h).hostname, 'Outbound: ' + new URL(h).hostname); }catch(err){}
+    } else if(h === '/for-galleries' || h === '/for-spaces' || h === '/de'){
+      gcEvent('click/nav' + h, 'Nav: ' + h);
+    }
+  }, true);
+  document.querySelectorAll('.notify-form').forEach(function(f){
+    f.addEventListener('submit', function(){ if(window.gcEvent) gcEvent('notify-submit', 'Notify form submit'); });
   });
 })();
 </script>
