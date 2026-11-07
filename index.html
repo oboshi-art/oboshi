@@ -1232,6 +1232,18 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .exh-card-poster-sq{width:100%;height:auto;display:block;margin-bottom:.4rem}
 .exh-card-more{display:flex;gap:.5rem;margin-bottom:.4rem}
 .exh-card-more img{flex:1 1 0;min-width:0;width:50%;height:auto;object-fit:cover;display:block}
+.exh-views{margin-top:2.6rem}
+.exh-views-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1.2rem;margin-bottom:1rem}
+.exh-views-tag{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.exh-views-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--ink2)}
+.exh-views-grid{display:grid;grid-template-columns:9fr 8fr;gap:.6rem}
+.ev{margin:0;position:relative;overflow:hidden;background:#1d2a2a;aspect-ratio:4/3}
+.ev-tall{grid-row:1 / span 2;aspect-ratio:auto}
+.ev img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s ease}
+.ev:hover img{transform:scale(1.025)}
+.ev figcaption{position:absolute;left:0;right:0;bottom:0;padding:2rem .9rem .7rem;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.exh-views-credit{margin-top:.7rem;font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+@media(max-width:620px){.exh-views-grid{grid-template-columns:1fr}.ev-tall{grid-row:auto;aspect-ratio:3/4}}
 .exh-vern{border:1px solid var(--accent);border-left-width:4px;background:rgba(184,72,28,.06);padding:.8rem 1rem;display:flex;flex-direction:column;gap:.25rem}
 .exh-vern-label{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
 .exh-vern-date{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.05em;color:var(--ink);line-height:1.15}
@@ -1701,7 +1713,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <!-- ===== BIO SECTION ===== -->
   <div class="bio-section" id="about">
     <div>
-      <img class="bio-img" src="images/oboshi-portrait.jpg" alt="Junichi Oboshi at QGallery Berlin, 2026">
+      <img class="bio-img" src="images/oboshi-portrait-meguru.jpg" alt="Junichi Oboshi beside his painting at Q Gallery Berlin — Meguru, Schöneberger Art 2026">
     </div>
     <div>
       <div class="bio-tag">About the Artist</div>
@@ -1927,6 +1939,15 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="ecosystem" id="exhibitions-section" style="display:none">
     <div class="eco-heading">Exhibitions</div>
     <div id="exh-all-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)"></div>
+    <div class="exh-views">
+      <div class="exh-views-head"><span class="exh-views-tag">Installation views</span><span class="exh-views-title">Meguru (廻る) — Q Gallery Berlin, November 2026</span></div>
+      <div class="exh-views-grid">
+        <figure class="ev ev-tall"><img src="images/meguru-view-doorway.jpg" alt="Meguru at Q Gallery Berlin: OBOSHI’s Winter and Autumn paintings seen through the doorway" loading="lazy"><figcaption>Shiki (四季) — Winter &amp; Autumn</figcaption></figure>
+        <figure class="ev"><img src="images/meguru-view-corner.jpg" alt="Meguru at Q Gallery Berlin: Spring, Winter and Autumn paintings by OBOSHI in the corner of the gallery" loading="lazy"><figcaption>Shiki (四季) — Spring, Winter &amp; Autumn</figcaption></figure>
+        <figure class="ev"><img src="images/meguru-view-lounge.jpg" alt="Meguru at Q Gallery Berlin: OBOSHI’s paintings on the green wall beside the seating corner" loading="lazy"><figcaption>Green wall — seating corner</figcaption></figure>
+      </div>
+      <div class="exh-views-credit">Photos: Junichi Oboshi</div>
+    </div>
   </div>
 
   <div class="rule"></div>
@@ -3166,7 +3187,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
       <div class="timeline-line"><div class="timeline-dot"></div></div>
       <div class="timeline-content" style="border-bottom:none">
         <div class="timeline-title">Berlin — Painting, Exhibiting, Selling</div>
-        <div class="timeline-desc">Working from Berlin. Original paintings available at oboshi.art and Saatchi Art. Prints and goods on Redbubble. Commissions accepted worldwide. Private collections across Europe and Asia.</div>
+        <div class="timeline-desc">Working from Berlin. Original paintings available at oboshi.art and Saatchi Art. Fine art prints at Meisterdrucke. Commissions accepted worldwide. Private collections across Europe and Asia.</div>
       </div>
 
     </div>
