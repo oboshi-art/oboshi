@@ -45,7 +45,7 @@ p{margin:0 0 1rem}
 .card h3{margin-top:0}
 ul.plain{padding-left:1.1rem}
 .note{font-size:1rem;color:var(--ink2)}
-.legal-bar{padding:1.4rem 1rem 2.4rem;text-align:center;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;border-top:1px solid var(--border)}
+.legal-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 0;padding:1.4rem 1rem 2.4rem;text-align:center;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;border-top:1px solid var(--border)}
 .legal-bar a{color:var(--ink3);margin:0 .7rem}
 .legal-bar a:hover{color:var(--accent)}
 .notify{border-top:1px solid var(--border);padding:3rem 1.5rem;text-align:center;background:#f7f7f7}
@@ -59,12 +59,12 @@ ul.plain{padding-left:1.1rem}
 .notify-msg{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--accent);min-height:1.2em;margin-top:.7rem}
 .notify .notify-fine{font-size:.85rem;color:var(--ink3);margin:.4rem 0 0}
 .notify .notify-fine a{color:var(--ink3);text-decoration:underline}
-@media(max-width:640px){header.top{padding:1rem 1.2rem}.top nav{display:none}.strip{grid-template-columns:1fr}}
+@media(max-width:640px){header.top{padding:.9rem 1.2rem;flex-wrap:wrap;gap:.5rem}.top nav{display:flex;flex-wrap:wrap;width:100%;gap:.3rem 1.2rem}.top nav a{margin-left:0;padding:.35rem 0}.strip{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="top"><a class="logo" href="/" translate="no">OBOSHI.ART</a>
-<nav><a href="/">Werke</a><a href="/for-galleries">Galerien</a><a href="/for-spaces">Räume</a></nav></header>
+<nav><a href="/#works">Werke</a><a href="/for-galleries">Galerien</a><a href="/for-spaces">Räume</a><a href="/" hreflang="en" lang="en">English</a></nav></header>
 <main>
 <p class="eyebrow">Abstrakter Maler · Berlin</p>
 <h1>Junichi Oboshi</h1>
@@ -100,12 +100,12 @@ ul.plain{padding-left:1.1rem}
         f.action = 'https://buttondown.com/api/emails/embed-subscribe/' + encodeURIComponent(BD_USER);
         f.method = 'post'; f.target = 'popupwindow';
         window.open('https://buttondown.com/' + encodeURIComponent(BD_USER), 'popupwindow');
-        if(msg) msg.textContent = 'Thank you — please confirm in the email I just sent.';
+        if(msg) msg.textContent = 'Danke — bitte bestätigen Sie in der E-Mail, die ich Ihnen gerade geschickt habe.';
         return;
       }
       e.preventDefault();
-      location.href = 'mailto:art@oboshi.art?subject=' + encodeURIComponent('New works list') + '&body=' + encodeURIComponent('Please add me to the new works list.\n\n' + email);
-      if(msg) msg.textContent = 'Your email app will open — just press send. Thank you!';
+      location.href = 'mailto:art@oboshi.art?subject=' + encodeURIComponent('Neue Werke — Liste') + '&body=' + encodeURIComponent('Bitte nehmen Sie mich in die Liste für neue Werke auf.\n\n' + email);
+      if(msg) msg.textContent = 'Ihre E-Mail-App öffnet sich — bitte nur noch auf Senden drücken. Danke!';
     });
   });
 })();
