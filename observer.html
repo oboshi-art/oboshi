@@ -266,6 +266,14 @@ nav {
   .chat-state { height: calc(100vh - 10rem); }
   .msg.ai .msg-bubble { font-size: .8rem; }
 }
+
+@media(max-width:620px){
+  nav{padding:1rem 1.5rem}
+  .silence-state{width:100%;padding:0 1.2rem;max-width:100%}
+  .observer-name{font-size:clamp(2.6rem,13vw,4.5rem);letter-spacing:.08em;max-width:100%}
+  .chat-input-wrap{width:100%}
+  .chat-input{min-width:0}
+}
 </style>
 </head>
 <body>
