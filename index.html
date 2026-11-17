@@ -715,7 +715,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 3rem;display:
 .wp-all-arrow{font-size:1.4rem;color:var(--ink3);transition:color .2s}
 .ecosystem{padding:5rem 3rem;border-bottom:1px solid var(--border)}
 .eco-heading{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:3rem}
-.eco-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:var(--border)}
+.eco-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border)}
 .eco-card{background:var(--bg);padding:2rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;text-decoration:none;transition:background .2s;position:relative;overflow:hidden}
 .eco-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .eco-card:hover{background:var(--bg2)}
@@ -807,6 +807,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   color:var(--ink3);
   border-bottom:1px solid var(--border);
 }
+.gallery-buy-link{color:inherit;text-decoration:none;border-bottom:1px solid var(--border2)}
+.gallery-buy-link:hover{color:var(--accent);border-color:var(--accent)}
 .gallery-buy-dot{
   width:5px;height:5px;border-radius:50%;
   background:var(--accent);flex-shrink:0;
@@ -919,7 +921,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   #admin-toggle{display:none !important}
   .hero{grid-template-columns:1fr;gap:2.5rem}
   .works-preview{grid-template-columns:1fr 1fr}
-  .eco-grid{grid-template-columns:1fr 1fr 1fr}
+  .eco-grid{grid-template-columns:1fr 1fr}
   .about-section{grid-template-columns:1fr;gap:2.5rem}
   .bio-section{grid-template-columns:1fr;gap:2rem}
   /* modal: タッチデバイス縦画面 */
@@ -1595,8 +1597,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 .nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
 .nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
-.nav-lang{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--border2);padding:.5rem .65rem;margin-left:.9rem;white-space:nowrap}
-.nav-lang:hover{color:var(--ink);border-color:var(--ink)}
 .nav-cta .short{display:none}
 .hero-r-cta.is-secondary{background:transparent;color:var(--ink)}
 .hero-r-cta.is-secondary:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -1613,7 +1613,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .nav-burger{display:flex;order:4}
   .nav-cta{margin-left:auto;padding:.5rem .8rem;order:2}
   .nav-cta .full{display:none}.nav-cta .short{display:inline}
-  .nav-lang{margin-left:0;padding:.5rem .55rem;order:3}
   .nav-links{display:none;position:fixed;left:0;right:0;top:var(--navh,58px);flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--border);padding:.3rem 1.2rem 1rem;box-shadow:0 12px 24px rgba(0,0,0,.06)}
   .nav-links.open{display:flex}
   .nav-links li a{display:block;padding:1rem 0;border-bottom:1px solid var(--border);font-size:.7rem}
@@ -1637,7 +1636,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     <li><a href="#" id="nav-contact">Contact</a></li>
   </ul>
   <a href="#" class="nav-cta" id="nav-buy"><span class="full">Buy Original Art</span><span class="short">Buy Art</span></a>
-  <a href="/de" class="nav-lang" hreflang="de" lang="de" title="Auf Deutsch lesen" aria-label="Deutsch">DE</a>
   <button class="nav-burger" id="nav-burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -1881,6 +1879,44 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   <div class="section-head-r">
     <h2>Books</h2>
   </div>
+  <!-- ===== PRINTS & EDITIONS ===== -->
+  <style>
+  .pe{max-width:1200px;margin:0 auto;padding:5rem 3rem 5.5rem}
+  .pe-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem}
+  .pe h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.5vw,3.4rem);letter-spacing:.04em;line-height:.95;color:var(--ink);margin:0 0 .5rem}
+  .pe-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink2);margin-bottom:1.6rem}
+  .pe-lead{font-family:'Cormorant Garamond',serif;font-size:1.08rem;line-height:1.85;color:var(--ink2);max-width:640px;margin:0 0 3rem}
+  .pe-cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
+  .pe-col{border-top:1px solid var(--border);padding-top:1.4rem;display:flex;flex-direction:column}
+  .pe-kind{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem}
+  .pe-name{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.05em;color:var(--ink);margin-bottom:.6rem}
+  .pe-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.02rem;line-height:1.8;color:var(--ink2);margin-bottom:1.4rem;flex:1}
+  .pe-link{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:3px;align-self:flex-start}
+  .pe-link:hover{color:var(--accent);border-color:var(--accent)}
+  @media(max-width:768px){.pe{padding:3.5rem 1.5rem 4rem}.pe-cols{grid-template-columns:1fr;gap:2.4rem}}
+  </style>
+  <section class="pe" id="prints-editions" aria-label="Prints and Editions">
+    <div class="pe-tag">Beyond the original</div>
+    <h2>Prints &amp; Editions</h2>
+    <div class="pe-sub">Live with the work — in print</div>
+    <p class="pe-lead">The originals are one of a kind. For an everyday space, or as a quiet first step into the work, selected paintings can also be welcomed home as fine art prints and wall art.</p>
+    <div class="pe-cols">
+      <div class="pe-col">
+        <div class="pe-kind">Fine Art Prints</div>
+        <div class="pe-name">Meisterdrucke</div>
+        <div class="pe-desc">Museum-quality fine art prints. Paper or canvas, size and framing are chosen to suit the room — the considered way to live with a painting.</div>
+        <a class="pe-link" href="https://www.meisterdrucke.de/k%C3%BCnstler/OBOSHI.html" target="_blank" rel="noopener">View on Meisterdrucke →</a>
+      </div>
+      <div class="pe-col">
+        <div class="pe-kind">Wall Art &amp; Posters</div>
+        <div class="pe-name">Posterlounge</div>
+        <div class="pe-desc">Posters, panels and wall art — lighter, more accessible, and easy to bring into everyday spaces. A quieter way to begin.</div>
+        <a class="pe-link" href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">View on Posterlounge →</a>
+      </div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
   <!-- ===== TRILOGY PILLARS + MEDIUM STRATA (dynamic) ===== -->
   <div class="trilogy-universe">
     <section class="trilogy-pillars" id="trilogy-pillars-container" aria-label="Published Books — OBOSHI Series">
@@ -1978,14 +2014,14 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-icon" style="font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:var(--ink2)">MD</div>
         <div class="eco-platform">Meisterdrucke</div>
         <div class="eco-title">Fine Art Prints</div>
-        <div class="eco-role">Selected works available as fine art prints.</div>
+        <div class="eco-role">Museum-quality fine art prints — paper or canvas, size and framing chosen to suit the room.</div>
         <div class="eco-link">View on Meisterdrucke →</div>
       </a>
       <a class="eco-card" href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">
         <div class="eco-icon" style="font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:var(--ink2)">PL</div>
         <div class="eco-platform">Posterlounge</div>
         <div class="eco-title">Wall Art &amp; Posters</div>
-        <div class="eco-role">Selected works as interior posters and wall art.</div>
+        <div class="eco-role">Posters and wall art for everyday spaces — a lighter, more accessible way to begin.</div>
         <div class="eco-link">View on Posterlounge →</div>
       </a>
       <!-- Singulart — 一時休止中（2026-09-13〜）。復帰したらこのコメントを外して復活させる
@@ -2381,6 +2417,8 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     Worldwide shipping from Berlin
     <span class="gallery-buy-divider">·</span>
     Certificate of authenticity included
+    <span class="gallery-buy-divider">·</span>
+    <a href="#prints-editions" class="gallery-buy-link" onclick="showTop();setTimeout(function(){var e=document.getElementById('prints-editions');if(e)e.scrollIntoView({behavior:'smooth',block:'start'})},80);return false">Prints &amp; posters also available</a>
   </div>
   <div class="filter-tabs">
     <button class="filter-tab active" data-filter="all">All</button>
