@@ -1589,12 +1589,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 @media(max-width:600px){#for-professionals-grid{grid-template-columns:1fr !important}}
 
 
-.journal-index{max-width:1500px;margin:0 auto;padding:2.2rem 3rem 1.4rem;border-top:1px solid var(--border)}
-.ji-label{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3);margin-bottom:.9rem}
-.ji-links{display:flex;flex-wrap:wrap;gap:.45rem 1.4rem}
-.ji-links a{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink2);text-decoration:none}
-.ji-links a:hover{color:var(--accent)}
-@media(max-width:768px){.journal-index{padding:1.8rem 1.5rem 1rem}}
 /* ===== UX: mobile nav, language switch, hero CTA hierarchy ===== */
 .nav-burger{display:none;background:none;border:1px solid var(--border2);width:38px;height:34px;padding:0;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:4px}
 .nav-burger span{display:block;width:16px;height:1px;background:var(--ink);transition:transform .25s,opacity .25s}
@@ -1612,7 +1606,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 #de-hint{display:none;position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:150;max-width:520px;margin:0 auto;background:var(--ink);color:#fff;padding:.9rem 1.1rem;font-size:.62rem;letter-spacing:.12em;line-height:1.6;align-items:center;gap:1rem;justify-content:space-between}
 #de-hint a{color:#fff;border-bottom:1px solid rgba(255,255,255,.6);text-decoration:none;white-space:nowrap}
 #de-hint button{background:none;border:0;color:#fff;font-size:1rem;cursor:pointer;padding:0 .2rem}
-@media(max-width:768px){
+@media(max-width:1100px){
   nav{padding:.8rem 1.1rem;gap:.5rem}
   .logo{font-size:1.3rem;letter-spacing:.1em}
   .logo:hover{letter-spacing:.1em}
@@ -1623,8 +1617,9 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
   .nav-links{display:none;position:fixed;left:0;right:0;top:var(--navh,58px);flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--border);padding:.3rem 1.2rem 1rem;box-shadow:0 12px 24px rgba(0,0,0,.06)}
   .nav-links.open{display:flex}
   .nav-links li a{display:block;padding:1rem 0;border-bottom:1px solid var(--border);font-size:.7rem}
-  .hero-r-cta{width:100%}
 }
+@media(max-width:768px){.hero-r-cta{width:100%}}
+.footer-links{flex-wrap:wrap;row-gap:.7rem}
 
 </style>
 
@@ -1986,6 +1981,13 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
         <div class="eco-role">Selected works available as fine art prints.</div>
         <div class="eco-link">View on Meisterdrucke →</div>
       </a>
+      <a class="eco-card" href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">
+        <div class="eco-icon" style="font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:var(--ink2)">PL</div>
+        <div class="eco-platform">Posterlounge</div>
+        <div class="eco-title">Wall Art &amp; Posters</div>
+        <div class="eco-role">Selected works as interior posters and wall art.</div>
+        <div class="eco-link">View on Posterlounge →</div>
+      </a>
       <!-- Singulart — 一時休止中（2026-09-13〜）。復帰したらこのコメントを外して復活させる
       <a class="eco-card" href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">
         <div class="eco-icon">◇</div>
@@ -2132,6 +2134,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
       <a href="https://medium.com/@oboshi" target="_blank">Medium</a>
       <a href="https://oboshi.gumroad.com/?section=5eXmpjEQUiLIkFKlbgOmKg==#5eXmpjEQUiLIkFKlbgOmKg==" target="_blank">Gumroad</a>
       <a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">Saatchi Art</a>
+      <a href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">Wall Art &amp; Posters</a>
       <!-- <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a> -->
       <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
       <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
@@ -2141,7 +2144,6 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
     </div>
     <div class="footer-copy">© 2026 OBOSHI — oboshi.art — Berlin<span style="display:block;margin-top:.6rem;font-size:.85em;opacity:.7;letter-spacing:.04em">OBOSHI™, OBOSHI Washi Tape Method™ and OBOSHI Vinylayer Method™ are unregistered trademarks of Junichi Oboshi.</span><span style="display:block;margin-top:.9rem"><a href="/observer" style="font-size:.38rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink3);text-decoration:none;transition:color .2s;opacity:.55" onmouseover="this.style.opacity=1;this.style.color='var(--ink)'" onmouseout="this.style.opacity=.55;this.style.color='var(--ink3)'">OBSERVER</a></span></div>
   </footer>
-<section class="journal-index" aria-label="Journal essays"><div class="ji-label">Journal — essays from the studio</div><div class="ji-links"><a href="/journal/">All essays</a><a href="/journal/frequency.html">Painted Conversations — Frequency</a><a href="/journal/footsteps.html">Painted Conversations — Footsteps</a><a href="/journal/ai-taste.html">Painted Conversations — AI Taste</a><a href="/journal/clear-plastic.html">Painted Conversations — Clear Plastic</a><a href="/journal/material-looks-back.html">When the Material Looks Back</a><a href="/journal/torn-edge.html">The Torn Edge — On the Three Vibrations of a Painting</a><a href="/journal/loudest-silence.html">What If a Painting Is Loudest When It Says Nothing?</a><a href="/journal/inevitability.html">Where Does a Painting Find Its Inevitability?</a><a href="/journal/slips.html">Each Time I Play, It Slips.</a><a href="/journal/one-slip-after-another.html">A Thought Toward One Slip After Another</a><a href="/journal/fifth-position.html">From the Fifth Position, the Work Looks Back</a><a href="/journal/begins-before-you-do.html">On the Place Where the Work Begins Before You Do</a><a href="/journal/work-refuses.html">On the Moment the Work Refuses</a><a href="/journal/after-refusal.html">On What Returns After Refusal</a><a href="/journal/found-before-searched.html">On Being Found Before You Are Searched</a><a href="/journal/pressing-against-canvas.html">On Pressing Everything Against the Canvas</a></div></section>
 <div class="legal-bar"><a href="/for-galleries">For Galleries</a><a href="/for-spaces">For Spaces</a><a href="/de">Deutsch</a><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></div>
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -3033,6 +3035,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
       <a href="https://medium.com/@oboshi" target="_blank">Medium</a>
       <a href="https://oboshi.gumroad.com/?section=5eXmpjEQUiLIkFKlbgOmKg==#5eXmpjEQUiLIkFKlbgOmKg==" target="_blank">Gumroad</a>
       <a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">Saatchi Art</a>
+      <a href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">Wall Art &amp; Posters</a>
       <!-- <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a> -->
       <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
       <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
@@ -3108,6 +3111,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
       <a href="https://medium.com/@oboshi" target="_blank">Medium</a>
       <a href="https://oboshi.gumroad.com/?section=5eXmpjEQUiLIkFKlbgOmKg==#5eXmpjEQUiLIkFKlbgOmKg==" target="_blank">Gumroad</a>
       <a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">Saatchi Art</a>
+      <a href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">Wall Art &amp; Posters</a>
       <!-- <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a> -->
       <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
       <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
@@ -3502,6 +3506,7 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
       <a href="https://medium.com/@oboshi" target="_blank">Medium</a>
       <a href="https://oboshi.gumroad.com/?section=5eXmpjEQUiLIkFKlbgOmKg==#5eXmpjEQUiLIkFKlbgOmKg==" target="_blank">Gumroad</a>
       <a href="https://www.saatchiart.com/en-de/oboshi" target="_blank">Saatchi Art</a>
+      <a href="https://www.posterlounge.co.uk/artists/oboshi-art/" target="_blank" rel="noopener">Wall Art &amp; Posters</a>
       <!-- <a href="https://www.singulart.com/de/k%C3%BCnstler/junichi-oboshi-77262" target="_blank">Singulart</a> -->
       <a href="https://anasaea.com/viewExhibition/Mv2S8pjmYNBhHysRt" target="_blank">3D Gallery</a>
       <a href="https://anasaea.com/viewExhibition/69cbcba40bb925f3990e9bc8" target="_blank">3D Exhibition</a>
@@ -8862,7 +8867,7 @@ How to speak:
     menu.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');
   });
   menu.addEventListener('click',function(e){if(e.target.closest('a'))close()});
-  window.addEventListener('resize',function(){if(window.innerWidth>768)close()});
+  window.addEventListener('resize',function(){if(window.innerWidth>1100)close()});
   var hv=document.getElementById('hero-view-works');
   if(hv)hv.addEventListener('click',function(e){e.preventDefault();showGallery()});
   try{
