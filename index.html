@@ -2487,6 +2487,7 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 Each piece stands as an independent artwork, yet together they form one large image.
 In this project, the small paintings that compose the larger image are exhibited separately across twenty‑five EU countries and Japan — twenty‑six locations in total.
 The wishes and intentions embedded in each piece connect across distance and reunite into a single image, giving rise to a larger message.
+Which panel goes to which country is left open — only Japan was fixed from the start: the 50 × 40 cm panel near the centre of the whole is the actual palette on which the other twenty‑five paintings were made, so the colours of every European panel meet on it.
 By placing the works in different places, the project fosters a sense of connection, community, and calm. Through this, I hope to deepen the cultural understanding between Japan and Europe.</p>
     <meta itemprop="creator" content="Junichi Oboshi (大星純一) — OBOSHI">
     <meta itemprop="locationCreated" content="Berlin, Germany">
@@ -3210,8 +3211,6 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
           </table>
         </div>
       </div>
-      </div>
-      </div>
       <div class="talk-messages" id="talk-messages">
         <div class="talk-msg ai">
           <span class="talk-msg-label">OBOSHI</span>
@@ -3231,8 +3230,10 @@ A striking eruption of bright yellow in the upper left serves as a source of pri
         <button class="talk-chip" type="button">What should I feel, standing in front of your work?</button>
       </div>
       <p class="talk-note">This conversation is powered by AI that has been trained on OBOSHI's philosophy, artist statement, and works. It speaks from within the practice — not about it.</p>
+    </div>
     <div class="talk-work-panel" id="talk-work-panel">
     </div>
+  </div>
   <div style="padding:2rem 3rem;display:flex;justify-content:flex-end">
     <button class="back-btn" onclick="showTop()">← Back</button>
   </div>
@@ -4275,7 +4276,7 @@ const works = [
     ],
     "medium": "Oil on canvas",
     "size": "350x750 cm",
-    "desc": "Twenty-six paintings that are also one. Each panel stands alone — complete, inhabited, carrying its own image and its own wish. Yet together they form a single large work, and it is only in their reunion that the full meaning surfaces.\nThe project completes itself through separation: the twenty-six panels are exhibited individually across the twenty-five countries of the European Union and Japan. Distance is not an obstacle here — it is the medium. Each painting holds a fragment of the whole, and each viewer, standing before their piece in their country, holds a fragment of something larger than they can see.\nWhen the wishes embedded in each work find each other across borders, they become one wish. Connection. Coexistence. The quiet understanding that grows between cultures when they are willing to share what they carry.\nThis work was made for the space between Japan and Europe — and for the twenty-six places where that space momentarily closes.",
+    "desc": "Twenty-six paintings that are also one. Each panel stands alone — complete, inhabited, carrying its own image and its own wish. Yet together they form a single large work, and it is only in their reunion that the full meaning surfaces.\nThe project completes itself through separation: the twenty-six panels are exhibited individually across the twenty-five countries of the European Union and Japan. Distance is not an obstacle here — it is the medium. Each painting holds a fragment of the whole, and each viewer, standing before their piece in their country, holds a fragment of something larger than they can see.\nWhich panel travels to which country is left open — only Japan was fixed from the start. It is the 50 × 40 cm panel near the centre of the whole, and it is the actual palette on which the other twenty-five paintings were made. The colours of all twenty-five European panels meet on Japan, and are literally joined.\nWhen the wishes embedded in each work find each other across borders, they become one wish. Connection. Coexistence. The quiet understanding that grows between cultures when they are willing to share what they carry.\nThis work was made for the space between Japan and Europe — and for the twenty-six places where that space momentarily closes.",
     "sold": true,
     "digitalOnly": false,
     "category": "oboshi",
@@ -4450,8 +4451,7 @@ const works = [
       "images/Winterbild web4.jpg",
       "images/Winterbild web5.jpg",
       "images/Winterbild room-living1.jpg",
-      "images/Winterbild room-kitchen1.jpg",
-      "images/Winterbild room-living1.jpg"
+      "images/Winterbild room-kitchen1.jpg"
     ],
     "medium": "Acrylic, OBOSHI Washi Tape Method™, and OBOSHI Vinylayer Method™ on Canvas",
     "size": "70x100 cm",
@@ -6667,6 +6667,7 @@ function buildBookCardHtml(b, i){
 let currentFilter = 'all';
 
 function buildGrid(){
+  updateFilterTabs();
   const grid=document.getElementById('grid');
   grid.innerHTML='';
   if(currentFilter === 'books'){
@@ -6696,6 +6697,21 @@ function buildGrid(){
   });
 }
 
+// 作品が0件のカテゴリータブは自動で非表示（作品が増えれば自動で表示）
+function updateFilterTabs(){
+  document.querySelectorAll('.filter-tab').forEach(t => {
+    const f = t.dataset.filter;
+    if (f === 'all' || f === 'books') { t.style.display = ''; return; }
+    const n = works.filter(w => (w.category || 'oboshi') === f).length;
+    t.style.display = n ? '' : 'none';
+    if (!n && t.classList.contains('active')) {
+      t.classList.remove('active');
+      const all = document.querySelector('.filter-tab[data-filter="all"]');
+      if (all) all.classList.add('active');
+      currentFilter = 'all';
+    }
+  });
+}
 // フィルタータブのイベント
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -6788,7 +6804,7 @@ const titleJaMap={
 "Black Abstraction 0":"黒い抽象０",
 "A Fun Sky Adventure":"楽しい空の冒険",
 "Black Abstraction 1":"黒い抽象１",
-"Daily 4":"Selection　セレクション",
+"Daily 4":"デイリー4",
 "White Abstraction 2":"白い抽象２",
 "Blue Conversations in the Garden":"庭の会話の青",
 "Within the Time of the Sky":"天空の時間の中",
