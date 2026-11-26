@@ -4128,6 +4128,15 @@ const volumes = [
     "desc": "The third movement. A guide to co-creation — what happens when the painter makes with something that cannot yet be named. On AI, intuition, the unknown collaborator, and where painting goes next.",
     "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
     "pdf": ""
+  },
+  {
+    "num": "IV",
+    "title": "The Fourth Layer",
+    "titleJa": "第四の層",
+    "desc": "A new ground beyond material, author and viewer — where AI stands as a third presence in the place of creation. The complete book, free to read online.",
+    "amazon": "",
+    "pdf": "",
+    "read": "fourth-layer.html"
   }
 ];
 
@@ -6639,6 +6648,18 @@ const booksDataDefault = [
         "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
       }
     }
+  },
+  {
+    "vol": "Book IV",
+    "title": "The Fourth Layer",
+    "titleJa": "第四の層",
+    "img": "fourth-layer-cover.jpg",
+    "desc": "A new ground beyond material, author and viewer — where AI stands as a third presence in the place of creation. Read the complete book free online in English, Japanese and German.",
+    "langs": {
+      "en": { "read": "fourth-layer.html" },
+      "ja": { "read": "fourth-layer-ja.html" },
+      "de": { "read": "fourth-layer-de.html" }
+    }
   }
 ];
 // saved booksData override
@@ -6674,12 +6695,18 @@ function renderBookBuyBtns(i, lang){
   const btns = document.getElementById('bm-buy-btns');
   btns.innerHTML = '';
   const langLabel = {en:'English',ja:'日本語',de:'Deutsch'}[lang] || lang.toUpperCase();
+  if(l.read){
+    const r=document.createElement('a');
+    r.href=l.read; r.className='book-buy-btn pdf';
+    r.textContent={en:'Read the full book free →',ja:'全文を無料で読む →',de:'Ganzes Buch kostenlos lesen →'}[lang];
+    btns.appendChild(r);
+  }
   if(l.pdf){
     const a=document.createElement('a');
     a.href=l.pdf; a.target='_blank'; a.className='book-buy-btn pdf';
     a.textContent='Original PDF — '+langLabel+' →';
     btns.appendChild(a);
-  } else {
+  } else if(!l.read){
     const d=document.createElement('div');
     d.style.cssText="font-size:.46rem;letter-spacing:.12em;color:var(--ink3);font-style:italic;font-family:'Cormorant Garamond',serif;padding:.6rem 0";
     d.textContent='PDF link coming soon.';
@@ -8341,6 +8368,7 @@ updateAdminExhList();
 
 // LocalStorageから読み込み（なければデフォルト配列を使用）
 let currentVolumes = JSON.parse(localStorage.getItem('oboshi_volumes') || 'null') || volumes;
+if(currentVolumes.length<volumes.length) currentVolumes=currentVolumes.concat(volumes.slice(currentVolumes.length));
 let currentEssays = JSON.parse(localStorage.getItem('oboshi_essays') || 'null') || essays;
 
 // ローマ数字ユーティリティ
@@ -8358,7 +8386,7 @@ function renderPillars() {
         <div class="pillar-title">${v.title}</div>
         <span class="pillar-title-ja">${v.titleJa}</span>
         <div class="pillar-desc">${v.desc}</div>
-        <span class="pillar-link">PDF Edition →</span>
+        <span class="pillar-link">${v.read ? 'Read Free Online →' : 'PDF Edition →'}</span>
       </div>
     `).join('');
     container.querySelectorAll('.trilogy-pillar').forEach(pillar=>{
