@@ -6639,6 +6639,18 @@ const booksDataDefault = [
         "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
       }
     }
+  },
+  {
+    "vol": "Book IV",
+    "title": "The Fourth Layer",
+    "titleJa": "第四の層",
+    "img": "/fourth-layer/cover.jpg",
+    "desc": "A new ground beyond material, author and viewer — where AI stands as a third presence in the place of creation. Read the complete book free online in English, Japanese and German.",
+    "langs": {
+      "en": { "read": "/fourth-layer/" },
+      "ja": { "read": "/fourth-layer/ja/" },
+      "de": { "read": "/fourth-layer/de/" }
+    }
   }
 ];
 // saved booksData override
@@ -6674,12 +6686,18 @@ function renderBookBuyBtns(i, lang){
   const btns = document.getElementById('bm-buy-btns');
   btns.innerHTML = '';
   const langLabel = {en:'English',ja:'日本語',de:'Deutsch'}[lang] || lang.toUpperCase();
+  if(l.read){
+    const r=document.createElement('a');
+    r.href=l.read; r.className='book-buy-btn pdf';
+    r.textContent={en:'Read the full book free →',ja:'全文を無料で読む →',de:'Ganzes Buch kostenlos lesen →'}[lang];
+    btns.appendChild(r);
+  }
   if(l.pdf){
     const a=document.createElement('a');
     a.href=l.pdf; a.target='_blank'; a.className='book-buy-btn pdf';
     a.textContent='Original PDF — '+langLabel+' →';
     btns.appendChild(a);
-  } else {
+  } else if(!l.read){
     const d=document.createElement('div');
     d.style.cssText="font-size:.46rem;letter-spacing:.12em;color:var(--ink3);font-style:italic;font-family:'Cormorant Garamond',serif;padding:.6rem 0";
     d.textContent='PDF link coming soon.';
