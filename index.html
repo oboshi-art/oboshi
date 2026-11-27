@@ -1668,6 +1668,12 @@ footer{padding:2rem 3rem 5rem;display:flex;justify-content:space-between;align-i
 @media(max-width:768px){.hero-r-cta{width:100%}}
 .footer-links{flex-wrap:wrap;row-gap:.7rem}
 
+.trilogy-pillar.featured{opacity:1;border:1.5px solid var(--accent);padding:2rem 2.4rem 2.5rem;margin-left:1.2rem}
+.trilogy-pillar.featured .pillar-vol{color:var(--accent)}
+.trilogy-pillar.featured .pillar-desc{max-height:260px;opacity:1}
+.trilogy-pillar.featured .pillar-link{opacity:1;color:var(--accent)}
+.trilogy-pillar.featured::after{display:none}
+@media(max-width:900px){.trilogy-pillar.featured{margin-left:0;margin-top:1.2rem;padding:1.8rem 1.4rem 2rem}}
 </style>
 
 </head>
@@ -4171,6 +4177,15 @@ const volumes = [
     "desc": "The third movement. A guide to co-creation — what happens when the painter makes with something that cannot yet be named. On AI, intuition, the unknown collaborator, and where painting goes next.",
     "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T",
     "pdf": ""
+  },
+  {
+    "num": "IV",
+    "title": "The Fourth Layer",
+    "titleJa": "第四の層",
+    "desc": "A new ground beyond material, author and viewer — where AI stands as a third presence in the place of creation. The complete book, free to read online.",
+    "amazon": "",
+    "pdf": "",
+    "read": "fourth-layer.html"
   }
 ];
 
@@ -6624,7 +6639,7 @@ const booksDataDefault = [
     "vol": "Book I",
     "title": "Techniques of Awareness",
     "titleJa": "気づきの技法",
-    "img": "images/book-awareness.jpg",
+    "img": "book-1-awareness.jpg",
     "desc": "The quiet noticing of what is already moving inside. Before the brush touches the surface, something is already present. This book is the practice of listening to that.",
     "langs": {
       "en": {
@@ -6645,7 +6660,7 @@ const booksDataDefault = [
     "vol": "Book II",
     "title": "Techniques of Resonance",
     "titleJa": "共鳴の技法",
-    "img": "images/book-resonance.jpg",
+    "img": "book-2-resonance-e.jpg",
     "desc": "Silent frequencies that emerge between inner awareness and outer reality. The painting is the trace of that crossing. Healing comes from the vibration itself — tension and release held in layers.",
     "langs": {
       "en": {
@@ -6666,7 +6681,7 @@ const booksDataDefault = [
     "vol": "Book III",
     "title": "Techniques of Dialogue",
     "titleJa": "対話の技法",
-    "img": "images/book-dialogue.jpg",
+    "img": "book-3-dialogue.jpg",
     "desc": "Creation is never solitary. OBOSHI speaks with materials, with silence, with the viewer — and in this third volume, with AI. A handbook for co-creation with what cannot yet be named.",
     "langs": {
       "en": {
@@ -6681,6 +6696,18 @@ const booksDataDefault = [
         "pdf": "https://buy.stripe.com/4gM28r1rTbCZ853cIy9ws24",
         "amazon": "https://www.amazon.de/stores/Junichi-Oboshi/author/B0FPQ77Z5T"
       }
+    }
+  },
+  {
+    "vol": "Book IV",
+    "title": "The Fourth Layer",
+    "titleJa": "第四の層",
+    "img": "fourth-layer-cover.jpg",
+    "desc": "A new ground beyond material, author and viewer — where AI stands as a third presence in the place of creation. Read the complete book free online in English, Japanese and German.",
+    "langs": {
+      "en": { "read": "fourth-layer.html" },
+      "ja": { "read": "fourth-layer-ja.html" },
+      "de": { "read": "fourth-layer-de.html" }
     }
   }
 ];
@@ -6717,12 +6744,18 @@ function renderBookBuyBtns(i, lang){
   const btns = document.getElementById('bm-buy-btns');
   btns.innerHTML = '';
   const langLabel = {en:'English',ja:'日本語',de:'Deutsch'}[lang] || lang.toUpperCase();
+  if(l.read){
+    const r=document.createElement('a');
+    r.href=l.read; r.className='book-buy-btn pdf';
+    r.textContent={en:'Read the full book free →',ja:'全文を無料で読む →',de:'Ganzes Buch kostenlos lesen →'}[lang];
+    btns.appendChild(r);
+  }
   if(l.pdf){
     const a=document.createElement('a');
     a.href=l.pdf; a.target='_blank'; a.className='book-buy-btn pdf';
     a.textContent='Original PDF — '+langLabel+' →';
     btns.appendChild(a);
-  } else {
+  } else if(!l.read){
     const d=document.createElement('div');
     d.style.cssText="font-size:.46rem;letter-spacing:.12em;color:var(--ink3);font-style:italic;font-family:'Cormorant Garamond',serif;padding:.6rem 0";
     d.textContent='PDF link coming soon.';
@@ -8384,6 +8417,7 @@ updateAdminExhList();
 
 // LocalStorageから読み込み（なければデフォルト配列を使用）
 let currentVolumes = JSON.parse(localStorage.getItem('oboshi_volumes') || 'null') || volumes;
+if(currentVolumes.length<volumes.length) currentVolumes=currentVolumes.concat(volumes.slice(currentVolumes.length));
 let currentEssays = JSON.parse(localStorage.getItem('oboshi_essays') || 'null') || essays;
 
 // ローマ数字ユーティリティ
@@ -8396,12 +8430,12 @@ function renderPillars() {
     const container = document.getElementById(id);
     if (!container) return;
     container.innerHTML = currentVolumes.map((v, idx) => `
-      <div class="trilogy-pillar" style="cursor:pointer" data-book-idx="${idx}">
+      <div class="trilogy-pillar${v.read ? ' featured' : ''}" style="cursor:pointer" data-book-idx="${idx}">
         <span class="pillar-vol">Vol. ${v.num || romanNumerals[idx] || (idx+1)}</span>
         <div class="pillar-title">${v.title}</div>
         <span class="pillar-title-ja">${v.titleJa}</span>
         <div class="pillar-desc">${v.desc}</div>
-        <span class="pillar-link">PDF Edition →</span>
+        <span class="pillar-link">${v.read ? 'Read Free Online →' : 'PDF Edition →'}</span>
       </div>
     `).join('');
     container.querySelectorAll('.trilogy-pillar').forEach(pillar=>{
